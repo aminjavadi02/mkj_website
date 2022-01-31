@@ -21,9 +21,9 @@ use App\Http\Controllers\galleryController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/app', function () {
+    return view('layouts.app');
+})->name('app');
 
 // admin pannel
 // add prefix: admin
@@ -31,8 +31,14 @@ Route::get('/', function () {
 
 Route::resource('blogs',blogController::class);
 Route::resource('aboutus',aboutusController::class)->only([
-    'update','edit','show'
+    'update','show'
 ]);
+// seperate update and show routes for admin and user
+
+Route::get('aboutusedit',function () {
+        return view('component.aboutus');
+})->name('aboutus.edit');
+
 Route::resource('managers',managerController::class);
 Route::resource('items',itemController::class);
 Route::resource('itemImages',itemImageController::class)->only([
@@ -40,6 +46,12 @@ Route::resource('itemImages',itemImageController::class)->only([
 ]);
 Route::resource('categories',categoryController::class);
 
+
+
+
+// Route::get('aboutusapp',function(){
+//     return view('component.aboutus');
+// })->name('aboutusapp');
 // $address = "App\Http\Controllers\categoryController";
 
 

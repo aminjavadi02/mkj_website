@@ -15,6 +15,8 @@ class Aboutus extends Model
     protected $fillable = [
         "history_en",
         "history_fa",
+        'factory_phone',
+        'office_phone',
         "office_address_en",
         "office_address_fa",
         "factory_address_en",
