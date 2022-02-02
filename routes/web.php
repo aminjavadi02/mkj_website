@@ -30,14 +30,15 @@ Route::get('/app', function () {
 
 
 Route::resource('blogs',blogController::class);
+
+
+
 Route::resource('aboutus',aboutusController::class)->only([
-    'update','show'
+    'update','show','edit'
 ]);
 // seperate update and show routes for admin and user
 
-Route::get('aboutusedit',function () {
-        return view('component.aboutus');
-})->name('aboutus.edit');
+
 
 Route::resource('managers',managerController::class);
 Route::resource('items',itemController::class);

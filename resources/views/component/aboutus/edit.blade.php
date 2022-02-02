@@ -1,5 +1,4 @@
 @extends('layouts.app')
-<!-- change this to about us form inputs -->
 @section('content')
 <div class="content">
   <div class="container-fluid">

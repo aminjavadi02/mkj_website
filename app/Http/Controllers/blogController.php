@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class blogController extends Controller
 {
@@ -14,7 +15,8 @@ class blogController extends Controller
      */
     public function index()
     {
-        //
+        $blogs = Blog::get()->all();
+        return view('component.blog.index')->with('blogs', $blogs);
     }
 
     /**
@@ -24,7 +26,7 @@ class blogController extends Controller
      */
     public function create()
     {
-        //
+        return view('component.blog.create');
     }
 
     /**
@@ -35,11 +37,18 @@ class blogController extends Controller
      */
     public function store(Request $request)
     {
+        if($request->hasfile('image')){
+            $image_name = $request->image->getClientOriginalName();
+            $request->image->storeAs('images',$image_name,'public');
+        }
+        else{
+            $image_name=null;
+        }
         $blog = Blog::create([
             'title'=>$request->title,
             'slug'=>$request->slug,
             'text'=>$request->text,
-            // 'image_name'=>$request->image->getClientOriginalName() or sth
+            'image_name'=>$image_name
         ]);
         return response()->json([
             'success'=>true,
@@ -67,7 +76,7 @@ class blogController extends Controller
      */
     public function edit(Blog $blog)
     {
-        //
+        return view('component.blog.edit')->with('blog',$blog);
     }
 
     /**
@@ -83,7 +92,6 @@ class blogController extends Controller
             'title'=>$request->title,
             'slug'=>$request->slug,
             'text'=>$request->text,
-            // 'image_name'=>$request->image->getClientOriginalName() or sth
         ]);
         return response()->json([
             "success"=>true
@@ -99,7 +107,10 @@ class blogController extends Controller
      */
     public function destroy(Blog $blog)
     {
+        if($blog->image_name){
+            Storage::delete('/public/images/'.$blog->image_name);
+        }
         $blog->delete();
-        // works fine
+        return redirect()->back();
     }
 }

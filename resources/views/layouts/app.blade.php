@@ -28,9 +28,9 @@
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
   <!-- CSS Files -->
-  <link href="assets/css/material-dashboard.css?v=2.1.0" rel="stylesheet" />
+  <link href="{{asset('assets/css/material-dashboard.css?v=2.1.0')}}" rel="stylesheet" />
   <!-- additional css -->
-  <link rel="stylesheet" href="assets/css/additionalcss/additionalcss.css">
+  <link rel="stylesheet" href="{{asset('assets/css/additionalcss/additionalcss.css')}}">
 </head>
 
 <body class="dark-edition">

@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Aboutus;
+use Illuminate\Support\Facades\Storage;
+
+// a link generated to access storage. to show the image to user
+// to show image <img src="{{asset('storage/images/imageColoumnInDB')}}" alt="image">
 
 class aboutusController extends Controller
 {
@@ -18,6 +22,11 @@ class aboutusController extends Controller
         //
     }
 
+    public function edit(Aboutus $aboutus)
+    {
+        return view('component.aboutus.edit');
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -29,13 +38,12 @@ class aboutusController extends Controller
     public function update(Request $request, $id)
     {
         $aboutus = Aboutus::find($id);
-
         if($request->hasfile('image')){
-            $request->image->store('images','public');
-            $image_name = "about_us_image";
+            $picture_name = $this->UploadNewImage($request->image,$aboutus);
         }
         else{
-            $image_name = null;
+            $this->deleteOldImage($aboutus->image_name);
+            $picture_name = null;
         }
         $aboutus->update([
             "history_en" => $request->history_en,
@@ -48,13 +56,27 @@ class aboutusController extends Controller
             "factory_address_fa" => $request->factory_address_fa,
             "google_location_factory" => $request->google_location_factory,
             "google_location_office" => $request->google_location_office,
-            "image_name" => $image_name,
+            "image_name" => $picture_name,
         ]);
         
         return response()->json([
             "success"=>true
         ]);
         // works fine
-        
+    }
+
+    protected function UploadNewImage($image,$aboutus)
+    {
+        if($aboutus->image_name){
+            $this->deleteOldImage($aboutus->image_name);
+        }
+        $image_name = $image->getClientOriginalName();
+        $image->storeAs('images',$image_name,'public');
+        return $image_name;
+    }
+    
+    protected function deleteOldImage($image)
+    {
+        Storage::delete('/public/images/'.$image);
     }
 }
