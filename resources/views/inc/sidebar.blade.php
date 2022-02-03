@@ -1,4 +1,4 @@
-<div class="sidebar" data-color="purple" data-background-color="black" data-image="../../../public/assets/img/sidebar-2.jpg">
+<div class="sidebar" data-color="green" data-background-color="black" data-image="../../../public/assets/img/sidebar-2.jpg">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
@@ -53,6 +53,20 @@
               <i class="material-icons">content_paste</i>
               <!-- change this to a better icon -->
               <p>all blogs</p>
+            </a>
+          </li>
+
+          @if(Route::is('galleries.index'))
+          <!-- go to gallery index -->
+          <li class="nav-item active ">
+          @else
+          <li class="nav-item ">
+          @endif
+            <a class="nav-link" href="{{route('galleries.index')}}">
+              <!-- change 1 to blog_id -->
+              <i class="material-icons">content_paste</i>
+              <!-- change this to a better icon -->
+              <p>create gallery</p>
             </a>
           </li>
         </ul>

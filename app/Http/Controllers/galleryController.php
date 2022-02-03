@@ -14,7 +14,9 @@ class galleryController extends Controller
      */
     public function index()
     {
-        //
+        $images = Gallery::get()->all();
+        // if not empty, show it
+        return view('component.gallery.index')->with('images', $images);
     }
 
     /**
@@ -24,7 +26,7 @@ class galleryController extends Controller
      */
     public function create()
     {
-        //
+        return view('component.gallery.create');
     }
 
     /**
@@ -36,16 +38,24 @@ class galleryController extends Controller
     public function store(Request $request)
     {
         // if ($request->image) then save image
+        if($request->hasfile('image')){
+            $image_name = $request->image->getClientOriginalName();
+            $request->image->storeAs('images',$image_name,'public');
+        }
+        else{
+            $image_name=null;
+        }
         $photo = Gallery::create([
-            'name'=>$request->image->getClientOriginalName(),
+            'name'=>$image_name,
             'description'=>$request->description,
+            // order will only be updated. not here
         ]);
-        $request->image->store('images','public');
     
-        return response()->json([
-            'success' => true,
-        ]);
+        return redirect()->back();
     }
+
+    // update method here
+    // no edit page. only index for editing
 
     /**
      * Remove the specified resource from storage.
@@ -55,6 +65,10 @@ class galleryController extends Controller
      */
     public function destroy(Gallery $gallery)
     {
+        if($gallery->name){
+            Storage::delete('/public/images/'.$gallery->name);
+        }
         $gallery->delete();
+        return redirect()->back();
     }
 }

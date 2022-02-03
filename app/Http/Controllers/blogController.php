@@ -50,10 +50,8 @@ class blogController extends Controller
             'text'=>$request->text,
             'image_name'=>$image_name
         ]);
-        return response()->json([
-            'success'=>true,
-            'blog'=>$blog->id
-        ]);
+        return redirect()->back();
+        // with success message
         // works fine
     }
 
@@ -88,14 +86,20 @@ class blogController extends Controller
      */
     public function update(Request $request, Blog $blog)
     {
+        if($request->hasfile('image')){
+            $picture_name = $this->UploadNewImage($request->image,$blog);
+        }
+        else{
+            $this->deleteOldImage($blog->image_name);
+            $picture_name=null;
+        }
         $blog->update([
             'title'=>$request->title,
             'slug'=>$request->slug,
             'text'=>$request->text,
+            'image_name'=>$picture_name
         ]);
-        return response()->json([
-            "success"=>true
-        ]);
+       return redirect()->back();
         // works fine
     }
 
@@ -112,5 +116,21 @@ class blogController extends Controller
         }
         $blog->delete();
         return redirect()->back();
+    }
+
+
+    protected function UploadNewImage($image,$blog)
+    {
+        if($blog->image_name){
+            $this->deleteOldImage($blog->image_name);
+        }
+        $image_name = $image->getClientOriginalName();
+        $image->storeAs('images',$image_name,'public');
+        return $image_name;
+    }
+    
+    protected function deleteOldImage($image)
+    {
+        Storage::delete('/public/images/'.$image);
     }
 }

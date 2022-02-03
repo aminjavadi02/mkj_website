@@ -48,7 +48,8 @@
               <div class="row">
                 <div class="col-md-5">
                   <label class="bmd-label-floating">انتخاب تصویر</label>
-                  <input type="file" name="image" class="form-control">
+                  <input type="file" id="imageInp" name="image" class="form-control">
+                  <img src="#" id="selectedImg" width="200px" alt="selectedImage">
                 </div>
               </div>
               <button type="submit" class="btn btn-primary pull-right">ثبت تغییرات</button>
@@ -60,5 +61,24 @@
     </div>
   </div>
 </div>
+
+<script src="{{asset('assets/js/core/jquery.min.js')}}"></script>
+<script>
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#selectedImg').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+  }
+
+  $('#imageInp').change(function(){
+      readURL(this);
+  });
+</script>
 
 @endsection

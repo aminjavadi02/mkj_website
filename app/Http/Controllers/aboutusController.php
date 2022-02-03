@@ -24,7 +24,7 @@ class aboutusController extends Controller
 
     public function edit(Aboutus $aboutus)
     {
-        return view('component.aboutus.edit');
+        return view('component.aboutus.edit')->with('aboutus', $aboutus->get()[0]);
     }
 
     /**
@@ -41,6 +41,7 @@ class aboutusController extends Controller
         if($request->hasfile('image')){
             $picture_name = $this->UploadNewImage($request->image,$aboutus);
         }
+        // if he wants to delete picture delete it. if not, don't
         else{
             $this->deleteOldImage($aboutus->image_name);
             $picture_name = null;
@@ -59,9 +60,7 @@ class aboutusController extends Controller
             "image_name" => $picture_name,
         ]);
         
-        return response()->json([
-            "success"=>true
-        ]);
+        return redirect()->back();
         // works fine
     }
 

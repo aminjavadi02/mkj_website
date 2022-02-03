@@ -1,1 +1,16 @@
-/* No CSS *//*# sourceMappingURL=additionalcss.css.map */
+.swiper {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  overflow: hidden;
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+}
+
+.swiper-slide img {
+  display: block;
+}
+/*# sourceMappingURL=additionalcss.css.map */
