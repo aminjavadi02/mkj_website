@@ -61,9 +61,7 @@ Route::resource('categories',categoryController::class);
 
 
 Route::resource('packages',packageController::class);
-Route::resource('galleries',galleryController::class)->except([
-    'update','edit'
-]);
+Route::resource('galleries',galleryController::class);
 
 
 // ->except(['destroy'])

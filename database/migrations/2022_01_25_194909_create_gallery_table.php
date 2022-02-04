@@ -18,7 +18,6 @@ class CreateGalleryTable extends Migration
                 $table->id();
                 $table->string('name')->nullable();
                 $table->string('description')->nullable();
-                $table->integer('order')->unique()->nullable();
             });
         }
     }

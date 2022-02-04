@@ -87,13 +87,15 @@
                   <br> <br>
                   <input type="file" name="image" class="form-control" id="imageInp" accept="image/*" >
                 </div>
-                <div class="col-md-5" style="border-left: 1px solid gray; height: 400px;">
+                @if($aboutus->image_name)
+                <div class="col-md-5" id="currentImageDiv" style="border-left: 1px solid gray; height: 400px;">
                   <label class="bmd-label-floating">تصویر فعلی</label>
                   <br>
                   <img src="{{asset('storage/images/'.$aboutus->image_name)}}" id="img" alt="image" width="200px">
                   <br>
                   <div class="btn btn-danger pull-left" onclick="deleteImage()">حذف تصویر</div>
                 </div>
+                @endif
               </div>
               <button type="submit" class="btn btn-primary pull-right">ثبت تغییرات</button>
             </form>
@@ -114,8 +116,9 @@
     // console.log();
     // show are you sure msg
     if(confirm('آیا از حذف این تصویر اطمینان دارید؟')){
-      document.getElementById("selectimage").value = null;
-      document.getElementById("img").remove();
+      $("#currentImageDiv").remove()
+      $("#selectImg").value = null;
+      
     }
   }
   

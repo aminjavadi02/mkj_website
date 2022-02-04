@@ -63,10 +63,9 @@
           <li class="nav-item ">
           @endif
             <a class="nav-link" href="{{route('galleries.index')}}">
-              <!-- change 1 to blog_id -->
               <i class="material-icons">content_paste</i>
               <!-- change this to a better icon -->
-              <p>create gallery</p>
+              <p>gallery</p>
             </a>
           </li>
         </ul>

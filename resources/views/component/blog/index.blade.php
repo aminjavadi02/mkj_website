@@ -20,6 +20,7 @@
                     </div>
                 </div>
                 <form action="/blogs/{{$blog->id}}" method="post" enctype="multipart/form-data">
+                  <!-- confirm berfore submitting the form -->
                     @csrf
                     @method('delete')
                     <button type="submit" class="close" style=" height:25px; margin-top:40px; margin-right:10px;" >

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Gallery;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class galleryController extends Controller
 {
@@ -48,14 +49,31 @@ class galleryController extends Controller
         $photo = Gallery::create([
             'name'=>$image_name,
             'description'=>$request->description,
-            // order will only be updated. not here
         ]);
     
         return redirect()->back();
     }
 
-    // update method here
-    // no edit page. only index for editing
+    public function edit(Gallery $gallery)
+    {
+        return view('component.gallery.edit')->with('image', $gallery);
+    }
+
+    public function update(Request $request, Gallery $gallery)
+    {
+        if($request->hasfile('image')){
+            $picture_name = $this->UploadNewImage($request->image,$gallery);
+        }
+        else{
+            $this->deleteOldImage($gallery->name);
+            $picture_name=null;
+        }
+        $gallery->update([
+            'name'=>$picture_name,
+            'description'=>$request->description,
+        ]);
+       return redirect()->back();
+    }
 
     /**
      * Remove the specified resource from storage.
@@ -71,4 +89,22 @@ class galleryController extends Controller
         $gallery->delete();
         return redirect()->back();
     }
+
+
+
+    protected function UploadNewImage($image,$gallery)
+    {
+        if($gallery->name){
+            $this->deleteOldImage($gallery->name);
+        }
+        $name = $image->getClientOriginalName();
+        $image->storeAs('images',$name,'public');
+        return $name;
+    }
+    
+    protected function deleteOldImage($image)
+    {
+        Storage::delete('/public/images/'.$image);
+    }
+
 }
