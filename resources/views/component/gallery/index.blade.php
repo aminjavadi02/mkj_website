@@ -17,20 +17,22 @@
               <div class="swiper-wrapper">
                     @foreach($images as $image)
                       <div class="swiper-slide col-md-4">
-                        <img src="{{asset('storage/images/'.$image->name)}}" width="180px"/>
-                        <!--delete and edit options -->
-                        <!-- show under image -->
-                        <form action="/galleries/{{$image->id}}" method="post" enctype="multipart/form-data">
-                          <!-- confirm berfore submitting the form -->
-                            @csrf
-                            @method('delete')
-                            <button type="submit" class="close" style=" height:25px; margin-top:40px; margin-right:10px;" >
-                                <i class="material-icons" style="color:white;">delete</i>
-                            </button>
-                        </form>
-                        <a href="/galleries/{{$image->id}}/edit" class="close" style=" height:25px; margin-top:37px">
-                              <i class="material-icons" style="color:white">edit</i>
-                        </a>
+                        <div class="d-flex flex-column bd-highlight">
+                          <img src="{{asset('storage/images/'.$image->name)}}" width="180px"/>
+                          <div class="d-flex flex-row p-0" style=" justify-content:center ">
+                            <form action="/galleries/{{$image->id}}" method="post" enctype="multipart/form-data">
+                              <!-- confirm berfore submitting the form -->
+                                @csrf
+                                @method('delete')
+                                <button type="submit" class="close" style=" height:25px; margin-top:40px; margin-right:10px;" >
+                                    <i class="material-icons" style="color:white;">delete</i>
+                                </button>
+                            </form>
+                            <a href="/galleries/{{$image->id}}/edit" class="close" style=" height:25px; margin-top:37px">
+                                  <i class="material-icons" style="color:white">edit</i>
+                            </a>
+                          </div>
+                        </div>
                       </div>
                     @endforeach
               </div>
