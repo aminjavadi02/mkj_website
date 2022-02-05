@@ -17,3 +17,16 @@
 .swiper-slide img {
     display: block;
 }
+
+.add-button{
+    border-radius: 50%;
+    width: 50px;
+    height: 60px;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 3vh;
+    right: 8vw;
+    color: rgba(194, 194, 194, 0.5);
+
+}

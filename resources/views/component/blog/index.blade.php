@@ -13,24 +13,21 @@
         <div class="card-body">
             @foreach ($blogs as $blog)
             <div class="row">
-                <div class="col-md-9">
+                <div class="col-md-9 mt-2" style="border-bottom: 2px solid rgba(194, 194, 194, 0.6);">
                     <h4 class="card-title">{{$blog->id}}</h4>
                     <div class="alert alert-info">
                         <span>{{$blog->title}}</span>
                     </div>
                 </div>
-                <form action="/blogs/{{$blog->id}}" method="post" enctype="multipart/form-data">
-                  <!-- confirm berfore submitting the form -->
+                <form action="/blogs/{{$blog->id}}" method="post" id="deleteForm" enctype="multipart/form-data">
                     @csrf
                     @method('delete')
-                    <button type="submit" class="close" style=" height:25px; margin-top:40px; margin-right:10px;" >
+                    <button type="submit" class="close mt-5 mr-3" style="height:25px;" >
                         <i class="material-icons" style="color:white;">delete</i>
                     </button>
                 </form>
-
-                
-                <a href="/blogs/{{$blog->id}}/edit" class="close" style=" height:25px; margin-top:37px">
-                      <i class="material-icons" style="color:white">edit</i>
+                <a href="/blogs/{{$blog->id}}/edit" class="close mt-5">
+                      <i class="material-icons" style="color:white;">edit</i>
                 </a>
                 
             </div>
@@ -42,6 +39,15 @@
     </div>
       
     </div>
+    <a href="{{route('blogs.create')}}" class="btn btn-primary d-flex add-button" style="font-size:22pt; color:#fff; ">+</a>
   </div>
 </div>
+
+
+<script src="{{asset('assets/js/core/jquery.min.js')}}"></script>
+<script>
+  $('#deleteForm').submit(function(){
+    return confirm('آیا از پاک کردن این بلاگ اطمینان دارید؟');
+  });
+</script>
 @endsection

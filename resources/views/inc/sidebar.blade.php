@@ -31,18 +31,6 @@
             </a>
           </li>
 
-          @if(Route::is('blogs.create'))
-          <li class="nav-item active ">
-          @else
-          <li class="nav-item ">
-          @endif
-            <a class="nav-link" href="{{route('blogs.create')}}">
-              <i class="material-icons">content_paste</i>
-              <!-- change this to a better icon -->
-              <p>create blog</p>
-            </a>
-          </li>
-
           @if(Route::is('blogs.index'))
           <li class="nav-item active ">
           @else
@@ -52,7 +40,7 @@
               <!-- change 1 to blog_id -->
               <i class="material-icons">content_paste</i>
               <!-- change this to a better icon -->
-              <p>all blogs</p>
+              <p>Blogs</p>
             </a>
           </li>
 

@@ -20,8 +20,7 @@
                         <div class="d-flex flex-column bd-highlight">
                           <img src="{{asset('storage/images/'.$image->name)}}" width="180px"/>
                           <div class="d-flex flex-row p-0" style=" justify-content:center ">
-                            <form action="/galleries/{{$image->id}}" method="post" enctype="multipart/form-data">
-                              <!-- confirm berfore submitting the form -->
+                            <form action="/galleries/{{$image->id}}" method="post" id="deleteForm" enctype="multipart/form-data">
                                 @csrf
                                 @method('delete')
                                 <button type="submit" class="close" style=" height:25px; margin-top:40px; margin-right:10px;" >
@@ -55,7 +54,13 @@
 
 
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="{{asset('assets/js/core/jquery.min.js')}}"></script>
 <script>
+
+  $('#deleteForm').submit(function(){
+    return confirm('آیا از پاک کردن این عکس اطمینان دارید؟');
+  });
+
   var swiper = new Swiper(".mySwiper", {
     effect: "coverflow",
     centeredSlides: true,
