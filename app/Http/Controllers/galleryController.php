@@ -48,7 +48,8 @@ class galleryController extends Controller
         }
         $photo = Gallery::create([
             'name'=>$image_name,
-            'description'=>$request->description,
+            'description_fa'=>$request->description_fa,
+            'description_en'=>$request->description_en,
         ]);
     
         return redirect()->back();
@@ -70,7 +71,8 @@ class galleryController extends Controller
         }
         $gallery->update([
             'name'=>$picture_name,
-            'description'=>$request->description,
+            'description_fa'=>$request->description_fa,
+            'description_en'=>$request->description_en,
         ]);
        return redirect()->back();
     }

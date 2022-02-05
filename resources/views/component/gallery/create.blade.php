@@ -23,8 +23,17 @@
             <div class="row">
                 <div class="col-md-9">
                 <div class="form-group">
-                    <label class="bmd-label-floating">توضیحات</label>
-                    <input type="text" name="description" class="form-control">
+                    <label class="bmd-label-floating">توضیحات فارسی</label>
+                    <input type="text" name="description_fa" class="form-control">
+                </div>
+                </div>
+                <br><br>
+            </div>
+            <div class="row">
+                <div class="col-md-9">
+                <div class="form-group">
+                    <label class="bmd-label-floating">توضیحات انگلیسی</label>
+                    <input type="text" name="description_en" class="form-control">
                 </div>
                 </div>
                 <br><br>

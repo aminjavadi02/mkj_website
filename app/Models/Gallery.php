@@ -13,7 +13,8 @@ class Gallery extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'description',
+        'description_fa',
+        'description_en',
         'name',
     ];
     
