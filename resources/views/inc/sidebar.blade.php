@@ -56,6 +56,19 @@
               <p>gallery</p>
             </a>
           </li>
+
+          @if(Route::is('categories.create'))
+          <!-- go to gallery index -->
+          <li class="nav-item active ">
+          @else
+          <li class="nav-item ">
+          @endif
+            <a class="nav-link" href="{{route('categories.create')}}">
+              <i class="material-icons">content_paste</i>
+              <!-- change this to a better icon -->
+              <p>categories</p>
+            </a>
+          </li>
         </ul>
     </div>
     </div>

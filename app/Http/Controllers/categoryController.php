@@ -24,7 +24,8 @@ class categoryController extends Controller
      */
     public function create()
     {
-        //
+        $tree = Category::tree();
+        return view('component.category.create')->with('tree', $tree);
     }
 
     /**
@@ -35,15 +36,13 @@ class categoryController extends Controller
      */
     public function store(Request $request)
     {
+        dd($request->parent_id);
         $category = Category::create([
             'name_fa'=>$request->name_fa,
             'name_en'=>$request->name_en,
             'parent_id'=>$request->parent_id
         ]);
-        return response()->json([
-            'success'=>true,
-            'category'=>$category
-        ]);
+        return redirect()->back();
         // works fine
         // add success message here to show user
     }
