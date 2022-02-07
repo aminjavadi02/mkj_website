@@ -9570,7 +9570,7 @@ a.text-dark:focus {
   border-color: #adadad;
 }
 
-.btn.btn-secondary:active,
+.btn.btn-secondary:yactive,
 .btn.btn-secondary.active,
 .open>.btn.btn-secondary.dropdown-toggle,
 .show>.btn.btn-secondary.dropdown-toggle {

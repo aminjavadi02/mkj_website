@@ -36,7 +36,6 @@ class categoryController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->parent_id);
         $category = Category::create([
             'name_fa'=>$request->name_fa,
             'name_en'=>$request->name_en,

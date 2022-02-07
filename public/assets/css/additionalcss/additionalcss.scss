@@ -28,5 +28,118 @@
     bottom: 3vh;
     right: 8vw;
     color: rgba(194, 194, 194, 0.5);
-
 }
+
+
+// start category tree
+.category_ul{
+    // every ul tag
+    list-style-type: none;
+    line-height: 30px;
+    position: relative;
+}
+
+.category_li{
+    // every li tag
+    padding: 50px 0px 0px 40px;
+    position: relative;
+    &:before {
+        // vertical dots
+        content: "";
+        position: absolute;
+        top: 0px;
+        left: -50px;
+        border-left: 1px dotted #a2a5b5;
+        width: 1px;
+        height: 100%;
+    }
+    &:after {
+        // horizontal dots
+        content: "";
+        position: absolute;
+        border-top: 1px dotted #a2a5b5;
+        top: 70px;
+        left: -50px;
+        width: 50px;
+      }
+    &:last-child:before {
+        // vertical dots of last child
+        top: -0px;
+        height: 70px;
+    }
+    .inputAndLabel{
+        // to keep label and input in one line
+        display:flex;
+        justify-content: flex-start;
+        input[type="radio"]{
+            // to hide default input circle
+            opacity: 0;
+        }
+    }   
+}
+.category_input{
+    // label tag
+    position: relative;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    color:rgb(218, 218, 214) !important;
+    list-style-type: none;
+    width: auto;
+    // margin-left for distance from horizontal dots
+    margin-left:-30px;
+    height: 40px;
+    font-size: 12pt !important;    
+    border-radius: 5%;
+    &:hover{
+        text-shadow: 0px 0px 10px #60ecbd;
+        color: #d9f0ee;
+    }
+}
+input[type="radio"]:checked+label{
+    text-shadow: 0px 0px 10px #60ecbd;
+    color: #d9f0ee;
+    font-size: 14pt !important;
+}
+
+//      start to toggle showing ul
+
+.caret{
+    // the triangle thing (span)
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+    position: absolute;
+    top:55px;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    &:before {
+        position: absolute;
+        top:0;
+        left: 5px;
+        content: "\25B6";
+        color: #d9f0ee;
+        display: inline-block;
+        margin-right: 6px;
+    }
+    &:hover{
+        transform: scale(1.19);
+    }
+}
+.caret-down::before {
+    transform: rotate(90deg);
+}
+
+
+.nested{
+    // to hide ul
+    display: none;
+}
+.active{
+    // to show ul
+    display: block;
+}
+//      end to toggle showing ul
+
+// end category tree
