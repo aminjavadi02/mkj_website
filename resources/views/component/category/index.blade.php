@@ -83,7 +83,9 @@ function drawTree(treeObject, ul){
             contextmenu.style.top = e.offsetY + "px";
             contextmenu.style.left = e.offsetX + "px";
             contextmenu.classList.add('active');
-            // this is not showing yet
+            label.appendChild(contextmenu);
+            // shows the menu but not in right place
+            // add functionality to items too
 
             
         });
