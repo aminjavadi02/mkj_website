@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        #contextmenu{
+            position:fixed;
+            top:10px;
+            left:10px;
+            background: #fdfdfd;
+            width: 250px;
+            box-shadow: 2px 2px 5px 2px rgba(0,0,0,0.05);
+            border-radius:5px;
+            transform: scale(0);
+            transform-origin: top left;
+        }
+        #contextmenu.active{
+            transform: scale(1);
+            transition:transform 250ms ease-in-out;
+        }
+        #contextmenu .list{
+            border-bottom: 1px solid #eee;
+        }
+        #contextmenu .list .item{
+            position: relative;
+            padding: 10px;
+            font-size:14px;
+            color: #555;
+            cursor: pointer;
+        }
+        #contextmenu .list .item i{
+            display: inline-block;
+            width:20px;
+            margin-right: 5px;
+        }
+
+        #contextmenu .list .item:before{
+            content:"";
+            position: absolute;
+            top: 0;
+            left: 0;
+            
+            height: 100%;
+            background:#eee;
+            z-index: -1;
+            transition: all 150ms ease-in-out;
+        }
+        #contextmenu .list .item:hover:before{
+            width: 100%;
+        }
+
+
+    </style>
+</head>
+<body>
+    <!-- right click menu -->
+    <div id="contextmenu">
+        <div class="list">
+            <div class="item">
+                <i class="fa fa-magic"></i>
+                lick ass
+            </div>
+            <div class="item">
+                <i class="fa fa-magic"></i>
+                prefuck cummer
+            </div>
+            <div class="item">
+                <i class="fa fa-magic"></i>
+                boy pussy
+            </div>
+            <div class="item">
+                <i class="fa fa-magic"></i>
+                dick hard
+            </div>
+        </div>
+    </div>
+    <!-- end of right click menu -->
+
+    <script>
+        window.addEventListener('contextmenu',function(e){
+        e.preventDefault()
+        let contextmenu = document.querySelector('#contextmenu')
+        contextmenu.style.top = e.offsetY + "px";
+        contextmenu.style.left = e.offsetX + "px";
+        contextmenu.classList.add('active')
+        
+        });
+
+        window.addEventListener('click',function(e){
+        let contextmenu = document.querySelector('#contextmenu');
+        contextmenu.classList.remove('active');
+        
+        })
+    </script>
+</body>
+</html>

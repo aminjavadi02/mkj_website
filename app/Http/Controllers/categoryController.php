@@ -14,7 +14,8 @@ class categoryController extends Controller
      */
     public function index()
     {
-        //
+        $tree = Category::tree();
+        return view('component.category.index')->with('tree', $tree);
     }
 
     /**

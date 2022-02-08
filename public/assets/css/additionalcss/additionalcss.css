@@ -150,6 +150,8 @@ input[type="radio"]:checked + label {
 .caret-down::before {
   -webkit-transform: rotate(90deg);
           transform: rotate(90deg);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
 .nested {
@@ -158,5 +160,63 @@ input[type="radio"]:checked + label {
 
 .active {
   display: block;
+}
+
+#contextmenu {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  background: #fdfdfd;
+  width: 250px;
+  -webkit-box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.05);
+          box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.05);
+  border-radius: 5px;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  -webkit-transform-origin: top left;
+          transform-origin: top left;
+}
+
+#contextmenu.active {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition: -webkit-transform 250ms ease-in-out;
+  transition: -webkit-transform 250ms ease-in-out;
+  transition: transform 250ms ease-in-out;
+  transition: transform 250ms ease-in-out, -webkit-transform 250ms ease-in-out;
+}
+
+#contextmenu .list {
+  border-bottom: 1px solid #eee;
+}
+
+#contextmenu .list .item {
+  position: relative;
+  padding: 10px;
+  font-size: 14px;
+  color: #555;
+  cursor: pointer;
+}
+
+#contextmenu .list .item i {
+  display: inline-block;
+  width: 20px;
+  margin-right: 5px;
+}
+
+#contextmenu .list .item:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: #eee;
+  z-index: -1;
+  -webkit-transition: all 150ms ease-in-out;
+  transition: all 150ms ease-in-out;
+}
+
+#contextmenu .list .item:hover:before {
+  width: 100%;
 }
 /*# sourceMappingURL=additionalcss.css.map */

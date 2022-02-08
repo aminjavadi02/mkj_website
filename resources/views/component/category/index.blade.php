@@ -6,44 +6,20 @@
       <div class="col-md-11">
         <div class="card">
           <div class="card-header card-header-primary">
-            <h4 class="card-title">دسته بندی جدید</h4>
-            <p class="card-category">دسته بندی جدید بسازید!</p>
+            <h4 class="card-title">همه دسته بندی ها</h4>
           </div>
           <div class="card-body">
-            <form method="post" action="{{url('/categories')}}" enctype="multipart/form-data">
-            <!-- change to categories -->
-              @csrf
-              <div class="row">
-                <div class="col-md-5">
-                  <div class="form-group">
-                    <label class="bmd-label-floating">نام دسته بندی به فارسی</label>
-                    <input type="text" name="name_fa" class="form-control">
-                  </div>
-                </div>
-                <br><br>
-
-                <div class="col-md-5">
-                  <div class="form-group">
-                    <label class="bmd-label-floating">نام دسته بندی به انگلیسی</label>
-                    <input type="text" name="name_en" class="form-control">
-                  </div>
-                </div>
-              </div>
-              <!--  -->
               <div class="row">
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label>دسته بندی پدر</label>
-                    <div class="form-group tree">
-                        <!-- show all cats as ul li here -->
-                        <ul id="tree" class="category_ul"></ul>
-                        <input type="text" id="parent_id_input" name="parent_id" hidden>
-                    </div>
+                  <div class="form-group tree">
+                    <!-- show all cats as ul li here -->
+                    <ul id="tree" class="category_ul"></ul>
+                    <input type="text" id="parent_id_input" name="parent_id" hidden>
+                  </div>
                   </div>
                 </div>
               </div>
-              <button type="submit" class="btn btn-primary pull-right">ثبت تغییرات</button>
-            </form>
           </div>
         </div>
       </div>
@@ -62,10 +38,9 @@ window.onload = function() {
         $(this).toggleClass("caret-down");
         this.parentElement.querySelector(".nested").classList.toggle("active");
         }
-    } 
+    }
 }
-var treeObject = @json($tree);
-// @ json(laravelValue) -> turns laravel object to json object
+
 function drawTree(treeObject, ul){
     // treeObject is an object. foreach works only on array. so i had to use for.
     for(branch in treeObject){
@@ -93,20 +68,25 @@ function drawTree(treeObject, ul){
         li.appendChild(div);
         li.classList.add('category_li');
 
+        // the triangle thing tag
         span.classList.add('caret');
 
-        input.onclick = function(e){
-            e.stopPropagation();
-            // stopPropagation() -> to stop the event bubling up the Dom and repeating itself
-            $('#parent_id_input').val(input.value);
+        // right click menu
+        label.addEventListener('contextmenu',async function(e){
+            e.preventDefault();
+            // create contextmenu done
+            // style it  done
+            // function it
 
-            // to hide the ul and show selected li
-            $('#tree').removeClass('active');
-            $('#tree').addClass('nested');
-            $('.tree').append(
-                '<div class="btn btn-primary" id="editParentButton" onclick="openUl()">'+label.innerText+'</div>'
-            );
-        };
+            // e.target.control.value ====> id of selected input
+            const contextmenu = await createRightClickMenu(e.target.control.value);
+            contextmenu.style.top = e.offsetY + "px";
+            contextmenu.style.left = e.offsetX + "px";
+            contextmenu.classList.add('active');
+            // this is not showing yet
+
+            
+        });
 
         if(treeObject[branch].children.length > 0){
             var newSpan = document.createElement('span');
@@ -125,9 +105,6 @@ function drawTree(treeObject, ul){
         ul.appendChild(li);
     }
 }
-const ul = $('#tree');
-// ul is an object. ul[0] is the tag itself.
-drawTree(treeObject,ul[0]);
 
 function openUl(){
     // to hide the selected li and show the ul
@@ -135,6 +112,33 @@ function openUl(){
     $('#tree').addClass('active');
     $('#editParentButton').remove();
 }
+
+function createRightClickMenu(id){
+    const contextMenu = document.createElement('div');
+    const list = document.createElement('div');
+
+    contextMenu.setAttribute('id','contextmenu');
+    list.classList.add('list');
+
+    listOfActions =['addchild','edit','delete'];
+
+    for(var i=0; i<listOfActions.length; i++){
+        const item = document.createElement('div');
+        item.classList.add('item');
+        item.innerText = listOfActions[i];
+        list.appendChild(item);
+    }
+    contextMenu.appendChild(list);
+    return contextMenu;
+}
+
+
+
+const ul = $('#tree');
+// ul is an object. ul[0] is the tag itself.
+var treeObject = @json($tree);
+// @ json(laravelValue) -> turns laravel object to json object
+drawTree(treeObject,ul[0]);
 </script>
 
 @endsection

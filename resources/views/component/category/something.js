@@ -1,58 +1,4 @@
-@extends('layouts.app')
-@section('content')
-<div class="content">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-11">
-        <div class="card">
-          <div class="card-header card-header-primary">
-            <h4 class="card-title">دسته بندی جدید</h4>
-            <p class="card-category">دسته بندی جدید بسازید!</p>
-          </div>
-          <div class="card-body">
-            <form method="post" action="{{url('/categories')}}" enctype="multipart/form-data">
-            <!-- change to categories -->
-              @csrf
-              <div class="row">
-                <div class="col-md-5">
-                  <div class="form-group">
-                    <label class="bmd-label-floating">نام دسته بندی به فارسی</label>
-                    <input type="text" name="name_fa" class="form-control">
-                  </div>
-                </div>
-                <br><br>
 
-                <div class="col-md-5">
-                  <div class="form-group">
-                    <label class="bmd-label-floating">نام دسته بندی به انگلیسی</label>
-                    <input type="text" name="name_en" class="form-control">
-                  </div>
-                </div>
-              </div>
-              <!--  -->
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="form-group">
-                    <label>دسته بندی پدر</label>
-                    <div class="form-group tree">
-                        <!-- show all cats as ul li here -->
-                        <ul id="tree" class="category_ul"></ul>
-                        <input type="text" id="parent_id_input" name="parent_id" hidden>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <button type="submit" class="btn btn-primary pull-right">ثبت تغییرات</button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<script src="{{asset('assets/js/core/jquery.min.js')}}"></script>
-<script>
 window.onload = function() {
     // to toggle the ul in categories
     // important: make this responsive
@@ -64,6 +10,7 @@ window.onload = function() {
         }
     } 
 }
+
 var treeObject = @json($tree);
 // @ json(laravelValue) -> turns laravel object to json object
 function drawTree(treeObject, ul){
@@ -135,6 +82,3 @@ function openUl(){
     $('#tree').addClass('active');
     $('#editParentButton').remove();
 }
-</script>
-
-@endsection
