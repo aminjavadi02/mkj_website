@@ -11,7 +11,7 @@ window.onload = function() {
     } 
 }
 
-var treeObject = @json($tree);
+// var treeObject = @json($tree);
 // @ json(laravelValue) -> turns laravel object to json object
 function drawTree(treeObject, ul){
     // treeObject is an object. foreach works only on array. so i had to use for.

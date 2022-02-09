@@ -41,6 +41,11 @@ window.onload = function() {
     }
 }
 
+// to hide contextmenu after clicking somewhere else
+window.onclick = function(){
+  $('#contextmenu').removeClass('active');
+};
+
 function drawTree(treeObject, ul){
     // treeObject is an object. foreach works only on array. so i had to use for.
     for(branch in treeObject){
@@ -71,25 +76,24 @@ function drawTree(treeObject, ul){
         // the triangle thing tag
         span.classList.add('caret');
 
-        // right click menu
+        // right click on labels
         label.addEventListener('contextmenu',async function(e){
             e.preventDefault();
             // create contextmenu done
             // style it  done
             // function it
 
+            // if there's already a contextmenu on page, remove it first
+            if( $('#contextmenu').length > 0 ){
+              $('#contextmenu').remove();
+            }
             // e.target.control.value ====> id of selected input
-            const contextmenu = await createRightClickMenu(e.target.control.value);
-            contextmenu.style.top = e.offsetY + "px";
-            contextmenu.style.left = e.offsetX + "px";
+            const contextmenu = await createRightClickMenu(e.target.control.value,e.offsetY,e.offsetX);
             contextmenu.classList.add('active');
-            label.appendChild(contextmenu);
-            // shows the menu but not in right place
-            // add functionality to items too
-
-            
+            label.appendChild(contextmenu)
         });
 
+        // do the children the same
         if(treeObject[branch].children.length > 0){
             var newSpan = document.createElement('span');
             newSpan.classList.add('caret');
@@ -115,22 +119,60 @@ function openUl(){
     $('#editParentButton').remove();
 }
 
-function createRightClickMenu(id){
+
+// create the right click menu
+function createRightClickMenu(id,y,x){
     const contextMenu = document.createElement('div');
     const list = document.createElement('div');
 
     contextMenu.setAttribute('id','contextmenu');
     list.classList.add('list');
 
-    listOfActions =['addchild','edit','delete'];
+    
+    // adding icon and name to items. icons are from material-icons
+    listOfIcons =['edit','remove_circle','subdirectory_arrow_right'];
+    for(var i=0; i<listOfIcons.length; i++){
+        const item = document.createElement('a');
+        const icon = document.createElement('span');
+       
+        icon.classList.add('material-icons');
+        icon.innerText = listOfIcons[i];
 
-    for(var i=0; i<listOfActions.length; i++){
-        const item = document.createElement('div');
+        var route = 
+        console.log(route);
+
+
+        /**
+         * needed changes:
+         * route to delete
+         * route to add child
+         * 
+         */
+
+        switch(listOfIcons[i]){
+          case 'edit':
+            item.setAttribute('href',"{{url('categories/"+id+"/edit')}}");
+            item.innerText = "edit";
+            break;
+          case 'remove_circle':
+            item.setAttribute('href',"#");
+            item.innerText = "delete";
+            break;
+          case 'subdirectory_arrow_right':
+            item.setAttribute('href',"#");
+            item.innerText = "add child";
+            break;
+        }
         item.classList.add('item');
-        item.innerText = listOfActions[i];
+        item.appendChild(icon);
         list.appendChild(item);
     }
+
+    // fixing position of menu apeartion
+    contextMenu.style.top = y + "px";
+    contextMenu.style.left = x + "px";
     contextMenu.appendChild(list);
+
     return contextMenu;
 }
 

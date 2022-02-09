@@ -66,7 +66,7 @@ class categoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        dd("hi");
     }
 
     /**

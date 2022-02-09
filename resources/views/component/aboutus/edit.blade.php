@@ -67,18 +67,28 @@
               <div class="row">
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label>تاریخچه</label>
+                    <label>تاریخچه به فارسی</label>
                     <div class="form-group">
-                      <label class="bmd-label-floating">تاریخچه ی کارخانه به فارسی</label>
-                      <textarea class="form-control" name="history_fa" rows="10">{{$aboutus->history_fa}}</textarea>
-                    </div>
-                    <div class="form-group">
-                      <label class="bmd-label-floating">تاریخچه ی کارخانه به انگلیسی</label>
-                      <textarea class="form-control" name="history_en" rows="10">{{$aboutus->history_en}}</textarea>
+                      <textarea id="section01" class="form-control mytextarea" name="history_fa" rows="10">{{$aboutus->history_fa}}</textarea>
                     </div>
                   </div>
                 </div>
               </div>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label>تاریخچه به انگلیسی</label>
+                    <div class="form-group">
+                      <textarea id="section02" class="form-control mytextarea" name="history_en" rows="10">{{$aboutus->history_en}}</textarea>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- <div class="form-group">
+                      <label class="bmd-label-floating">تاریخچه ی کارخانه به انگلیسی</label>
+                      <textarea id="section02" class="form-control mytextarea" name="history_en" rows="10">{{$aboutus->history_en}}</textarea>
+                    </div> -->
               <div class="row">
                 <div class="col-md-5">
                   <label class="bmd-label-floating">انتخاب تصویر جدید</label>
@@ -108,8 +118,9 @@
 </div>
 
 
+<!-- tinymce -->
+<script src="https://cdn.tiny.cloud/1/dgrgw7wn2i5rc3vvdsqmydzizsk8su4hcmx7vl9dxcwwt89f/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 
-<!-- script -->
 <script src="{{asset('assets/js/core/jquery.min.js')}}"></script>
 <script>
   function deleteImage(){
@@ -137,9 +148,21 @@
   $('#imageInp').change(function(){
       readURL(this);
   });
-</script>
 
-<!-- delete picture => image = null -->
-<!-- edit picture => image = new amount -->
+
+  window.onload = function () {
+    tinymce.init({
+      selector: '.mytextarea',
+      skin: (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'oxide-dark' : 'oxide'),
+      content_css: (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default'),
+      menubar: 'edit format',
+      toolbar: 'undo redo | styleselect | fontselect | bold italic underline | alignleft aligncenter alignright alignjustify | outdent indent',
+      // add font
+      font_formats: "Andale Mono=andale mono,times; Arial=arial,helvetica,sans-serif; Arial Black=arial black,avant garde; Book Antiqua=book antiqua,palatino; Comic Sans MS=comic sans ms,sans-serif; Courier New=courier new,courier; Georgia=georgia,palatino; Helvetica=helvetica; Impact=impact,chicago; Symbol=symbol; Tahoma=tahoma,arial,helvetica,sans-serif; Terminal=terminal,monaco; Times New Roman=times new roman,times; Trebuchet MS=trebuchet ms,geneva; Verdana=verdana,geneva; Webdings=webdings; Wingdings=wingdings,zapf dingbats",
+      content_style: "@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');",
+      
+    });
+  }
+</script>
 
 @endsection
