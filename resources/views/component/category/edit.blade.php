@@ -6,18 +6,18 @@
       <div class="col-md-11">
         <div class="card">
           <div class="card-header card-header-primary">
-            <h4 class="card-title">دسته بندی جدید</h4>
-            <p class="card-category">دسته بندی جدید بسازید!</p>
+            <h4 class="card-title">ویرایش دسته بندی</h4>
           </div>
           <div class="card-body">
-            <form method="post" action="{{url('/categories')}}" enctype="multipart/form-data">
+            <form method="post" action="/categories/{{$category->id}}">
             <!-- change to categories -->
               @csrf
+              @method('put')
               <div class="row">
                 <div class="col-md-5">
                   <div class="form-group">
                     <label class="bmd-label-floating">نام دسته بندی به فارسی</label>
-                    <input type="text" name="name_fa" class="form-control">
+                    <input type="text" name="name_fa" class="form-control" value="{{$category->name_fa}}">
                   </div>
                 </div>
                 <br><br>
@@ -25,7 +25,7 @@
                 <div class="col-md-5">
                   <div class="form-group">
                     <label class="bmd-label-floating">نام دسته بندی به انگلیسی</label>
-                    <input type="text" name="name_en" class="form-control">
+                    <input type="text" name="name_en" class="form-control" value="{{$category->name_en}}" >
                   </div>
                 </div>
               </div>
@@ -34,6 +34,7 @@
                 <div class="col-md-12">
                   <div class="form-group">
                     <label>دسته بندی پدر</label>
+                    <!-- خودش نباید پدر خودش باشه -->
                     @include('component.category.selectableTree')
                   </div>
                 </div>

@@ -77,7 +77,7 @@ function drawTree(treeObject, ul){
         span.classList.add('caret');
 
         // right click on labels
-        label.addEventListener('contextmenu',async function(e){
+        label.addEventListener('contextmenu', function(e){
             e.preventDefault();
             // create contextmenu done
             // style it  done
@@ -88,7 +88,7 @@ function drawTree(treeObject, ul){
               $('#contextmenu').remove();
             }
             // e.target.control.value ====> id of selected input
-            const contextmenu = await createRightClickMenu(e.target.control.value,e.offsetY,e.offsetX);
+            const contextmenu = createRightClickMenu(e.target.control.value,e.offsetY,e.offsetX);
             contextmenu.classList.add('active');
             label.appendChild(contextmenu)
         });
@@ -116,57 +116,30 @@ function openUl(){
     // to hide the selected li and show the ul
     $('#tree').removeClass('nested');
     $('#tree').addClass('active');
-    $('#editParentButton').remove();
 }
 
 
 // create the right click menu
 function createRightClickMenu(id,y,x){
+  
     const contextMenu = document.createElement('div');
     const list = document.createElement('div');
 
-    contextMenu.setAttribute('id','contextmenu');
+    contextMenu.id = 'contextmenu';
     list.classList.add('list');
 
-    
-    // adding icon and name to items. icons are from material-icons
-    listOfIcons =['edit','remove_circle','subdirectory_arrow_right'];
-    for(var i=0; i<listOfIcons.length; i++){
-        const item = document.createElement('a');
-        const icon = document.createElement('span');
-       
-        icon.classList.add('material-icons');
-        icon.innerText = listOfIcons[i];
+    // edit button
+    const edit = createEditAction(id);
+    list.appendChild(edit);
 
-        var route = 
-        console.log(route);
-
+    const deleteForm = createDeleteAction(id);
+    list.appendChild(deleteForm);
 
         /**
          * needed changes:
-         * route to delete
          * route to add child
          * 
          */
-
-        switch(listOfIcons[i]){
-          case 'edit':
-            item.setAttribute('href',"{{url('categories/"+id+"/edit')}}");
-            item.innerText = "edit";
-            break;
-          case 'remove_circle':
-            item.setAttribute('href',"#");
-            item.innerText = "delete";
-            break;
-          case 'subdirectory_arrow_right':
-            item.setAttribute('href',"#");
-            item.innerText = "add child";
-            break;
-        }
-        item.classList.add('item');
-        item.appendChild(icon);
-        list.appendChild(item);
-    }
 
     // fixing position of menu apeartion
     contextMenu.style.top = y + "px";
@@ -176,7 +149,56 @@ function createRightClickMenu(id,y,x){
     return contextMenu;
 }
 
+function createDeleteAction(id){
+  const deleteForm = document.createElement('form');
+  deleteForm.method = 'post';
+  deleteForm.action = `/categories/${id}`;
+  deleteForm.className = 'item'
+  deleteForm.id = 'deleteForm';
+  deleteForm.innerText = 'Delete';
+  deleteForm.addEventListener('click', function(){
+    if(confirm('آیا از حذف این دسته بندی و فرزندانش اطمینان دارید؟')){
+      deleteForm.submit();
+    }
+  })
+  
+  // set method
+  const inputmethod = document.createElement('input');
+  inputmethod.type = 'hidden';
+  inputmethod.name = '_method';
+  inputmethod.value = 'delete';
+  deleteForm.appendChild(inputmethod);
 
+  // set csrf
+  const inputcsrf = document.createElement('input');
+  inputcsrf.type = 'hidden';
+  inputcsrf.name = '_token';
+  inputcsrf.value = '{{csrf_token()}}';
+  deleteForm.appendChild(inputcsrf);
+
+  // delete icon from material design
+  const deleteIcon = document.createElement('span');
+  deleteIcon.className = 'material-icons';
+  deleteIcon.innerText = 'remove_circle';
+  deleteForm.appendChild(deleteIcon);
+
+  return deleteForm;
+}
+
+function createEditAction(id){
+  const edit = document.createElement('a');
+  edit.classList.add('item');
+  edit.setAttribute('href',`/categories/${id}/edit`);
+  edit.innerText = 'edit';
+
+  // icon from material design
+  const editIcon = document.createElement('span');
+  editIcon.classList.add('material-icons');
+  editIcon.innerText = 'edit';
+  edit.appendChild(editIcon);
+
+  return edit;
+}
 
 const ul = $('#tree');
 // ul is an object. ul[0] is the tag itself.

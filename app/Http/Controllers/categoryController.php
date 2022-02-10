@@ -66,7 +66,10 @@ class categoryController extends Controller
      */
     public function edit(Category $category)
     {
-        dd("hi");
+        $tree = Category::tree();
+        // dont show itself as selectable parent
+        return view('component.category.edit', compact('category', 'tree'));
+        // works fine
     }
 
     /**
@@ -98,7 +101,7 @@ class categoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        // works fine
         $category->delete();
+        return redirect()->back();
     }
 }
