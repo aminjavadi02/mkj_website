@@ -45,7 +45,9 @@ Route::resource('items',itemController::class);
 Route::resource('itemImages',itemImageController::class)->only([
     'create','store','destroy'
 ]);
-Route::resource('categories',categoryController::class);
+Route::resource('categories',categoryController::class)->except(['create']);
+$address = 'App\Http\Controllers\categoryController';
+Route::get('categories/{parent_id}/create',$address.'@create')->name('categories.create');
 
 
 
@@ -60,7 +62,7 @@ Route::resource('categories',categoryController::class);
 
 
 
-Route::resource('packages',packageController::class);
+Route::resource('packages',packageController::class)->except(['show']);
 Route::resource('galleries',galleryController::class);
 
 

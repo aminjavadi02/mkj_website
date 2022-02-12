@@ -57,6 +57,7 @@
 <script src="{{asset('assets/js/core/jquery.min.js')}}"></script>
 <script>
 
+// this is not working
   $('#deleteForm').submit(function(){
     return confirm('آیا از پاک کردن این عکس اطمینان دارید؟');
   });

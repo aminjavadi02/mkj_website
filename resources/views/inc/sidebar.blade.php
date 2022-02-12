@@ -63,7 +63,7 @@
           @else
           <li class="nav-item ">
           @endif
-            <a class="nav-link" href="{{route('categories.create')}}">
+            <a class="nav-link" href="{{route('categories.index')}}">
               <i class="material-icons">content_paste</i>
               <!-- change this to a better icon -->
               <p>categories</p>

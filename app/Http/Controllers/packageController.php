@@ -15,6 +15,8 @@ class packageController extends Controller
     public function index()
     {
         // just return the list of all packages
+        $packages = Packages::get()->all();
+        return view('component.package.index')->with('packages', $packages);
     }
 
     /**
@@ -24,7 +26,7 @@ class packageController extends Controller
      */
     public function create()
     {
-        //
+        return view('component.package.create');
     }
 
     /**
@@ -35,25 +37,11 @@ class packageController extends Controller
      */
     public function store(Request $request)
     {
-        $package = Packaging::create([
+        $package = Packages::create([
             'name_fa'=>$request->name_fa,
             'name_en'=>$request->name_en,
         ]);
-        return response()->json([
-            'success'=>true,
-            'package_id'=>$package->id
-        ]);
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Packages  $packages
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Packages $packages)
-    {
-        //
+        return redirect()->route('packages.index');
     }
 
     /**
@@ -62,9 +50,9 @@ class packageController extends Controller
      * @param  \App\Models\Packages  $packages
      * @return \Illuminate\Http\Response
      */
-    public function edit(Packages $packages)
+    public function edit(Packages $package)
     {
-        //
+        return view('component.package.edit')->with('package',$package);
     }
 
     /**
@@ -74,15 +62,14 @@ class packageController extends Controller
      * @param  \App\Models\Packages  $packages
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Packages $packages)
+    public function update(Request $request, Packages $package)
     {
-        $packaging->update([
+        $package->update([
             'name_fa'=>$request->name_fa,
             'name_en'=>$request->name_en,
         ]);
-        return response()->json([
-            'success'=>true,
-        ]);
+        return redirect()->route('packages.index');
+        // return to index with success message
     }
 
     /**
@@ -91,8 +78,10 @@ class packageController extends Controller
      * @param  \App\Models\Packages  $packages
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Packages $packages)
+    public function destroy(Packages $package)
     {
-        $packaging->delete();
+        dd($package);
+        $package->delete();
+        return redirect()->back();
     }
 }

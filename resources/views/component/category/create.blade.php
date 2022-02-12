@@ -34,7 +34,19 @@
                 <div class="col-md-12">
                   <div class="form-group">
                     <label>دسته بندی پدر</label>
-                    @include('component.category.selectableTree')
+                    <div class="form-group tree">
+                      @if($parent_id != "root")
+                      <input type="text" name="parent_id" class="form-control" value="{{$parent_id->id}}" hidden>
+                      <button class="btn btn-primary" id="editParentButton">
+                        {{$parent_id->name_fa}}
+                      </button>
+                      @elseif($parent_id=="root")
+                      <input type="text" name="parent_id" class="form-control" value="" hidden>
+                      <button class="btn btn-primary" id="editParentButton">
+                        root
+                      </button>
+                      @endif
+                    </div>
                   </div>
                 </div>
               </div>

@@ -46,6 +46,7 @@
 
 <script src="{{asset('assets/js/core/jquery.min.js')}}"></script>
 <script>
+  // delete configuration doesn't work. find a new method
   $('#deleteForm').submit(function(){
     return confirm('آیا از پاک کردن این بلاگ اطمینان دارید؟');
   });

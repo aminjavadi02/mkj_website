@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Http\Requests\CreateCategory;
 
 class categoryController extends Controller
 {
@@ -23,10 +24,27 @@ class categoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($parent_id)
     {
-        $tree = Category::tree();
-        return view('component.category.create')->with('tree', $tree);
+        /**
+         * the reason that i don't use route model bindings is because
+         * in order to make root nodes, the passed parameter will not be in db
+         * and it will throw 404
+         */
+        if($parent_id=="root")
+        {
+            return view('component.category.create',compact('parent_id'));
+        }
+        // if parent_id was in categories table
+        elseif(Category::find($parent_id))
+        {
+            $parent_id = Category::find($parent_id);
+            return view('component.category.create',compact('parent_id'));
+        }
+        else{
+            return redirect()->route('categories.index');
+            // with error message
+        }
     }
 
     /**
@@ -42,7 +60,7 @@ class categoryController extends Controller
             'name_en'=>$request->name_en,
             'parent_id'=>$request->parent_id
         ]);
-        return redirect()->back();
+        return redirect()->route('categories.index');
         // works fine
         // add success message here to show user
     }
@@ -55,7 +73,7 @@ class categoryController extends Controller
      */
     public function show(Category $category)
     {
-        //
+        // show all items in category
     }
 
     /**
@@ -81,15 +99,18 @@ class categoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        $category->update([
-            'name_en'=>$request->name_en,
-            'name_fa'=>$request->name_fa,
-            'parent_id'=>$request->parent_id
-        ]);
-        return response()->json([
-            'success'=>true,
-            'category'=>$category
-        ]);
+        // to not put itself as parent
+        if($category->id != $request->parent_id){
+            $category->update([
+                'name_en'=>$request->name_en,
+                'name_fa'=>$request->name_fa,
+                'parent_id'=>$request->parent_id
+            ]);
+            return redirect()->route('categories.index');
+            // reutrn with success message
+        }
+        return redirect()->route('categories.index');
+        // else: return with error message
         // works fine
     }
 
@@ -103,5 +124,6 @@ class categoryController extends Controller
     {
         $category->delete();
         return redirect()->back();
+        // with success message
     }
 }

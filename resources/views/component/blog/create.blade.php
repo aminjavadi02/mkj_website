@@ -20,7 +20,6 @@
                   </div>
                 </div>
                 <br><br>
-
                 <div class="col-md-5">
                   <div class="form-group">
                     <label class="bmd-label-floating">اسلاگ</label>
@@ -28,11 +27,7 @@
                     <!-- add js to generate this from title -->
                   </div>
                 </div>
-
-
-                <!--  -->
               </div>
-              <!--  -->
               <div class="row">
                 <div class="col-md-12">
                   <div class="form-group">
@@ -41,7 +36,6 @@
                       <label class="bmd-label-floating">متن مقاله</label>
                       <textarea name="text" id="mytextarea" cols="30" rows="10"></textarea>
                     </div>
-                    
                   </div>
                 </div>
               </div>
@@ -57,7 +51,6 @@
           </div>
         </div>
       </div>
-      
     </div>
   </div>
 </div>

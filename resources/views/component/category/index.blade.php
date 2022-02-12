@@ -24,6 +24,8 @@
         </div>
       </div>
     </div>
+    <!-- to add a root node -->
+    <a href="{{url('/categories/root/create')}}" class="btn btn-primary d-flex add-button" style="font-size:22pt; color:#fff; ">+</a>
   </div>
 </div>
 
@@ -55,7 +57,7 @@ function drawTree(treeObject, ul){
         const input = document.createElement('input');
         const label = document.createElement('label');
         
-
+        // input is the radio buttons to select parent
         input.setAttribute('type', 'radio');
         input.setAttribute('name','parent_id');
         input.setAttribute('value',treeObject[branch]['id']);
@@ -79,9 +81,6 @@ function drawTree(treeObject, ul){
         // right click on labels
         label.addEventListener('contextmenu', function(e){
             e.preventDefault();
-            // create contextmenu done
-            // style it  done
-            // function it
 
             // if there's already a contextmenu on page, remove it first
             if( $('#contextmenu').length > 0 ){
@@ -134,6 +133,9 @@ function createRightClickMenu(id,y,x){
 
     const deleteForm = createDeleteAction(id);
     list.appendChild(deleteForm);
+
+    const addChild = createAddChildAction(id);
+    list.appendChild(addChild);
 
         /**
          * needed changes:
@@ -198,6 +200,21 @@ function createEditAction(id){
   edit.appendChild(editIcon);
 
   return edit;
+}
+
+function createAddChildAction(id){
+  const addchild = document.createElement('a');
+  addchild.classList.add('item');
+  addchild.setAttribute('href',`/categories/${id}/create`);
+  addchild.innerText = 'add child';
+
+  // icon from material design
+  const addchildIcon = document.createElement('span');
+  addchildIcon.classList.add('material-icons');
+  addchildIcon.innerText = 'subdirectory_arrow_right';
+  addchild.appendChild(addchildIcon);
+
+  return addchild;
 }
 
 const ul = $('#tree');

@@ -39,7 +39,7 @@
                   </div>
                 </div>
               </div>
-              <button type="submit" class="btn btn-primary pull-right">ثبت تغییرات</button>
+              <button class="btn btn-primary pull-right" onclick="submitform()">ثبت تغییرات</button>
             </form>
           </div>
         </div>
@@ -47,5 +47,12 @@
     </div>
   </div>
 </div>
+
+<script>
+  function submitform(){
+    // if parent_id == null confirm it
+    
+  }
+</script>
 
 @endsection
