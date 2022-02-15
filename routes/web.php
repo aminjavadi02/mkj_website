@@ -41,10 +41,20 @@ Route::resource('aboutus',aboutusController::class)->only([
 
 
 Route::resource('managers',managerController::class);
-Route::resource('items',itemController::class);
+
+
+Route::resource('items',itemController::class)->except([
+    'create',
+]);
+$address = 'App\Http\Controllers\itemController';
+Route::get('/createitem/{category_id?}',$address.'@create')->name('items.create');
+
+
 Route::resource('itemImages',itemImageController::class)->only([
     'create','store','destroy'
 ]);
+
+
 Route::resource('categories',categoryController::class)->except(['create']);
 $address = 'App\Http\Controllers\categoryController';
 Route::get('categories/{parent_id}/create',$address.'@create')->name('categories.create');

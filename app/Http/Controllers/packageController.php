@@ -80,7 +80,6 @@ class packageController extends Controller
      */
     public function destroy(Packages $package)
     {
-        dd($package);
         $package->delete();
         return redirect()->back();
     }

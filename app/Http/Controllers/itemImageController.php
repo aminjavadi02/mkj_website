@@ -16,6 +16,7 @@ class itemImageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    // form is in item create. not needed here
     public function create()
     {
         /**

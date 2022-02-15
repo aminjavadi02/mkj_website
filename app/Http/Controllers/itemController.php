@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Item;
+use App\Models\Packages;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class itemController extends Controller
@@ -22,9 +24,17 @@ class itemController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($category_id = null)
     {
-        //
+        $packages = Packages::get()->all();
+        if($category_id){
+            $category = Category::find($category_id); //if null returns null :|
+        }
+        else{
+            $category = Category::tree()->all();
+        }
+
+        return view('component.item.create',compact('packages','category'));
     }
 
     /**
@@ -35,13 +45,14 @@ class itemController extends Controller
      */
     public function store(Request $request)
     {
+        dd($request->all());
         $item = Item::create([
             'name_fa'=>$request->name_fa,
             'name_en'=>$request->name_en,
             'description_fa'=>$request->description_fa,
             'description_en'=>$request->description_en,
             'size'=>$request->size,
-            'packages_id'=>$request->packages_id,
+            'package_id'=>$request->package_id,
             'category_id'=>$request->category_id,
         ]);
     }
