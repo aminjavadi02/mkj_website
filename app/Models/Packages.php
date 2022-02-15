@@ -20,6 +20,6 @@ class Packages extends Model
     // relation to items
     public function items()
     {
-        return $this->belongsToMany(Item::class);
+        return $this->belongsToMany(Item::class,'item_package','packages_id','items_id');
     }
 }

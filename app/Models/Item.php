@@ -28,7 +28,7 @@ class Item extends Model
 
     public function packages()
     {
-        return $this->belongsToMany(Packages::class);
+        return $this->belongsToMany(Packages::class,'item_package','items_id','packages_id');
     }
 
     // item 1 - n images

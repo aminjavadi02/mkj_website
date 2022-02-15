@@ -18,8 +18,6 @@ class CreateCategoriesTable extends Migration
                 $table->id();
                 $table->string('name_fa');
                 $table->string('name_en');
-
-                // parent_id must not be == id
                 $table->unsignedBigInteger('parent_id')->nullable();
                 $table->foreign('parent_id')->references('id')->on('categories')->onDelete('cascade');
             });

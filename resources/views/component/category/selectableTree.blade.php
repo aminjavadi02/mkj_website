@@ -1,8 +1,6 @@
 <script src="{{asset('assets/js/core/jquery.min.js')}}"></script>
 <script>
 
-
-
 function drawTree(treeObject, ul, inputName){
     // treeObject is an object. foreach works only on array. so i had to use for.
     for(branch in treeObject){

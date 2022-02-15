@@ -56,6 +56,7 @@ class itemController extends Controller
             'package_id'=>$request->package_id,
             'category_id'=>$request->category_id,
         ]);
+        $item->packages()->attach($request->package_id);
         return redirect()->back();
         // redirect to index with success message
     }
