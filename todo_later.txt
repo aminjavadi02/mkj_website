@@ -1,4 +1,4 @@
 1- select multiple packagings -done
-2- add create package to end of packages list
+2- add create package to end of packages list -done
 3- edit item and attach detach for itempackage
 4- index page of items

@@ -66,12 +66,12 @@
                 </div>
               </div>
               <!-- select packaging -->
-              @if($packages)
               <div class="row">
                 <div class="col-md-12">
                   <div class="form-group">
                     <label>بسته بندی</label>
                     <br>
+                    @if($packages)
                     @foreach($packages as $package)
                     <div class="form-check">
                       <!-- naming this way cause it should be different from tree ids -->
@@ -83,10 +83,15 @@
                     </div>
                     @endforeach
                     <input id="package_id_list" type="text" name="package_id" hidden>
+                    @else
+                    <br>
+                    <label class="bmd-label-floating">نوع بسته بندی وجود ندارد</label><br>
+                    <a href="{{route('packages.create')}}" class="btn btn-success">ساخت بسته بندی جدید</a>
+                    <br> <br>
+                    @endif
                   </div>
                 </div>
               </div>
-              @endif
               <!-- select category -->
               @if(Route::current()->category_id)
                 @if($category)
