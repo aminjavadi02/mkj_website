@@ -23,7 +23,6 @@ class CreateItemsTable extends Migration
                 $table->string('alloy')->nullable();
                 $table->string('size')->nullable();
                 $table->foreignId('category_id')->constrained()->onDelete('cascade');
-                $table->foreignId('package_id')->constrained()->nullOnDelete()->nullable();
 
             });
         }

@@ -45,7 +45,6 @@ class itemController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
         $item = Item::create([
             'name_fa'=>$request->name_fa,
             'name_en'=>$request->name_en,
@@ -53,10 +52,14 @@ class itemController extends Controller
             'description_en'=>$request->description_en,
             'size'=>$request->size,
             'alloy' =>$request->alloy,
-            'package_id'=>$request->package_id,
             'category_id'=>$request->category_id,
         ]);
-        $item->packages()->attach($request->package_id);
+        
+        // attach item and packages to itempackage table
+        $packages = explode(',', $request->package_id);
+        foreach($packages as $package){
+            $item->packages()->attach($package);
+        }
         return redirect()->back();
         // redirect to index with success message
     }

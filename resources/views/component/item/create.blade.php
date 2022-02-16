@@ -72,11 +72,17 @@
                   <div class="form-group">
                     <label>بسته بندی</label>
                     <br>
-                    <select name="package_id" class="form-select" style="width: 30%">
-                        @foreach($packages as $package)
-                            <option value="{{$package->id}}">{{$package->name_fa}}</option>
-                        @endforeach
-                    </select>
+                    @foreach($packages as $package)
+                    <div class="form-check">
+                      <!-- naming this way cause it should be different from tree ids -->
+                      <!-- add all inputs to a list in js then send it -->
+                      <input type="checkbox" value="{{$package->id}}" id="{{$package->id}}checkbox">
+                      <label for="{{$package->id}}checkbox">
+                        {{$package->name_fa}}
+                      </label>
+                    </div>
+                    @endforeach
+                    <input id="package_id_list" type="text" name="package_id" hidden>
                   </div>
                 </div>
               </div>
@@ -113,35 +119,18 @@
 <!-- tiny mce -->
 <script src="https://cdn.tiny.cloud/1/dgrgw7wn2i5rc3vvdsqmydzizsk8su4hcmx7vl9dxcwwt89f/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 
-
 <script src="{{asset('assets/js/core/jquery.min.js')}}"></script>
 <script>
-  function readURL(input) {
-    if (input.files && input.files[0]) {
-        var reader = new FileReader();
-
-        reader.onload = function (e) {
-            $('#selectedImg').attr('src', e.target.result);
-        }
-
-        reader.readAsDataURL(input.files[0]);
-    }
-  }
-
-  $('#imageInp').change(function(){
-      readURL(this);
-  });
-
-//   if the category is tree, then:
-
+//   put "if the category is tree", then:
   var treeObject = @json($category);
   // @ json(laravelValue) -> turns laravel object to json object
   const ul = $('#tree');
   // ul is an object. ul[0] is the tag itself.
-
   drawTree(treeObject,ul[0],"category_id");
 
+  var vals = [];
   window.onload = function () {
+    // for input boxes that use tinymce
     tinymce.init({
       selector: '.mytextarea',
       skin: (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'oxide-dark' : 'oxide'),
@@ -163,8 +152,33 @@
         this.parentElement.querySelector(".nested").classList.toggle("active");
         }
     }
-
+    
+    // checkbox of packages
+    var selectedlist = [];
+    // first load
+    for(var i = 0; i < $('input[type=checkbox]').length; i++) {
+      if($('input[type=checkbox]').eq(i).prop('checked')){
+        selectedlist.push($('input[type=checkbox]').eq(i)[0].value)
+        $('#package_id_list').val(selectedlist);
+      }
+      // on change
+      $('input[type=checkbox]').eq(i)[0].onchange = function() {
+        // "this" == input tag
+        if(this.checked){
+          // check
+          selectedlist.push(this['value']);
+          $('#package_id_list').val(selectedlist);
+        }
+        else{
+          // uncheck
+          selectedlist.splice(selectedlist.indexOf(this['value']), 1);
+          $('#package_id_list').val(selectedlist);
+        }
+      }
+    }
   }
+
+  
 
   
 </script>
