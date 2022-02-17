@@ -1,4 +1,5 @@
 1- select multiple packagings -done
 2- add create package to end of packages list -done
-3- edit item and attach detach for itempackage
+3- edit item and attach detach for itempackage -done
+3.1- what's item image gonna be? a gallery like model
 4- index page of items

@@ -70,16 +70,29 @@
             </a>
           </li>
 
-          @if(Route::is('items.create'))
+          @if(Route::is('items.index'))
           <!-- go to item index -->
           <li class="nav-item active ">
           @else
           <li class="nav-item ">
           @endif
-            <a class="nav-link" href="{{route('items.create')}}">
+            <a class="nav-link" href="{{route('items.index')}}">
               <i class="material-icons">content_paste</i>
               <!-- change this to a better icon -->
               <p>items</p>
+            </a>
+          </li>
+
+          @if(Route::is('packages.index'))
+          <!-- go to item index -->
+          <li class="nav-item active ">
+          @else
+          <li class="nav-item ">
+          @endif
+            <a class="nav-link" href="{{route('packages.index')}}">
+              <i class="material-icons">content_paste</i>
+              <!-- change this to a better icon -->
+              <p>packages</p>
             </a>
           </li>
         </ul>

@@ -16,7 +16,11 @@ class itemController extends Controller
      */
     public function index()
     {
-        //
+        $items = Item::get()->all();
+        foreach ($items as $item){
+            $item->category_name_fa = Category::find($item->category_id)->name_fa;
+        }
+        return view('component.item.index')->with('items', $items);
     }
 
     /**
@@ -60,7 +64,7 @@ class itemController extends Controller
         foreach($packages as $package){
             $item->packages()->attach($package);
         }
-        return redirect()->back();
+        return redirect()->route('items.index');
         // redirect to index with success message
     }
 
@@ -126,7 +130,7 @@ class itemController extends Controller
             'size'=>$request->size,
             'category_id'=>$request->category_id,
         ]);
-        return redirect()->back();
+        return redirect()->route('items.index');
         // to index with success message
     }
 
@@ -139,5 +143,7 @@ class itemController extends Controller
     public function destroy(Item $item)
     {
         $item->delete();
+        return redirect()->route('items.index');
+        // to index with success message
     }
 }

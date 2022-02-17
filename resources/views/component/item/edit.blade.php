@@ -101,6 +101,7 @@
                 </div>
               </div>
               <!-- select category -->
+              <!-- click btn to change category_id. if no click, no change -->
                 @if($category)
                 <!-- tree -->
                 <label>دسته بندی</label>
