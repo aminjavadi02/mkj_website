@@ -67,22 +67,39 @@
                 </div>
               </div>
               <!-- select packaging -->
-              @if($packages)
               <div class="row">
                 <div class="col-md-12">
                   <div class="form-group">
                     <label>بسته بندی</label>
                     <br>
-                    <select name="package_id" class="form-select" style="width: 30%" value="{{$item->package_id}}">
-                        @foreach($packages as $package)
-                            <option value="{{$package->id}}">{{$package->name_fa}}</option>
-                        @endforeach
-                    </select>
+                    @if($packages)
+                    @foreach($packages as $package)
+                      @if(in_array($package->id,$checkedArray))
+                      <div class="form-check">
+                        <input type="checkbox" value="{{$package->id}}" id="{{$package->id}}checkbox" checked>
+                        <label for="{{$package->id}}checkbox">
+                          {{$package->name_fa}}
+                        </label>
+                      </div>
+                      @else
+                      <div class="form-check">
+                        <input type="checkbox" value="{{$package->id}}" id="{{$package->id}}checkbox">
+                        <label for="{{$package->id}}checkbox">
+                          {{$package->name_fa}}
+                        </label>
+                      </div>
+                      @endif
+                    @endforeach
+                    <input id="package_id_list" type="text" name="package_id" hidden>
+                    @else
+                    <br>
+                    <label class="bmd-label-floating">نوع بسته بندی وجود ندارد</label><br>
+                    <a href="{{route('packages.create')}}" class="btn btn-success">ساخت بسته بندی جدید</a>
+                    <br> <br>
+                    @endif
                   </div>
                 </div>
               </div>
-              <!-- else: create package -->
-              @endif
               <!-- select category -->
                 @if($category)
                 <!-- tree -->
@@ -94,6 +111,7 @@
                 </div>
                 @include('component.category.selectableTree')
                 @endif
+
               <button type="submit" class="btn btn-primary pull-right">ثبت تغییرات</button>
             </form>
           </div>
@@ -155,6 +173,31 @@
         $(this).toggleClass("caret-down");
         this.parentElement.querySelector(".nested").classList.toggle("active");
         }
+    }
+
+
+
+    // checkbox
+    var selectedlist = [];
+    for(var i = 0; i < $('input[type=checkbox]').length; i++) {
+      if($('input[type=checkbox]').eq(i).prop('checked')){
+        selectedlist.push($('input[type=checkbox]').eq(i)[0].value)
+        $('#package_id_list').val(selectedlist);
+      }
+      // on change
+      $('input[type=checkbox]').eq(i)[0].onchange = function() {
+        // "this" == input tag
+        if(this.checked){
+          // check
+          selectedlist.push(this['value']);
+          $('#package_id_list').val(selectedlist);
+        }
+        else{
+          // uncheck
+          selectedlist.splice(selectedlist.indexOf(this['value']), 1);
+          $('#package_id_list').val(selectedlist);
+        }
+      }
     }
 
   }

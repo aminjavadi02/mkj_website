@@ -54,7 +54,7 @@ class itemController extends Controller
             'alloy' =>$request->alloy,
             'category_id'=>$request->category_id,
         ]);
-        
+
         // attach item and packages to itempackage table
         $packages = explode(',', $request->package_id);
         foreach($packages as $package){
@@ -83,7 +83,15 @@ class itemController extends Controller
      */
     public function edit(Item $item)
     {
-        //
+        $checkedArray = [];
+        $checked = $item->packages()->select('packages_id')->get()->all();
+        $packages = Packages::get()->all();
+        $category = Category::tree()->all();
+        foreach ($checked as $check){
+            array_push( $checkedArray ,$check->packages_id);
+        }
+
+        return view('component.item.edit',compact('checkedArray','packages','item','category'));
     }
 
     /**
@@ -94,16 +102,32 @@ class itemController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Item $item)
-    {
+    {   
+        $records = $item->packages()->get()->all();
+        $packages = explode(',', $request->package_id);
+        if(empty($records)){
+            foreach($packages as $package){
+                $item->packages()->attach($package);
+            }
+        }
+        else{
+            foreach($records as $record){
+                $item->packages()->detach($record);
+            }
+            foreach($packages as $package){
+                $item->packages()->attach($package);
+            }
+        }
         $item->update([
             'name_fa'=>$request->name_fa,
             'name_en'=>$request->name_en,
             'description_fa'=>$request->description_fa,
             'description_en'=>$request->description_en,
             'size'=>$request->size,
-            'packages_id'=>$request->packages_id,
             'category_id'=>$request->category_id,
         ]);
+        return redirect()->back();
+        // to index with success message
     }
 
     /**
