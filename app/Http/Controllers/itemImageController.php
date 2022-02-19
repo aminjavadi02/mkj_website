@@ -4,26 +4,27 @@ namespace App\Http\Controllers;
 
 use App\Models\itemImage;
 use Illuminate\Http\Request;
+use App\Models\Item;
 
 class itemImageController extends Controller
 {
-    // we dont show all images so no index function
+    // show images
 
-    // routes: create, store, destroy
+    // routes: create, store, destroy, show
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
+     * show
      */
-    // form is in item create. not needed here
-    public function create()
+    public function show($item_id)
     {
-        /**
-         * form:
-         * images [] multiple
-         * item_id
-         */
+        $item = Item::find($item_id);
+        $images = itemImage::where('item_id', $item_id)->get()->all();
+        if($item){
+            return view('component.itemimage.show',compact('item_id','images'));
+        }
+        else{
+            return redirect()->route('items.index');
+        }
     }
 
     /**
@@ -34,18 +35,20 @@ class itemImageController extends Controller
      */
     public function store(Request $request)
     {
-        $images = $request->images;
-        foreach($images as $image){
-            // save image
-            itemImage::create([
-                'item_id'=>$request->item_id,
-                'image_name'=>$image->getClientOriginalName(),
-            ]);
-            $image->store('images','public');
+        if($request->hasfile('image')){
+            $image_name = $request->image->getClientOriginalName();
+            $request->image->storeAs('images',$image_name,'public');
+        }else{
+            return redirect()->back();
+            // with error message
         }
-        return response()->json([
-            'success' => true,
+        $photo = itemImage::create([
+            'image_name'=>$image_name,
+            'item_id'=>$request->item_id,
         ]);
+    
+        return redirect()->back();
+        // with success message
     }
 
     /**
@@ -54,8 +57,10 @@ class itemImageController extends Controller
      * @param  \App\Models\itemImage  $itemImage
      * @return \Illuminate\Http\Response
      */
-    public function destroy(itemImage $itemImage)
+    public function destroy($image_id)
     {
-        $itemImage->delete();
+        $image = ItemImage::find($image_id);
+        $image->delete();
+        return redirect()->back();
     }
 }

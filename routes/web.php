@@ -50,9 +50,11 @@ $address = 'App\Http\Controllers\itemController';
 Route::get('/createitem/{category_id?}',$address.'@create')->name('items.create');
 
 
-Route::resource('itemImages',itemImageController::class)->only([
-    'create','store','destroy'
+Route::resource('itemimages',itemImageController::class)->only([
+    'show','store','destroy'
 ]);
+$address = 'App\Http\Controllers\itemImageController';
+Route::get('/createitemimages/{item_id}',$address.'@create')->name('itemimages.create');
 
 
 Route::resource('categories',categoryController::class)->except(['create']);
@@ -73,7 +75,8 @@ Route::get('categories/{parent_id}/create',$address.'@create')->name('categories
 
 
 Route::resource('packages',packageController::class)->except(['show']);
-Route::resource('galleries',galleryController::class);
+Route::resource('galleries',galleryController::class)->except('create','show');
+// return error if galleries/"notNumber" is called
 
 
 // ->except(['destroy'])

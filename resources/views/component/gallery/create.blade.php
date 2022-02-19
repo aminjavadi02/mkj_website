@@ -15,7 +15,7 @@
                 <div class="col-md-5">
                 <label class="bmd-label-floating">انتخاب تصویر</label>
                 <input type="file" id="imageInp" name="image" class="form-control" accept="image/*">
-                <img src="#" id="selectedImg" width="200px" alt="selectedImage">
+                <img src="#" id="selectedImg" width="200px">
                 </div>
                 <br>
             </div>
@@ -49,12 +49,16 @@
 
 <script src="{{asset('assets/js/core/jquery.min.js')}}"></script>
 <script>
+  window.onload = function(){
+    $('#selectedImg').hide();
+  }
   function readURL(input) {
     if (input.files && input.files[0]) {
         var reader = new FileReader();
 
         reader.onload = function (e) {
             $('#selectedImg').attr('src', e.target.result);
+            $('#selectedImg').show();
         }
 
         reader.readAsDataURL(input.files[0]);

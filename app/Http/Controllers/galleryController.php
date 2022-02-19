@@ -25,10 +25,7 @@ class galleryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        return view('component.gallery.create');
-    }
+    
 
     /**
      * Store a newly created resource in storage.

@@ -64,7 +64,7 @@ class itemController extends Controller
         foreach($packages as $package){
             $item->packages()->attach($package);
         }
-        return redirect()->route('items.index');
+        return redirect('itemimages/{{$item->id}}');
         // redirect to index with success message
     }
 

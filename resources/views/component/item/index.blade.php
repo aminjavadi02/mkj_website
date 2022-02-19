@@ -28,6 +28,7 @@
                     <td>{{$item->name_en}}</td>
                     <td>{{$item->category_name_fa}}</td>
                     <td class="d-flex justify-content-center">
+                    <a href="/itemimages/{{$item->id}}"><span class="material-icons" style="color:white;">image</span></a>
                         <a href="/items/{{$item->id}}/edit"><span class="material-icons" style="color:white;">edit</span></a>
                         <form action="/items/{{$item->id}}" method="post" id="deleteForm" enctype="multipart/form-data">
                             <!-- delete confirmation needed -->
