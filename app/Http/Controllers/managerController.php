@@ -35,7 +35,6 @@ class managerController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
         if($request->hasfile('image')){
             $image_name = $request->image->getClientOriginalName();
             $request->image->storeAs('images',$image_name,'public');
@@ -51,6 +50,8 @@ class managerController extends Controller
             'about_en'=>$request->about_en,
             'image_name'=>$image_name
         ]);
+        return redirect()->back();
+        // index with success message
     }
 
     /**
