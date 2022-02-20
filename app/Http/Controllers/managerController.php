@@ -24,7 +24,7 @@ class managerController extends Controller
      */
     public function create()
     {
-        //
+        return view('component.manager.create');
     }
 
     /**
@@ -35,6 +35,13 @@ class managerController extends Controller
      */
     public function store(Request $request)
     {
+        dd($request->all());
+        if($request->hasfile('image')){
+            $image_name = $request->image->getClientOriginalName();
+            $request->image->storeAs('images',$image_name,'public');
+        }else{
+            $image_name = null;
+        }
         $manager = Manager::create([
             'name_fa'=>$request->name_fa,
             'name_en'=>$request->name_en,
@@ -42,7 +49,7 @@ class managerController extends Controller
             'position_en'=>$request->position_en,
             'about_fa'=>$request->about_fa,
             'about_en'=>$request->about_en,
-            // 'image_name'=>$request->image->getClientOriginalName() or sth
+            'image_name'=>$image_name
         ]);
     }
 

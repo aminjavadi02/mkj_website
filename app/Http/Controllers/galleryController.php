@@ -71,7 +71,7 @@ class galleryController extends Controller
             'description_fa'=>$request->description_fa,
             'description_en'=>$request->description_en,
         ]);
-       return redirect()->back();
+       return redirect()->route('galleries.index');
     }
 
     /**

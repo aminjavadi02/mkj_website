@@ -120,8 +120,11 @@
 
 <!-- tinymce -->
 <script src="https://cdn.tiny.cloud/1/dgrgw7wn2i5rc3vvdsqmydzizsk8su4hcmx7vl9dxcwwt89f/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-
+<!-- readurl function -->
+<script src="{{asset('assets/js/readurl.js')}}" ></script>
+<!-- jquery -->
 <script src="{{asset('assets/js/core/jquery.min.js')}}"></script>
+
 <script>
   function deleteImage(){
     // console.log();
@@ -133,24 +136,14 @@
     }
   }
   
-  function readURL(input) {
-    if (input.files && input.files[0]) {
-        var reader = new FileReader();
-
-        reader.onload = function (e) {
-            $('#selectedImg').attr('src', e.target.result);
-        }
-
-        reader.readAsDataURL(input.files[0]);
-    }
-  }
-
-  $('#imageInp').change(function(){
-      readURL(this);
-  });
+  
 
 
   window.onload = function () {
+    $('#selectedImg').hide();
+    $('#imageInp').change(function(){
+    readURL(this);
+    });
     tinymce.init({
       selector: '.mytextarea',
       skin: (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'oxide-dark' : 'oxide'),
@@ -160,7 +153,6 @@
       // add font
       font_formats: "Andale Mono=andale mono,times; Arial=arial,helvetica,sans-serif; Arial Black=arial black,avant garde; Book Antiqua=book antiqua,palatino; Comic Sans MS=comic sans ms,sans-serif; Courier New=courier new,courier; Georgia=georgia,palatino; Helvetica=helvetica; Impact=impact,chicago; Symbol=symbol; Tahoma=tahoma,arial,helvetica,sans-serif; Terminal=terminal,monaco; Times New Roman=times new roman,times; Trebuchet MS=trebuchet ms,geneva; Verdana=verdana,geneva; Webdings=webdings; Wingdings=wingdings,zapf dingbats",
       content_style: "@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');",
-      
     });
   }
 </script>

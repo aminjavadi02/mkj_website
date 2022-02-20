@@ -16,21 +16,16 @@
             <div class="swiper mySwiper">
               <div class="swiper-wrapper">
                     @foreach($images as $image)
-                      <div class="swiper-slide col-md-4">
+                      <div class="swiper-slide col-md-4 col-md-4 d-flex flex-column justify-content-between" style="height: 360px;">
                         <div class="d-flex flex-column bd-highlight">
-                          <img src="{{asset('storage/images/'.$image->name)}}" width="180px"/>
-                          <div class="d-flex flex-row p-0" style=" justify-content:center ">
-                            <form action="/galleries/{{$image->id}}" method="post" id="deleteForm" enctype="multipart/form-data">
+                          <img src="{{asset('storage/images/'.$image->name)}}" width="200px"/>
+                            <form action="/galleries/{{$image->id}}" method="post" class="d-flex p-0 delete-form" id="deleteForm" enctype="multipart/form-data">
                                 @csrf
                                 @method('delete')
                                 <button type="submit" class="close" style=" height:25px; margin-top:40px; margin-right:10px;" >
                                     <i class="material-icons" style="color:white;">delete</i>
                                 </button>
                             </form>
-                            <a href="/galleries/{{$image->id}}/edit" class="close" style=" height:25px; margin-top:37px">
-                                  <i class="material-icons" style="color:white">edit</i>
-                            </a>
-                          </div>
                         </div>
                       </div>
                     @endforeach
@@ -45,7 +40,6 @@
           @endif
         </div>
       </div>
-      
     </div>
     @include('component.gallery.create')
   </div>
@@ -63,17 +57,8 @@
   });
 
   var swiper = new Swiper(".mySwiper", {
-    effect: "coverflow",
     centeredSlides: true,
     slidesPerView: "auto",
-    loop: true,
-    coverflowEffect: {
-      rotate: 50,
-      stretch: 0,
-      depth: 150,
-      modifier: 3,
-      slideShadows: false,
-    },
     pagination: {
           el: ".swiper-pagination",
           clickable: true,

@@ -79,8 +79,10 @@
 
 <!-- tinymce -->
 <script src="https://cdn.tiny.cloud/1/dgrgw7wn2i5rc3vvdsqmydzizsk8su4hcmx7vl9dxcwwt89f/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-
+<!-- jquery -->
 <script src="{{asset('assets/js/core/jquery.min.js')}}"></script>
+<!-- readurl function -->
+<script src="{{asset('assets/js/readurl.js')}}" ></script>
 <script>
   function deleteImage(){
     // console.log();
@@ -91,25 +93,12 @@
       document.getElementById("currentImageDiv").remove();
     }
   }
-  
-  function readURL(input) {
-    if (input.files && input.files[0]) {
-        var reader = new FileReader();
-
-        reader.onload = function (e) {
-            $('#selectedImg').attr('src', e.target.result);
-        }
-
-        reader.readAsDataURL(input.files[0]);
-    }
-  }
-
-  $('#imageInp').change(function(){
-      readURL(this);
-  });
-
 
   window.onload = function () {
+    $('#selectedImg').hide();
+    $('#imageInp').change(function(){
+    readURL(this);
+    });
     tinymce.init({
       selector: '#mytextarea',
       skin: (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'oxide-dark' : 'oxide'),

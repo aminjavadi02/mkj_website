@@ -124,28 +124,9 @@
 
 <!-- tiny mce -->
 <script src="https://cdn.tiny.cloud/1/dgrgw7wn2i5rc3vvdsqmydzizsk8su4hcmx7vl9dxcwwt89f/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-
-
 <script src="{{asset('assets/js/core/jquery.min.js')}}"></script>
 <script>
-  function readURL(input) {
-    if (input.files && input.files[0]) {
-        var reader = new FileReader();
-
-        reader.onload = function (e) {
-            $('#selectedImg').attr('src', e.target.result);
-        }
-
-        reader.readAsDataURL(input.files[0]);
-    }
-  }
-
-  $('#imageInp').change(function(){
-      readURL(this);
-  });
-
 //   if the category is tree, then:
-
   var treeObject = @json($category);
   // @ json(laravelValue) -> turns laravel object to json object
   const ul = $('#tree');
@@ -165,7 +146,6 @@
       content_style: "@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');",
       
     });
-
     // to toggle the ul in categories
     // important: make this responsive
     var toggler = $(".caret");
@@ -175,9 +155,6 @@
         this.parentElement.querySelector(".nested").classList.toggle("active");
         }
     }
-
-
-
     // checkbox
     var selectedlist = [];
     for(var i = 0; i < $('input[type=checkbox]').length; i++) {
@@ -200,10 +177,6 @@
         }
       }
     }
-
   }
-
-  
 </script>
-
 @endsection

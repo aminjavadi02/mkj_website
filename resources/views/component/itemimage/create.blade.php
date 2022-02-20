@@ -27,25 +27,13 @@
 </div>
 
 <script src="{{asset('assets/js/core/jquery.min.js')}}"></script>
+<script src="{{asset('assets/js/readurl.js')}}" ></script>
 <script>
 
 window.onload = function(){
     $('#selectedImg').hide();
-}
-  function readURL(input) {
-    if (input.files && input.files[0]) {
-        var reader = new FileReader();
-
-        reader.onload = function (e) {
-            $('#selectedImg').attr('src', e.target.result);
-            $('#selectedImg').show();
-        }
-
-        reader.readAsDataURL(input.files[0]);
-    }
-  }
-
-  $('#imageInp').change(function(){
+    $('#imageInp').change(function(){
     readURL(this);
-  });
+    });
+}
 </script>
