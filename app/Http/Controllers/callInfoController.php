@@ -54,9 +54,9 @@ class callInfoController extends Controller
      * @param  \App\Models\CallInfo  $callInfo
      * @return \Illuminate\Http\Response
      */
-    public function edit(CallInfo $callInfo)
+    public function edit(CallInfo $callinfo)
     {
-        //
+        return view('component.callInfo.edit')->with('callinfo',$callinfo);
     }
 
     /**
@@ -66,9 +66,16 @@ class callInfoController extends Controller
      * @param  \App\Models\CallInfo  $callInfo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, CallInfo $callInfo)
+    public function update(Request $request, CallInfo $callinfo)
     {
-        //
+        $callinfo->update([
+            'name_fa' =>$request->name_fa,
+            'name_en' =>$request->name_en,
+            'position_fa' =>$request->position_fa,
+            'position_en' =>$request->position_en,
+            'phone_number'=>$request->phone_number,
+        ]);
+        return redirect()->back();
     }
 
     /**
@@ -77,7 +84,7 @@ class callInfoController extends Controller
      * @param  \App\Models\CallInfo  $callInfo
      * @return \Illuminate\Http\Response
      */
-    public function destroy(CallInfo $callInfo)
+    public function destroy(CallInfo $callinfo)
     {
         //
     }

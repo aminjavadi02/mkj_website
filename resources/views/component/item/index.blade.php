@@ -7,8 +7,8 @@
       <div class="col-md-11">
         <div class="card">
           <div class="card-header card-header-primary">
-            <h4 class="card-title">بسته بندی ها</h4>
-            <p class="card-category">لیست همه بسته بندی ها</p>
+            <h4 class="card-title">محصولات</h4>
+            <p class="card-category">لیست همه محصولات</p>
           </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -17,8 +17,8 @@
                 <tr>
                 <th scope="col">#</th>
                 <th scope="col">نام فارسی</th>
-                <th scope="col">نام انگلیسی</th>
                 <th scope="col">نام دسته بندی</th>
+                <th scope="col">سایز</th>
                 </tr>
             </thead>
             <tbody>
@@ -26,8 +26,8 @@
                 <tr>
                     <th scope="row">{{$item->id}}</th>
                     <td>{{$item->name_fa}}</td>
-                    <td>{{$item->name_en}}</td>
                     <td>{{$item->category_name_fa}}</td>
+                    <td>{{$item->size}}</td>
                     <td class="d-flex justify-content-center">
                     <a href="/itemimages/{{$item->id}}"><span class="material-icons" style="color:white;">image</span></a>
                         <a href="/items/{{$item->id}}/edit"><span class="material-icons" style="color:white;">edit</span></a>

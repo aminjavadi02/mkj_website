@@ -16,11 +16,11 @@ class itemImageController extends Controller
     /**
      * show
      */
-    public function show($item_id)
+    public function show(Item $itemimage)
     {
-        $item = Item::find($item_id);
+        $item_id = $itemimage->id;
         $images = itemImage::where('item_id', $item_id)->get()->all();
-        if($item){
+        if($itemimage){
             return view('component.itemimage.show',compact('item_id','images'));
         }
         else{
@@ -58,13 +58,12 @@ class itemImageController extends Controller
      * @param  \App\Models\itemImage  $itemImage
      * @return \Illuminate\Http\Response
      */
-    public function destroy($image_id)
+    public function destroy(ItemImage $itemimage)
     {
-        $image = ItemImage::find($image_id);
-        if($image->image_name){
-            handyController::deleteOldImage($image->image_name);
+        if($itemimage->image_name){
+            handyController::deleteOldImage($itemimage->image_name);
         }
-        $image->delete();
+        $itemimage->delete();
         return redirect()->back();
     }
 }

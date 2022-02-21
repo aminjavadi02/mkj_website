@@ -22,9 +22,9 @@ class aboutusController extends Controller
         //
     }
 
-    public function edit(Aboutus $aboutus)
+    public function edit(Aboutus $aboutu)
     {
-        return view('component.aboutus.edit')->with('aboutus', $aboutus->get()[0]);
+        return view('component.aboutus.edit')->with('aboutus', $aboutu);
     }
 
     /**
