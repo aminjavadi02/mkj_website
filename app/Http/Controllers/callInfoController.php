@@ -14,7 +14,8 @@ class callInfoController extends Controller
      */
     public function index()
     {
-        //
+        $callinfos = CallInfo::select('id','name_fa','position_fa','phone_number')->get()->all();
+        return view('component.callInfo.index')->with('callinfos', $callinfos);
     }
 
     /**
@@ -42,7 +43,7 @@ class callInfoController extends Controller
             'position_en' =>$request->position_en,
             'phone_number'=>$request->phone_number,
         ]);
-        return redirect()->back();
+        return redirect()->route('callinfo.index');
         // with success message
     }
 
@@ -75,7 +76,8 @@ class callInfoController extends Controller
             'position_en' =>$request->position_en,
             'phone_number'=>$request->phone_number,
         ]);
-        return redirect()->back();
+        return redirect()->route('callinfo.index');
+        // with success message
     }
 
     /**
@@ -86,6 +88,8 @@ class callInfoController extends Controller
      */
     public function destroy(CallInfo $callinfo)
     {
-        //
+        $callinfo->delete();
+        return redirect()->route('callinfo.index');
+        // with success message
     }
 }
