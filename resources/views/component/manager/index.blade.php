@@ -16,10 +16,8 @@
             <thead class="thead-dark">
                 <tr>
                 <th scope="col">#</th>
-                <th scope="col">نام فارسی</th>
-                <th scope="col">نام انگلیسی</th>
-                <th scope="col">سمت فارسی</th>
-                <th scope="col">سمت انگلیسی</th>
+                <th scope="col">نام </th>
+                <th scope="col">سمت </th>
                 </tr>
             </thead>
             <tbody>
@@ -27,9 +25,7 @@
                 <tr>
                     <th scope="row">{{$manager->id}}</th>
                     <td>{{$manager->name_fa}}</td>
-                    <td>{{$manager->name_en}}</td>
                     <td>{{$manager->position_fa}}</td>
-                    <td>{{$manager->position_en}}</td>
                     <td class="d-flex justify-content-center">
                         <a href="/managers/{{$manager->id}}/edit"><span class="material-icons" style="color:white;">edit</span></a>
                         <form action="/managers/{{$manager->id}}" method="post" id="deleteForm" enctype="multipart/form-data">
@@ -54,9 +50,4 @@
     <a href="{{route('managers.create')}}" class="btn btn-primary d-flex add-button" style="font-size:22pt; color:#fff; ">+</a>
   </div>
 </div>
-
-<script src="{{asset('assets/js/core/jquery.min.js')}}"></script>
-<script>
-
-</script>
 @endsection

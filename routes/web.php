@@ -9,6 +9,7 @@ use App\Http\Controllers\categoryController;
 use App\Http\Controllers\packageController;
 use App\Http\Controllers\itemImageController;
 use App\Http\Controllers\galleryController;
+use App\Http\Controllers\callInfoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -78,6 +79,7 @@ Route::resource('packages',packageController::class)->except(['show']);
 Route::resource('galleries',galleryController::class)->only('index','store','destroy');
 // return error if galleries/"notNumber" is called
 
+Route::resource('callinfo',callInfoController::class)->except(['show']);
 
 // ->except(['destroy'])
 // ->only(['update'])
