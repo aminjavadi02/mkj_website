@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Aboutus;
-use Illuminate\Support\Facades\Storage;
+use App\Http\Controllers\handyController;
 
 // a link generated to access storage. to show the image to user
 // to show image <img src="{{asset('storage/images/imageColoumnInDB')}}" alt="image">
@@ -39,11 +39,11 @@ class aboutusController extends Controller
     {
         $aboutus = Aboutus::find($id);
         if($request->hasfile('image')){
-            $picture_name = $this->UploadNewImage($request->image,$aboutus);
+            $picture_name = handyController::UploadNewImage($request->image,$aboutus);
         }
         // if he wants to delete picture delete it. if not, don't
         else{
-            $this->deleteOldImage($aboutus->image_name);
+            handyController::deleteOldImage($aboutus->image_name);
             $picture_name = null;
         }
         $aboutus->update([
@@ -62,20 +62,5 @@ class aboutusController extends Controller
         
         return redirect()->back();
         // works fine
-    }
-
-    protected function UploadNewImage($image,$aboutus)
-    {
-        if($aboutus->image_name){
-            $this->deleteOldImage($aboutus->image_name);
-        }
-        $image_name = $image->getClientOriginalName();
-        $image->storeAs('images',$image_name,'public');
-        return $image_name;
-    }
-    
-    protected function deleteOldImage($image)
-    {
-        Storage::delete('/public/images/'.$image);
     }
 }

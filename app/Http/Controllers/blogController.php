@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
+use App\Http\Controllers\handyController;
 
 class blogController extends Controller
 {
@@ -87,10 +87,10 @@ class blogController extends Controller
     public function update(Request $request, Blog $blog)
     {
         if($request->hasfile('image')){
-            $picture_name = $this->UploadNewImage($request->image,$blog);
+            $picture_name = handyController::UploadNewImage($request->image,$blog);
         }
         else{
-            $this->deleteOldImage($blog->image_name);
+            handyController::deleteOldImage($blog->image_name);
             $picture_name=null;
         }
         $blog->update([
@@ -116,21 +116,5 @@ class blogController extends Controller
         }
         $blog->delete();
         return redirect()->back();
-    }
-
-
-    protected function UploadNewImage($image,$blog)
-    {
-        if($blog->image_name){
-            $this->deleteOldImage($blog->image_name);
-        }
-        $image_name = $image->getClientOriginalName();
-        $image->storeAs('images',$image_name,'public');
-        return $image_name;
-    }
-    
-    protected function deleteOldImage($image)
-    {
-        Storage::delete('/public/images/'.$image);
     }
 }

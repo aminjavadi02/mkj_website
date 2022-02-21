@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Manager;
 use Illuminate\Http\Request;
+use App\Http\Controllers\handyController;
 
 class managerController extends Controller
 {
@@ -73,7 +74,7 @@ class managerController extends Controller
      */
     public function edit(Manager $manager)
     {
-        //
+        return view('component.manager.edit')->with('manager',$manager);
     }
 
     /**
@@ -85,6 +86,13 @@ class managerController extends Controller
      */
     public function update(Request $request, Manager $manager)
     {
+        if($request->hasfile('image')){
+            $picture_name = handyController::UploadNewImage($request->image,$manager);
+        }
+        else{
+            handyController::deleteOldImage($manager->image_name);
+            $picture_name=null;
+        }
         $manager->update([
             'name_fa'=>$request->name_fa,
             'name_en'=>$request->name_en,
@@ -92,8 +100,9 @@ class managerController extends Controller
             'position_en'=>$request->position_en,
             'about_fa'=>$request->about_fa,
             'about_en'=>$request->about_en,
-            // 'image_name'=>$request->image->getClientOriginalName() or sth
+            'image_name'=>$picture_name,
         ]);
+        return redirect()->back();
     }
 
     /**
@@ -104,6 +113,12 @@ class managerController extends Controller
      */
     public function destroy(Manager $manager)
     {
+        if($manager->image_name){
+            Storage::delete('/public/images/'.$manager->image_name);
+        }
         $manager->delete();
+        return redirect()->back();
     }
+
+    
 }

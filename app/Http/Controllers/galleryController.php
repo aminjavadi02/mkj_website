@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Gallery;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
+use App\Http\Controllers\handyController;
 
 class galleryController extends Controller
 {
@@ -60,10 +60,10 @@ class galleryController extends Controller
     public function update(Request $request, Gallery $gallery)
     {
         if($request->hasfile('image')){
-            $picture_name = $this->UploadNewImage($request->image,$gallery);
+            handyController::UploadNewImage($request->image,$gallery);
         }
         else{
-            $this->deleteOldImage($gallery->name);
+            handyController::deleteOldImage($gallery->name);
             $picture_name=null;
         }
         $gallery->update([
@@ -87,23 +87,6 @@ class galleryController extends Controller
         }
         $gallery->delete();
         return redirect()->back();
-    }
-
-
-
-    protected function UploadNewImage($image,$gallery)
-    {
-        if($gallery->name){
-            $this->deleteOldImage($gallery->name);
-        }
-        $name = $image->getClientOriginalName();
-        $image->storeAs('images',$name,'public');
-        return $name;
-    }
-    
-    protected function deleteOldImage($image)
-    {
-        Storage::delete('/public/images/'.$image);
     }
 
 }

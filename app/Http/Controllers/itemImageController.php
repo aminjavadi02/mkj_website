@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\itemImage;
 use Illuminate\Http\Request;
 use App\Models\Item;
+use App\Http\Controllers\handyController;
 
 class itemImageController extends Controller
 {
@@ -60,6 +61,9 @@ class itemImageController extends Controller
     public function destroy($image_id)
     {
         $image = ItemImage::find($image_id);
+        if($image->image_name){
+            handyController::deleteOldImage($image->image_name);
+        }
         $image->delete();
         return redirect()->back();
     }
