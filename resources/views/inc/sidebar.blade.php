@@ -95,6 +95,19 @@
               <p>packages</p>
             </a>
           </li>
+
+          @if(Route::is('managers.index'))
+          <!-- go to item index -->
+          <li class="nav-item active ">
+          @else
+          <li class="nav-item ">
+          @endif
+            <a class="nav-link" href="{{route('managers.index')}}">
+              <i class="material-icons">content_paste</i>
+              <!-- change this to a better icon -->
+              <p>managers</p>
+            </a>
+          </li>
         </ul>
     </div>
     </div>

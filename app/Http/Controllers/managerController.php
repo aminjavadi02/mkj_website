@@ -15,7 +15,8 @@ class managerController extends Controller
      */
     public function index()
     {
-        //
+        $managers = Manager::select('id','name_fa','name_en','position_fa','position_en')->get()->all();
+        return view('component.manager.index')->with('managers',$managers);
     }
 
     /**
@@ -51,8 +52,8 @@ class managerController extends Controller
             'about_en'=>$request->about_en,
             'image_name'=>$image_name
         ]);
-        return redirect()->back();
-        // index with success message
+        return redirect()->route('managers.index');
+        // with success message
     }
 
     /**
@@ -102,7 +103,8 @@ class managerController extends Controller
             'about_en'=>$request->about_en,
             'image_name'=>$picture_name,
         ]);
-        return redirect()->back();
+        return redirect()->route('managers.index');
+        // with success message
     }
 
     /**
@@ -117,7 +119,8 @@ class managerController extends Controller
             handyController::deleteOldImage($manager->image_name);
         }
         $manager->delete();
-        return redirect()->back();
+        return redirect()->route('managers.index');
+        // with success message
     }
 
     
