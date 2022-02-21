@@ -60,7 +60,7 @@ class galleryController extends Controller
     public function update(Request $request, Gallery $gallery)
     {
         if($request->hasfile('image')){
-            handyController::UploadNewImage($request->image,$gallery);
+            $picture_name = handyController::UploadNewImage($request->image,$gallery);
         }
         else{
             handyController::deleteOldImage($gallery->name);
@@ -83,7 +83,7 @@ class galleryController extends Controller
     public function destroy(Gallery $gallery)
     {
         if($gallery->name){
-            Storage::delete('/public/images/'.$gallery->name);
+            handyController::deleteOldImage($gallery->name);
         }
         $gallery->delete();
         return redirect()->back();

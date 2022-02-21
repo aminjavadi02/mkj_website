@@ -112,7 +112,7 @@ class blogController extends Controller
     public function destroy(Blog $blog)
     {
         if($blog->image_name){
-            Storage::delete('/public/images/'.$blog->image_name);
+            handyController::deleteOldImage($blog->image_name);
         }
         $blog->delete();
         return redirect()->back();

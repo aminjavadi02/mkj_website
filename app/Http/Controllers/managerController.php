@@ -114,7 +114,7 @@ class managerController extends Controller
     public function destroy(Manager $manager)
     {
         if($manager->image_name){
-            Storage::delete('/public/images/'.$manager->image_name);
+            handyController::deleteOldImage($manager->image_name);
         }
         $manager->delete();
         return redirect()->back();
