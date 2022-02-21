@@ -52,28 +52,6 @@ class galleryController extends Controller
         return redirect()->back();
     }
 
-    public function edit(Gallery $gallery)
-    {
-        return view('component.gallery.edit')->with('image', $gallery);
-    }
-
-    public function update(Request $request, Gallery $gallery)
-    {
-        if($request->hasfile('image')){
-            $picture_name = handyController::UploadNewImage($request->image,$gallery);
-        }
-        else{
-            handyController::deleteOldImage($gallery->name);
-            $picture_name=null;
-        }
-        $gallery->update([
-            'name'=>$picture_name,
-            'description_fa'=>$request->description_fa,
-            'description_en'=>$request->description_en,
-        ]);
-       return redirect()->route('galleries.index');
-    }
-
     /**
      * Remove the specified resource from storage.
      *

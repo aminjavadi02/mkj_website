@@ -75,7 +75,7 @@ Route::get('categories/{parent_id}/create',$address.'@create')->name('categories
 
 
 Route::resource('packages',packageController::class)->except(['show']);
-Route::resource('galleries',galleryController::class)->except('create','show');
+Route::resource('galleries',galleryController::class)->only('index','store','destroy');
 // return error if galleries/"notNumber" is called
 
 
