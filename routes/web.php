@@ -41,7 +41,7 @@ Route::resource('aboutus',aboutusController::class)->only([
 
 
 
-Route::resource('managers',managerController::class);
+Route::resource('managers',managerController::class)->except(['show']);
 
 
 Route::resource('items',itemController::class)->except([
