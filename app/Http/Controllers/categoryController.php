@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Item;
 use Illuminate\Http\Request;
 use App\Http\Requests\CreateCategory;
 
@@ -73,7 +74,8 @@ class categoryController extends Controller
      */
     public function show(Category $category)
     {
-        // show all items in category
+        $items = Item::where('category_id', $category->id)->select('id','name_fa','alloy','size')->get()->all();
+        return view('component.category.show',compact('items', 'category'));
     }
 
     /**

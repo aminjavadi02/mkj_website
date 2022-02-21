@@ -127,7 +127,9 @@ function createRightClickMenu(id,y,x){
     contextMenu.id = 'contextmenu';
     list.classList.add('list');
 
-    // edit button
+    const showItems = createShowAction(id);
+    list.appendChild(showItems);
+    
     const edit = createEditAction(id);
     list.appendChild(edit);
 
@@ -157,7 +159,7 @@ function createDeleteAction(id){
   deleteForm.action = `/categories/${id}`;
   deleteForm.className = 'item'
   deleteForm.id = 'deleteForm';
-  deleteForm.innerText = 'Delete';
+  deleteForm.innerText = 'delete';
   deleteForm.addEventListener('click', function(){
     if(confirm('آیا از حذف این دسته بندی و فرزندانش اطمینان دارید؟')){
       deleteForm.submit();
@@ -215,6 +217,19 @@ function createAddChildAction(id){
   addchild.appendChild(addchildIcon);
 
   return addchild;
+}
+
+function createShowAction(id){
+  const showItems = document.createElement('a');
+  showItems.classList.add('item');
+  showItems.innerText = 'show items';
+  showItems.setAttribute('href',`/categories/${id}`);
+
+  const showItemsIcon = document.createElement('span');
+  showItemsIcon.classList.add('material-icons');
+  showItemsIcon.innerText = 'list'
+  showItems.appendChild(showItemsIcon);
+  return showItems;
 }
 
 const ul = $('#tree');
