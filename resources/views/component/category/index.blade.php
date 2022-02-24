@@ -25,7 +25,7 @@
       </div>
     </div>
     <!-- to add a root node -->
-    <a href="{{url('/categories/root/create')}}" class="btn btn-primary d-flex add-button" style="font-size:22pt; color:#fff; ">+</a>
+    <a href="{{url('/admin/categories/root/create')}}" class="btn btn-primary d-flex add-button" style="font-size:22pt; color:#fff; ">+</a>
   </div>
 </div>
 
@@ -156,7 +156,7 @@ function createRightClickMenu(id,y,x){
 function createDeleteAction(id){
   const deleteForm = document.createElement('form');
   deleteForm.method = 'post';
-  deleteForm.action = `/categories/${id}`;
+  deleteForm.action = `/admin/categories/${id}`;
   deleteForm.className = 'item'
   deleteForm.id = 'deleteForm';
   deleteForm.innerText = 'delete';
@@ -192,7 +192,7 @@ function createDeleteAction(id){
 function createEditAction(id){
   const edit = document.createElement('a');
   edit.classList.add('item');
-  edit.setAttribute('href',`/categories/${id}/edit`);
+  edit.setAttribute('href',`/admin/categories/${id}/edit`);
   edit.innerText = 'edit';
 
   // icon from material design
@@ -207,7 +207,7 @@ function createEditAction(id){
 function createAddChildAction(id){
   const addchild = document.createElement('a');
   addchild.classList.add('item');
-  addchild.setAttribute('href',`/categories/${id}/create`);
+  addchild.setAttribute('href',`/admin/categories/${id}/create`);
   addchild.innerText = 'add child';
 
   // icon from material design
@@ -223,7 +223,7 @@ function createShowAction(id){
   const showItems = document.createElement('a');
   showItems.classList.add('item');
   showItems.innerText = 'show items';
-  showItems.setAttribute('href',`/categories/${id}`);
+  showItems.setAttribute('href',`/admin/categories/${id}`);
 
   const showItemsIcon = document.createElement('span');
   showItemsIcon.classList.add('material-icons');

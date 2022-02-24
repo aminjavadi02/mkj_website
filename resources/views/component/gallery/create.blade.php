@@ -8,7 +8,7 @@
         <p class="card-category">عکس را انتخاب نمایید</p>
       </div>
       <div class="card-body">
-        <form method="post" action="{{url('/galleries')}}" enctype="multipart/form-data">
+        <form method="post" action="{{route('galleries.store')}}" enctype="multipart/form-data">
             <!-- go to store gallery -->
           @csrf
             <div class="row">

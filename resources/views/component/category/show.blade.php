@@ -29,9 +29,9 @@
                     <td>{{$item->alloy}}</td>
                     <td>{{$item->size}}</td>
                     <td class="d-flex justify-content-center">
-                    <a href="/itemimages/{{$item->id}}"><span class="material-icons" style="color:white;">image</span></a>
-                        <a href="/items/{{$item->id}}/edit"><span class="material-icons" style="color:white;">edit</span></a>
-                        <form action="/items/{{$item->id}}" method="post" id="deleteForm" enctype="multipart/form-data">
+                    <a href="/admin/itemimages/{{$item->id}}"><span class="material-icons" style="color:white;">image</span></a>
+                        <a href="/admin/items/{{$item->id}}/edit"><span class="material-icons" style="color:white;">edit</span></a>
+                        <form action="/admin/items/{{$item->id}}" method="post" id="deleteForm" enctype="multipart/form-data">
                             <!-- delete confirmation needed -->
                             @csrf
                             @method('delete')

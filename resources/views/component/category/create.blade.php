@@ -10,7 +10,7 @@
             <p class="card-category">دسته بندی جدید بسازید!</p>
           </div>
           <div class="card-body">
-            <form method="post" action="{{url('/categories')}}" enctype="multipart/form-data">
+            <form method="post" action="{{route('categories.store')}}" enctype="multipart/form-data">
             <!-- change to categories -->
               @csrf
               <div class="row">
@@ -37,14 +37,14 @@
                     <div class="form-group tree">
                       @if($parent_id != "root")
                       <input type="text" name="parent_id" class="form-control" value="{{$parent_id->id}}" hidden>
-                      <button class="btn btn-primary" id="editParentButton">
+                      <span class="btn btn-primary" id="editParentButton">
                         {{$parent_id->name_fa}}
-                      </button>
+                      </span>
                       @elseif($parent_id=="root")
                       <input type="text" name="parent_id" class="form-control" value="" hidden>
-                      <button class="btn btn-primary" id="editParentButton">
+                      <span class="btn btn-primary" id="editParentButton">
                         root
-                      </button>
+                      </span>
                       @endif
                     </div>
                   </div>

@@ -9,7 +9,7 @@
             <h4 class="card-title">ویرایش دسته بندی</h4>
           </div>
           <div class="card-body">
-            <form method="post" action="/categories/{{$category->id}}">
+            <form method="post" action="/admin/categories/{{$category->id}}">
             <!-- change to categories -->
               @csrf
               @method('put')

@@ -45,8 +45,6 @@ class galleryController extends Controller
         }
         $photo = Gallery::create([
             'name'=>$image_name,
-            'description_fa'=>$request->description_fa,
-            'description_en'=>$request->description_en,
         ]);
     
         return redirect()->back();

@@ -19,7 +19,7 @@
                       <div class="swiper-slide col-md-4 col-md-4 d-flex flex-column justify-content-between" style="height: 360px;">
                         <div class="d-flex flex-column bd-highlight">
                           <img src="{{asset('storage/images/'.$image->name)}}" width="200px"/>
-                            <form action="/galleries/{{$image->id}}" method="post" class="d-flex p-0 delete-form" id="deleteForm" enctype="multipart/form-data">
+                            <form action="/admin/galleries/{{$image->id}}" method="post" class="d-flex p-0 delete-form" id="deleteForm" enctype="multipart/form-data">
                                 @csrf
                                 @method('delete')
                                 <button type="submit" class="close" style=" height:25px; margin-top:40px; margin-right:10px;" >
