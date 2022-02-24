@@ -19,14 +19,14 @@
                         <span>{{$blog->title}}</span>
                     </div>
                 </div>
-                <form action="/blogs/{{$blog->id}}" method="post" id="deleteForm" enctype="multipart/form-data">
+                <form action="/admin/blogs/{{$blog->id}}" method="post" id="deleteForm" enctype="multipart/form-data">
                     @csrf
                     @method('delete')
                     <button type="submit" class="close mt-5 mr-3" style="height:25px;" >
                         <i class="material-icons" style="color:white;">delete</i>
                     </button>
                 </form>
-                <a href="/blogs/{{$blog->id}}/edit" class="close mt-5">
+                <a href="/admin/blogs/{{$blog->id}}/edit" class="close mt-5">
                       <i class="material-icons" style="color:white;">edit</i>
                 </a>
                 

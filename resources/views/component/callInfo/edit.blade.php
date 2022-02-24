@@ -9,7 +9,7 @@
             <h4 class="card-title"> ویرایش شماره تلفن</h4>
           </div>
           <div class="card-body">
-            <form method="post" action="/callinfo/{{$callinfo->id}}" enctype="multipart/form-data">
+            <form method="post" action="/admin/callinfo/{{$callinfo->id}}" enctype="multipart/form-data">
               @csrf
               @method('put')
               <div class="row">

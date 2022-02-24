@@ -27,8 +27,8 @@
                     <td>{{$callinfo->position_fa}}</td>
                     <td>{{$callinfo->phone_number}}</td>
                     <td class="d-flex justify-content-center">
-                        <a href="/callinfo/{{$callinfo->id}}/edit"><span class="material-icons" style="color:white;">edit</span></a>
-                        <form action="/callinfo/{{$callinfo->id}}" method="post" id="deleteForm" enctype="multipart/form-data">
+                        <a href="/admin/callinfo/{{$callinfo->id}}/edit"><span class="material-icons" style="color:white;">edit</span></a>
+                        <form action="/admin/callinfo/{{$callinfo->id}}" method="post" id="deleteForm" enctype="multipart/form-data">
                             <!-- delete confirmation needed -->
                             @csrf
                             @method('delete')

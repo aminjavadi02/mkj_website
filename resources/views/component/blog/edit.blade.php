@@ -10,7 +10,7 @@
             <p class="card-category">ویرایش بلاگ</p>
           </div>
           <div class="card-body">
-            <form method="post" action="/blogs/{{$blog->id}}" enctype="multipart/form-data">
+            <form method="post" action="/admin/blogs/{{$blog->id}}" enctype="multipart/form-data">
               @csrf
               @method('PUT')
               <div class="row">
