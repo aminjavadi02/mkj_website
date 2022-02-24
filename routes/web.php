@@ -29,57 +29,39 @@ Route::get('/app', function () {
 // admin pannel
 // add prefix: admin
 
+Route::prefix('admin')->group(function(){
 
-Route::resource('blogs',blogController::class);
+    Route::resource('blogs',blogController::class);
 
+    Route::resource('aboutus',aboutusController::class)->only([
+        'update','show','edit'
+    ]);
 
-
-Route::resource('aboutus',aboutusController::class)->only([
-    'update','show','edit'
-]);
-// seperate update and show routes for admin and user
-
-
-
-Route::resource('managers',managerController::class)->except(['show']);
+    Route::resource('managers',managerController::class)->except(['show']);
 
 
-Route::resource('items',itemController::class)->except([
-    'create',
-]);
-$address = 'App\Http\Controllers\itemController';
-Route::get('/createitem/{category_id?}',$address.'@create')->name('items.create');
+    Route::resource('items',itemController::class)->except([
+        'create',
+    ]);
+    $address = 'App\Http\Controllers\itemController';
+    Route::get('/createitem/{category_id?}',$address.'@create')->name('items.create');
 
 
-Route::resource('itemimages',itemImageController::class)->only([
-    'show','store','destroy'
-]);
-$address = 'App\Http\Controllers\itemImageController';
-Route::get('/createitemimages/{item_id}',$address.'@create')->name('itemimages.create');
+    Route::resource('itemimages',itemImageController::class)->only([
+        'show','store','destroy'
+    ]);
+    $address = 'App\Http\Controllers\itemImageController';
+    Route::get('/createitemimages/{item_id}',$address.'@create')->name('itemimages.create');
 
 
-Route::resource('categories',categoryController::class)->except(['create']);
-$address = 'App\Http\Controllers\categoryController';
-Route::get('categories/{parent_id}/create',$address.'@create')->name('categories.create');
+    Route::resource('categories',categoryController::class)->except(['create']);
+    $address = 'App\Http\Controllers\categoryController';
+    Route::get('categories/{parent_id}/create',$address.'@create')->name('categories.create');
 
+    Route::resource('packages',packageController::class)->except(['show']);
 
+    Route::resource('galleries',galleryController::class)->only('index','store','destroy');
 
+    Route::resource('callinfo',callInfoController::class)->except(['show']);
 
-// Route::get('aboutusapp',function(){
-//     return view('component.aboutus');
-// })->name('aboutusapp');
-// $address = "App\Http\Controllers\categoryController";
-
-
-
-
-
-
-Route::resource('packages',packageController::class)->except(['show']);
-Route::resource('galleries',galleryController::class)->only('index','store','destroy');
-// return error if galleries/"notNumber" is called
-
-Route::resource('callinfo',callInfoController::class)->except(['show']);
-
-// ->except(['destroy'])
-// ->only(['update'])
+});
