@@ -10,7 +10,7 @@
             <p class="card-category">بلاگ جدید بسازید!</p>
           </div>
           <div class="card-body">
-            <form method="post" action="{{url('/blogs')}}" enctype="multipart/form-data">
+            <form method="post" action="{{route('blogs.store')}}" enctype="multipart/form-data">
               @csrf
               <div class="row">
                 <div class="col-md-5">

@@ -10,7 +10,7 @@
             <p class="card-category">ویرایش صفحه درباره ی ما</p>
           </div>
           <div class="card-body">
-            <form method="post" action="{{url('aboutus/1')}}" enctype="multipart/form-data">
+            <form method="post" action="{{url('admin/aboutus/1')}}" enctype="multipart/form-data">
               @method('PUT')
               @csrf
               <div class="row">

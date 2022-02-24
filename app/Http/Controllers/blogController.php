@@ -50,7 +50,7 @@ class blogController extends Controller
             'text'=>$request->text,
             'image_name'=>$image_name
         ]);
-        return redirect()->back();
+        return redirect()->route('blogs.index');
         // with success message
         // works fine
     }
@@ -99,7 +99,7 @@ class blogController extends Controller
             'text'=>$request->text,
             'image_name'=>$picture_name
         ]);
-       return redirect()->back();
+        return redirect()->route('blogs.index');
         // works fine
     }
 
@@ -115,6 +115,6 @@ class blogController extends Controller
             handyController::deleteOldImage($blog->image_name);
         }
         $blog->delete();
-        return redirect()->back();
+        return redirect()->route('blogs.index');
     }
 }
