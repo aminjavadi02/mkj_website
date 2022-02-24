@@ -22,6 +22,7 @@ use App\Http\Controllers\callInfoController;
 |
 */
 
+// random comment
 Route::get('/app', function () {
     return view('layouts.app');
 })->name('app');
