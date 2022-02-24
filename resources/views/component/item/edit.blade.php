@@ -10,7 +10,7 @@
             <p class="card-category">مشخصات محصول را ویرایش کنید</p>
           </div>
           <div class="card-body">
-            <form method="post" action="/items/{{$item->id}}" enctype="multipart/form-data">
+            <form method="post" action="/admin/items/{{$item->id}}" enctype="multipart/form-data">
               @csrf
               @method('put')
               <div class="row">
@@ -91,11 +91,6 @@
                       @endif
                     @endforeach
                     <input id="package_id_list" type="text" name="package_id" hidden>
-                    @else
-                    <br>
-                    <label class="bmd-label-floating">نوع بسته بندی وجود ندارد</label><br>
-                    <a href="{{route('packages.create')}}" class="btn btn-success">ساخت بسته بندی جدید</a>
-                    <br> <br>
                     @endif
                   </div>
                 </div>
