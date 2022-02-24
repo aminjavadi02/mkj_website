@@ -10,7 +10,7 @@
             <p class="card-category">نوع بسته بندی را اضافه کنید</p>
           </div>
           <div class="card-body">
-            <form method="post" action="{{url('/packages')}}">
+            <form method="post" action="{{route('packages.store')}}">
               @csrf
               <div class="row">
                 <div class="col-md-5">

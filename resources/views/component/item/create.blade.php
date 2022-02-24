@@ -10,7 +10,7 @@
             <p class="card-category">محصول جدید اضافه کنید!</p>
           </div>
           <div class="card-body">
-            <form method="post" action="{{url('/items')}}" enctype="multipart/form-data">
+            <form method="post" action="{{route('items.store')}}" enctype="multipart/form-data">
               @csrf
               <div class="row">
                 <div class="col-md-5">
@@ -99,6 +99,11 @@
                 <label>دسته بندی</label>
                 <div class="btn btn-primary">{{$category->name_fa}}</div>
                 <input type="text" value="{{$category->id}}" name="category_id" hidden>
+                @else
+                <br>
+                <label class="bmd-label-floating">نوع دسته بندی وجود ندارد</label><br>
+                <a href="{{url('/admin/categories/root/create')}}" class="btn btn-success">ساخت دسته بندی جدید</a>
+                <br> <br>
                 @endif
               @else
                 @if($category)
@@ -110,9 +115,14 @@
                     <input type="text" id="needed_input" name="category_id" hidden>
                 </div>
                 @include('component.category.selectableTree')
+                @else
+                <br>
+                <label class="bmd-label-floating">نوع دسته بندی وجود ندارد</label><br>
+                <a href="{{url('/admin/categories/root/create')}}" class="btn btn-success">ساخت دسته بندی جدید</a>
+                <br><br>
                 @endif
               @endif
-              <button type="submit" class="btn btn-primary pull-right">ثبت تغییرات</button>
+              <button id="submitBtn" type="submit" class="btn btn-primary pull-right">ثبت تغییرات</button>
             </form>
           </div>
         </div>
@@ -128,10 +138,21 @@
 <script>
 //   put "if the category is tree", then:
   var treeObject = @json($category);
+  var packages = @json($packages);
   // @ json(laravelValue) -> turns laravel object to json object
   const ul = $('#tree');
-  // ul is an object. ul[0] is the tag itself.
-  drawTree(treeObject,ul[0],"category_id");
+
+  if(treeObject.length <= 0){
+    $('#submitBtn').remove();
+  }
+  else if(treeObject.length > 0 && packages.length <= 0){
+    $('#submitBtn').remove();
+    drawTree(treeObject,ul[0],"category_id");
+  }
+  else if(treeObject.length > 0 && packages.length > 0){
+    drawTree(treeObject,ul[0],"category_id");
+  }
+
 
   var vals = [];
   window.onload = function () {

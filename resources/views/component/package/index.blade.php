@@ -26,8 +26,8 @@
                     <td>{{$package->name_fa}}</td>
                     <td>{{$package->name_en}}</td>
                     <td class="d-flex justify-content-center">
-                        <a href="/packages/{{$package->id}}/edit"><span class="material-icons" style="color:white;">edit</span></a>
-                        <form action="/packages/{{$package->id}}" method="post" id="deleteForm" enctype="multipart/form-data">
+                        <a href="/admin/packages/{{$package->id}}/edit"><span class="material-icons" style="color:white;">edit</span></a>
+                        <form action="/admin/packages/{{$package->id}}" method="post" id="deleteForm" enctype="multipart/form-data">
                             <!-- delete confirmation needed -->
                             @csrf
                             @method('delete')

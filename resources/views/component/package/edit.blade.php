@@ -10,7 +10,7 @@
             <p class="card-category">نوع بسته بندی را اضافه کنید</p>
           </div>
           <div class="card-body">
-            <form method="post" action="/packages/{{$package->id}}">
+            <form method="post" action="/admin/packages/{{$package->id}}">
               @csrf
               @method('put')
               <div class="row">
