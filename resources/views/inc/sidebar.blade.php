@@ -25,7 +25,7 @@
           @else
           <li class="nav-item ">
           @endif
-            <a class="nav-link" href="{{url('/aboutus/1/edit')}}">
+            <a class="nav-link" href="{{url('/admin/aboutus/1/edit')}}">
               <i class="material-icons">content_paste</i>
               <p>about us</p>
             </a>
@@ -36,7 +36,7 @@
           @else
           <li class="nav-item ">
           @endif
-            <a class="nav-link" href="{{url('blogs')}}">
+            <a class="nav-link" href="{{route('blogs.index')}}">
               <!-- change 1 to blog_id -->
               <i class="material-icons">content_paste</i>
               <!-- change this to a better icon -->
