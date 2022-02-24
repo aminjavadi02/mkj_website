@@ -9,7 +9,7 @@
             <h4 class="card-title">اضافه کردن اعضای هیات مدیره</h4>
           </div>
           <div class="card-body">
-            <form method="post" action="{{url('/managers')}}" enctype="multipart/form-data">
+            <form method="post" action="{{route('managers.store')}}" enctype="multipart/form-data">
               @csrf
               <div class="row">
                 <div class="col-md-5">

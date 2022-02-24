@@ -20,7 +20,7 @@
                         <div class="d-flex flex-column bd-highlight">
                           <img src="{{asset('storage/images/'.$image->image_name)}}" id="galleryimage" width="200px">
                         </div>
-                        <form action="/itemimages/{{$image->id}}" method="post" class="d-flex p-0 delete-form" id="deleteForm" style="justify-content:center" enctype="multipart/form-data">
+                        <form action="/admin/itemimages/{{$image->id}}" method="post" class="d-flex p-0 delete-form" id="deleteForm" style="justify-content:center" enctype="multipart/form-data">
                         @csrf
                         @method('delete')
                         <button type="submit" class="close" style=" height:25px; margin-top:40px; margin-right:10px;" >

@@ -9,7 +9,7 @@
             <h4 class="card-title"> ویرایش اعضای هیات مدیره</h4>
           </div>
           <div class="card-body">
-            <form method="post" action="/managers/{{$manager->id}}" enctype="multipart/form-data">
+            <form method="post" action="/admin/managers/{{$manager->id}}" enctype="multipart/form-data">
               @csrf
               @method('put')
               <div class="row">

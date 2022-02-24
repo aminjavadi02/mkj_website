@@ -27,8 +27,8 @@
                     <td>{{$manager->name_fa}}</td>
                     <td>{{$manager->position_fa}}</td>
                     <td class="d-flex justify-content-center">
-                        <a href="/managers/{{$manager->id}}/edit"><span class="material-icons" style="color:white;">edit</span></a>
-                        <form action="/managers/{{$manager->id}}" method="post" id="deleteForm" enctype="multipart/form-data">
+                        <a href="/admin/managers/{{$manager->id}}/edit"><span class="material-icons" style="color:white;">edit</span></a>
+                        <form action="/admin/managers/{{$manager->id}}" method="post" id="deleteForm" enctype="multipart/form-data">
                             <!-- delete confirmation needed -->
                             @csrf
                             @method('delete')
