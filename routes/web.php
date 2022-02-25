@@ -35,6 +35,9 @@ Route::view('/','welcome');
 Route::group(['middleware' => 'auth'],function(){
     
     Route::view('/admin','layouts.app');
+    Route::get('/home',function(){
+        return redirect('/admin');
+    });
 
     Route::prefix('admin')->group(function(){
 

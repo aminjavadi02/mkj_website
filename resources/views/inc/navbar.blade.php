@@ -13,19 +13,7 @@
           <div class="collapse navbar-collapse justify-content-end">
           <ul class="navbar-nav ms-auto">
             <!-- Authentication Links -->
-            @guest
-                @if (Route::has('login'))
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                    </li>
-                @endif
-
-                @if (Route::has('register'))
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                    </li>
-                @endif
-            @else
+            @auth
                 <li class="nav-item dropdown" style="margin-right:100px;">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                         {{ Auth::user()->name }}
@@ -43,7 +31,7 @@
                         </form>
                     </div>
                 </li>
-            @endguest
+            @endauth
           </ul>
           </div>
         </div>
