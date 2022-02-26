@@ -25,14 +25,14 @@
               <div class="row">
                 <div class="col-md-5">
                   <div class="form-group">
-                    <label class="bmd-label-floating">نام فارسی</label>
+                    <label class="bmd-label-floating">نام فارسی*</label>
                     <input type="text" name="name_fa" class="form-control" value="{{$package->name_fa}}">
                   </div>
                 </div>
                 <br><br>
                 <div class="col-md-5">
                   <div class="form-group">
-                    <label class="bmd-label-floating">نام انگلیسی</label>
+                    <label class="bmd-label-floating">نام انگلیسی*</label>
                     <input type="text" name="name_en" class="form-control" value="{{$package->name_en}}">
                   </div>
                 </div>
