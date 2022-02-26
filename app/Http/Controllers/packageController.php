@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Packages;
 use Illuminate\Http\Request;
+use App\Http\Requests\packageCreate;
 
 class packageController extends Controller
 {
@@ -39,12 +40,9 @@ class packageController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(packageCreate $request)
     {
-        $package = Packages::create([
-            'name_fa'=>$request->name_fa,
-            'name_en'=>$request->name_en,
-        ]);
+        $package = Packages::create($request->validated());
         return redirect()->route('packages.index');
     }
 
@@ -66,12 +64,9 @@ class packageController extends Controller
      * @param  \App\Models\Packages  $packages
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Packages $package)
+    public function update(packageCreate $request, Packages $package)
     {
-        $package->update([
-            'name_fa'=>$request->name_fa,
-            'name_en'=>$request->name_en,
-        ]);
+        $package->update($request->validated());
         return redirect()->route('packages.index');
         // return to index with success message
     }

@@ -10,6 +10,15 @@
             <p class="card-category">نوع بسته بندی را اضافه کنید</p>
           </div>
           <div class="card-body">
+          @if($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+          @endif
             <form method="post" action="{{route('packages.store')}}">
               @csrf
               <div class="row">
