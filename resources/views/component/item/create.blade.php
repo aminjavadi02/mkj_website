@@ -76,7 +76,7 @@
                     <div class="form-check">
                       <!-- naming this way cause it should be different from tree ids -->
                       <!-- add all inputs to a list in js then send it -->
-                      <input type="checkbox" value="{{$package->id}}" id="{{$package->id}}checkbox">
+                      <input type="checkbox" value="{{$package->id}}" id="{{$package->id}}checkbox" name="packages[{{$package->id}}]">
                       <label for="{{$package->id}}checkbox">
                         {{$package->name_fa}}
                       </label>
@@ -177,30 +177,6 @@
         $(this).toggleClass("caret-down");
         this.parentElement.querySelector(".nested").classList.toggle("active");
         }
-    }
-    
-    // checkbox of packages
-    var selectedlist = [];
-    // first load
-    for(var i = 0; i < $('input[type=checkbox]').length; i++) {
-      if($('input[type=checkbox]').eq(i).prop('checked')){
-        selectedlist.push($('input[type=checkbox]').eq(i)[0].value)
-        $('#package_id_list').val(selectedlist);
-      }
-      // on change
-      $('input[type=checkbox]').eq(i)[0].onchange = function() {
-        // "this" == input tag
-        if(this.checked){
-          // check
-          selectedlist.push(this['value']);
-          $('#package_id_list').val(selectedlist);
-        }
-        else{
-          // uncheck
-          selectedlist.splice(selectedlist.indexOf(this['value']), 1);
-          $('#package_id_list').val(selectedlist);
-        }
-      }
     }
   }
 

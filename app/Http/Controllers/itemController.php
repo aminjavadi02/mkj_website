@@ -53,6 +53,7 @@ class itemController extends Controller
      */
     public function store(Request $request)
     {
+        $packages = $request->packages;
         $item = Item::create([
             'name_fa'=>$request->name_fa,
             'name_en'=>$request->name_en,
@@ -64,7 +65,6 @@ class itemController extends Controller
         ]);
 
         // attach item and packages to itempackage table
-        $packages = explode(',', $request->package_id);
         foreach($packages as $package){
             $item->packages()->attach($package);
         }
