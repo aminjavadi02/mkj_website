@@ -54,19 +54,25 @@ Route::group(['middleware' => 'auth'],function(){
             'create',
         ]);
         $address = 'App\Http\Controllers\itemController';
-        Route::get('/createitem/{category_id?}',$address.'@create')->name('items.create');
+        Route::get('/createitem/{category_id?}',$address.'@create')
+        ->whereNumber('category_id')
+        ->name('items.create');
 
 
         Route::resource('itemimages',itemImageController::class)->only([
             'show','store','destroy'
         ]);
         $address = 'App\Http\Controllers\itemImageController';
-        Route::get('/createitemimages/{item_id}',$address.'@create')->name('itemimages.create');
+        Route::get('/createitemimages/{item_id}',$address.'@create')
+        ->whereNumber('item_id')
+        ->name('itemimages.create');
 
 
         Route::resource('categories',categoryController::class)->except(['create']);
         $address = 'App\Http\Controllers\categoryController';
-        Route::get('categories/{parent_id}/create',$address.'@create')->name('categories.create');
+        Route::get('categories/{parent_id}/create',$address.'@create')
+        ->whereNumber('parent_id')
+        ->name('categories.create');
 
         Route::resource('packages',packageController::class)->except(['show']);
 
