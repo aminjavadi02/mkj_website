@@ -40,18 +40,17 @@ class aboutusController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function update(Request $request, $id)
+    public function update(Request $request, Aboutus $aboutu)
     {
-        $aboutus = Aboutus::find($id);
         if($request->hasfile('image')){
-            $picture_name = handyController::UploadNewImage($request->image,$aboutus);
+            $picture_name = handyController::UploadNewImage($request->image,$aboutu);
         }
         // if he wants to delete picture delete it. if not, don't
         else{
-            handyController::deleteOldImage($aboutus->image_name);
+            handyController::deleteOldImage($aboutu->image_name);
             $picture_name = null;
         }
-        $aboutus->update([
+        $aboutu->update([
             "history_en" => $request->history_en,
             "history_fa" => $request->history_fa,
             "factory_phone"=> $request->factory_phone,
@@ -64,7 +63,6 @@ class aboutusController extends Controller
             "google_location_office" => $request->google_location_office,
             "image_name" => $picture_name,
         ]);
-        
         return redirect()->back();
         // works fine
     }
