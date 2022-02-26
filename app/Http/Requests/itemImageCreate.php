@@ -25,6 +25,7 @@ class itemImageCreate extends FormRequest
     {
         return [
             'image'=>'required|mimes:jpg,png|file|max:6000',
+            'item_id'=>'required|exists:items,id',
         ];
     }
 

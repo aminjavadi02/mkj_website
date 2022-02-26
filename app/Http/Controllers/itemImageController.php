@@ -41,13 +41,8 @@ class itemImageController extends Controller
      */
     public function store(itemImageCreate $request)
     {
-        if($request->hasfile('image')){
-            $image_name = $request->image->getClientOriginalName();
-            $request->image->storeAs('images',$image_name,'public');
-        }else{
-            return redirect()->back();
-            // with error message
-        }
+        $image_name = $request->image->getClientOriginalName();
+        $request->image->storeAs('images',$image_name,'public');
         $photo = itemImage::create([
             'image_name'=>$image_name,
             'item_id'=>$request->item_id,
