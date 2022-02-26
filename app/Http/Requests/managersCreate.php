@@ -30,7 +30,7 @@ class managersCreate extends FormRequest
             'position_en'=> 'required',
             'about_fa'=> 'required',
             'about_en'=> 'required',
-            'image'=> 'mimes:jpg,bmp,png|file|max:6000',
+            'image'=> 'mimes:jpg,png|file|max:6000',
         ];
     }
 
@@ -43,7 +43,7 @@ class managersCreate extends FormRequest
             'position_en.required'=>'لطفا سمت شغلی انگلیسی را وارد کنید',
             'about_fa.required'=>'لطفا درباره فارسی را وارد کنید',
             'about_en.required'=>'لطفا درباره انگلیسی را وارد کنید',
-            'image.mimes'=>'لطفا فایل عکس انتخاب کنید',
+            'image.mimes'=>'jpg/jpeg/png فقط فرمت های روبرو قابل قبول است',
             'image.max'=>'حجم عکس انتخاب شده باید حداکثر ۶ مگابایت باشد',
         ];
     }

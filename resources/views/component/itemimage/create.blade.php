@@ -7,6 +7,7 @@
         <p class="card-category">عکس را انتخاب نمایید</p>
     </div>
     <div class="card-body">
+        @include('messages.errors')
         <form method="post" action="{{route('itemimages.store')}}" enctype="multipart/form-data">
             <!-- go to store gallery -->
         @csrf

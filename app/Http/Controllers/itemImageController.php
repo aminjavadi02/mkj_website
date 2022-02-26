@@ -6,6 +6,7 @@ use App\Models\itemImage;
 use Illuminate\Http\Request;
 use App\Models\Item;
 use App\Http\Controllers\handyController;
+use App\Http\Requests\itemImageCreate;
 
 class itemImageController extends Controller
 {
@@ -38,7 +39,7 @@ class itemImageController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(itemImageCreate $request)
     {
         if($request->hasfile('image')){
             $image_name = $request->image->getClientOriginalName();
