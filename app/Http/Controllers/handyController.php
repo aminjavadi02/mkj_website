@@ -7,6 +7,11 @@ use Illuminate\Support\Facades\Storage;
 
 class handyController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public static function UploadNewImage($image,$model)
     {
         if($model->image_name){

@@ -9,6 +9,10 @@ use App\Http\Controllers\handyController;
 
 class itemImageController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     // show images
 
     // routes: create, store, destroy, show

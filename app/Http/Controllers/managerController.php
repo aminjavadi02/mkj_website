@@ -8,6 +8,10 @@ use App\Http\Controllers\handyController;
 
 class managerController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -15,6 +19,7 @@ class managerController extends Controller
      */
     public function index()
     {
+        dd('hi');
         $managers = Manager::select('id','name_fa','name_en','position_fa','position_en')->get()->all();
         return view('component.manager.index')->with('managers',$managers);
     }
