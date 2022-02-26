@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Manager;
 use Illuminate\Http\Request;
 use App\Http\Controllers\handyController;
+use App\Http\Requests\managersCreate;
 
 class managerController extends Controller
 {
@@ -19,7 +20,6 @@ class managerController extends Controller
      */
     public function index()
     {
-        dd('hi');
         $managers = Manager::select('id','name_fa','name_en','position_fa','position_en')->get()->all();
         return view('component.manager.index')->with('managers',$managers);
     }
@@ -40,7 +40,7 @@ class managerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(managersCreate $request)
     {
         if($request->hasfile('image')){
             $image_name = $request->image->getClientOriginalName();
@@ -48,13 +48,15 @@ class managerController extends Controller
         }else{
             $image_name = null;
         }
+        $validated = $request->safe();
+
         $manager = Manager::create([
-            'name_fa'=>$request->name_fa,
-            'name_en'=>$request->name_en,
-            'position_fa'=>$request->position_fa,
-            'position_en'=>$request->position_en,
-            'about_fa'=>$request->about_fa,
-            'about_en'=>$request->about_en,
+            'name_fa'=>$validated->name_fa,
+            'name_en'=>$validated->name_en,
+            'position_fa'=>$validated->position_fa,
+            'position_en'=>$validated->position_en,
+            'about_fa'=>$validated->about_fa,
+            'about_en'=>$validated->about_en,
             'image_name'=>$image_name
         ]);
         return redirect()->route('managers.index');
@@ -79,7 +81,7 @@ class managerController extends Controller
      * @param  \App\Models\Manager  $manager
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Manager $manager)
+    public function update(managersCreate $request, Manager $manager)
     {
         if($request->hasfile('image')){
             $picture_name = handyController::UploadNewImage($request->image,$manager);
@@ -88,13 +90,14 @@ class managerController extends Controller
             handyController::deleteOldImage($manager->image_name);
             $picture_name=null;
         }
+        $validated = $request->safe();
         $manager->update([
-            'name_fa'=>$request->name_fa,
-            'name_en'=>$request->name_en,
-            'position_fa'=>$request->position_fa,
-            'position_en'=>$request->position_en,
-            'about_fa'=>$request->about_fa,
-            'about_en'=>$request->about_en,
+            'name_fa'=>$validated->name_fa,
+            'name_en'=>$validated->name_en,
+            'position_fa'=>$validated->position_fa,
+            'position_en'=>$validated->position_en,
+            'about_fa'=>$validated->about_fa,
+            'about_en'=>$validated->about_en,
             'image_name'=>$picture_name,
         ]);
         return redirect()->route('managers.index');
