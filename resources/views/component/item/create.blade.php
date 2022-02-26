@@ -82,7 +82,6 @@
                       </label>
                     </div>
                     @endforeach
-                    <input id="package_id_list" type="text" name="package_id" hidden>
                     @else
                     <br>
                     <label class="bmd-label-floating">نوع بسته بندی وجود ندارد</label><br>

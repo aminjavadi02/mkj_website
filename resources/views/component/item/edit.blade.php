@@ -76,21 +76,20 @@
                     @foreach($packages as $package)
                       @if(in_array($package->id,$checkedArray))
                       <div class="form-check">
-                        <input type="checkbox" value="{{$package->id}}" id="{{$package->id}}checkbox" checked>
+                        <input type="checkbox" value="{{$package->id}}" id="{{$package->id}}checkbox" name="packages[{{$package->id}}]" checked>
                         <label for="{{$package->id}}checkbox">
                           {{$package->name_fa}}
                         </label>
                       </div>
                       @else
                       <div class="form-check">
-                        <input type="checkbox" value="{{$package->id}}" id="{{$package->id}}checkbox">
+                        <input type="checkbox" value="{{$package->id}}" id="{{$package->id}}checkbox" name="packages[{{$package->id}}]">
                         <label for="{{$package->id}}checkbox">
                           {{$package->name_fa}}
                         </label>
                       </div>
                       @endif
                     @endforeach
-                    <input id="package_id_list" type="text" name="package_id" hidden>
                     @endif
                   </div>
                 </div>
@@ -126,7 +125,6 @@
   // @ json(laravelValue) -> turns laravel object to json object
   const ul = $('#tree');
   // ul is an object. ul[0] is the tag itself.
-
   drawTree(treeObject,ul[0],"category_id");
 
   window.onload = function () {
@@ -149,28 +147,6 @@
         $(this).toggleClass("caret-down");
         this.parentElement.querySelector(".nested").classList.toggle("active");
         }
-    }
-    // checkbox
-    var selectedlist = [];
-    for(var i = 0; i < $('input[type=checkbox]').length; i++) {
-      if($('input[type=checkbox]').eq(i).prop('checked')){
-        selectedlist.push($('input[type=checkbox]').eq(i)[0].value)
-        $('#package_id_list').val(selectedlist);
-      }
-      // on change
-      $('input[type=checkbox]').eq(i)[0].onchange = function() {
-        // "this" == input tag
-        if(this.checked){
-          // check
-          selectedlist.push(this['value']);
-          $('#package_id_list').val(selectedlist);
-        }
-        else{
-          // uncheck
-          selectedlist.splice(selectedlist.indexOf(this['value']), 1);
-          $('#package_id_list').val(selectedlist);
-        }
-      }
     }
   }
 </script>

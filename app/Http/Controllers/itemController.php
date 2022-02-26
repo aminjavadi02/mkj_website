@@ -111,8 +111,8 @@ class itemController extends Controller
      */
     public function update(Request $request, Item $item)
     {   
+        $packages = $request->packages;
         $records = $item->packages()->get()->all();
-        $packages = explode(',', $request->package_id);
         if(empty($records)){
             foreach($packages as $package){
                 $item->packages()->attach($package);
