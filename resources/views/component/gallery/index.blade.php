@@ -4,6 +4,7 @@
 <!-- show all images -->
 <div class="content">
   <div class="container-fluid">
+  @include('messages.errors')
     <div class="row">
       <div class="col-md-11">
         <div class="card">

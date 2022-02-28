@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Gallery;
 use Illuminate\Http\Request;
 use App\Http\Controllers\handyController;
+use App\Http\Requests\galleryCreate;
 
 class galleryController extends Controller
 {
@@ -38,7 +39,7 @@ class galleryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(galleryCreate $request)
     {
         // if ($request->image) then save image
         if($request->hasfile('image')){
