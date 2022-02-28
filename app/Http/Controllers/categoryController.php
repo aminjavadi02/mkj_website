@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Item;
 use Illuminate\Http\Request;
-use App\Http\Requests\CreateCategory;
+use App\Http\Requests\categoryCreate;
 
 class categoryController extends Controller
 {
@@ -43,8 +43,7 @@ class categoryController extends Controller
         // if parent_id was in categories table
         elseif(Category::find($parent_id))
         {
-            $parent_id = Category::find($parent_id);
-            return view('component.category.create',compact('parent_id'));
+            return view('component.category.create')->with('parent_id',Category::find($parent_id));
         }
         else{
             return redirect()->route('categories.index');
@@ -58,7 +57,7 @@ class categoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(categoryCreate $request)
     {
         $category = Category::create([
             'name_fa'=>$request->name_fa,
@@ -103,7 +102,7 @@ class categoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(categoryCreate $request, Category $category)
     {
         // to not put itself as parent
         if($category->id != $request->parent_id){

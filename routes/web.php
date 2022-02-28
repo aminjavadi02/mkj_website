@@ -71,7 +71,7 @@ Route::group(['middleware' => 'auth'],function(){
         Route::resource('categories',categoryController::class)->except(['create']);
         $address = 'App\Http\Controllers\categoryController';
         Route::get('categories/{parent_id}/create',$address.'@create')
-        ->whereNumber('parent_id')
+        ->whereAlphaNumeric('parent_id')
         ->name('categories.create');
 
         Route::resource('packages',packageController::class)->except(['show']);
