@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\CallInfo;
 use Illuminate\Http\Request;
+use App\Http\Requests\callinfoCreate;
 
 class callInfoController extends Controller
 {
@@ -38,7 +39,7 @@ class callInfoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(callinfoCreate $request)
     {
         $callInfo = CallInfo::create([
             'name_fa' =>$request->name_fa,
@@ -71,7 +72,7 @@ class callInfoController extends Controller
      * @param  \App\Models\CallInfo  $callInfo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, CallInfo $callinfo)
+    public function update(callinfoCreate $request, CallInfo $callinfo)
     {
         $callinfo->update([
             'name_fa' =>$request->name_fa,

@@ -17,9 +17,9 @@ class CreateCallInfoTable extends Migration
             Schema::create('call_info', function (Blueprint $table) {
                 $table->id();
                 $table->string('name_fa');
-                $table->string('name_en');
+                $table->string('name_en')->nullable();
                 $table->string('position_fa');
-                $table->string('position_en');
+                $table->string('position_en')->nullable();
                 $table->string('phone_number');
             });
         }

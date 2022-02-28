@@ -9,12 +9,13 @@
             <h4 class="card-title">اضافه کردن شماره تلفن</h4>
           </div>
           <div class="card-body">
+            @include('messages.errors')
             <form method="post" action="{{route('callinfo.store')}}" enctype="multipart/form-data">
               @csrf
               <div class="row">
                 <div class="col-md-5">
                   <div class="form-group">
-                    <label class="bmd-label-floating">نام فارسی</label>
+                    <label class="bmd-label-floating">*نام فارسی</label>
                     <input type="text" name="name_fa" class="form-control">
                   </div>
                 </div>
@@ -30,7 +31,7 @@
                 <div class="col-md-5">
                   <div class="form-group">
                     <div class="form-group">
-                        <label class="bmd-label-floating">سمت شغلی فارسی</label>
+                        <label class="bmd-label-floating">*سمت شغلی فارسی</label>
                         <input type="text" name="position_fa" class="form-control">
                     </div>
                   </div>
@@ -46,7 +47,7 @@
                 <div class="col-md-5">
                   <div class="form-group">
                     <div class="form-group">
-                        <label class="bmd-label-floating">شماره تلفن</label>
+                        <label class="bmd-label-floating">*شماره تلفن</label>
                         <input type="text" name="phone_number" class="form-control">
                     </div>
                   </div>

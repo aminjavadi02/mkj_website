@@ -9,13 +9,14 @@
             <h4 class="card-title"> ویرایش شماره تلفن</h4>
           </div>
           <div class="card-body">
+            @include('messages.errors')
             <form method="post" action="/admin/callinfo/{{$callinfo->id}}" enctype="multipart/form-data">
               @csrf
               @method('put')
               <div class="row">
                 <div class="col-md-5">
                   <div class="form-group">
-                    <label class="bmd-label-floating">نام فارسی</label>
+                    <label class="bmd-label-floating">*نام فارسی</label>
                     <input type="text" name="name_fa" class="form-control" value="{{$callinfo->name_fa}}">
                   </div>
                 </div>
@@ -31,7 +32,7 @@
                 <div class="col-md-5">
                   <div class="form-group">
                     <div class="form-group">
-                        <label class="bmd-label-floating">سمت شغلی فارسی</label>
+                        <label class="bmd-label-floating">*سمت شغلی فارسی</label>
                         <input type="text" name="position_fa" class="form-control" value="{{$callinfo->position_fa}}">
                     </div>
                   </div>
@@ -47,8 +48,8 @@
                 <div class="col-md-5">
                   <div class="form-group">
                     <div class="form-group">
-                        <label class="bmd-label-floating">شماره تلفن</label>
-                        <input type="text" name="phone_number" class="form-control" value="{{$callinfo->phone_number}}">
+                        <label class="bmd-label-floating">*شماره تلفن</label>
+                        <input type="text" name="phone_number" class="form-control" value="{{$callinfo->phone_number}}" >
                     </div>
                   </div>
                 </div>
