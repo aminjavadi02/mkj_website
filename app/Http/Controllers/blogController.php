@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Blog;
 use Illuminate\Http\Request;
 use App\Http\Controllers\handyController;
+use App\Http\Requests\blogCreate;
 
 class blogController extends Controller
 {
@@ -39,7 +40,7 @@ class blogController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(blogCreate $request)
     {
         if($request->hasfile('image')){
             $image_name = $request->image->getClientOriginalName();
@@ -88,7 +89,7 @@ class blogController extends Controller
      * @param  \App\Models\Blog  $blog
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Blog $blog)
+    public function update(blogCreate $request, Blog $blog)
     {
         if($request->hasfile('image')){
             $picture_name = handyController::UploadNewImage($request->image,$blog);

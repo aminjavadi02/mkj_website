@@ -10,6 +10,7 @@
             <p class="card-category">ویرایش بلاگ</p>
           </div>
           <div class="card-body">
+            @include('messages.errors')
             <form method="post" action="/admin/blogs/{{$blog->id}}" enctype="multipart/form-data">
               @csrf
               @method('PUT')
