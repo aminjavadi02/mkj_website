@@ -24,8 +24,8 @@ class packageCreate extends FormRequest
     public function rules()
     {
         return [
-            'name_fa'=>'required',
-            'name_en'=>'required',
+            'name_fa'=>'required|between:1,255',
+            'name_en'=>'required|between:1,255',
         ];
     }
 
@@ -34,6 +34,8 @@ class packageCreate extends FormRequest
         return [
             'name_fa.required'=>'لطفا نام فارسی را وارد کنید',
             'name_en.required'=>'لطفا نام انگلیسی را وارد کنید',
+            'name_fa.between'=>'تعداد کاراکترهای نام فارسی باید حداکثر 255 تا باشد',
+            'name_en.between'=>'تعداد کاراکترهای نام انگلیسی باید حداکثر 255 تا باشد',
         ];
     }
 }

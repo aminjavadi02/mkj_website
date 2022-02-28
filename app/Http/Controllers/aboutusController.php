@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Aboutus;
 use App\Http\Controllers\handyController;
+use App\Http\Requests\aboutusCreate;
 
 // a link generated to access storage. to show the image to user
 // to show image <img src="{{asset('storage/images/imageColoumnInDB')}}" alt="image">
@@ -40,7 +41,7 @@ class aboutusController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function update(Request $request, Aboutus $aboutu)
+    public function update(aboutusCreate $request, Aboutus $aboutu)
     {
         if($request->hasfile('image')){
             $picture_name = handyController::UploadNewImage($request->image,$aboutu);

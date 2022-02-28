@@ -24,7 +24,7 @@ class galleryCreate extends FormRequest
     public function rules()
     {
         return [
-            'image'=>'required|mimes:jpg,png|file|max:6000',
+            'image'=>'required|mimes:jpg,png|file|max:6000|between:1,255',
         ];
     }
 
@@ -34,6 +34,7 @@ class galleryCreate extends FormRequest
             'image.required'=>'لطفا عکس را انتخاب کنید',
             'image.mimes'=>'jpg/jpeg/png فقط فرمت های روبرو قابل قبول است',
             'image.max'=>'حجم عکس انتخاب شده باید حداکثر ۶ مگابایت باشد',
+            "image.between" => 'حداکثر کاراکترهای مجاز برای نام عکس 255 تا است',
         ];
     }
 }

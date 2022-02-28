@@ -6,7 +6,7 @@ use App\Models\Item;
 use App\Models\Packages;
 use App\Models\Category;
 use Illuminate\Http\Request;
-use App\Http\Requests\createItem;
+use App\Http\Requests\itemCreate;
 
 class itemController extends Controller
 {
@@ -52,7 +52,7 @@ class itemController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(createItem $request)
+    public function store(itemCreate $request)
     {
         $packages = $request->packages;
         $item = Item::create([
@@ -110,7 +110,7 @@ class itemController extends Controller
      * @param  \App\Models\Item  $item
      * @return \Illuminate\Http\Response
      */
-    public function update(createItem $request, Item $item)
+    public function update(itemCreate $request, Item $item)
     {   
         $packages = $request->packages;
         $records = $item->packages()->get()->all();

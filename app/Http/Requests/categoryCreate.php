@@ -24,8 +24,9 @@ class categoryCreate extends FormRequest
     public function rules()
     {
         return [
-            'name_fa'=>'required',
-            'name_en'=>'required',
+            'name_fa'=>'required|between:1,255',
+            'name_en'=>'required|between:1,255',
+            
         ];
     }
 
@@ -33,7 +34,9 @@ class categoryCreate extends FormRequest
     {
         return [
             'name_fa.required'=>'لطفا نام فارسی دسته بندی را وارد کنید',
-            'name_en.required'=>'لطفا نام انگلیسی دسته بندی را وارد کنید'
+            'name_en.required'=>'لطفا نام انگلیسی دسته بندی را وارد کنید',
+            'name_fa.between'=>'تعداد کاراکترهای نام فارسی باید حداکثر 255 تا باشد',
+            'name_en.between'=>'تعداد کاراکترهای نام انگلیسی باید حداکثر 255 تا باشد',
         ];
     }
 }

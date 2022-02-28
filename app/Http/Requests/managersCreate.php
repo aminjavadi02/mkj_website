@@ -24,13 +24,13 @@ class managersCreate extends FormRequest
     public function rules()
     {
         return [
-            'name_fa'=> 'required',
-            'name_en'=> 'required',
-            'position_fa'=> 'required',
-            'position_en'=> 'required',
+            'name_fa'=> 'required|between:1,255',
+            'name_en'=> 'required|between:1,255',
+            'position_fa'=> 'required|between:1,255',
+            'position_en'=> 'required|between:1,255',
             'about_fa'=> 'required',
             'about_en'=> 'required',
-            'image'=> 'mimes:jpg,png|file|max:6000',
+            'image'=> 'mimes:jpg,png|file|max:6000|between:0,255',
         ];
     }
 
@@ -45,6 +45,11 @@ class managersCreate extends FormRequest
             'about_en.required'=>'لطفا درباره انگلیسی را وارد کنید',
             'image.mimes'=>'jpg/jpeg/png فقط فرمت های روبرو قابل قبول است',
             'image.max'=>'حجم عکس انتخاب شده باید حداکثر ۶ مگابایت باشد',
+            "image.between" => 'حداکثر کاراکترهای مجاز برای نام عکس 255 تا است',
+            'name_fa.between' =>'حداکثر کاراکترهای مجاز برای نام فارسی ۲۵۵ تا است',
+            'name_en.between' =>'حداکثر کاراکترهای مجاز برای نام انگلیسی ۲۵۵ تا است',
+            'position_fa.between' =>'حداکثر کاراکترهای مجاز برای سمت فارسی ۲۵۵ تا است',
+            'position_en.between' =>'حداکثر کاراکترهای مجاز برای سمت انگلیسی ۲۵۵ تا است',
         ];
     }
 }
