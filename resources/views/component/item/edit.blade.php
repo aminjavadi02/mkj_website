@@ -10,6 +10,7 @@
             <p class="card-category">مشخصات محصول را ویرایش کنید</p>
           </div>
           <div class="card-body">
+          @include('messages.errors')
             <form method="post" action="/admin/items/{{$item->id}}" enctype="multipart/form-data">
               @csrf
               @method('put')

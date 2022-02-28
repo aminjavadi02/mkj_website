@@ -10,6 +10,7 @@
             <p class="card-category">محصول جدید اضافه کنید!</p>
           </div>
           <div class="card-body">
+            @include('messages.errors')
             <form method="post" action="{{route('items.store')}}" enctype="multipart/form-data">
               @csrf
               <div class="row">

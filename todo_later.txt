@@ -9,3 +9,5 @@
 1.2: stor and delete for itemImage
 2- create show item for admin
 2.1: show images in show of item
+
+1- validation in items and above of it controllers
