@@ -64,7 +64,7 @@ class categoryController extends Controller
             'name_en'=>$request->name_en,
             'parent_id'=>$request->parent_id
         ]);
-        return redirect()->route('categories.index');
+        return redirect()->route('categories.index')->with('success','با موفقیت اضافه شد');
         // works fine
         // add success message here to show user
     }
@@ -111,10 +111,10 @@ class categoryController extends Controller
                 'name_fa'=>$request->name_fa,
                 'parent_id'=>$request->parent_id
             ]);
-            return redirect()->route('categories.index');
+            return redirect()->route('categories.index')->with('success','با موفقیت ویرایش شد');
             // reutrn with success message
         }
-        return redirect()->route('categories.index');
+        return redirect()->route('categories.index')->with('error','یک دسته بندی نمیتواند پدر خودش باشد');
         // else: return with error message
         // works fine
     }
@@ -128,7 +128,7 @@ class categoryController extends Controller
     public function destroy(Category $category)
     {
         $category->delete();
-        return redirect()->back();
+        return redirect()->back()->with('success','با موفقیت حذف شد');
         // with success message
     }
 }

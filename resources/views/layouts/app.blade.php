@@ -40,6 +40,7 @@
     @include('inc.sidebar')
     <div class="main-panel">
       @include('inc.navbar')
+      @include('inc.messages')
       @yield('content')
     </div>
 </div>

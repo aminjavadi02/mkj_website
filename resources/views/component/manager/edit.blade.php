@@ -9,7 +9,6 @@
             <h4 class="card-title"> ویرایش اعضای هیات مدیره</h4>
           </div>
           <div class="card-body">
-            @include('messages.errors')
             <form method="post" action="/admin/managers/{{$manager->id}}" enctype="multipart/form-data">
               @csrf
               @method('put')

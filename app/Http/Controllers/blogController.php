@@ -55,7 +55,7 @@ class blogController extends Controller
             'text'=>$request->text,
             'image_name'=>$image_name
         ]);
-        return redirect()->route('blogs.index');
+        return redirect()->route('blogs.index')->with('success','با موفقیت اضافه شد');;
         // with success message
         // works fine
     }
@@ -104,7 +104,7 @@ class blogController extends Controller
             'text'=>$request->text,
             'image_name'=>$picture_name
         ]);
-        return redirect()->route('blogs.index');
+        return redirect()->route('blogs.index')->with('success','با موفقیت ویرایش شد');
         // works fine
     }
 
@@ -120,6 +120,6 @@ class blogController extends Controller
             handyController::deleteOldImage($blog->image_name);
         }
         $blog->delete();
-        return redirect()->route('blogs.index');
+        return redirect()->route('blogs.index')->with('success','با موفقیت حذف شد');;
     }
 }

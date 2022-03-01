@@ -10,7 +10,6 @@
             <p class="card-category">دسته بندی جدید بسازید!</p>
           </div>
           <div class="card-body">
-            @include('messages.errors')
             <form method="post" action="{{route('categories.store')}}" enctype="multipart/form-data">
             <!-- change to categories -->
               @csrf

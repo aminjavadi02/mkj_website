@@ -9,7 +9,6 @@
             <h4 class="card-title"> ویرایش شماره تلفن</h4>
           </div>
           <div class="card-body">
-          @include('inc.messages')
             <form method="post" action="/admin/callinfo/{{$callinfo->id}}" enctype="multipart/form-data">
               @csrf
               @method('put')

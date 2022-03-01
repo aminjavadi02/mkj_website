@@ -64,7 +64,7 @@ class aboutusController extends Controller
             "google_location_office" => $request->google_location_office,
             "image_name" => $picture_name,
         ]);
-        return redirect()->back();
+        return redirect()->back()->with('success','با موفقیت ویرایش شد');
         // works fine
     }
 }

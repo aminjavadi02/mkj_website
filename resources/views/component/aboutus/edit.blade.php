@@ -10,7 +10,6 @@
             <p class="card-category">ویرایش صفحه درباره ی ما</p>
           </div>
           <div class="card-body">
-            @include('messages.errors')
             <form method="post" action="{{url('admin/aboutus/1')}}" enctype="multipart/form-data">
               @method('PUT')
               @csrf

@@ -43,7 +43,7 @@ class packageController extends Controller
     public function store(packageCreate $request)
     {
         $package = Packages::create($request->validated());
-        return redirect()->route('packages.index');
+        return redirect()->route('packages.index')->with('success','با موفقیت اضافه شد');
     }
 
     /**
@@ -67,8 +67,7 @@ class packageController extends Controller
     public function update(packageCreate $request, Packages $package)
     {
         $package->update($request->validated());
-        return redirect()->route('packages.index');
-        // return to index with success message
+        return redirect()->route('packages.index')->with('success','با موفقیت ویرایش شد');
     }
 
     /**
@@ -80,6 +79,6 @@ class packageController extends Controller
     public function destroy(Packages $package)
     {
         $package->delete();
-        return redirect()->back();
+        return redirect()->back()->with('success','با موفقیت حذف شد');
     }
 }

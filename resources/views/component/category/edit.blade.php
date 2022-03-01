@@ -9,7 +9,6 @@
             <h4 class="card-title">ویرایش دسته بندی</h4>
           </div>
           <div class="card-body">
-          @include('messages.errors')
             <form method="post" action="/admin/categories/{{$category->id}}">
             <!-- change to categories -->
               @csrf

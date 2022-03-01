@@ -10,7 +10,6 @@
             <p class="card-category">بلاگ جدید بسازید!</p>
           </div>
           <div class="card-body">
-            @include('messages.errors')
             <form method="post" action="{{route('blogs.store')}}" enctype="multipart/form-data">
               @csrf
               <div class="row">

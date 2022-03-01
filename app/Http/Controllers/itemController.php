@@ -69,7 +69,7 @@ class itemController extends Controller
         foreach($packages as $package){
             $item->packages()->attach($package);
         }
-        return redirect()->route('items.index');
+        return redirect()->route('items.index')->with('success','با موفقیت اضافه شد');
         // redirect to index with success message
     }
 
@@ -135,7 +135,7 @@ class itemController extends Controller
             'size'=>$request->size,
             'category_id'=>$request->category_id,
         ]);
-        return redirect()->route('items.index');
+        return redirect()->route('items.index')->with('success','با موفقیت ویرایش شد');
         // to index with success message
     }
 
@@ -148,7 +148,7 @@ class itemController extends Controller
     public function destroy(Item $item)
     {
         $item->delete();
-        return redirect()->route('items.index');
+        return redirect()->route('items.index')->with('success','با موفقیت حذف شد');
         // to index with success message
     }
 }

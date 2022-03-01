@@ -53,7 +53,7 @@ class galleryController extends Controller
             'name'=>$image_name,
         ]);
     
-        return redirect()->back();
+        return redirect()->back()->with('success','با موفقیت اضافه شد');
     }
 
     /**
@@ -68,7 +68,7 @@ class galleryController extends Controller
             handyController::deleteOldImage($gallery->name);
         }
         $gallery->delete();
-        return redirect()->back();
+        return redirect()->back()->with('success','با موفقیت حذف شد');
     }
 
 }

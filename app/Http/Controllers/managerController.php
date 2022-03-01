@@ -59,8 +59,7 @@ class managerController extends Controller
             'about_en'=>$validated->about_en,
             'image_name'=>$image_name
         ]);
-        return redirect()->route('managers.index');
-        // with success message
+        return redirect()->route('managers.index')->with('success','با موفقیت اضافه شد');
     }
 
     /**
@@ -100,8 +99,7 @@ class managerController extends Controller
             'about_en'=>$validated->about_en,
             'image_name'=>$picture_name,
         ]);
-        return redirect()->route('managers.index');
-        // with success message
+        return redirect()->route('managers.index')->with('success','با موفقیت ویرایش شد');
     }
 
     /**
@@ -116,8 +114,7 @@ class managerController extends Controller
             handyController::deleteOldImage($manager->image_name);
         }
         $manager->delete();
-        return redirect()->route('managers.index');
-        // with success message
+        return redirect()->route('managers.index')->with('success','با موفقیت حذف شد');
     }
 
     

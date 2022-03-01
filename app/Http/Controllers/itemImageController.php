@@ -14,13 +14,7 @@ class itemImageController extends Controller
     {
         $this->middleware('auth');
     }
-    // show images
-
-    // routes: create, store, destroy, show
-
-    /**
-     * show
-     */
+    
     public function show(Item $itemimage)
     {
         $item_id = $itemimage->id;
@@ -48,7 +42,7 @@ class itemImageController extends Controller
             'item_id'=>$request->item_id,
         ]);
     
-        return redirect()->back();
+        return redirect()->back()->with('success','با موفقیت اضافه شد');
         // with success message
     }
 
@@ -64,6 +58,6 @@ class itemImageController extends Controller
             handyController::deleteOldImage($itemimage->image_name);
         }
         $itemimage->delete();
-        return redirect()->back();
+        return redirect()->back()->with('success','با موفقیت حذف شد');
     }
 }
