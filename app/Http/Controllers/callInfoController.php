@@ -48,7 +48,7 @@ class callInfoController extends Controller
             'position_en' =>$request->position_en,
             'phone_number'=>$request->phone_number,
         ]);
-        return redirect()->route('callinfo.index');
+        return redirect()->route('callinfo.index')->with('success','با موفقیت اضافه شد');
         // with success message
     }
 
@@ -81,7 +81,7 @@ class callInfoController extends Controller
             'position_en' =>$request->position_en,
             'phone_number'=>$request->phone_number,
         ]);
-        return redirect()->route('callinfo.index');
+        return redirect()->route('callinfo.index')->with('success','تغییر با موفقیت انجام شد');
         // with success message
     }
 
@@ -94,7 +94,7 @@ class callInfoController extends Controller
     public function destroy(CallInfo $callinfo)
     {
         $callinfo->delete();
-        return redirect()->route('callinfo.index');
+        return redirect()->route('callinfo.index')->with('success','با موفقیت حذف شد');;
         // with success message
     }
 }

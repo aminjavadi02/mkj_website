@@ -9,7 +9,7 @@
             <h4 class="card-title">اضافه کردن شماره تلفن</h4>
           </div>
           <div class="card-body">
-            @include('messages.errors')
+          @include('inc.messages')
             <form method="post" action="{{route('callinfo.store')}}" enctype="multipart/form-data">
               @csrf
               <div class="row">

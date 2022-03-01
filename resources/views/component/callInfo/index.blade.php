@@ -9,6 +9,7 @@
             <h4 class="card-title">شماره تلفن ها</h4>
           </div>
         <div class="card-body">
+          @include('inc.messages')
             <div class="table-responsive">
             <table class="table table-sm">
             <thead class="thead-dark">
