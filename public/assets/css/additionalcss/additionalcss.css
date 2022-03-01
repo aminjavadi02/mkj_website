@@ -251,4 +251,16 @@ input[type="radio"]:checked + label {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+.alert {
+  margin: 0;
+  padding: 2vh 5vw 1vh 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  direction: rtl;
+}
 /*# sourceMappingURL=additionalcss.css.map */

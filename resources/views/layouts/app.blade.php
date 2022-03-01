@@ -39,7 +39,7 @@
   <div class="wrapper ">
     @include('inc.sidebar')
     <div class="main-panel">
-      @include('inc.navbar')
+      @include('inc.nav')
       @include('inc.messages')
       @yield('content')
     </div>

@@ -219,5 +219,11 @@ input[type="radio"]:checked+label{
     width: 15vw;
     background-repeat: no-repeat;
     background-size: cover;
-
+}
+.alert{
+    margin: 0;
+    padding: 2vh 5vw 1vh 0;
+    display: flex;
+    justify-content:flex-start;
+    direction: rtl;
 }
