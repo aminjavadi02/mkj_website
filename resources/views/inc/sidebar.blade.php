@@ -9,13 +9,12 @@
     </a></div>
     <div class="sidebar-wrapper">
         <ul class="nav">
-          @if(Route::is('app'))
+          @if(Route::is('admin'))
           <li class="nav-item active ">
           @else
           <li class="nav-item ">
           @endif
-            <!-- if route == dashboard then add "active" to its class -->
-            <a class="nav-link" href="{{route('app')}}">
+            <a class="nav-link" href="{{route('admin')}}">
               <i class="material-icons">dashboard</i>
               <p>Dashboard</p>
             </a>

@@ -22,10 +22,7 @@ use App\Http\Controllers\callInfoController;
 |
 */
 
-// random comment
-Route::get('/app', function () {
-    return view('layouts.app');
-})->name('app');
+
 
 Route::view('/','welcome');
 
@@ -34,7 +31,7 @@ Route::view('/','welcome');
 
 Route::group(['middleware' => 'auth'],function(){
     
-    Route::view('/admin','layouts.app');
+    Route::view('/admin','layouts.app')->name('admin');
     Route::get('/home',function(){
         return redirect('/admin');
     });

@@ -35,15 +35,18 @@ class itemImageController extends Controller
      */
     public function store(itemImageCreate $request)
     {
-        $image_name = $request->image->getClientOriginalName();
-        $request->image->storeAs('images',$image_name,'public');
-        $photo = itemImage::create([
-            'image_name'=>$image_name,
-            'item_id'=>$request->item_id,
-        ]);
-    
-        return redirect()->back()->with('success','با موفقیت اضافه شد');
-        // with success message
+        $image_name = handyController::imageNameGenerator('item_images','image_name',0);
+        if(!$image_name){
+            return redirect()->back()->with('error','خطا در نام گذاری عکس');
+        }
+        else {
+            $request->image->storeAs('images',$image_name,'public');
+            $photo = itemImage::create([
+                'image_name'=>$image_name,
+                'item_id'=>$request->item_id,
+            ]);
+            return redirect()->back()->with('success','با موفقیت اضافه شد');   
+        }
     }
 
     /**
@@ -60,4 +63,6 @@ class itemImageController extends Controller
         $itemimage->delete();
         return redirect()->back()->with('success','با موفقیت حذف شد');
     }
+
+    
 }

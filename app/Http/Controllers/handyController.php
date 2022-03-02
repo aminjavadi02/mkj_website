@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Validator;
 
 class handyController extends Controller
 {
@@ -25,5 +27,25 @@ class handyController extends Controller
     public static function deleteOldImage($image)
     {
         Storage::delete('/public/images/'.$image);
+    }
+
+
+    public static function imageNameGenerator($table,$column,$counter){
+        $image_name_array = ["image_name" => Str::random(32)];
+        $validator = Validator::make($image_name_array,[
+            'image_name'=>'unique:'.$table.','.$column
+        ]);
+        if($validator->fails()) {
+            $counter +=1 ;
+            if($counter>10){
+                return;
+            }
+            else{
+                handyController::imageNameGenerator($table,$column,$counter);
+            }
+        }
+        else{
+            return $image_name_array['image_name'];
+        }
     }
 }
