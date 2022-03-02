@@ -113,7 +113,7 @@ class managerController extends Controller
     public function destroy(Manager $manager)
     {
         if($manager->image_name){
-            handyController::deleteOldImage($manager->image_name);
+            handyController::deleteOldImage($manager->image_name,$manager->getTable());
         }
         $manager->delete();
         return redirect()->route('managers.index')->with('success','با موفقیت حذف شد');
