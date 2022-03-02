@@ -17,9 +17,9 @@ class handyController extends Controller
     public static function UploadNewImage($image,$model)
     {
         if($model->image_name){
-            $this->deleteOldImage($model->image_name);
+            handyController::deleteOldImage($model->image_name);
         }
-        $image_name = $image->getClientOriginalName();
+        $image_name = handyController::imageNameGenerator($model->getTable(),$image->getClientOriginalExtension()); // here
         $image->storeAs('images',$image_name,'public');
         return $image_name;
     }
@@ -31,10 +31,11 @@ class handyController extends Controller
 
     
     // generates an unique name for image
-    public static function imageNameGenerator($table,$column,$counter){
-        $image_name_array = ["image_name" => Str::random(32)];
+    public static function imageNameGenerator($table,$fileFormat,$counter=0){
+        $image_name_array = ["image_name" => Str::random(32).'.'.$fileFormat];
         $validator = Validator::make($image_name_array,[
-            'image_name'=>'unique:'.$table.','.$column
+            'image_name'=>'unique:'.$table.',image_name'
+            // 'image_name'=>'file'
         ]);
         if($validator->fails()) {
             $counter +=1 ;
@@ -42,7 +43,7 @@ class handyController extends Controller
                 return;
             }
             else{
-                handyController::imageNameGenerator($table,$column,$counter);
+                handyController::imageNameGenerator($table,$counter);
             }
         }
         else{
@@ -50,3 +51,5 @@ class handyController extends Controller
         }
     }
 }
+
+

@@ -43,12 +43,15 @@ class blogController extends Controller
     public function store(blogCreate $request)
     {
         if($request->hasfile('image')){
-            $image_name = $request->image->getClientOriginalName();
-            $request->image->storeAs('images',$image_name,'public');
-        }
+            $image_name = handyController::imageNameGenerator('blog',$request->image->getClientOriginalExtension());
+            if($image_name){
+                $request->image->storeAs('images',$image_name,'public');
+            }
+        }        
         else{
             $image_name=null;
         }
+        
         $blog = Blog::create([
             'title'=>$request->title,
             'slug'=>$request->slug,
@@ -56,8 +59,6 @@ class blogController extends Controller
             'image_name'=>$image_name
         ]);
         return redirect()->route('blogs.index')->with('success','با موفقیت اضافه شد');;
-        // with success message
-        // works fine
     }
 
     /**
@@ -105,7 +106,6 @@ class blogController extends Controller
             'image_name'=>$picture_name
         ]);
         return redirect()->route('blogs.index')->with('success','با موفقیت ویرایش شد');
-        // works fine
     }
 
     /**

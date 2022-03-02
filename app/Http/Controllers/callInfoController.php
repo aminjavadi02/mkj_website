@@ -49,7 +49,6 @@ class callInfoController extends Controller
             'phone_number'=>$request->phone_number,
         ]);
         return redirect()->route('callinfo.index')->with('success','با موفقیت اضافه شد');
-        // with success message
     }
 
     
@@ -82,7 +81,6 @@ class callInfoController extends Controller
             'phone_number'=>$request->phone_number,
         ]);
         return redirect()->route('callinfo.index')->with('success','تغییر با موفقیت انجام شد');
-        // with success message
     }
 
     /**
@@ -95,6 +93,5 @@ class callInfoController extends Controller
     {
         $callinfo->delete();
         return redirect()->route('callinfo.index')->with('success','با موفقیت حذف شد');;
-        // with success message
     }
 }

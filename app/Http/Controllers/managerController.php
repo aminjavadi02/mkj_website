@@ -43,8 +43,10 @@ class managerController extends Controller
     public function store(managersCreate $request)
     {
         if($request->hasfile('image')){
-            $image_name = $request->image->getClientOriginalName();
-            $request->image->storeAs('images',$image_name,'public');
+            $image_name = handyController::imageNameGenerator('managers',$request->image->getClientOriginalExtension());
+            if($image_name){
+                $request->image->storeAs('images',$image_name,'public');
+            }
         }else{
             $image_name = null;
         }

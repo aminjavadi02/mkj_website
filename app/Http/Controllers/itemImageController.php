@@ -35,7 +35,7 @@ class itemImageController extends Controller
      */
     public function store(itemImageCreate $request)
     {
-        $image_name = handyController::imageNameGenerator('item_images','image_name',0);
+        $image_name = handyController::imageNameGenerator('item_images',$request->image->getClientOriginalExtension());
         if(!$image_name){
             return redirect()->back()->with('error','خطا در نام گذاری عکس');
         }

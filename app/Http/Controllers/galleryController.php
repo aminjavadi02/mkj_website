@@ -41,14 +41,14 @@ class galleryController extends Controller
      */
     public function store(galleryCreate $request)
     {
-        $image_name = handyController::imageNameGenerator('gallery','name',0);
+        $image_name = handyController::imageNameGenerator('gallery',$request->image->getClientOriginalExtension());
         if(!$image_name){
             return redirect()->back()->with('error','خطا در نام گذاری عکس');
         }
         else{
             $request->image->storeAs('images',$image_name,'public');
-            $photo = Gallery::create([
-                'name'=>$image_name,
+            Gallery::create([
+                'image_name'=>$image_name,
             ]);
             return redirect()->back()->with('success','با موفقیت اضافه شد');
         }
@@ -62,8 +62,8 @@ class galleryController extends Controller
      */
     public function destroy(Gallery $gallery)
     {
-        if($gallery->name){
-            handyController::deleteOldImage($gallery->name);
+        if($gallery->image_name){
+            handyController::deleteOldImage($gallery->image_name);
         }
         $gallery->delete();
         return redirect()->back()->with('success','با موفقیت حذف شد');

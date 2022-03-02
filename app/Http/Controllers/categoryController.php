@@ -112,11 +112,8 @@ class categoryController extends Controller
                 'parent_id'=>$request->parent_id
             ]);
             return redirect()->route('categories.index')->with('success','با موفقیت ویرایش شد');
-            // reutrn with success message
         }
         return redirect()->route('categories.index')->with('error','یک دسته بندی نمیتواند پدر خودش باشد');
-        // else: return with error message
-        // works fine
     }
 
     /**
@@ -129,6 +126,5 @@ class categoryController extends Controller
     {
         $category->delete();
         return redirect()->back()->with('success','با موفقیت حذف شد');
-        // with success message
     }
 }

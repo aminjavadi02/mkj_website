@@ -70,7 +70,6 @@ class itemController extends Controller
             $item->packages()->attach($package);
         }
         return redirect()->route('items.index')->with('success','با موفقیت اضافه شد');
-        // redirect to index with success message
     }
 
     /**
@@ -136,7 +135,6 @@ class itemController extends Controller
             'category_id'=>$request->category_id,
         ]);
         return redirect()->route('items.index')->with('success','با موفقیت ویرایش شد');
-        // to index with success message
     }
 
     /**
@@ -149,6 +147,5 @@ class itemController extends Controller
     {
         $item->delete();
         return redirect()->route('items.index')->with('success','با موفقیت حذف شد');
-        // to index with success message
     }
 }
