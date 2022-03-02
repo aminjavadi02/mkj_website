@@ -46,7 +46,7 @@ class galleryController extends Controller
             return redirect()->back()->with('error','خطا در نام گذاری عکس');
         }
         else{
-            $request->image->storeAs('images',$image_name,'public');
+            $request->image->storeAs('images/gallery',$image_name,'public');
             Gallery::create([
                 'image_name'=>$image_name,
             ]);
@@ -63,7 +63,7 @@ class galleryController extends Controller
     public function destroy(Gallery $gallery)
     {
         if($gallery->image_name){
-            handyController::deleteOldImage($gallery->image_name);
+            handyController::deleteOldImage($gallery->image_name,$gallery->getTable());
         }
         $gallery->delete();
         return redirect()->back()->with('success','با موفقیت حذف شد');
