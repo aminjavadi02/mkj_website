@@ -48,7 +48,7 @@ class aboutusController extends Controller
         }
         // if he wants to delete picture delete it. if not, don't
         else{
-            handyController::deleteOldImage($aboutu->image_name);
+            handyController::deleteOldImage($aboutu->image_name,$aboutu->getTable());
             $picture_name = null;
         }
         $aboutu->update([
