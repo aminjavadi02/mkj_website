@@ -17,16 +17,16 @@ class handyController extends Controller
     public static function UploadNewImage($image,$model)
     {
         if($model->image_name){
-            handyController::deleteOldImage($model->image_name);
+            handyController::deleteOldImage($model->image_name,$model->getTable());
         }
         $image_name = handyController::imageNameGenerator($model->getTable(),$image->getClientOriginalExtension()); // here
-        $image->storeAs('images',$image_name,'public');
+        $image->storeAs('images/'.$model->getTable(),$image_name,'public');
         return $image_name;
     }
     
-    public static function deleteOldImage($image)
+    public static function deleteOldImage($image,$model)
     {
-        Storage::delete('/public/images/'.$image);
+        Storage::delete('/public/images/'.$model.'/'.$image);
     }
 
     

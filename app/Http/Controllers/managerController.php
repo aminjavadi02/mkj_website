@@ -45,7 +45,7 @@ class managerController extends Controller
         if($request->hasfile('image')){
             $image_name = handyController::imageNameGenerator('managers',$request->image->getClientOriginalExtension());
             if($image_name){
-                $request->image->storeAs('images',$image_name,'public');
+                $request->image->storeAs('images/managers',$image_name,'public');
             }
         }else{
             $image_name = null;
@@ -88,7 +88,7 @@ class managerController extends Controller
             $picture_name = handyController::UploadNewImage($request->image,$manager);
         }
         else{
-            handyController::deleteOldImage($manager->image_name);
+            handyController::deleteOldImage($manager->image_name,'managers');
             $picture_name=null;
         }
         $validated = $request->safe();
