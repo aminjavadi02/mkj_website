@@ -41,19 +41,17 @@ class galleryController extends Controller
      */
     public function store(galleryCreate $request)
     {
-        // if ($request->image) then save image
-        if($request->hasfile('image')){
-            $image_name = $request->image->getClientOriginalName();
-            $request->image->storeAs('images',$image_name,'public');
+        $image_name = handyController::imageNameGenerator('gallery','name',0);
+        if(!$image_name){
+            return redirect()->back()->with('error','خطا در نام گذاری عکس');
         }
         else{
-            $image_name=null;
+            $request->image->storeAs('images',$image_name,'public');
+            $photo = Gallery::create([
+                'name'=>$image_name,
+            ]);
+            return redirect()->back()->with('success','با موفقیت اضافه شد');
         }
-        $photo = Gallery::create([
-            'name'=>$image_name,
-        ]);
-    
-        return redirect()->back()->with('success','با موفقیت اضافه شد');
     }
 
     /**

@@ -29,7 +29,8 @@ class handyController extends Controller
         Storage::delete('/public/images/'.$image);
     }
 
-
+    
+    // generates an unique name for image
     public static function imageNameGenerator($table,$column,$counter){
         $image_name_array = ["image_name" => Str::random(32)];
         $validator = Validator::make($image_name_array,[
