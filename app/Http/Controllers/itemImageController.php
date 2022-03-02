@@ -40,7 +40,7 @@ class itemImageController extends Controller
             return redirect()->back()->with('error','خطا در نام گذاری عکس');
         }
         else {
-            $request->image->storeAs('images',$image_name,'public');
+            $request->image->storeAs('images/item_images',$image_name,'public');
             $photo = itemImage::create([
                 'image_name'=>$image_name,
                 'item_id'=>$request->item_id,
@@ -58,7 +58,7 @@ class itemImageController extends Controller
     public function destroy(ItemImage $itemimage)
     {
         if($itemimage->image_name){
-            handyController::deleteOldImage($itemimage->image_name);
+            handyController::deleteOldImage($itemimage->image_name,$itemimage->getTable());
         }
         $itemimage->delete();
         return redirect()->back()->with('success','با موفقیت حذف شد');
