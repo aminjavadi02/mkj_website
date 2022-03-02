@@ -45,7 +45,7 @@ class blogController extends Controller
         if($request->hasfile('image')){
             $image_name = handyController::imageNameGenerator('blog',$request->image->getClientOriginalExtension());
             if($image_name){
-                $request->image->storeAs('images',$image_name,'public');
+                $request->image->storeAs('images/blog',$image_name,'public');
             }
         }        
         else{
@@ -96,7 +96,7 @@ class blogController extends Controller
             $picture_name = handyController::UploadNewImage($request->image,$blog);
         }
         else{
-            handyController::deleteOldImage($blog->image_name);
+            handyController::deleteOldImage($blog->image_name,$blog->getTable());
             $picture_name=null;
         }
         $blog->update([
@@ -117,7 +117,7 @@ class blogController extends Controller
     public function destroy(Blog $blog)
     {
         if($blog->image_name){
-            handyController::deleteOldImage($blog->image_name);
+            handyController::deleteOldImage($blog->image_name,$blog->getTable());
         }
         $blog->delete();
         return redirect()->route('blogs.index')->with('success','با موفقیت حذف شد');;

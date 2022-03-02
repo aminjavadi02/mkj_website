@@ -24,9 +24,9 @@ class handyController extends Controller
         return $image_name;
     }
     
-    public static function deleteOldImage($image,$model)
+    public static function deleteOldImage($image,$tableName)
     {
-        Storage::delete('/public/images/'.$model.'/'.$image);
+        Storage::delete('/public/images/'.$tableName.'/'.$image);
     }
 
     

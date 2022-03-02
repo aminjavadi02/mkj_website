@@ -60,7 +60,7 @@
                 <div class="col-md-5" id="currentImageDiv" style="border-left: 1px solid gray; height: 400px;">
                   <label class="bmd-label-floating">تصویر فعلی</label>
                   <br>
-                  <img src="{{asset('storage/images/'.$blog->image_name)}}" id="img" alt="image" width="200px">
+                  <img src="{{asset('storage/images/blog/'.$blog->image_name)}}" id="img" alt="image" width="200px">
                   <br>
                   <div class="btn btn-danger pull-left" onclick="deleteImage()">حذف تصویر</div>
                 </div>
