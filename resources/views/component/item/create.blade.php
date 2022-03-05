@@ -16,14 +16,14 @@
                 <div class="col-md-5">
                   <div class="form-group">
                     <label class="bmd-label-floating">نام فارسی</label>
-                    <input type="text" name="name_fa" class="form-control">
+                    <input type="text" name="name_fa" class="form-control"value="{{old('name_fa')}}">
                   </div>
                 </div>
                 <br><br>
                 <div class="col-md-5">
                   <div class="form-group">
                     <label class="bmd-label-floating">نام انگلیسی</label>
-                    <input type="text" name="name_en" class="form-control">
+                    <input type="text" name="name_en" class="form-control" value="{{old('name_en')}}">
                   </div>
                 </div>
               </div>
@@ -32,7 +32,7 @@
                   <div class="form-group">
                     <label>توضیحات فارسی</label>
                     <div class="form-group">
-                      <textarea name="description_fa" class="form-control mytextarea" id="section01" cols="30" rows="10"></textarea>
+                      <textarea name="description_fa" class="form-control mytextarea" id="section01" cols="30" rows="10">{{old('description_fa')}}</textarea>
                     </div>
                   </div>
                 </div>
@@ -42,7 +42,7 @@
                   <div class="form-group">
                     <label>توضیحات انگلیسی</label>
                     <div class="form-group">
-                      <textarea name="description_en" class="form-control mytextarea" id="section02" cols="30" rows="10"></textarea>
+                      <textarea name="description_en" class="form-control mytextarea" id="section02" cols="30" rows="10">{{old('description_en')}}</textarea>
                     </div>
                   </div>
                 </div>
@@ -52,7 +52,7 @@
                   <div class="form-group">
                     <div class="form-group">
                     <label class="bmd-label-floating">آلیاژ</label>
-                    <input type="text" name="alloy" class="form-control">
+                    <input type="text" name="alloy" class="form-control" value="{{old('alloy')}}">
                     </div>
                   </div>
                 </div>
@@ -60,7 +60,7 @@
                   <div class="form-group">
                     <div class="form-group">
                     <label class="bmd-label-floating">سایز</label>
-                    <input type="text" name="size" class="form-control">
+                    <input type="text" name="size" class="form-control" value="{{old('size')}}">
                     </div>
                   </div>
                 </div>
