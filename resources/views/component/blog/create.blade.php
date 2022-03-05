@@ -16,14 +16,14 @@
                 <div class="col-md-5">
                   <div class="form-group">
                     <label class="bmd-label-floating">عنوان</label>
-                    <input type="text" name="title" class="form-control">
+                    <input type="text" name="title" class="form-control" value="{{old('title')}}">
                   </div>
                 </div>
                 <br><br>
                 <div class="col-md-5">
                   <div class="form-group">
                     <label class="bmd-label-floating">اسلاگ</label>
-                    <input type="text" name="slug" class="form-control">
+                    <input type="text" name="slug" class="form-control" value="{{old('slug')}}">
                     <!-- add js to generate this from title -->
                   </div>
                 </div>
@@ -34,7 +34,7 @@
                     <label>متن</label>
                     <div class="form-group">
                       <label class="bmd-label-floating">متن مقاله</label>
-                      <textarea name="text" id="mytextarea" cols="30" rows="10"></textarea>
+                      <textarea name="text" id="mytextarea" cols="30" rows="10">{{old('text')}}</textarea>
                     </div>
                   </div>
                 </div>
