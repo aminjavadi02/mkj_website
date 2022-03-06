@@ -12,16 +12,9 @@ class pagesController extends Controller
 {
     public function index()
     {
-        // gallery images
-        $images = Gallery::get()->all();
-        // about us -> image + desc fa
+        $galleryImages = Gallery::get()->all();
         $aboutus = Aboutus::select('history_fa','image_name')->get()->all();
-        // items -> name + images
-        $itemsAndImages = Item::getAllImagesObject();
-        if(count($itemsAndImages)>5){
-
-        }
-        // dd($itemsAndImages[0]['images'][0]['name']); -> to get the name
-        return view('guest.fa.component.indexpage');
+        $itemImages = Item::getAllImagesObject();
+        return view('guest.fa.component.indexpage',compact('galleryImages','aboutus','itemImages'));
     }
 }

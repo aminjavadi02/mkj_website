@@ -47,8 +47,7 @@ class Item extends Model
     public static function getAllImagesObject()
     {
         $items = Item::with('images')->take(5)->get();
-        dd($items);
-        // $items is loading via eager loading
+        // gimme five of them eagerly :)
         foreach ($items as $key => $item) {
             if(count($item->images()->get()->all()) > 0 ){
                 foreach ($item->images()->get()->all() as $imagekey => $image) {
