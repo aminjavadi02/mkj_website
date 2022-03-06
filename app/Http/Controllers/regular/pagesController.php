@@ -16,12 +16,12 @@ class pagesController extends Controller
         $images = Gallery::get()->all();
         // about us -> image + desc fa
         $aboutus = Aboutus::select('history_fa','image_name')->get()->all();
-        // items -> lazy : max 5 items
-        $items = Item::get()->all();
-        
-        $test = Item::getAllImagesObject();
-        dd($test);
-        // dd($items[2]->images()->get()->all()[0]['image_name']);
+        // items -> name + images
+        $itemsAndImages = Item::getAllImagesObject();
+        if(count($itemsAndImages)>5){
+
+        }
+        // dd($itemsAndImages[0]['images'][0]['name']); -> to get the name
         return view('guest.fa.component.indexpage');
     }
 }

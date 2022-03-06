@@ -43,10 +43,13 @@ class Item extends Model
         return $this->belongsTo(Category::class);
     }
 
+    // returns all items and their images in array format
     public static function getAllImagesObject()
     {
-        // returns all items and their images in array format
-        foreach (Item::get()->all() as $key => $item) {
+        $items = Item::with('images')->take(5)->get();
+        dd($items);
+        // $items is loading via eager loading
+        foreach ($items as $key => $item) {
             if(count($item->images()->get()->all()) > 0 ){
                 foreach ($item->images()->get()->all() as $imagekey => $image) {
                     $images[$imagekey] = [
