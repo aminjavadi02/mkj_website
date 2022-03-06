@@ -12,6 +12,8 @@ use App\Http\Controllers\galleryController;
 use App\Http\Controllers\callInfoController;
 use App\Http\Controllers\videoController;
 
+use App\Http\Controllers\regular\pagesController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,13 +25,7 @@ use App\Http\Controllers\videoController;
 |
 */
 
-
-
-Route::view('/','welcome');
-
-// admin pannel
-// add prefix: admin
-
+// admin panel
 Route::group(['middleware' => 'auth'],function(){
     
     Route::view('/admin','layouts.app')->name('admin');
@@ -82,3 +78,7 @@ Route::group(['middleware' => 'auth'],function(){
 
     });
 });
+
+// regular
+Route::view('/','welcome');
+Route::get('/dick',[pagesController::class,'index']);
