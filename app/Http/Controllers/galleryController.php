@@ -49,6 +49,7 @@ class galleryController extends Controller
             $request->image->storeAs('images/gallery',$image_name,'public');
             Gallery::create([
                 'image_name'=>$image_name,
+                'is_image'=>true,
             ]);
             return redirect()->back()->with('success','با موفقیت اضافه شد');
         }
@@ -62,9 +63,7 @@ class galleryController extends Controller
      */
     public function destroy(Gallery $gallery)
     {
-        if($gallery->image_name){
-            handyController::deleteOldImage($gallery->image_name,$gallery->getTable());
-        }
+        handyController::deleteOldImage($gallery->image_name,$gallery->getTable());
         $gallery->delete();
         return redirect()->back()->with('success','با موفقیت حذف شد');
     }

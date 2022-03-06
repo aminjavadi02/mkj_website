@@ -10,6 +10,7 @@ use App\Http\Controllers\packageController;
 use App\Http\Controllers\itemImageController;
 use App\Http\Controllers\galleryController;
 use App\Http\Controllers\callInfoController;
+use App\Http\Controllers\videoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -76,6 +77,8 @@ Route::group(['middleware' => 'auth'],function(){
         Route::resource('galleries',galleryController::class)->only('index','store','destroy');
 
         Route::resource('callinfo',callInfoController::class)->except(['show']);
+
+        Route::resource('videos',videoController::class)->only(['store','destroy']);
 
     });
 });

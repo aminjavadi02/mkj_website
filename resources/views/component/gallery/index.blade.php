@@ -18,14 +18,27 @@
                     @foreach($images as $image)
                       <div class="swiper-slide col-md-4 col-md-4 d-flex flex-column justify-content-between" style="height: 360px;">
                         <div class="d-flex flex-column bd-highlight">
+                          <!-- if image -> img if video ->vid -->
+                          @if($image->is_image)
                           <img src="{{asset('storage/images/gallery/'.$image->image_name)}}" width="200px"/>
-                            <form action="/admin/galleries/{{$image->id}}" method="post" class="d-flex p-0 delete-form" id="deleteForm" enctype="multipart/form-data">
-                                @csrf
-                                @method('delete')
-                                <button type="submit" class="close" style=" height:25px; margin-top:40px; margin-right:10px;" >
-                                    <i class="material-icons" style="color:white;">delete</i>
-                                </button>
-                            </form>
+                          <form action="/admin/galleries/{{$image->id}}" method="post" class="d-flex p-0 delete-form" id="deleteForm" enctype="multipart/form-data">
+                              @csrf
+                              @method('delete')
+                              <button type="submit" class="close" style=" height:25px; margin-top:40px; margin-right:10px;" >
+                                  <i class="material-icons" style="color:white;">delete</i>
+                              </button>
+                          </form>
+                          @else
+                          <video src="{{asset('storage/videos/gallery/'.$image->image_name)}}" width="200px" height="300px" controls></video>
+                          <form action="/admin/videos/{{$image->id}}" method="post" class="d-flex p-0 delete-form" id="deleteForm" enctype="multipart/form-data">
+                              @csrf
+                              @method('delete')
+                              <button type="submit" class="close" style=" height:25px; margin-top:40px; margin-right:10px;" >
+                                  <i class="material-icons" style="color:white;">delete</i>
+                              </button>
+                          </form>
+                          @endif
+
                         </div>
                       </div>
                     @endforeach
