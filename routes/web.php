@@ -79,6 +79,5 @@ Route::group(['middleware' => 'auth'],function(){
     });
 });
 
-// regular
-Route::view('/','welcome');
-Route::get('/dick',[pagesController::class,'index']);
+// guest pages
+Route::get('/',[pagesController::class,'index']);

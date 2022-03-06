@@ -42,5 +42,30 @@ class Item extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
+    public static function getAllImagesObject()
+    {
+        // returns all items and their images in array format
+        foreach (Item::get()->all() as $key => $item) {
+            if(count($item->images()->get()->all()) > 0 ){
+                foreach ($item->images()->get()->all() as $imagekey => $image) {
+                    $images[$imagekey] = [
+                        'name' => $image->image_name,
+                    ];
+                }
+                $itemsAndImages[$key] = [
+                    'item' => $item->name_fa,
+                    'images' => $images,
+                ];
+            }
+            else{
+                $itemsAndImages[$key] = [
+                    'item' => $item->name_fa,
+                    'images' => null,
+                ];
+            }
+        }
+        return $itemsAndImages;
+    }
     
 }
