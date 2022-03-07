@@ -16,11 +16,19 @@
 
   <!-- Latest compiled JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> 
+
+  <!-- swiper -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
   <title>Document</title>
 </head>
 <body>
-  @include('guest.fa.inc.navbar')
-  @yield('content')
+  <div class="wrapper">
+    @include('guest.fa.inc.navbar')
+    <div class="main">
+      @yield('content')
+    </div>
+  </div>
+
 
 
 

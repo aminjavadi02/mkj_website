@@ -1,1 +1,40 @@
-/* No CSS *//*# sourceMappingURL=guestPages.css.map */
+.swiper {
+  width: 100%;
+  margin-top: 10vh !important;
+  margin: auto;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  overflow: hidden;
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.bd-highlight {
+  height: 100% !important;
+  width: 100% !important;
+}
+
+.swiper-slide img {
+  height: 100% !important;
+  display: block;
+  margin: auto;
+}
+
+.swiper-slide video {
+  height: 100% !important;
+  display: block;
+  margin: auto;
+}
+/*# sourceMappingURL=guestPages.css.map */

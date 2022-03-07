@@ -62,8 +62,8 @@
 
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script src="{{asset('assets/js/core/jquery.min.js')}}"></script>
-<script>
 
+<script>
 // this is not working
   $('#deleteForm').submit(function(){
     return confirm('آیا از پاک کردن این عکس اطمینان دارید؟');
