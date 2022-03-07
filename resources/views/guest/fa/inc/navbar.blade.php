@@ -1,16 +1,20 @@
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">WebSiteName</a>
+      <a class="navbar-brand navbar-nav" href="#">Mahan Keshesh Jam</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
-      <li><a href="#">Page 1</a></li>
-      <li><a href="#">Page 2</a></li>
+        <!-- add active class under rout is condition -->
+        <!-- add routes -->
+      <li><a href="#">محصولات</a></li>
+      <li><a href="#">دسته بندی ها</a></li>
+      <li><a href="#">هیات مدیره</a></li>
+      <li><a href="#">بلاگ ها</a></li>
+      <li><a href="#">درباره ما</a></li>
+      <li><a href="#">کاتالوگ</a></li>
+      <li><a href="#">گالری</a></li>
+
     </ul>
-    <ul class="nav navbar-nav navbar-right">
-      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-    </ul>
+   
   </div>
 </nav> 
