@@ -97,22 +97,7 @@ class blogController extends Controller
             'slug'=>$request->slug,
             'text'=>$request->text,
         ];
-        if($request->imageIsDeleted == "true"){
-            if($request->hasfile('image')){
-                $picture_name = handyController::UploadNewImage($request->image,$blog);
-                $updatableArray["image_name"] = $picture_name;
-            }
-            else{
-                handyController::deleteOldImage($blog->image_name,$blog->getTable());
-                $updatableArray["image_name"] = null;
-            }
-        }
-        else{
-            if($request->hasfile('image')){
-                $picture_name = handyController::UploadNewImage($request->image,$blog);
-                $updatableArray["image_name"] = $picture_name;
-            }
-        }
+        $updatableArray = HandyController::updateImage($updatableArray,$blog,$request);
         $blog->update($updatableArray);
         return redirect()->route('blogs.index')->with('success','با موفقیت ویرایش شد');
     }

@@ -55,22 +55,7 @@ class aboutusController extends Controller
             "google_location_factory" => $request->google_location_factory,
             "google_location_office" => $request->google_location_office,
         ];
-        if($request->imageIsDeleted == "true"){
-            if($request->hasfile('image')){
-                $picture_name = handyController::UploadNewImage($request->image,$aboutu);
-                $updatableArray["image_name"] = $picture_name;
-            }
-            else{
-                handyController::deleteOldImage($aboutu->image_name,$aboutu->getTable());
-                $updatableArray["image_name"] = null;
-            }
-        }
-        else{
-            if($request->hasfile('image')){
-                $picture_name = handyController::UploadNewImage($request->image,$aboutu);
-                $updatableArray["image_name"] = $picture_name;
-            }
-        }
+        $updatableArray = HandyController::updateImage($updatableArray,$aboutu,$request);
         $aboutu->update($updatableArray);
         return redirect()->back()->with('success','با موفقیت ویرایش شد');
     }

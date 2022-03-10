@@ -50,6 +50,28 @@ class handyController extends Controller
             return $image_name_array['image_name'];
         }
     }
+
+    public static function updateImage($updatableArray,$model,$request)
+    {
+        if($request->imageIsDeleted == "true"){
+            if($request->hasfile('image')){
+                $picture_name = handyController::UploadNewImage($request->image,$model);
+                $updatableArray["image_name"] = $picture_name;
+            }
+            else{
+                handyController::deleteOldImage($model->image_name,$model->getTable());
+                $updatableArray["image_name"] = null;
+            }
+        }
+        else{
+            if($request->hasfile('image')){
+                $picture_name = handyController::UploadNewImage($request->image,$model);
+                $updatableArray["image_name"] = $picture_name;
+            }
+        }
+
+        return $updatableArray;
+    }
 }
 
 
