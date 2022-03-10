@@ -45,3 +45,26 @@
         margin-left: 2vw !important;
     }
 }
+
+// aboutus-short
+.aboutus-short {
+    position: relative;
+    background-color: red;
+    .aboutus-short-image {
+        // image is in background
+        height:100%;
+        background-size: cover;
+        height: 70vh;
+        background-repeat: no-repeat;
+        filter: blur(3px);
+        
+    }
+    .aboutus-short-history_fa-container {
+           position: absolute;
+           top: 20%;
+           right: 10%;
+           left: 10%;
+           direction:rtl;
+           color:white !important;
+    }
+}

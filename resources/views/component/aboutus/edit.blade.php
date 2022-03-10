@@ -85,17 +85,13 @@
                   </div>
                 </div>
               </div>
-              <!-- <div class="form-group">
-                      <label class="bmd-label-floating">تاریخچه ی کارخانه به انگلیسی</label>
-                      <textarea id="section02" class="form-control mytextarea" name="history_en" rows="10">{{$aboutus->history_en}}</textarea>
-                    </div> -->
               <div class="row">
                 <div class="col-md-5">
                   <label class="bmd-label-floating">انتخاب تصویر جدید</label>
                   <br>
                   <img src="#" id="selectedImg" alt="selectedImg" width="200px">
                   <br> <br>
-                  <input type="file" name="image" class="form-control" id="imageInp" accept="image/*" >
+                  <input type="file" name="image" class="form-control" id="imageInp" accept="image/*">
                 </div>
                 @if($aboutus->image_name)
                 <div class="col-md-5" id="currentImageDiv" style="border-left: 1px solid gray; height: 400px;">
@@ -105,6 +101,7 @@
                   <br>
                   <div class="btn btn-danger pull-left" onclick="deleteImage()">حذف تصویر</div>
                 </div>
+                <input type="text" hidden id="deleteOrNot" name="imageIsDeleted" value="false">
                 @endif
               </div>
               <button type="submit" class="btn btn-primary pull-right">ثبت تغییرات</button>
@@ -130,9 +127,9 @@
     // console.log();
     // show are you sure msg
     if(confirm('آیا از حذف این تصویر اطمینان دارید؟')){
-      $("#currentImageDiv").remove()
-      $("#selectImg").value = null;
-      
+      $("#currentImageDiv").remove();
+      $("#deleteOrNot").val(true);
+      $("#selectImg").val(null);
     }
   }
   

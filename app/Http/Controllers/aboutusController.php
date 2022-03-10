@@ -43,15 +43,7 @@ class aboutusController extends Controller
 
     public function update(aboutusCreate $request, Aboutus $aboutu)
     {
-        if($request->hasfile('image')){
-            $picture_name = handyController::UploadNewImage($request->image,$aboutu);
-        }
-        // if he wants to delete picture delete it. if not, don't
-        else{
-            handyController::deleteOldImage($aboutu->image_name,$aboutu->getTable());
-            $picture_name = null;
-        }
-        $aboutu->update([
+        $updatableArray = [
             "history_en" => $request->history_en,
             "history_fa" => $request->history_fa,
             "factory_phone"=> $request->factory_phone,
@@ -62,9 +54,25 @@ class aboutusController extends Controller
             "factory_address_fa" => $request->factory_address_fa,
             "google_location_factory" => $request->google_location_factory,
             "google_location_office" => $request->google_location_office,
-            "image_name" => $picture_name,
-        ]);
+        ];
+        // ($request->imageIsDeleted == "false")
+        if($request->imageIsDeleted == "true"){
+            if($request->hasfile('image')){
+                $picture_name = handyController::UploadNewImage($request->image,$aboutu);
+                $updatableArray["image_name"] = $picture_name;
+            }
+            else{
+                handyController::deleteOldImage($aboutu->image_name,$aboutu->getTable());
+                $updatableArray["image_name"] = null;
+            }
+        }
+        else{
+            if($request->hasfile('image')){
+                $picture_name = handyController::UploadNewImage($request->image,$aboutu);
+                $updatableArray["image_name"] = $picture_name;
+            }
+        }
+        $aboutu->update($updatableArray);
         return redirect()->back()->with('success','با موفقیت ویرایش شد');
-        // works fine
     }
 }

@@ -3,5 +3,6 @@
 @section('content')
 
 @include('guest.fa.component.gallery.galleryScroller')
-
+<br>
+@include('guest.fa.component.aboutus.aboutus-short')
 @endsection
