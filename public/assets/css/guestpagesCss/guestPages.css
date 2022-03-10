@@ -1,3 +1,12 @@
+:root {
+  --primary-color: #64fbd3;
+  --primary-variant: #777395;
+  --secondary-color: #00e5b0;
+  --secondary-variant: #59a288;
+  --on-primary-color: #2e2c36;
+  --on-primary-variant: #faf7ff;
+}
+
 .swiper {
   width: 100%;
   margin-top: 10vh !important;
@@ -42,34 +51,131 @@
   .navbar-toggler {
     display: none !important;
   }
+  .aboutus-short {
+    height: 75vh;
+  }
+  .aboutus-short .history_fa-container {
+    top: 10%;
+  }
+  #history_fa {
+    height: 100%;
+  }
 }
 
 @media not all and (min-width: 770px) {
   .navbar-brand {
     margin-left: 2vw !important;
   }
+  .aboutus-short {
+    height: 110vh;
+  }
+  .aboutus-short .history_fa-container {
+    top: 4%;
+  }
 }
 
 .aboutus-short {
   position: relative;
-  background-color: red;
+  padding: 0  !important;
+  width: 100% !important;
 }
 
-.aboutus-short .aboutus-short-image {
+.aboutus-short .image {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  width: 100%;
+  background-color: var(--primary-color);
   height: 100%;
   background-size: cover;
-  height: 70vh;
   background-repeat: no-repeat;
-  -webkit-filter: blur(3px);
-          filter: blur(3px);
+  border-radius: 6px;
 }
 
-.aboutus-short .aboutus-short-history_fa-container {
+.aboutus-short .history_fa-container {
   position: absolute;
-  top: 20%;
   right: 10%;
   left: 10%;
+  height: 100%;
   direction: rtl;
-  color: white !important;
+  -webkit-columns: auto 20em;
+          columns: auto 20em;
+}
+
+.aboutus-short .history_fa-container #history_fa {
+  color: var(--on-primary-color);
+  padding: 1em 0.5em 1em;
+  line-height: 5px;
+}
+
+.button-container {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.button-container .button {
+  position: relative;
+  top: -10vh;
+  padding: 12px 25px;
+  border: 2px solid var(--on-primary-variant);
+  text-transform: uppercase;
+  font-size: 14pt;
+  text-decoration: none;
+  color: var(--on-primary-color);
+}
+
+.button-container .button:hover {
+  color: var(--on-primary-variant);
+}
+
+.button-container .button::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: -4px;
+  width: calc(100% + 15px);
+  height: calc(100% - 20px);
+  background-color: var(--primary-color);
+  -webkit-transition: 0.1s ease-in-out;
+  transition: 0.1s ease-in-out;
+  -webkit-transform: scaleY(1);
+          transform: scaleY(1);
+  -webkit-transition-delay: 0.2s;
+          transition-delay: 0.2s;
+}
+
+.button-container .button:hover::before {
+  background: var(--primary-color);
+  -webkit-transform: scaleY(0);
+          transform: scaleY(0);
+}
+
+.button-container .button::after {
+  content: '';
+  position: absolute;
+  left: 10px;
+  top: -4px;
+  height: calc(100% + 7px);
+  width: calc(100% - 20px);
+  background-color: var(--primary-color);
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+}
+
+.button-container .button:hover::after {
+  background: var(--primary-color);
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+}
+
+.button-container .button span {
+  position: relative;
+  z-index: 30;
 }
 /*# sourceMappingURL=guestPages.css.map */

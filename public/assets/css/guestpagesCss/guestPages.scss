@@ -1,4 +1,12 @@
 // connected
+:root{
+    --primary-color: #64fbd3;
+    --primary-variant: #777395;
+    --secondary-color: #00e5b0;
+    --secondary-variant: #59a288;
+    --on-primary-color: #2e2c36;
+    --on-primary-variant: #faf7ff;
+}
 .swiper {
     width: 100%;
     margin-top: 10vh !important;
@@ -34,37 +42,119 @@
 
 
 
-// navbar responsive
+
 @media only all and (min-width: 770px) {
+    // navbar responsive
     .navbar-toggler {
         display: none !important;
+    }
+    // aboutus responsive
+    .aboutus-short {
+        height: 75vh;
+        .history_fa-container {
+            top: 10%;
+        }
+    }
+    #history_fa {
+        height: 100%;
     }
 }
 @media not all and (min-width: 770px) {
     .navbar-brand {
         margin-left: 2vw !important;
     }
+    .aboutus-short {
+        height: 110vh;
+        .history_fa-container {
+            top: 4%;
+        }
+    }
 }
 
 // aboutus-short
 .aboutus-short {
     position: relative;
-    background-color: red;
-    .aboutus-short-image {
-        // image is in background
+    padding:0  !important;
+    width: 100% !important;
+    
+    .image {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        width: 100%;
+        background-color: var(--primary-color);
         height:100%;
         background-size: cover;
-        height: 70vh;
         background-repeat: no-repeat;
-        filter: blur(3px);
-        
+        border-radius: 6px;
     }
-    .aboutus-short-history_fa-container {
+    .history_fa-container {
            position: absolute;
-           top: 20%;
            right: 10%;
            left: 10%;
+           height: 100%;
            direction:rtl;
-           color:white !important;
+           columns: auto 20em;
+            #history_fa {
+                color:var(--on-primary-color);
+                padding: 1em 0.5em 1em;
+                line-height: 5px
+            }
+    }
+}
+
+// beauti button
+.button-container{
+    position: relative;
+    display:flex;
+    justify-content: center;
+    .button{
+        position: relative;
+        top: -10vh;
+        padding: 12px 25px;
+        border: 2px solid var(--on-primary-variant);
+        text-transform: uppercase;
+        font-size:14pt;
+        text-decoration: none;
+        color:var(--on-primary-color);
+            &:hover{
+                color:var(--on-primary-variant);
+            }
+        &::before{
+            content:'';
+            position: absolute;
+            top: 10px;
+            left: -4px;
+            width: calc(100% + 15px);
+            height: calc(100% - 20px);
+            background-color: var(--primary-color);
+            transition: 0.1s ease-in-out;
+            transform: scaleY(1);
+            transition-delay: 0.2s;
+            // sides
+        }
+        &:hover::before{
+            background:var(--primary-color);
+            transform: scaleY(0);
+        }
+        &::after{
+            content:'';
+            position: absolute;
+            left: 10px;
+            top: -4px;
+            height: calc(100% + 7px);
+            width: calc(100% - 20px);
+            background-color: var(--primary-color);
+            transition: 0.3s ease-in-out;
+            // up and down
+            transform: scaleX(1);
+        }
+        &:hover::after{
+            background:var(--primary-color);
+            transform: scaleX(0);
+        }
+        span{
+            position: relative;
+            z-index: 30;
+        }
     }
 }
