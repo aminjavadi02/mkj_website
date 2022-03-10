@@ -119,23 +119,11 @@
 <script src="https://cdn.tiny.cloud/1/dgrgw7wn2i5rc3vvdsqmydzizsk8su4hcmx7vl9dxcwwt89f/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 <!-- readurl function -->
 <script src="{{asset('assets/js/readurl.js')}}" ></script>
+<script src="{{asset('assets/js/deleteImage.js')}}" ></script>
 <!-- jquery -->
 <script src="{{asset('assets/js/core/jquery.min.js')}}"></script>
 
 <script>
-  function deleteImage(){
-    // console.log();
-    // show are you sure msg
-    if(confirm('آیا از حذف این تصویر اطمینان دارید؟')){
-      $("#currentImageDiv").remove();
-      $("#deleteOrNot").val(true);
-      $("#selectImg").val(null);
-    }
-  }
-  
-  
-
-
   window.onload = function () {
     $('#selectedImg').hide();
     $('#imageInp').change(function(){

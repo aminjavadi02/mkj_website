@@ -92,19 +92,28 @@ class blogController extends Controller
      */
     public function update(blogCreate $request, Blog $blog)
     {
-        if($request->hasfile('image')){
-            $picture_name = handyController::UploadNewImage($request->image,$blog);
-        }
-        else{
-            handyController::deleteOldImage($blog->image_name,$blog->getTable());
-            $picture_name=null;
-        }
-        $blog->update([
+        $updatableArray = [
             'title'=>$request->title,
             'slug'=>$request->slug,
             'text'=>$request->text,
-            'image_name'=>$picture_name
-        ]);
+        ];
+        if($request->imageIsDeleted == "true"){
+            if($request->hasfile('image')){
+                $picture_name = handyController::UploadNewImage($request->image,$blog);
+                $updatableArray["image_name"] = $picture_name;
+            }
+            else{
+                handyController::deleteOldImage($blog->image_name,$blog->getTable());
+                $updatableArray["image_name"] = null;
+            }
+        }
+        else{
+            if($request->hasfile('image')){
+                $picture_name = handyController::UploadNewImage($request->image,$blog);
+                $updatableArray["image_name"] = $picture_name;
+            }
+        }
+        $blog->update($updatableArray);
         return redirect()->route('blogs.index')->with('success','با موفقیت ویرایش شد');
     }
 

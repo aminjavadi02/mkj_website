@@ -55,7 +55,6 @@ class aboutusController extends Controller
             "google_location_factory" => $request->google_location_factory,
             "google_location_office" => $request->google_location_office,
         ];
-        // ($request->imageIsDeleted == "false")
         if($request->imageIsDeleted == "true"){
             if($request->hasfile('image')){
                 $picture_name = handyController::UploadNewImage($request->image,$aboutu);

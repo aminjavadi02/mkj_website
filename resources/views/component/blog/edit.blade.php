@@ -64,6 +64,7 @@
                   <br>
                   <div class="btn btn-danger pull-left" onclick="deleteImage()">حذف تصویر</div>
                 </div>
+                <input type="text" hidden id="deleteOrNot" name="imageIsDeleted" value="false">
                 @endif
               </div>
               <!--  -->
@@ -83,17 +84,8 @@
 <script src="{{asset('assets/js/core/jquery.min.js')}}"></script>
 <!-- readurl function -->
 <script src="{{asset('assets/js/readurl.js')}}" ></script>
+<script src="{{asset('assets/js/deleteImage.js')}}" ></script>
 <script>
-  function deleteImage(){
-    // console.log();
-    // show are you sure msg
-    if(confirm('آیا از حذف این تصویر اطمینان دارید؟')){
-      document.getElementById("imageInp").value = null;
-      document.getElementById("img").remove();
-      document.getElementById("currentImageDiv").remove();
-    }
-  }
-
   window.onload = function () {
     $('#selectedImg').hide();
     $('#imageInp').change(function(){
