@@ -84,23 +84,16 @@ class managerController extends Controller
      */
     public function update(managersCreate $request, Manager $manager)
     {
-        if($request->hasfile('image')){
-            $picture_name = handyController::UploadNewImage($request->image,$manager);
-        }
-        else{
-            handyController::deleteOldImage($manager->image_name,'managers');
-            $picture_name=null;
-        }
-        $validated = $request->safe();
-        $manager->update([
-            'name_fa'=>$validated->name_fa,
-            'name_en'=>$validated->name_en,
-            'position_fa'=>$validated->position_fa,
-            'position_en'=>$validated->position_en,
-            'about_fa'=>$validated->about_fa,
-            'about_en'=>$validated->about_en,
-            'image_name'=>$picture_name,
-        ]);
+        $updatableArray = [
+            'name_fa'=>$request->name_fa,
+            'name_en'=>$request->name_en,
+            'position_fa'=>$request->position_fa,
+            'position_en'=>$request->position_en,
+            'about_fa'=>$request->about_fa,
+            'about_en'=>$request->about_en,
+        ];
+        $updatableArray = HandyController::updateImage($updatableArray,$manager,$request);
+        $manager->update($updatableArray);
         return redirect()->route('managers.index')->with('success','با موفقیت ویرایش شد');
     }
 

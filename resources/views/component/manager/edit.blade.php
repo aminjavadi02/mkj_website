@@ -67,20 +67,24 @@
               </div>
               <div class="row">
                 <div class="col-md-5">
-                  <label class="bmd-label-floating">انتخاب تصویر</label>
-                  <input type="file" id="imageInp" name="image" class="form-control" accept="image/*">
-                  <img src="#" id="selectedImg" width="200px" alt="selectedImage">
+                  <label class="bmd-label-floating">انتخاب تصویر جدید</label>
+                  <br>
+                  <img src="#" id="selectedImg" alt="selectedImg" width="200px">
+                  <br> <br>
+                  <input type="file" name="image" class="form-control" id="imageInp" accept="image/*" >
                 </div>
-              </div>
+
                 @if($manager->image_name)
                 <div class="col-md-5" id="currentImageDiv" style="border-left: 1px solid gray; height: 400px;">
-                    <label class="bmd-label-floating">تصویر فعلی</label>
-                    <br>
-                    <img src="{{asset('storage/images/managers/'.$manager->image_name)}}" id="img" alt="image" width="200px">
-                    <br>
-                    <div class="btn btn-danger pull-left" onclick="deleteImage()">حذف تصویر</div>
+                  <label class="bmd-label-floating">تصویر فعلی</label>
+                  <br>
+                  <img src="{{asset('storage/images/managers/'.$manager->image_name)}}" id="img" alt="image" width="200px">
+                  <br>
+                  <div class="btn btn-danger pull-left" onclick="deleteImage()">حذف تصویر</div>
                 </div>
+                <input type="text" hidden id="deleteOrNot" name="imageIsDeleted" value="false">
                 @endif
+              </div>
               <button type="submit" class="btn btn-primary pull-right">ثبت تغییرات</button>
             </form>
           </div>
@@ -97,6 +101,7 @@
 <script src="{{asset('assets/js/core/jquery.min.js')}}"></script>
 <!-- readurl function -->
 <script src="{{asset('assets/js/readurl.js')}}" ></script>
+<script src="{{asset('assets/js/deleteImage.js')}}" ></script>
 <script>
   window.onload = function () {
     $('#selectedImg').hide();
@@ -112,16 +117,7 @@
       // add font
       font_formats: "Andale Mono=andale mono,times; Arial=arial,helvetica,sans-serif; Arial Black=arial black,avant garde; Book Antiqua=book antiqua,palatino; Comic Sans MS=comic sans ms,sans-serif; Courier New=courier new,courier; Georgia=georgia,palatino; Helvetica=helvetica; Impact=impact,chicago; Symbol=symbol; Tahoma=tahoma,arial,helvetica,sans-serif; Terminal=terminal,monaco; Times New Roman=times new roman,times; Trebuchet MS=trebuchet ms,geneva; Verdana=verdana,geneva; Webdings=webdings; Wingdings=wingdings,zapf dingbats",
       content_style: "@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');",
-      
     });
-  }
-
-  function deleteImage(){
-    if(confirm('آیا از حذف این تصویر اطمینان دارید؟')){
-      document.getElementById("imageInp").value = null;
-      document.getElementById("img").remove();
-      document.getElementById("currentImageDiv").remove();
-    }
   }
 
 </script>
