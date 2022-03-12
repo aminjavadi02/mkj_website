@@ -12,6 +12,31 @@
   src: url("./../../fonts/YEKAN PLUS.TTF");
 }
 
+@font-face {
+  font-family: darya;
+  src: url("./../../fonts/darya.ttf");
+}
+
+@font-face {
+  font-family: kian;
+  src: url("./../../fonts/kian.ttf");
+}
+
+@font-face {
+  font-family: dast-nevis;
+  src: url("./../../fonts/Far_DastNevis.otf");
+}
+
+@font-face {
+  font-family: koodak-bold;
+  src: url("./../../fonts/B Koodak Bold.ttf");
+}
+
+@font-face {
+  font-family: koodak-outline;
+  src: url("../../fonts/B Koodak Outline.ttf");
+}
+
 .swiper {
   width: 70%;
   margin-top: -32vh;
@@ -66,6 +91,9 @@
 }
 
 @media not all and (min-width: 900px) {
+  .whitespace {
+    margin-bottom: -10vh;
+  }
   .whitespace #backgroundImage {
     width: 900px !important;
   }
@@ -260,5 +288,99 @@
   font-family: yekan-sans-serif;
   font-size: 18pt;
   color: white;
+}
+
+.item-container {
+  height: auto;
+  padding-bottom: 30px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 100% !important;
+}
+
+.item-container .card {
+  position: relative;
+  width: 320px;
+  height: 440px;
+  -webkit-box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.05), inset -5px -5px 5px rgba(255, 255, 255, 0.5), 5px 5px 5px rgba(0, 0, 0, 0.05), -5px -5px 5px rgba(255, 255, 255, 0.5);
+          box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.05), inset -5px -5px 5px rgba(255, 255, 255, 0.5), 5px 5px 5px rgba(0, 0, 0, 0.05), -5px -5px 5px rgba(255, 255, 255, 0.5);
+  border-radius: 15px;
+  margin: 30px;
+}
+
+.item-container .card .box {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  background: #ebf5fc;
+  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media not all and (min-width: 850px) {
+  .item-container {
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: column !important;
+            flex-direction: column !important;
+    height: auto !important;
+    padding-bottom: 20px;
+    padding-top: 20px;
+  }
+  .item-container .box {
+    margin: 10px auto 10px auto !important;
+  }
+}
+
+.item-container .item-img {
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 250px;
+  width: 200px;
+  margin-top: -50px;
+}
+
+.item-container .name {
+  color: green;
+  text-align: center;
+  background: yellow;
+  height: 50px;
+  max-width: 200px;
+  padding-top: 5px;
+  padding-bottom: 15px;
+  font-size: 13pt;
+  font-family: yekan-sans-serif;
+}
+
+.item-container .more {
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  color: black;
+  font-size: 12pt;
+  font-family: koodak-bold;
 }
 /*# sourceMappingURL=guestPages.css.map */

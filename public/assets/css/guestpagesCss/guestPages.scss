@@ -11,6 +11,27 @@
     font-family: yekan-sans-serif;
     src: url('./../../fonts/YEKAN\ PLUS.TTF');
 }
+@font-face {
+    font-family: darya;
+    src: url('./../../fonts/darya.ttf');
+}
+@font-face {
+    font-family: kian;
+    src: url('./../../fonts/kian.ttf');
+}
+@font-face {
+    font-family: dast-nevis;
+    src: url('./../../fonts/Far_DastNevis.otf');
+}
+@font-face {
+    font-family: koodak-bold;
+    src: url('./../../fonts/B\ Koodak\ Bold.ttf');
+}
+@font-face {
+    font-family: koodak-outline;
+    src: url('../../fonts/B\ Koodak\ Outline.ttf');
+}
+
 .swiper {
     width: 70%;
     margin-top: -32vh;
@@ -59,6 +80,7 @@
     background-color:transparent;
     margin-bottom:-15vh;
     @media not all and (min-width: 900px) {
+        margin-bottom:-10vh;
         // background:linear-gradient(45deg,#080808,#808080);
         #backgroundImage{
             // display:none;
@@ -240,5 +262,84 @@
         font-family: yekan-sans-serif;
         font-size: 18pt;
         color:white;
+    }
+}
+
+// item
+
+.item-container{
+    height: auto;
+    padding-bottom: 30px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap: wrap;
+    width: 100% !important;
+    .card{
+        position: relative;
+        width:320px;
+        height:440px;
+        box-shadow:inset 5px 5px 5px rgba(0,0,0,0.05),
+                    inset -5px -5px 5px rgba(255,255,255,0.5),
+                    5px 5px 5px rgba(0,0,0,0.05),
+                    -5px -5px 5px rgba(255,255,255,0.5);
+        border-radius: 15px;
+        margin: 30px;
+        .box{
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            bottom: 20px;
+            background:#ebf5fc;
+            box-shadow:0 10px 20px rgba(0,0,0,0.1);
+            border-radius:15px;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            .content{
+
+            }
+        }
+
+    }
+    @media not all and (min-width: 850px) {
+        flex-direction: column !important;
+        height: auto !important;
+        padding-bottom: 20px;
+        padding-top: 20px;
+        .box{
+            margin: 10px auto 10px auto !important;
+        }
+    }
+    
+    
+    .item-img{
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 250px;
+        width: 200px;
+        margin-top:-50px;
+    }
+    .name{
+        color:green;
+        text-align: center;
+        background:yellow;
+        height: 50px;
+        max-width: 200px;
+        padding-top:5px;
+        padding-bottom:15px;
+        font-size: 13pt;
+        font-family: yekan-sans-serif ;
+    }
+    .more{
+        text-align: center;
+        text-decoration: none;
+        cursor:pointer;
+        color:black;
+        font-size: 12pt;
+        font-family: koodak-bold;
     }
 }

@@ -6,4 +6,5 @@
 @include('guest.fa.component.gallery.galleryScroller')
 <br>
 @include('guest.fa.component.aboutus.aboutus-short')
+@include('guest.fa.component.item.for_index')
 @endsection
