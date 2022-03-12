@@ -46,7 +46,7 @@ class Item extends Model
     // returns all items and their images in array format
     public static function getAllImagesObject()
     {
-        $items = Item::with('images')->take(5)->get();
+        $items = Item::with('images')->take(4)->get();
         // gimme five of them eagerly :)
         foreach ($items as $key => $item) {
             if(count($item->images()->get()->all()) > 0 ){
