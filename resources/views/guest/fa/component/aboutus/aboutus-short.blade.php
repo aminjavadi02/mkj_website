@@ -1,3 +1,4 @@
+@if(!empty($aboutus['history_fa']))
 <div class="container aboutus-short">
     <div class="image"></div>
     <div class="history_fa-container">
@@ -18,3 +19,4 @@
         
     }
 </script>
+@endif

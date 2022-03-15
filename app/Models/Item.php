@@ -48,26 +48,31 @@ class Item extends Model
     {
         $items = Item::with('images')->take(4)->get();
         // gimme five of them eagerly :)
-        foreach ($items as $key => $item) {
-            if(count($item->images()->get()->all()) > 0 ){
-                foreach ($item->images()->get()->all() as $imagekey => $image) {
-                    $images[$imagekey] = [
-                        'name' => $image->image_name,
+        if(count($items) > 0){
+            foreach ($items as $key => $item) {
+                if(count($item->images()->get()->all()) > 0 ){
+                    foreach ($item->images()->get()->all() as $imagekey => $image) {
+                        $images[$imagekey] = [
+                            'name' => $image->image_name,
+                        ];
+                    }
+                    $itemsAndImages[$key] = [
+                        'item' => $item->name_fa,
+                        'images' => $images,
                     ];
                 }
-                $itemsAndImages[$key] = [
-                    'item' => $item->name_fa,
-                    'images' => $images,
-                ];
+                else{
+                    $itemsAndImages[$key] = [
+                        'item' => $item->name_fa,
+                        'images' => null,
+                    ];
+                }
             }
-            else{
-                $itemsAndImages[$key] = [
-                    'item' => $item->name_fa,
-                    'images' => null,
-                ];
-            }
+            return $itemsAndImages;
         }
-        return $itemsAndImages;
+        else{
+            return null;
+        }
     }
     
 }

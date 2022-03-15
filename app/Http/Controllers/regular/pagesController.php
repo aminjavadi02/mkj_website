@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Gallery;
 use App\Models\Aboutus;
 use App\Models\Item;
+use App\Models\Contactus;
 
 class pagesController extends Controller
 {
@@ -20,7 +21,14 @@ class pagesController extends Controller
 
     public function newMsg(Request $request)
     {
-        dd($request->all());
+        Contactus::create([
+            'name'=>$request->name,
+            'email'=>$request->email,
+            'subject'=>$request->subject,
+            'text'=>$request->text,
+        ]);
+        return redirect()->back();
+        // with success message
     }
 
     // delete msg

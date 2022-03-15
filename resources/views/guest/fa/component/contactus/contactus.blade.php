@@ -16,7 +16,7 @@
                  @csrf
                  <div class="form-group">
                     <label for="InputName">نام و نام خانوادگی</label>
-                    <input type="text" class="form-control"id="InputName" name="name" placeholder="نام و نام خانوادگی" required value="{{old('name')}}">
+                    <input type="text" class="form-control" id="InputName" name="name" placeholder="نام و نام خانوادگی" required value="{{old('name')}}">
                  </div>
                  <div class="form-group">
                     <label for="InputEmail1">آدرس ایمیل</label>

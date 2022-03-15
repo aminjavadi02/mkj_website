@@ -1,3 +1,4 @@
+@if(!empty($itemImages))
 <div class="item-container" style="background-image:url('{{asset('assets/img/42883.jpg')}}')">
     @foreach($itemImages as $item)
       <div class="card">
@@ -18,5 +19,6 @@
         <a href="#" class="button"><span>محصولات بیشتر</span></a>
     </div>
 </div>
+@endif
 
 <!-- more items -->
