@@ -8,6 +8,7 @@ use App\Models\Gallery;
 use App\Models\Aboutus;
 use App\Models\Item;
 use App\Models\Contactus;
+use App\Http\Requests\newMsgCreate;
 
 class pagesController extends Controller
 {
@@ -19,7 +20,7 @@ class pagesController extends Controller
         return view('guest.fa.component.index.indexpage',compact('galleryImages','aboutus','itemImages'));
     }
 
-    public function newMsg(Request $request)
+    public function newMsg(newMsgCreate $request)
     {
         Contactus::create([
             'name'=>$request->name,
