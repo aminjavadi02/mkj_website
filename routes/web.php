@@ -81,3 +81,5 @@ Route::group(['middleware' => 'auth'],function(){
 
 // guest pages
 Route::get('/',[pagesController::class,'index']);
+    // contact us
+Route::post('/contactus',[pagesController::class,'newMsg'])->name('contactus');

@@ -17,4 +17,11 @@ class pagesController extends Controller
         $itemImages = Item::getAllImagesObject();
         return view('guest.fa.component.index.indexpage',compact('galleryImages','aboutus','itemImages'));
     }
+
+    public function newMsg(Request $request)
+    {
+        dd($request->all());
+    }
+
+    // delete msg
 }
