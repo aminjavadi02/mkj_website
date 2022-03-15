@@ -1,16 +1,17 @@
 @if(!empty($aboutus['history_fa']))
-<div class="container aboutus-short">
-    <div class="image"></div>
-    <div class="history_fa-container">
-        <div dir="rtl" id="history_fa"></div>
-    </div>
-    <div class="button-container">
-        <a href="#" class="button"><span>درباره ی ما</span></a>
-    </div>
+<div class="container aboutus-container">
     <div class="row">
-        <!-- cards -->
+        <div class="col-12">
+            <div class="row">
+                <div class="col wrapper" dir="rtl" id="history_fa"></div>
+                <div class="col button-container">
+                    <a href="#" class="button"><span>درباره ی ما</span></a>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+<!--  -->
 
 <script>
     window.onload = function () {

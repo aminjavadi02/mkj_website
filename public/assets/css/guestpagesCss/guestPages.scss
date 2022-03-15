@@ -104,13 +104,6 @@
     .navbar-toggler {
         display: none !important;
     }
-    // aboutus responsive
-    .aboutus-short {
-        height: 75vh;
-        .history_fa-container {
-            top: 10%;
-        }
-    }
     #history_fa {
         height: 100%;
     }
@@ -118,12 +111,6 @@
 @media not all and (min-width: 770px) {
     .navbar-brand {
         margin-left: 2vw !important;
-    }
-    .aboutus-short {
-        height: 110vh;
-        .history_fa-container {
-            top: 4%;
-        }
     }
     .indexHeader {
         .CompanyName {
@@ -136,32 +123,30 @@
 }
 
 // aboutus-short
-.aboutus-short {
-    position: relative;
-    padding:0  !important;
+.aboutus-container{
     width: 100% !important;
-    .image {
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-        width: 100%;
-        background-color: var(--primary-color);
-        height:100%;
-        background-size: cover;
-        background-repeat: no-repeat;
-        border-radius: 6px;
+    padding:20px 40px !important;
+    margin:0 !important;
+    background-color:var(--primary-color);
+    background-size: cover;
+    height:auto;
+    .wrapper{
+        // height:100vh !important;
+        height:auto !important;
+        min-height: 100px;
+        columns: auto 20em;
+        direction:rtl;
+        #history_fa {
+            position: relative;
+            background:red;
+            color:var(--on-primary-color);
+            padding: 1em 0.5em 1em;
+            line-height: 5px;
+        }
     }
-    .history_fa-container {
-           position: absolute;
-           right: 10%;
-           left: 10%;
-           height: 100%;
-           direction:rtl;
-           columns: auto 20em;
-            #history_fa {
-                color:var(--on-primary-color);
-                padding: 1em 0.5em 1em;
-                line-height: 5px
-            }
+    .button-container{
+        margin-top: 0px;
+        margin-bottom: -10px;
     }
 }
 
@@ -172,7 +157,6 @@
     justify-content: center;
     .button{
         position: relative;
-        top: -10vh;
         padding: 12px 25px;
         border: 2px solid var(--on-primary-variant);
         text-transform: uppercase;

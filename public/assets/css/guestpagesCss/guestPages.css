@@ -111,12 +111,6 @@
   .navbar-toggler {
     display: none !important;
   }
-  .aboutus-short {
-    height: 75vh;
-  }
-  .aboutus-short .history_fa-container {
-    top: 10%;
-  }
   #history_fa {
     height: 100%;
   }
@@ -126,12 +120,6 @@
   .navbar-brand {
     margin-left: 2vw !important;
   }
-  .aboutus-short {
-    height: 110vh;
-  }
-  .aboutus-short .history_fa-container {
-    top: 4%;
-  }
   .indexHeader .CompanyName {
     font-size: 32pt !important;
   }
@@ -140,37 +128,34 @@
   }
 }
 
-.aboutus-short {
-  position: relative;
-  padding: 0  !important;
+.aboutus-container {
   width: 100% !important;
-}
-
-.aboutus-short .image {
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-  width: 100%;
+  padding: 20px 40px !important;
+  margin: 0 !important;
   background-color: var(--primary-color);
-  height: 100%;
   background-size: cover;
-  background-repeat: no-repeat;
-  border-radius: 6px;
+  height: auto;
 }
 
-.aboutus-short .history_fa-container {
-  position: absolute;
-  right: 10%;
-  left: 10%;
-  height: 100%;
-  direction: rtl;
+.aboutus-container .wrapper {
+  height: auto !important;
+  min-height: 100px;
   -webkit-columns: auto 20em;
           columns: auto 20em;
+  direction: rtl;
 }
 
-.aboutus-short .history_fa-container #history_fa {
+.aboutus-container .wrapper #history_fa {
+  position: relative;
+  background: red;
   color: var(--on-primary-color);
   padding: 1em 0.5em 1em;
   line-height: 5px;
+}
+
+.aboutus-container .button-container {
+  margin-top: 0px;
+  margin-bottom: -10px;
 }
 
 .button-container {
@@ -185,7 +170,6 @@
 
 .button-container .button {
   position: relative;
-  top: -10vh;
   padding: 12px 25px;
   border: 2px solid var(--on-primary-variant);
   text-transform: uppercase;
