@@ -460,4 +460,36 @@
   font-family: koodak-bold;
   color: #faf7ff;
 }
+
+.contactUsForm {
+  direction: rtl;
+  font-family: yekan-sans-serif;
+  color: var(--on-primary-variant);
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  -webkit-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5.4px);
+  -webkit-backdrop-filter: blur(5.4px);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  padding: 10px 20px;
+  margin: 10px 0 20px;
+}
+
+.contactUsForm label {
+  font-size: 14pt;
+}
+
+.contactUsForm .title {
+  text-align: center;
+  font-size: 16pt;
+}
+
+.contactUsForm .text {
+  height: 50vh;
+}
+
+.contactUsForm .submit {
+  text-align: end;
+}
 /*# sourceMappingURL=guestPages.css.map */

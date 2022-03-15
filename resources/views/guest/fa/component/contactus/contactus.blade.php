@@ -7,13 +7,15 @@
  <div class="container">
      <div class="row">
          <div class="col-md-6">
-             <!-- picture -->
+             <!-- contact info -->
          </div>
          <div class="col-md-6">
              <!-- form -->
              @include('inc.messages')
-             ارتباط با ما
              <form action="{{route('contactus')}}" class="contactUsForm" method="post">
+                <p class="title">
+                    ارتباط با ما
+                </p>
                  @csrf
                  <div class="form-group">
                     <label for="InputName">نام و نام خانوادگی</label>
@@ -30,9 +32,11 @@
                 </div>
                 <div class="form-group">
                     <label for="InputText">متن پیام</label>
-                    <input type="text" class="form-control" id="InputText" name="text" placeholder="متن پیام" required value="{{old('text')}}">
+                    <textarea type="text" class="form-control text" id="InputText" name="text" placeholder="متن پیام" cols="30" rows="10" required value="{{old('text')}}"></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary">ارسال</button>
+                <div class="submit">
+                    <button type="submit" class="btn btn-primary">ارسال</button>
+                </div>
              </form>
          </div>
      </div>

@@ -400,3 +400,33 @@
         }
     }
 }
+
+// contactUsForm
+.contactUsForm{
+    direction: rtl;
+    font-family: yekan-sans-serif;
+    color:var(--on-primary-variant);
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5.4px);
+    -webkit-backdrop-filter: blur(5.4px);
+    border: 1px solid rgba(255, 255, 255, 0.24);
+    padding: 10px 20px;
+    margin: 10px 0 20px;
+    label{
+        font-size:14pt;
+        
+    }
+    .title{
+        text-align: center;
+        font-size:16pt;
+    }
+    .text{
+        height:50vh;
+    }
+    .submit{
+        text-align:end;
+    }
+    
+}
