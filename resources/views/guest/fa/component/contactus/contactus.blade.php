@@ -8,6 +8,20 @@
      <div class="row">
          <div class="col-md-6">
              <!-- contact info -->
+            <div class="contactInfo">
+                <p class="title">اطلاعات تماس</p>
+                <label for="office_phone">تلفن دفتر</label>
+                <p id="office_phone">{{$aboutus['office_phone']}}</p>
+
+                <label for="office_address">آدرس دفتر</label>
+                <p id="office_address">{{$aboutus['office_address_fa']}}</p>
+                
+                <label for="factory_phone">تلفن کارخانه</label>
+                <p id="factory_phone">{{$aboutus['factory_phone']}}</p>
+
+                <label for="factory_address">آدرس کارخانه</label>
+                <p id="factory_address">{{$aboutus['factory_address_fa']}}</p>
+            </div>
          </div>
          <div class="col-md-6">
              <!-- form -->
@@ -32,7 +46,7 @@
                 </div>
                 <div class="form-group">
                     <label for="InputText">متن پیام</label>
-                    <textarea type="text" class="form-control text" id="InputText" name="text" placeholder="متن پیام" cols="30" rows="10" required value="{{old('text')}}"></textarea>
+                    <textarea type="text" class="form-control text" id="InputText" name="text" placeholder="متن پیام" required value="{{old('text')}}"></textarea>
                 </div>
                 <div class="submit">
                     <button type="submit" class="btn btn-primary">ارسال</button>

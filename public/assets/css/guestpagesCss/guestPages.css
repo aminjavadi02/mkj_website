@@ -90,12 +90,12 @@
   margin-bottom: -15vh;
 }
 
-@media not all and (min-width: 900px) {
+@media not all and (min-width: 1100px) {
   .whitespace {
     margin-bottom: -10vh;
   }
   .whitespace #backgroundImage {
-    width: 900px !important;
+    width: 1100px !important;
   }
 }
 
@@ -131,7 +131,8 @@
 .aboutus-container {
   width: 100% !important;
   padding: 20px 40px !important;
-  margin: 0 !important;
+  margin-top: 50px;
+  margin-bottom: 50px;
   background-color: var(--primary-color);
   background-size: cover;
   height: auto;
@@ -143,6 +144,7 @@
   -webkit-columns: auto 20em;
           columns: auto 20em;
   direction: rtl;
+  margin-bottom: 50px;
 }
 
 .aboutus-container .wrapper #history_fa {
@@ -155,7 +157,7 @@
 
 .aboutus-container .button-container {
   margin-top: 0px;
-  margin-bottom: -10px;
+  margin-bottom: 10px;
 }
 
 .button-container {
@@ -475,5 +477,50 @@
 
 .contactUsForm .submit {
   text-align: end;
+}
+
+.contactInfo {
+  height: 100vh;
+  direction: ltr;
+  font-family: yekan-sans-serif;
+  color: var(--on-primary-variant);
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  -webkit-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5.4px);
+  -webkit-backdrop-filter: blur(5.4px);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  padding: 10px 20px;
+  margin: 10px 0 20px;
+}
+
+.contactInfo .title {
+  text-align: center;
+  font-size: 16pt;
+  background: transparent !important;
+}
+
+.contactInfo label {
+  font-size: 14pt;
+}
+
+.contactInfo p {
+  text-align: end;
+  font-size: 14pt;
+  background: rgba(0, 0, 0, 0.4);
+  padding-right: 10px;
+}
+
+.errormsg {
+  margin: 0;
+  padding: 2vh 5vw 1vh 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  direction: rtl;
 }
 /*# sourceMappingURL=guestPages.css.map */

@@ -79,12 +79,12 @@
     // between gallery and aboutus
     background-color:transparent;
     margin-bottom:-15vh;
-    @media not all and (min-width: 900px) {
+    @media not all and (min-width: 1100px) {
         margin-bottom:-10vh;
         // background:linear-gradient(45deg,#080808,#808080);
         #backgroundImage{
             // display:none;
-            width: 900px !important;
+            width: 1100px !important;
         }
     }
     #backgroundImage{
@@ -126,7 +126,8 @@
 .aboutus-container{
     width: 100% !important;
     padding:20px 40px !important;
-    margin:0 !important;
+    margin-top:50px;
+    margin-bottom: 50px;
     background-color:var(--primary-color);
     background-size: cover;
     height:auto;
@@ -136,6 +137,7 @@
         min-height: 100px;
         columns: auto 20em;
         direction:rtl;
+        margin-bottom: 50px;
         #history_fa {
             position: relative;
             background:red;
@@ -146,7 +148,7 @@
     }
     .button-container{
         margin-top: 0px;
-        margin-bottom: -10px;
+        margin-bottom: 10px;
     }
 }
 
@@ -399,8 +401,7 @@
     padding: 10px 20px;
     margin: 10px 0 20px;
     label{
-        font-size:14pt;
-        
+        font-size:14pt;   
     }
     .title{
         text-align: center;
@@ -413,4 +414,42 @@
         text-align:end;
     }
     
+}
+// contact info
+.contactInfo{
+    height:100vh;
+    direction: ltr;
+    font-family: yekan-sans-serif;
+    color:var(--on-primary-variant);
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5.4px);
+    -webkit-backdrop-filter: blur(5.4px);
+    border: 1px solid rgba(255, 255, 255, 0.24);
+    padding: 10px 20px;
+    margin: 10px 0 20px;
+    .title{
+        text-align: center;
+        font-size:16pt;
+        background: transparent !important;
+    }
+    label{
+        font-size:14pt;   
+    }
+    p{
+        text-align: end;
+        font-size: 14pt;
+        background:rgba(0, 0, 0, 0.4);
+        padding-right: 10px;
+    }
+}
+
+// error and success messages
+.errormsg{
+    margin: 0;
+    padding: 2vh 5vw 1vh 0;
+    display: flex;
+    justify-content:flex-start;
+    direction: rtl;
 }

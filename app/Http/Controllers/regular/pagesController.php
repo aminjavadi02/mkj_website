@@ -15,7 +15,7 @@ class pagesController extends Controller
     public function index()
     {
         $galleryImages = Gallery::get()->all();
-        $aboutus = Aboutus::select('history_fa','image_name')->get()->first();
+        $aboutus = Aboutus::select('history_fa','office_phone','office_address_fa','factory_address_fa','factory_phone')->get()->first();
         $itemImages = Item::getAllImagesObject();
         return view('guest.fa.component.index.indexpage',compact('galleryImages','aboutus','itemImages'));
     }
