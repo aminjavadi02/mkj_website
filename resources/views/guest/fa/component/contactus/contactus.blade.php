@@ -11,6 +11,7 @@
          </div>
          <div class="col-md-6">
              <!-- form -->
+             @include('inc.messages')
              ارتباط با ما
              <form action="{{route('contactus')}}" class="contactUsForm" method="post">
                  @csrf
