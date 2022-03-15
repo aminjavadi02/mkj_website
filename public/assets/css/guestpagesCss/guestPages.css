@@ -256,35 +256,38 @@
           justify-content: center;
 }
 
-.button-container-2 .button-2 {
+.button-container-2 .button {
   position: relative;
-  top: -10vh;
   padding: 12px 25px;
   border: 2px solid var(--on-primary-variant);
+  border-radius: 25px;
   text-transform: uppercase;
   font-size: 14pt;
   text-decoration: none;
   color: var(--on-primary-color);
 }
 
-.button-container-2 .button-2::before {
+.button-container-2 .button::before {
   content: '';
   position: absolute;
   top: 0px;
   left: 0px;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 25px;
+  background-color: rgba(0, 0, 0, 0.1);
   -webkit-transition: 0.1s ease-in-out;
   transition: 0.1s ease-in-out;
   -webkit-transform: scaleX(1);
           transform: scaleX(1);
-  -webkit-transition-delay: 0.2s;
-          transition-delay: 0.2s;
 }
 
-.button-container-2 .button-2:hover::before {
-  background: #fff;
+.button-container-2 .button:hover {
+  color: #fff;
+}
+
+.button-container-2 .button:hover::before {
+  background: #000;
   -webkit-transform: scaleX(0);
           transform: scaleX(0);
 }
@@ -360,6 +363,7 @@
           box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.05), inset -5px -5px 5px rgba(255, 255, 255, 0.5), 5px 5px 5px rgba(0, 0, 0, 0.05), -5px -5px 5px rgba(255, 255, 255, 0.5);
   border-radius: 15px;
   margin: 30px;
+  margin-bottom: 50px;
 }
 
 .item-container .card .box {
@@ -394,6 +398,9 @@
   }
   .item-container .box {
     margin: 10px auto 10px auto !important;
+  }
+  .item-container .button {
+    color: #fff;
   }
 }
 

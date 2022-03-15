@@ -14,10 +14,11 @@
           </div>
       </div>  
     @endforeach
+    <div class="button-container-2">
+        <a href="#" class="button"><span>محصولات بیشتر</span></a>
+    </div>
 </div>
-<div class="button-container-2">
-    <a href="#" class="button-2"><span>محصولات بیشتر</span></a>
-</div>
+
 <!-- more items -->
 
 
