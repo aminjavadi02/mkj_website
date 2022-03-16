@@ -30,6 +30,4 @@ class pagesController extends Controller
         ]);
         return redirect()->back()->with('success','با موفقیت ارسال شد');;
     }
-
-    // delete msg
 }

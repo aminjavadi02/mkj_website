@@ -11,6 +11,7 @@ use App\Http\Controllers\itemImageController;
 use App\Http\Controllers\galleryController;
 use App\Http\Controllers\callInfoController;
 use App\Http\Controllers\videoController;
+use App\Http\Controllers\messageController;
 
 use App\Http\Controllers\regular\pagesController;
 
@@ -27,12 +28,6 @@ use App\Http\Controllers\regular\pagesController;
 
 // admin panel
 Route::group(['middleware' => 'auth'],function(){
-    
-    Route::view('/admin','layouts.app')->name('admin');
-    Route::get('/home',function(){
-        return redirect('/admin');
-    });
-
     Route::prefix('admin')->group(function(){
 
         Route::resource('blogs',blogController::class);
@@ -75,6 +70,11 @@ Route::group(['middleware' => 'auth'],function(){
         Route::resource('callinfo',callInfoController::class)->except(['show']);
 
         Route::resource('videos',videoController::class)->only(['store','destroy']);
+
+        Route::get('/dashboard',[messageController::class, 'newMessages'])->name('admin');
+        Route::get('/messages',[messageController::class, 'allMessages'])->name('messages.all');
+        Route::get('/messages/{id}',[messageController::class, 'show'])->whereNumber('id')->name('message.show');
+        Route::Delete('/messages/{id}',[messageController::class,'deleteMessage'])->whereNumber('id')->name('message.delete');
 
     });
 });
