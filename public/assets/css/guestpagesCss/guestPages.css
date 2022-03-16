@@ -526,17 +526,98 @@
   direction: rtl;
 }
 
+.footer {
+  width: 100% !important;
+  background: var(--primary-variant);
+}
+
 .footer .rightside {
-  background: red;
+  padding: 10px 10px;
   direction: rtl;
   line-height: 5vh;
 }
 
-.footer .rightside li {
+.footer .rightside ul {
+  list-style-type: none;
+}
+
+.footer .rightside ul li {
   text-decoration: none;
 }
 
-.footer .rightside li a {
-  color: green;
+.footer .rightside ul li a {
+  color: var(--on-primary-variant);
+  font-family: yekan-sans-serif;
+  font-size: 14pt;
+}
+
+.footer .left-side {
+  padding: 0;
+  position: relative;
+}
+
+.footer .left-side .homepagelink {
+  position: absolute;
+  left: -50px;
+  top: 14vh;
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+  width: 200px;
+  color: var(--on-primary-color);
+  font-family: yekan-sans-serif;
+  font-size: 16pt;
+}
+
+.middle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-top: 20px;
+  height: 100px;
+}
+
+.designer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-top: 5px;
+  height: 30px;
+  background: rgba(255, 255, 255, 0.2);
+  -webkit-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.button-3 {
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-top: 13px;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  text-decoration: none;
+  color: var(--on-primary-color);
+  cursor: pointer;
+}
+
+.button-3:hover {
+  -webkit-transform: scale(1.5);
+          transform: scale(1.5);
+  text-decoration: none;
+  color: var(--on-primary-color);
 }
 /*# sourceMappingURL=guestPages.css.map */
