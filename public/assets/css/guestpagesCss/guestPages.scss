@@ -400,6 +400,7 @@
     border: 1px solid rgba(255, 255, 255, 0.24);
     padding: 10px 20px;
     margin: 10px 0 20px;
+    height:100vh;
     label{
         font-size:14pt;   
     }
@@ -408,7 +409,7 @@
         font-size:16pt;
     }
     .text{
-        height:50vh;
+        height:25vh;
     }
     .submit{
         text-align:end;
@@ -417,7 +418,8 @@
 }
 // contact info
 .contactInfo{
-    height:100vh;
+    height:auto;
+    min-height: 100vh;
     direction: ltr;
     font-family: yekan-sans-serif;
     color:var(--on-primary-variant);
@@ -452,4 +454,20 @@
     display: flex;
     justify-content:flex-start;
     direction: rtl;
+}
+
+// footer
+
+.footer{
+    .rightside{
+        background:red;
+        direction: rtl;
+        line-height: 5vh;
+        li{
+            text-decoration: none;
+            a{
+                color:green;
+            }
+        }
+    }
 }

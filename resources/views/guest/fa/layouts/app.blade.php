@@ -30,6 +30,7 @@
     <div class="main">
       @yield('content')
     </div>
+    @include('guest.fa.inc.footer')
   </div>
 
 

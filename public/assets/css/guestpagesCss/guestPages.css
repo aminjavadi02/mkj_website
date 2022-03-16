@@ -460,6 +460,7 @@
   border: 1px solid rgba(255, 255, 255, 0.24);
   padding: 10px 20px;
   margin: 10px 0 20px;
+  height: 100vh;
 }
 
 .contactUsForm label {
@@ -472,7 +473,7 @@
 }
 
 .contactUsForm .text {
-  height: 50vh;
+  height: 25vh;
 }
 
 .contactUsForm .submit {
@@ -480,7 +481,8 @@
 }
 
 .contactInfo {
-  height: 100vh;
+  height: auto;
+  min-height: 100vh;
   direction: ltr;
   font-family: yekan-sans-serif;
   color: var(--on-primary-variant);
@@ -522,5 +524,19 @@
       -ms-flex-pack: start;
           justify-content: flex-start;
   direction: rtl;
+}
+
+.footer .rightside {
+  background: red;
+  direction: rtl;
+  line-height: 5vh;
+}
+
+.footer .rightside li {
+  text-decoration: none;
+}
+
+.footer .rightside li a {
+  color: green;
 }
 /*# sourceMappingURL=guestPages.css.map */
