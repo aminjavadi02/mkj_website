@@ -87,3 +87,7 @@ Route::post('/contactus',[pagesController::class,'newMsg'])->name('contactus');
 
 // aboutus
 Route::get('/about-us/{lang?}',[pagesController::class,'showAboutus'])->name('showAboutus');
+
+// managers
+Route::get('/managers/{lang?}',[pagesController::class,'showManagers'])->name('showManagers');
+Route::get('/managers/{id}/{lang?}',[pagesController::class,'showAManager'])->whereNumber('id')->name('showAmanager');

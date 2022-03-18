@@ -1,0 +1,33 @@
+.manager-container{
+    width:100%;
+    padding-bottom: 200px;
+    background-color:green !important;
+    .row{
+        display:flex;
+        justify-content:space-evenly;
+        margin-top:50px;
+        padding: 30px 15px 10px;
+        .card{
+            width:200px !important;
+            height:200px;
+            text-align:center;
+            font-family: yekan-sans-serif;
+            .img-container{
+                height:200px;
+                width: 200px;
+                border-radius: 50%;
+                overflow: hidden;
+                .card-img-top{
+                    width:200px;    
+                }
+            }
+            .card-title{
+                font-size: 14pt;
+            }
+            .card-text{
+                font-size: 12pt;
+            }
+    
+        }
+    }
+}

@@ -14,9 +14,9 @@
         <!-- make responsive -->
       <li><a href="#">محصولات</a></li>
       <li><a href="#">دسته بندی ها</a></li>
-      <li><a href="#">هیات مدیره</a></li>
+      <li><a href="{{route('showManagers','fa')}}">هیات مدیره</a></li>
       <li><a href="#">بلاگ ها</a></li>
-      <li><a href="{{route('showAboutus')}}">درباره ما</a></li>
+      <li><a href="{{route('showAboutus','fa')}}">درباره ما</a></li>
       <li><a href="#">کاتالوگ</a></li>
       <li><a href="#">گالری</a></li>
     </ul>
