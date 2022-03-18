@@ -1,0 +1,36 @@
+.aboutus-container{
+    width: 100% !important;
+    padding:20px 40px !important;
+    margin-top:50px;
+    margin-bottom: 50px;
+    background-color:var(--primary-color);
+    background-size: cover;
+    height:auto;
+    .title{
+        // background-color:red;
+        text-align:center;
+        font-family: yekan-sans-serif;
+        font-size: 20pt;
+        margin-bottom: 30px;
+        // color: var(--on-primary-variant);
+        color:#f2ecff;
+    }
+    .wrapper{
+        // height:100vh !important;
+        height:auto !important;
+        min-height: 100px;
+        columns: auto 20em;
+        direction:rtl;
+        margin-bottom: 50px;
+        #history_fa {
+            position: relative;;
+            color:var(--on-primary-color);
+            padding: 1em 0.5em 1em;
+            line-height: 5px;
+        }
+    }
+    .button-container{
+        margin-top: 0px;
+        margin-bottom: 10px;
+    }
+}

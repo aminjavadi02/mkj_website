@@ -28,6 +28,7 @@ use App\Http\Controllers\regular\pagesController;
 
 // admin panel
 Route::group(['middleware' => 'auth'],function(){
+    Route::view('/admin','layouts.app');
     Route::prefix('admin')->group(function(){
 
         Route::resource('blogs',blogController::class);
@@ -83,3 +84,6 @@ Route::group(['middleware' => 'auth'],function(){
 Route::get('/',[pagesController::class,'index'])->name('index');
     // contact us
 Route::post('/contactus',[pagesController::class,'newMsg'])->name('contactus');
+
+// aboutus
+Route::get('/about-us/{lang?}',[pagesController::class,'showAboutus'])->name('showAboutus');

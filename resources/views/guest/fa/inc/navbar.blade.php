@@ -16,7 +16,7 @@
       <li><a href="#">دسته بندی ها</a></li>
       <li><a href="#">هیات مدیره</a></li>
       <li><a href="#">بلاگ ها</a></li>
-      <li><a href="#">درباره ما</a></li>
+      <li><a href="{{route('showAboutus')}}">درباره ما</a></li>
       <li><a href="#">کاتالوگ</a></li>
       <li><a href="#">گالری</a></li>
     </ul>

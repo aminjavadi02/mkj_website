@@ -30,4 +30,17 @@ class pagesController extends Controller
         ]);
         return redirect()->back()->with('success','با موفقیت ارسال شد');;
     }
+
+    public function showAboutus($lang='fa')
+    {
+        if($lang=='fa'){
+            $aboutus = Aboutus::select('history_fa','office_phone','factory_phone','office_address_fa','factory_address_fa','image_name')->get()->first();
+            return view('guest.fa.component.aboutus.show')->with('aboutus',$aboutus);
+            // 'history_fa','office_phone','factory_phone','office_address_fa','factory_address_fa','image_name'
+        }
+        elseif($lang=='en'){
+            dd('by');
+        }
+        dd(Aboutus::select('id','history_fa')->get()->first());
+    }
 }

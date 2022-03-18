@@ -37,6 +37,104 @@
   src: url("../../fonts/B Koodak Outline.ttf");
 }
 
+.aboutus-container {
+  width: 100% !important;
+  padding: 20px 40px !important;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  background-color: var(--primary-color);
+  background-size: cover;
+  height: auto;
+}
+
+.aboutus-container .title {
+  text-align: center;
+  font-family: yekan-sans-serif;
+  font-size: 20pt;
+  margin-bottom: 30px;
+  color: #f2ecff;
+}
+
+.aboutus-container .wrapper {
+  height: auto !important;
+  min-height: 100px;
+  -webkit-columns: auto 20em;
+          columns: auto 20em;
+  direction: rtl;
+  margin-bottom: 50px;
+}
+
+.aboutus-container .wrapper #history_fa {
+  position: relative;
+  color: var(--on-primary-color);
+  padding: 1em 0.5em 1em;
+  line-height: 5px;
+}
+
+.aboutus-container .button-container {
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+
+.aboutus {
+  position: relative;
+}
+
+.aboutus .aboutus-big-container {
+  width: 100% !important;
+  padding: 20px 40px !important;
+  height: auto;
+  position: absolute;
+  top: 50px;
+}
+
+.aboutus .aboutus-big-container .title {
+  text-align: center;
+  font-family: yekan-sans-serif;
+  font-size: 24pt;
+  margin-bottom: 30px;
+  color: #f2ecff;
+}
+
+.aboutus .aboutus-big-container .wrapper {
+  height: auto !important;
+  min-height: 100px;
+  -webkit-columns: auto 20em;
+          columns: auto 20em;
+  direction: rtl;
+  margin-bottom: 50px;
+  color: var(--on-primary-variant);
+}
+
+.aboutus .aboutus-big-container .wrapper #history_fa {
+  position: relative;
+  padding: 1em 0.5em 1em;
+  line-height: 5px;
+}
+
+.aboutus .aboutus-big-container .button-container {
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+
+.aboutus .aboutus-img-container {
+  height: 100vh;
+  overflow: hidden;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.aboutus .aboutus-img-container .bg {
+  -webkit-filter: blur(7px);
+          filter: blur(7px);
+  width: 100% !important;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
 .swiper {
   width: 70%;
   margin-top: -32vh;
@@ -83,81 +181,6 @@
   height: 100% !important;
   display: block;
   margin: auto;
-}
-
-.whitespace {
-  background-color: transparent;
-  margin-bottom: -15vh;
-}
-
-@media not all and (min-width: 1100px) {
-  .whitespace {
-    margin-bottom: -10vh;
-  }
-  .whitespace #backgroundImage {
-    width: 1100px !important;
-  }
-}
-
-.whitespace #backgroundImage {
-  z-index: -5;
-  position: fixed;
-  top: -70vh;
-  left: 0;
-  width: 100%;
-}
-
-@media only all and (min-width: 770px) {
-  .navbar-toggler {
-    display: none !important;
-  }
-  #history_fa {
-    height: 100%;
-  }
-}
-
-@media not all and (min-width: 770px) {
-  .navbar-brand {
-    margin-left: 2vw !important;
-  }
-  .indexHeader .CompanyName {
-    font-size: 32pt !important;
-  }
-  .indexHeader .CompanyDescription {
-    font-size: 12pt !important;
-  }
-}
-
-.aboutus-container {
-  width: 100% !important;
-  padding: 20px 40px !important;
-  margin-top: 50px;
-  margin-bottom: 50px;
-  background-color: var(--primary-color);
-  background-size: cover;
-  height: auto;
-}
-
-.aboutus-container .wrapper {
-  height: auto !important;
-  min-height: 100px;
-  -webkit-columns: auto 20em;
-          columns: auto 20em;
-  direction: rtl;
-  margin-bottom: 50px;
-}
-
-.aboutus-container .wrapper #history_fa {
-  position: relative;
-  background: red;
-  color: var(--on-primary-color);
-  padding: 1em 0.5em 1em;
-  line-height: 5px;
-}
-
-.aboutus-container .button-container {
-  margin-top: 0px;
-  margin-bottom: 10px;
 }
 
 .button-container {
@@ -277,6 +300,75 @@
   background: rgba(129, 125, 125, 0.2);
   -webkit-transform: scaleX(0);
           transform: scaleX(0);
+}
+
+.button-3 {
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-top: 13px;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  text-decoration: none;
+  color: var(--on-primary-color);
+  cursor: pointer;
+}
+
+.button-3:hover {
+  -webkit-transform: scale(1.5);
+          transform: scale(1.5);
+  text-decoration: none;
+  color: var(--on-primary-color);
+}
+
+.whitespace {
+  background-color: transparent;
+  margin-bottom: -15vh;
+}
+
+@media not all and (min-width: 1100px) {
+  .whitespace {
+    margin-bottom: -10vh;
+  }
+  .whitespace #backgroundImage {
+    width: 1100px !important;
+  }
+}
+
+.whitespace #backgroundImage {
+  z-index: -5;
+  position: fixed;
+  top: -70vh;
+  left: 0;
+  width: 100%;
+}
+
+@media only all and (min-width: 770px) {
+  .navbar-toggler {
+    display: none !important;
+  }
+  #history_fa {
+    height: 100%;
+  }
+}
+
+@media not all and (min-width: 770px) {
+  .navbar-brand {
+    margin-left: 2vw !important;
+  }
+  .indexHeader .CompanyName {
+    font-size: 32pt !important;
+  }
+  .indexHeader .CompanyDescription {
+    font-size: 12pt !important;
+  }
 }
 
 .indexHeader {
@@ -593,31 +685,5 @@
           box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
-}
-
-.button-3 {
-  width: 50px;
-  height: 50px;
-  background-color: white;
-  border-radius: 50%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  padding-top: 13px;
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
-  text-decoration: none;
-  color: var(--on-primary-color);
-  cursor: pointer;
-}
-
-.button-3:hover {
-  -webkit-transform: scale(1.5);
-          transform: scale(1.5);
-  text-decoration: none;
-  color: var(--on-primary-color);
 }
 /*# sourceMappingURL=guestPages.css.map */
