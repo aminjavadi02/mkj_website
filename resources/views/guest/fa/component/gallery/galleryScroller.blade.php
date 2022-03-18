@@ -2,7 +2,6 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-12 whitespace">
-        <img id="backgroundImage" src="{{asset('assets/img/1.jpg')}}" alt="">
         <div class="card">
           @if(!empty($galleryImages))
           <div class="card-body">

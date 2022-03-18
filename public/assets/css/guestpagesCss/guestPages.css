@@ -337,26 +337,18 @@
   color: var(--on-primary-color);
 }
 
-.whitespace {
-  background-color: transparent;
-  margin-bottom: -15vh;
-}
-
-@media not all and (min-width: 1100px) {
-  .whitespace {
-    margin-bottom: -10vh;
-  }
-  .whitespace #backgroundImage {
-    width: 1100px !important;
-  }
-}
-
-.whitespace #backgroundImage {
+#backgroundImage {
   z-index: -5;
   position: fixed;
   top: -70vh;
   left: 0;
   width: 100%;
+}
+
+@media not all and (min-width: 1100px) {
+  #backgroundImage {
+    width: 1100px !important;
+  }
 }
 
 @media only all and (min-width: 770px) {
@@ -629,13 +621,23 @@
 
 .footer {
   width: 100% !important;
+  height: 80vh !important;
   background: var(--primary-variant);
+  position: relative;
 }
 
 .footer .rightside {
   padding: 10px 10px;
   direction: rtl;
   line-height: 5vh;
+}
+
+@media not all and (min-width: 1100px) {
+  .footer .rightside {
+    position: absolute;
+    right: 0;
+    width: 50% !important;
+  }
 }
 
 .footer .rightside ul {
@@ -681,6 +683,9 @@
 }
 
 .designer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

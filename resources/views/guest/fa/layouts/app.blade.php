@@ -28,6 +28,7 @@
   <div class="wrapper">
     @include('guest.fa.inc.navbar')
     <div class="main">
+      <img id="backgroundImage" src="{{asset('assets/img/1.jpg')}}">
       @yield('content')
     </div>
     @include('guest.fa.inc.footer')
