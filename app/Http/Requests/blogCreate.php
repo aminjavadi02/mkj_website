@@ -25,7 +25,6 @@ class blogCreate extends FormRequest
     {
         return [
             'title'=>'required|between:1,255', // between 1 and 255 characters
-            'slug'=>'required|between:1,255',
             'text'=>'required',
         ];
     }
@@ -35,8 +34,6 @@ class blogCreate extends FormRequest
         return [
             'title.required'=>'لطفا عنوان را وارد کنید',
             'title.between'=>'تعداد کاراکترهای عنوان باید حداکثر 255 تا باشد',
-            'slug.required'=>'لطفا اسلاگ را وارد کنید',
-            'slug.between'=>'تعداد کاراکترهای عنوان باید حداکثر 255 تا باشد',
             'text.required'=>'لطفا متن را وارد کنید',
         ];
     }
