@@ -1,4 +1,4 @@
-<div class="indexHeader" style="background-image:url('{{asset('assets/img/sep09.jpg')}}'); ">
+<div class="indexHeader" style="background-image:url('{{asset('assets/img/sep09.jpg')}}'); height: 100vh;">
 <!-- gallery comes up in this -->
 <!-- background: image -->
 <h2 class="CompanyName">شرکت ماهان کشش جم</h2>

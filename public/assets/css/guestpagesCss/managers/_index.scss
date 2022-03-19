@@ -1,7 +1,14 @@
 .manager-container{
     width:100%;
     padding-bottom: 200px;
-    background-color:green !important;
+    background: rgba(234, 227, 227, 0.9);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(12.4px);
+    -webkit-backdrop-filter: blur(12.4px);
+    border: 1px solid rgba(234, 227, 227, 0.31);
+    margin-bottom: 20px;
+    margin-top: 20px;
     .row{
         display:flex;
         justify-content:space-evenly;
@@ -28,6 +35,16 @@
                 font-size: 12pt;
             }
     
+        }
+    }
+    @media not all and (min-width: 850px) {
+        padding-bottom: 50px;
+        .row{
+            flex-direction: column !important;
+            .card{
+                margin:auto;
+                margin-bottom: 100px !important;
+            }
         }
     }
 }

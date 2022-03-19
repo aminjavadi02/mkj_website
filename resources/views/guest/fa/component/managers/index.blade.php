@@ -5,6 +5,7 @@
 <div class="manager-container">
     <div class="row">
       @foreach($managers as $manager)
+      <div class="col-md">
         <div class="card" style="width: 18rem;">
             <div class="img-container">
                 <a href="{{route('showAmanager',$manager->id.'/fa')}}">
@@ -16,6 +17,7 @@
                 <p class="card-text">{{$manager->position_fa}}</p>
             </div>
         </div>
+      </div>
       @endforeach
     </div>
 </div>

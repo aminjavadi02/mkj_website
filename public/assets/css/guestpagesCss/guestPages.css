@@ -158,7 +158,15 @@
 .manager-container {
   width: 100%;
   padding-bottom: 200px;
-  background-color: green !important;
+  background: rgba(234, 227, 227, 0.9);
+  border-radius: 16px;
+  -webkit-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(12.4px);
+  -webkit-backdrop-filter: blur(12.4px);
+  border: 1px solid rgba(234, 227, 227, 0.31);
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 .manager-container .row {
@@ -198,6 +206,22 @@
   font-size: 12pt;
 }
 
+@media not all and (min-width: 850px) {
+  .manager-container {
+    padding-bottom: 50px;
+  }
+  .manager-container .row {
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: column !important;
+            flex-direction: column !important;
+  }
+  .manager-container .row .card {
+    margin: auto;
+    margin-bottom: 100px !important;
+  }
+}
+
 .oneManager-container {
   width: 100%;
   background: rgba(234, 227, 227, 0.9);
@@ -208,7 +232,7 @@
   -webkit-backdrop-filter: blur(12.4px);
   border: 1px solid rgba(234, 227, 227, 0.31);
   margin-bottom: 20px;
-  margin-top: 20px;
+  margin-top: 120px;
 }
 
 .oneManager-container .row {
@@ -219,10 +243,11 @@
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
   margin-top: 50px;
-  padding: 30px 15px 10px;
+  padding: 50px 15px 10px;
 }
 
 .oneManager-container .row .card {
+  position: relative;
   width: 100% !important;
   height: auto;
   text-align: center;
@@ -230,6 +255,10 @@
 }
 
 .oneManager-container .row .card .img-container {
+  position: absolute;
+  top: -200px;
+  left: 0;
+  right: 0;
   margin: auto;
   height: 200px;
   width: 200px;
@@ -570,6 +599,59 @@
   src: url("../../fonts/B Koodak Outline.ttf");
 }
 
+.indexHeader {
+  position: relative;
+  width: 100%;
+  height: 50vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: auto;
+  overflow: hidden;
+}
+
+@media only all and (min-width: 770px) {
+  .indexHeader::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background: rgba(224, 220, 220, 0.1);
+    border-radius: 0 0 50% 50%/ 0 0 100% 100%;
+    -webkit-transform: scaleX(1.4);
+            transform: scaleX(1.4);
+  }
+}
+
+@media not all and (min-width: 770px) {
+  .indexHeader .CompanyName {
+    font-size: 32pt !important;
+  }
+  .indexHeader .CompanyDescription {
+    font-size: 12pt !important;
+  }
+}
+
+.indexHeader .CompanyName {
+  position: relative;
+  padding-top: 15vh;
+  text-align: center;
+  font-family: yekan-sans-serif;
+  font-size: 72pt;
+  color: white;
+}
+
+.indexHeader .CompanyDescription {
+  position: relative;
+  padding-top: 5vh;
+  text-align: center;
+  font-family: yekan-sans-serif;
+  font-size: 18pt;
+  color: white;
+}
+
 #backgroundImage {
   z-index: -5;
   position: fixed;
@@ -594,56 +676,6 @@
   .navbar-brand {
     margin-left: 2vw !important;
   }
-  .indexHeader .CompanyName {
-    font-size: 32pt !important;
-  }
-  .indexHeader .CompanyDescription {
-    font-size: 12pt !important;
-  }
-}
-
-.indexHeader {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  background-size: cover;
-  background-repeat: no-repeat;
-  margin: auto;
-  overflow: hidden;
-}
-
-@media only all and (min-width: 770px) {
-  .indexHeader::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background: rgba(224, 220, 220, 0.1);
-    border-radius: 0 0 50% 50%/ 0 0 100% 100%;
-    -webkit-transform: scaleX(1.4);
-            transform: scaleX(1.4);
-  }
-}
-
-.indexHeader .CompanyName {
-  position: relative;
-  padding-top: 20vh;
-  text-align: center;
-  font-family: yekan-sans-serif;
-  font-size: 72pt;
-  color: white;
-}
-
-.indexHeader .CompanyDescription {
-  position: relative;
-  padding-top: 5vh;
-  text-align: center;
-  font-family: yekan-sans-serif;
-  font-size: 18pt;
-  color: white;
 }
 
 .item-container {

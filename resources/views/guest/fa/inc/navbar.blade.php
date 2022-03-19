@@ -4,7 +4,7 @@
   <span class="material-icons navbar-toggler pull-right" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" style="color:gray; margin-top:2vh; cursor: pointer">menu</span>
   
     <div class="navbar-header">
-      <a class="navbar-brand navbar-nav" href="#">Mahan Keshesh Jam</a>
+      <a class="navbar-brand navbar-nav" href="{{route('index')}}">Mahan Keshesh Jam</a>
     </div>
 
     <div class="collapse navbar-collapse" id="navbarToggler">
