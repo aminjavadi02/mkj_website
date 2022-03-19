@@ -2,7 +2,7 @@
 @section('content')
 @include('guest.fa.component.managers.showHeader')
 @if(!empty($manager))
-<div class="manager-container">
+<div class="oneManager-container">
     <div class="row">
         <div class="card" style="width: 18rem;">
             <div class="img-container">

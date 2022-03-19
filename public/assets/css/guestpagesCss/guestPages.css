@@ -198,10 +198,62 @@
   font-size: 12pt;
 }
 
-.caption-container {
-  background-color: red !important;
+.oneManager-container {
   width: 100%;
-  height: 100vh;
+  background: rgba(234, 227, 227, 0.9);
+  border-radius: 16px;
+  -webkit-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(12.4px);
+  -webkit-backdrop-filter: blur(12.4px);
+  border: 1px solid rgba(234, 227, 227, 0.31);
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.oneManager-container .row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  margin-top: 50px;
+  padding: 30px 15px 10px;
+}
+
+.oneManager-container .row .card {
+  width: 100% !important;
+  height: auto;
+  text-align: center;
+  font-family: yekan-sans-serif;
+}
+
+.oneManager-container .row .card .img-container {
+  margin: auto;
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.oneManager-container .row .card .img-container .card-img-top {
+  width: 200px;
+}
+
+.oneManager-container .row .card .card-title {
+  font-size: 16pt;
+}
+
+.oneManager-container .row .card .card-text {
+  font-size: 12pt;
+}
+
+.oneManager-container .row .card .caption-container {
+  width: 100%;
+  height: auto;
+  padding: 10px 30px 0;
+  font-size: 14pt;
 }
 
 .swiper {
