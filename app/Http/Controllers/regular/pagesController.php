@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\regular;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
 use App\Models\Gallery;
 use App\Models\Aboutus;
@@ -11,6 +12,7 @@ use App\Models\Manager;
 use App\Models\Contactus;
 use App\Models\Blog;
 use App\Http\Requests\newMsgCreate;
+use Carbon\Carbon;
 
 class pagesController extends Controller
 {
@@ -80,7 +82,35 @@ class pagesController extends Controller
 
     public function latestBlogs($lang='fa')
     {
-        
-        dd(Blog::take(5)->latest()->get());
+        if($lang=='fa'){
+            $latestBlogs = Blog::take(5)->latest()->get();
+            foreach($latestBlogs as $key => $latestBlog){
+                $blogs[$key]  = [
+                    'title' => $latestBlog->title,
+                    'abstract' => pagesController::makeAbstract($latestBlog->text),
+                    'time' => $latestBlog->updated_at->format('Y-M'),
+                ];
+            }
+            return view('guest.fa.component.blogs.latest')->with('blogs',$blogs);
+        }
+    }
+
+    public static function makeAbstract($text)
+    {
+        // cut tags
+        $text = strip_tags($text);
+        // cut special chars
+        $text = preg_replace('/&#?[a-z0-9]+;/i',"",$text);
+        // cut \n\r stuff
+        $text = str_replace("\r\n","",$text);
+
+        if(Str::length($text) > 500){
+            // short it           
+            $text = Str::limit($text,500,'...');
+            return $text;
+        }
+        else{
+            return $text;
+        }
     }
 }
