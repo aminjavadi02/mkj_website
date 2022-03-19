@@ -20,13 +20,6 @@
                   </div>
                 </div>
                 <br><br>
-                <div class="col-md-5">
-                  <div class="form-group">
-                    <label class="bmd-label-floating">اسلاگ</label>
-                    <input type="text" name="slug" class="form-control" value="{{old('slug')}}">
-                    <!-- add js to generate this from title -->
-                  </div>
-                </div>
               </div>
               <div class="row">
                 <div class="col-md-12">

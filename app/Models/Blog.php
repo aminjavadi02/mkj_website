@@ -9,11 +9,10 @@ use App\Models\Image;
 class Blog extends Model
 {
     use HasFactory;
-    public $timestamps=false;
+    public $timestamps=true;
     protected $table = 'blog';
     protected $fillable = [
         'title',
-        'slug',
         'text',
         'image_name',
     ];

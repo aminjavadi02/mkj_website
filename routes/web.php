@@ -91,3 +91,9 @@ Route::get('/about-us/{lang?}',[pagesController::class,'showAboutus'])->name('sh
 // managers
 Route::get('/managers/{lang?}',[pagesController::class,'showManagers'])->name('showManagers');
 Route::get('/managers/{id}/{lang?}',[pagesController::class,'showAManager'])->whereNumber('id')->name('showAmanager');
+
+// blogs
+Route::get('/latest-blogs/{lang?}',[pagesController::class,'latestBlogs'])->name('latestBlogs');
+    // show 5 new
+    // show all
+    // show one

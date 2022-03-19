@@ -9,6 +9,7 @@ use App\Models\Aboutus;
 use App\Models\Item;
 use App\Models\Manager;
 use App\Models\Contactus;
+use App\Models\Blog;
 use App\Http\Requests\newMsgCreate;
 
 class pagesController extends Controller
@@ -72,7 +73,14 @@ class pagesController extends Controller
             dd('add en');
         }
         else {
-            // same as fa
+            $manager = Manager::where('id',$id)->select('name_fa','position_fa','about_fa','image_name')->get()->all();
+            return view('guest.fa.component.managers.show')->with('manager',$manager);
         }
+    }
+
+    public function latestBlogs($lang='fa')
+    {
+        
+        dd(Blog::take(5)->latest()->get());
     }
 }
