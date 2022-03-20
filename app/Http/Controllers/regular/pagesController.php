@@ -91,7 +91,7 @@ class pagesController extends Controller
             // dd('add en');
         }
         else{
-            $latestBlogs = Blog::get()->all();
+            $latestBlogs = Blog::latest()->get();
             foreach($latestBlogs as $key => $latestBlog){
                 $blogs[$key]  = [
                     'title' => $latestBlog->title,
