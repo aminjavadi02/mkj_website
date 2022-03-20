@@ -16,7 +16,7 @@
         "buttons/_button3.scss",
         "_variables.scss",
         "global/_Header.scss",
-        "blogs/_latest-blogs.scss"
+        "blogs/_blogs.scss"
     ],
     "names": [],
     "file": "guestPages.css"
