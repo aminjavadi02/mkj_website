@@ -7,13 +7,15 @@
     <ul>
         @foreach($blogs as $blog)
         <li>
-            <div class="content">
-                <h3>{{$blog['title']}}</h3>
-                <p>{{$blog['abstract']}}</p>
-                <a href="#">بیشتر بخوانید</a>
-            </div>
-            <div class="time">
-                <h4>{{$blog['time']}}</h4>
+            <div class="bg-area">
+                <div class="content">
+                    <h3>{{$blog['title']}}</h3>
+                    <p>{{$blog['abstract']}}</p>
+                    <a href="#">بیشتر بخوانید</a>
+                </div>
+                <div class="time">
+                    <h4>{{$blog['time']}}</h4>
+                </div>
             </div>
         </li>
         @endforeach
