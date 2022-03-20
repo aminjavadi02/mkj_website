@@ -1,0 +1,100 @@
+.blogs-timeline{
+    position: relative;
+    margin: 50px auto;
+    padding: 40px 0;
+    width: 1000px;
+    color: white !important;
+    box-sizing: border-box;
+    ul{
+        margin:0;
+        padding: 0;
+        li{
+            list-style: none;
+            position: relative;
+            width: 50%;
+            padding: 20px 40px;
+            box-sizing: border-box;
+            background:red;
+            border-radius: 13px;
+            background: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10.5px);
+            -webkit-backdrop-filter: blur(10.5px);
+            border: 1px solid rgba(255, 255, 255, 0.26);
+            &:nth-child(odd){
+                float: left;
+                text-align: right;
+                clear: both;
+                &::before{
+                    content:'';
+                    position:absolute;
+                    width:10px;
+                    height:10px;
+                    border-radius:50%;
+                    top:50px;
+                    right:-6px;
+                    background-color:rgba(233,33,99,1);
+                    box-shadow: 0 0 0 3px rgba(233,33,99,0.2);
+                }
+                .time{
+                    position:absolute;
+                    top: 35px;
+                    right: -150px;
+                    background: rgba(233,33,99,1);
+                    color: #fff;
+                    padding: 5px 16px 0px;
+                    border-radius:25px;
+                    box-shadow: 0 0 0 3px rgba(233,33,99,0.3);
+                    h4{
+                        font-size: 12pt;
+                    }
+                }
+            }
+            &:nth-child(even){
+                float:right;
+                text-align: left;
+                clear: both;
+                &::before{
+                    content:'';
+                    position:absolute;
+                    width:10px;
+                    height:10px;
+                    border-radius:50%;
+                    top:50px;
+                    left:-4px;
+                    background-color:rgba(233,33,99,1);
+                    box-shadow: 0 0 0 3px rgba(233,33,99,0.2);
+                }
+                .time{
+                    position:absolute;
+                    top: 35px;
+                    left: -150px;
+                    background: rgba(233,33,99,1);
+                    color: #fff;
+                    padding: 5px 16px 0px;
+                    border-radius:25px;
+                    box-shadow: 0 0 0 3px rgba(233,33,99,0.3);
+                    h4{
+                        font-size: 12pt;
+                    }
+                }
+            }
+        }
+    }
+    &::before{
+        content:'';
+        position:absolute;
+        left: 50%;
+        width: 2px;
+        height: 100%;
+        background-color:#c2c2c2;
+
+    }
+    .content{
+        padding-bottom: 20px;
+        h3{
+            font-family: yekan-sans-serif;
+            color:rgba(233,33,99,1);
+        }
+    }
+}

@@ -17,6 +17,7 @@
             </div>
         </li>
         @endforeach
+        <div style="clear:both"></div>
     </ul>
 </div>
 @endif
