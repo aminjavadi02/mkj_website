@@ -22,5 +22,8 @@
         <div style="clear:both"></div>
     </ul>
 </div>
+<div class="button-4-container">
+    <a href="{{route('allBlogs','fa')}}">همه ی بلاگ ها</a>
+</div>
 @endif
 @endsection

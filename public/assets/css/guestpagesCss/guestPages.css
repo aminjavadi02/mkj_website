@@ -433,6 +433,7 @@
   font-size: 14pt;
   text-decoration: none;
   color: var(--on-primary-color);
+  font-family: yekan-sans-serif;
 }
 
 .button-container .button:hover {
@@ -558,6 +559,33 @@
           transform: scale(1.5);
   text-decoration: none;
   color: var(--on-primary-color);
+}
+
+.button-4-container {
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 30px;
+}
+
+.button-4-container a {
+  font-family: yekan-sans-serif;
+  position: relative;
+  padding: 12px 25px;
+  border: 2px solid var(--on-primary-variant);
+  text-transform: uppercase;
+  font-size: 14pt;
+  text-decoration: none;
+  color: var(--on-primary-variant);
+}
+
+.button-4-container a:hover {
+  color: var(--on-primary-variant);
+  text-decoration: none;
 }
 
 :root {
