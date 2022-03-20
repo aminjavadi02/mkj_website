@@ -95,5 +95,6 @@ Route::get('/managers/{id}/{lang?}',[pagesController::class,'showAManager'])->wh
 // blogs
 Route::get('/latest-blogs/{lang?}',[pagesController::class,'latestBlogs'])->name('latestBlogs');
     // show 5 new
+Route::get('/all-blogs/{lang?}',[pagesController::class,'allBlogs'])->name('allBlogs');
     // show all
     // show one

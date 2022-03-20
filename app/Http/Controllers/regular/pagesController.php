@@ -37,12 +37,7 @@ class pagesController extends Controller
 
     public function showAboutus($lang='fa')
     {
-        if($lang=='fa'){
-            $aboutus = Aboutus::select('history_fa','office_phone','factory_phone','office_address_fa','factory_address_fa','image_name')->get()->first();
-            return view('guest.fa.component.aboutus.show')->with('aboutus',$aboutus);
-            // 'history_fa','office_phone','factory_phone','office_address_fa','factory_address_fa','image_name'
-        }
-        elseif($lang=='en'){
+        if($lang=='en'){
             // dd('add english');
         }
         else{
@@ -53,26 +48,19 @@ class pagesController extends Controller
 
     public function showManagers($lang='fa')
     {
-        if($lang=='fa'){
-            $managers = Manager::select('id','name_fa','position_fa','image_name')->get()->all();
-            return view('guest.fa.component.managers.index')->with('managers',$managers);
-        }
-        elseif($lang=='en'){
-            dd('kir');
+        if($lang=='en'){
+            // dd('add en');
         }
         else{
-            // same as fa
+            $managers = Manager::select('id','name_fa','position_fa','image_name')->get()->all();
+            return view('guest.fa.component.managers.index')->with('managers',$managers);
         }
     }
 
     public function showAManager($id,$lang='fa')
     {
-        if($lang=='fa'){
-            $manager = Manager::where('id',$id)->select('name_fa','position_fa','about_fa','image_name')->get()->all();
-            return view('guest.fa.component.managers.show')->with('manager',$manager);
-        }
-        elseif($lang=='en'){
-            dd('add en');
+        if($lang=='en'){
+            // dd('add en');
         }
         else {
             $manager = Manager::where('id',$id)->select('name_fa','position_fa','about_fa','image_name')->get()->all();
@@ -82,7 +70,10 @@ class pagesController extends Controller
 
     public function latestBlogs($lang='fa')
     {
-        if($lang=='fa'){
+        if($lang=='en'){
+            // dd('add en');    
+        }
+        else{
             $latestBlogs = Blog::take(5)->latest()->get();
             foreach($latestBlogs as $key => $latestBlog){
                 $blogs[$key]  = [
@@ -94,6 +85,31 @@ class pagesController extends Controller
             return view('guest.fa.component.blogs.latest')->with('blogs',$blogs);
         }
     }
+    public function allBlogs($lang='fa')
+    {
+        if($lang=='en'){
+            // dd('add en');
+        }
+        else{
+            $latestBlogs = Blog::get()->all();
+            foreach($latestBlogs as $key => $latestBlog){
+                $blogs[$key]  = [
+                    'title' => $latestBlog->title,
+                    'time' => $latestBlog->updated_at->format('Y-M'),
+                ];
+            }
+            return view('guest.fa.component.blogs.all')->with('blogs',$blogs);
+        }
+    }
+
+
+
+
+
+
+
+
+
 
     public static function makeAbstract($text)
     {
