@@ -1,0 +1,22 @@
+.oneblog-container{
+    background-color: whitesmoke;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align:center;
+    .blog-text{
+        background-color:yellow;
+        width: 95%;
+        margin: 4vh 0;
+        padding: 4vh 2vw;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.26);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+}
