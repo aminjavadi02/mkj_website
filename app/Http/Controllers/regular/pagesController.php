@@ -107,6 +107,11 @@ class pagesController extends Controller
     {
         return view('guest.fa.component.blogs.one')->with('blog',$id);
     }
+    // gallery
+    public function gallery()
+    {
+        return view('guest.fa.component.gallery.gallerypage')->with('gallery',Gallery::get()->all());
+    }
 
 
 

@@ -99,3 +99,6 @@ Route::get('/all-blogs/{lang?}',[pagesController::class,'allBlogs'])->name('allB
     // show all
 Route::get('/showblog/{id}',[pagesController::class,'showblog'])->whereNumber('id')->name('showblog');
     // show one
+
+// gallery
+Route::get('/gallery',[pagesController::class,'gallery'])->name('gallery'); 
