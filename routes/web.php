@@ -97,4 +97,5 @@ Route::get('/latest-blogs/{lang?}',[pagesController::class,'latestBlogs'])->name
     // show 5 new
 Route::get('/all-blogs/{lang?}',[pagesController::class,'allBlogs'])->name('allBlogs');
     // show all
+Route::get('/showblog/{id}',[pagesController::class,'showblog'])->whereNumber('id')->name('showblog');
     // show one

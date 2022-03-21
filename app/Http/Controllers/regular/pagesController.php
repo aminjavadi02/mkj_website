@@ -101,6 +101,10 @@ class pagesController extends Controller
             return view('guest.fa.component.blogs.all')->with('blogs',$blogs);
         }
     }
+    public function showblog(Blog $id)
+    {
+        return view('guest.fa.component.blogs.one')->with('blog',$id);
+    }
 
 
 
