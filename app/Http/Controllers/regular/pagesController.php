@@ -77,6 +77,7 @@ class pagesController extends Controller
             $latestBlogs = Blog::take(5)->latest()->get();
             foreach($latestBlogs as $key => $latestBlog){
                 $blogs[$key]  = [
+                    'id' => $latestBlog->id,
                     'title' => $latestBlog->title,
                     'abstract' => pagesController::makeAbstract($latestBlog->text),
                     'time' => $latestBlog->updated_at->format('Y-M'),
@@ -94,6 +95,7 @@ class pagesController extends Controller
             $latestBlogs = Blog::latest()->get();
             foreach($latestBlogs as $key => $latestBlog){
                 $blogs[$key]  = [
+                    'id' => $latestBlog->id,
                     'title' => $latestBlog->title,
                     'time' => $latestBlog->updated_at->format('Y-M'),
                 ];

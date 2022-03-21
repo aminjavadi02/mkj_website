@@ -11,7 +11,7 @@
                 <div class="content">
                     <h3>{{$blog['title']}}</h3>
                     <p>{{$blog['abstract']}}</p>
-                    <a href="#">بیشتر بخوانید</a>
+                    <a href="{{route('showblog',$blog['id'])}}">بیشتر بخوانید</a>
                 </div>
                 <div class="time">
                     <h4>{{$blog['time']}}</h4>
