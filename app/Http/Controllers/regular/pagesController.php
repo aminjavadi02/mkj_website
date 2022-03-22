@@ -89,6 +89,9 @@ class pagesController extends Controller
                 return view('guest.fa.component.blogs.latest')->with('blogs',$blogs);
             }
         }
+        else{
+            return redirect('/');
+        }
     }
     public function allBlogs($lang='fa')
     {
@@ -109,6 +112,9 @@ class pagesController extends Controller
                 return view('guest.fa.component.blogs.all')->with('blogs',$blogs);
             }
         }
+        else{
+            return redirect('/');
+        }
         // else redirect back with error empty blogs
     }
     public function showblog(Blog $id)
@@ -128,7 +134,9 @@ class pagesController extends Controller
             // dd('add en');
         }
         else {
-            $latest_items = Item::with('category','images')->latest()->take(5)->select('name_fa','description_fa','alloy','size','category_id')->get();
+            $latest_items = Item::with('images')->latest()->take(5)->get();
+            // reduce needed information to on array and send it
+            // do the same for allItems
             if(count($latest_items)>0){
                 return view('guest.fa.component.item.latest')->with('items',$latest_items);
             }
@@ -140,7 +148,7 @@ class pagesController extends Controller
             // dd('add en');
         }
         else {
-            $latest_items = Item::with('category','images')->latest()->select('name_fa','description_fa','alloy','size','category_id')->get()->all();
+            $latest_items = Item::with('category','images')->latest()->get()->all();
             if(count($latest_items)>0){
                 return view('guest.fa.component.item.all')->with('items',$latest_items);
             }
