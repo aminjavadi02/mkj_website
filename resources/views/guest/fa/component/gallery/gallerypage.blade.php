@@ -45,6 +45,7 @@
     var swiper = new Swiper(".mySwiper", {
     centeredSlides: true,
     slidesPerView: "auto",
+    loop: true,
     pagination: {
           el: ".swiper-pagination",
           clickable: true,

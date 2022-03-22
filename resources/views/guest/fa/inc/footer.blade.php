@@ -28,7 +28,7 @@
             <li><a href="{{route('latestBlogs','fa')}}">بلاگ ها</a></li>
             <li><a href="{{route('showAboutus','fa')}}">درباره ما</a></li>
             <li><a href="#">کاتالوگ</a></li>
-            <li><a href="#">گالری</a></li>
+            <li><a href="{{route('gallery')}}">گالری</a></li>
             </ul>
         </div>
     </div>
