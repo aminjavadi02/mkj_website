@@ -11,6 +11,7 @@ use App\Models\Item;
 use App\Models\Manager;
 use App\Models\Contactus;
 use App\Models\Blog;
+use App\Models\Category;
 use App\Http\Requests\newMsgCreate;
 use Carbon\Carbon;
 
@@ -113,10 +114,14 @@ class pagesController extends Controller
         return view('guest.fa.component.gallery.gallerypage')->with('gallery',Gallery::get()->all());
     }
     // items
-    public function latestItems()
+    public function latestItems($lang='fa')
     {
-        dd(Item::latest()->take(5)->get());
-        return view('guest.fa.component.items.latest')->with('items');
+        if($lang='fa'){
+            // do if en else fa
+            $latest_items = Item::with('category')->latest()->take(5)->select('name_fa','description_fa','alloy','size','category_id')->get();
+            // dd($latest_items[0]->category->name_fa);
+            return view('guest.fa.component.items.latest')->with('items',$latest_items);
+        }
     }
 
 

@@ -104,6 +104,6 @@ Route::get('/showblog/{id}',[pagesController::class,'showblog'])->whereNumber('i
 Route::get('/gallery',[pagesController::class,'gallery'])->name('gallery');
 // items
     // latest
-Route::get('/latest-items',[pagesController::class,'latestItems'])->name('latestItems');
+Route::get('/latest-items/{lang?}',[pagesController::class,'latestItems'])->name('latestItems');
     // all
     // one

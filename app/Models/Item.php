@@ -51,6 +51,7 @@ class Item extends Model
         if(count($items) > 0){
             foreach ($items as $key => $item) {
                 if(count($item->images()->get()->all()) > 0 ){
+                    // you have the relation, don't get it again
                     foreach ($item->images()->get()->all() as $imagekey => $image) {
                         $images[$imagekey] = [
                             'name' => $image->image_name,
