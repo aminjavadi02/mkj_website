@@ -11,7 +11,7 @@ class Item extends Model
 {
     use HasFactory;
     protected $table = 'items';
-    public $timestamps = false;
+    public $timestamps = true;
 
     protected $fillable=[
         'name_fa',

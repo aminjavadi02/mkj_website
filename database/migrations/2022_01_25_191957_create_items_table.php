@@ -16,6 +16,7 @@ class CreateItemsTable extends Migration
         if(!Schema::hasTable('items')){
             Schema::create('items', function (Blueprint $table) {
                 $table->id();
+                $table->timestamps();
                 $table->string('name_fa');
                 $table->string('name_en')->nullable();
                 $table->text('description_fa');

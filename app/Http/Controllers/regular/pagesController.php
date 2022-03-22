@@ -112,7 +112,12 @@ class pagesController extends Controller
     {
         return view('guest.fa.component.gallery.gallerypage')->with('gallery',Gallery::get()->all());
     }
-
+    // items
+    public function latestItems()
+    {
+        dd(Item::latest()->take(5)->get());
+        return view('guest.fa.component.items.latest')->with('items');
+    }
 
 
 
