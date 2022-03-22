@@ -71,38 +71,45 @@ class pagesController extends Controller
 
     public function latestBlogs($lang='fa')
     {
-        if($lang=='en'){
-            // dd('add en');    
-        }
-        else{
-            $latestBlogs = Blog::take(5)->latest()->get();
-            foreach($latestBlogs as $key => $latestBlog){
-                $blogs[$key]  = [
-                    'id' => $latestBlog->id,
-                    'title' => $latestBlog->title,
-                    'abstract' => pagesController::makeAbstract($latestBlog->text),
-                    'time' => $latestBlog->updated_at->format('Y-M'),
-                ];
+        $latestBlogs = Blog::take(5)->latest()->get();
+        if(count($latestBlogs)>0){
+            if($lang=='en'){
+                // dd('add en');    
             }
-            return view('guest.fa.component.blogs.latest')->with('blogs',$blogs);
+            else{
+                
+                foreach($latestBlogs as $key => $latestBlog){
+                    $blogs[$key]  = [
+                        'id' => $latestBlog->id,
+                        'title' => $latestBlog->title,
+                        'abstract' => pagesController::makeAbstract($latestBlog->text),
+                        'time' => $latestBlog->updated_at->format('Y-M'),
+                    ];
+                }
+                return view('guest.fa.component.blogs.latest')->with('blogs',$blogs);
+            }
         }
     }
     public function allBlogs($lang='fa')
     {
-        if($lang=='en'){
-            // dd('add en');
-        }
-        else{
-            $latestBlogs = Blog::latest()->get();
-            foreach($latestBlogs as $key => $latestBlog){
-                $blogs[$key]  = [
-                    'id' => $latestBlog->id,
-                    'title' => $latestBlog->title,
-                    'time' => $latestBlog->updated_at->format('Y-M'),
-                ];
+        $latestBlogs = Blog::latest()->get();
+        if(count($latestBlogs)>0){
+            if($lang=='en'){
+                // dd('add en');
             }
-            return view('guest.fa.component.blogs.all')->with('blogs',$blogs);
+            else{
+                
+                foreach($latestBlogs as $key => $latestBlog){
+                    $blogs[$key]  = [
+                        'id' => $latestBlog->id,
+                        'title' => $latestBlog->title,
+                        'time' => $latestBlog->updated_at->format('Y-M'),
+                    ];
+                }
+                return view('guest.fa.component.blogs.all')->with('blogs',$blogs);
+            }
         }
+        // else redirect back with error empty blogs
     }
     public function showblog(Blog $id)
     {
@@ -116,12 +123,32 @@ class pagesController extends Controller
     // items
     public function latestItems($lang='fa')
     {
-        if($lang='fa'){
-            // do if en else fa
-            $latest_items = Item::with('category')->latest()->take(5)->select('name_fa','description_fa','alloy','size','category_id')->get();
-            // dd($latest_items[0]->category->name_fa);
-            return view('guest.fa.component.items.latest')->with('items',$latest_items);
+        if($lang=='en'){
+            // dd('add en');
         }
+        else {
+            $latest_items = Item::with('category','images')->latest()->take(5)->select('name_fa','description_fa','alloy','size','category_id')->get();
+            if(count($latest_items)>0){
+                return view('guest.fa.component.item.latest')->with('items',$latest_items);
+            }
+        }
+    }
+    public function allItems($lang='fa')
+    {
+        if($lang=='en'){
+            // dd('add en');
+        }
+        else {
+            $latest_items = Item::with('category','images')->latest()->select('name_fa','description_fa','alloy','size','category_id')->get()->all();
+            if(count($latest_items)>0){
+                return view('guest.fa.component.item.all')->with('items',$latest_items);
+            }
+            // else redirect back with error no items to display
+        }
+    }
+    public function oneItem(Item $id,$lang='fa')
+    {
+        return view('guest.fa.component.item.one')->with('item',$id);
     }
 
 

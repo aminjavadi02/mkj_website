@@ -106,4 +106,6 @@ Route::get('/gallery',[pagesController::class,'gallery'])->name('gallery');
     // latest
 Route::get('/latest-items/{lang?}',[pagesController::class,'latestItems'])->name('latestItems');
     // all
+Route::get('/all-items/{lang?}',[pagesController::class,'allItems'])->name('allItems');
     // one
+Route::get('/one-item/{id}/{lang?}',[pagesController::class,'oneItem'])->whereNumber('id')->name('oneItem');
