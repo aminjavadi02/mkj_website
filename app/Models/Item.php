@@ -42,38 +42,4 @@ class Item extends Model
     {
         return $this->belongsTo(Category::class);
     }
-
-    // returns all items and their images in array format
-    public static function getAllImagesObject()
-    {
-        $items = Item::with('images')->take(4)->get();
-        // gimme five of them eagerly :)
-        if(count($items) > 0){
-            foreach ($items as $key => $item) {
-                if(count($item->images()->get()->all()) > 0 ){
-                    // you have the relation, don't get it again
-                    foreach ($item->images()->get()->all() as $imagekey => $image) {
-                        $images[$imagekey] = [
-                            'name' => $image->image_name,
-                        ];
-                    }
-                    $itemsAndImages[$key] = [
-                        'item' => $item->name_fa,
-                        'images' => $images,
-                    ];
-                }
-                else{
-                    $itemsAndImages[$key] = [
-                        'item' => $item->name_fa,
-                        'images' => null,
-                    ];
-                }
-            }
-            return $itemsAndImages;
-        }
-        else{
-            return null;
-        }
-    }
-    
 }

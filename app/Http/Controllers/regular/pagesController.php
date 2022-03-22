@@ -21,8 +21,8 @@ class pagesController extends Controller
     {
         $galleryImages = Gallery::get()->all();
         $aboutus = Aboutus::select('history_fa','office_phone','office_address_fa','factory_address_fa','factory_phone')->get()->first();
-        $itemImages = Item::getAllImagesObject();
-        return view('guest.fa.component.index.indexpage',compact('galleryImages','aboutus','itemImages'));
+        $items = Item::with('images')->latest()->take(5)->get()->all();
+        return view('guest.fa.component.index.indexpage',compact('galleryImages','aboutus','items'));
     }
 
     public function newMsg(newMsgCreate $request)
@@ -120,6 +120,7 @@ class pagesController extends Controller
     {
         return view('guest.fa.component.gallery.gallerypage')->with('gallery',Gallery::get()->all());
     }
+
     // items
     public function latestItems($lang='fa')
     {
