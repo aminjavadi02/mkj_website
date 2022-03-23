@@ -134,8 +134,23 @@ class pagesController extends Controller
             // dd('add en');
         }
         else {
-            $latest_items = Item::with('images')->latest()->take(5)->get();
-            // reduce needed information to on array and send it
+            $latest_items = Item::
+                latest()
+                ->take(5)
+                ->with(['images','category'])
+                ->select(
+                    'id',
+                    // foreign key is needed to retrieve data from relation
+                    'category_id',
+                    // foreign key is needed to retrieve data from relation
+                    'updated_at',
+                    'name_fa',
+                    'alloy',
+                    'size',
+                )
+                ->get()
+                ->toArray();
+                // toArray() puts relations next to retrieved data
             // do the same for allItems
             if(count($latest_items)>0){
                 return view('guest.fa.component.item.latest')->with('items',$latest_items);
