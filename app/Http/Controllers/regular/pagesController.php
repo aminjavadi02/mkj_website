@@ -155,6 +155,9 @@ class pagesController extends Controller
             if(count($latest_items)>0){
                 return view('guest.fa.component.item.latest')->with('items',$latest_items);
             }
+            else {
+                return redirect('/')->with('success','محصولی در سایت موجود نیست');
+            }
         }
     }
     public function allItems($lang='fa')
@@ -163,11 +166,27 @@ class pagesController extends Controller
             // dd('add en');
         }
         else {
-            $latest_items = Item::with('category','images')->latest()->get()->all();
+            $latest_items = Item::
+                latest()
+                ->with(['images','category'])
+                ->select(
+                    'id',
+                    // foreign key is needed to retrieve data from relation
+                    'category_id',
+                    // foreign key is needed to retrieve data from relation
+                    'updated_at',
+                    'name_fa',
+                    'alloy',
+                    'size',
+                )
+                ->get()
+                ->toArray();
             if(count($latest_items)>0){
                 return view('guest.fa.component.item.all')->with('items',$latest_items);
             }
-            // else redirect back with error no items to display
+            else {
+                return redirect('/')->with('success','محصولی در سایت موجود نیست');
+            }
         }
     }
     public function oneItem(Item $id,$lang='fa')

@@ -16,7 +16,7 @@
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">{{$item['name_fa']}}</h5>
-                    <a href="{{route('oneItem','fa'.$item['id'])}}" class="btn btn-dark">مشاهده</a>
+                    <a href="{{route('oneItem','fa/'.$item['id'])}}" class="btn btn-dark">مشاهده</a>
                 </div>
             </div>
         </div>

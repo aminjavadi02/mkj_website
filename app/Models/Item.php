@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\itemImage;
 use App\Models\Packages;
+use Database\Factories\ItemFactory;
 
 class Item extends Model
 {
@@ -22,6 +23,11 @@ class Item extends Model
         'alloy',
         'category_id',
     ];
+
+    public static function newFactory()
+    {
+        return ItemFactory::new();
+    }
 
     // item m - n package
 
