@@ -1034,7 +1034,6 @@
   width: 100%;
   height: 5vh;
   margin-top: 50px;
-  /* From https://css.glass */
   background: rgba(255, 255, 255, 0.8);
   -webkit-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
           box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);

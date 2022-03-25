@@ -113,17 +113,24 @@ class itemController extends Controller
     {   
         $packages = $request->packages;
         $records = $item->packages()->get()->all();
-        if(empty($records)){
-            foreach($packages as $package){
-                $item->packages()->attach($package);
-            }
-        }
-        else{
+        if(!$packages){
             foreach($records as $record){
                 $item->packages()->detach($record);
             }
-            foreach($packages as $package){
-                $item->packages()->attach($package);
+        }
+        else{
+            if(empty($records)){
+                foreach($packages as $package){
+                    $item->packages()->attach($package);
+                }
+            }
+            else{
+                foreach($records as $record){
+                    $item->packages()->detach($record);
+                }
+                foreach($packages as $package){
+                    $item->packages()->attach($package);
+                }
             }
         }
         $item->update([

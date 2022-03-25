@@ -29,7 +29,8 @@ class itemCreate extends FormRequest
             'alloy' =>'between:0,255',
             'size'=>'between:0,255',
             'description_fa'=>'required',
-            'category_id'=>'required|exists:categories,id'
+            'category_id'=>'required|exists:categories,id',
+            ''
         ];
     }
 
