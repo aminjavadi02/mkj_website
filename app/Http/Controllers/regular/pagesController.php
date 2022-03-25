@@ -136,7 +136,7 @@ class pagesController extends Controller
         else {
             $latest_items = Item::
                 latest()
-                ->take(5)
+                ->take(8)
                 ->with(['images','category'])
                 ->select(
                     'id',
@@ -166,7 +166,7 @@ class pagesController extends Controller
             // dd('add en');
         }
         else {
-            $latest_items = Item::
+            $items = Item::
                 latest()
                 ->with(['images','category'])
                 ->select(
@@ -181,8 +181,8 @@ class pagesController extends Controller
                 )
                 ->get()
                 ->toArray();
-            if(count($latest_items)>0){
-                return view('guest.fa.component.item.all')->with('items',$latest_items);
+            if(count($items)>0){
+                return view('guest.fa.component.item.all')->with('items',$items);
             }
             else {
                 return redirect('/')->with('success','محصولی در سایت موجود نیست');
