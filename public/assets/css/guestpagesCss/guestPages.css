@@ -1029,6 +1029,43 @@
   font-size: 16pt;
 }
 
+.father-container {
+  position: relative;
+  width: 100%;
+  height: 5vh;
+  margin-top: 50px;
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.8);
+  -webkit-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.father-container .row {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  right: 0;
+  padding: 0 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  font-family: yekan-sans-serif;
+}
+
+.father-container .row h5 {
+  font-size: 12pt !important;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
 #backgroundImage {
   z-index: -5;
   position: fixed;

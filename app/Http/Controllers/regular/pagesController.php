@@ -189,9 +189,19 @@ class pagesController extends Controller
             }
         }
     }
-    public function oneItem(Item $id,$lang='fa')
+    public function oneItem(Item $item,$lang='fa')
     {
-        return view('guest.fa.component.item.one')->with('item',$id);
+        $tree = Category::fathers($item->category_id);
+        $data = [
+            'id' =>$item->id,
+            'name'=>$item->name_fa,
+            'description'=>$item->description_fa,
+            'alloy' =>$item->alloy,
+            'size'=>$item->size,
+            'categoryList'=>$tree,
+            'time'=>$item->updated_at,
+        ];
+        return view('guest.fa.component.item.one')->with('item',$data);
     }
 
 

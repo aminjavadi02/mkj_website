@@ -1,0 +1,27 @@
+.father-container{
+    position:relative;
+    width: 100%;
+    height: 5vh;
+    margin-top: 50px;
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    .row{
+        position:absolute;
+        margin:0;
+        padding:0;
+        right: 0;
+        padding:0 20px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        font-family: yekan-sans-serif;
+        h5{
+            font-size:12pt !important;
+            margin-left: 15px;
+            margin-right: 15px;
+        }
+    }
+}
