@@ -22,7 +22,7 @@
 
   <!-- material icons -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <title>Document</title>
+  <title>ماهان کشش جم</title>
 </head>
 <body>
   <div class="wrapper">

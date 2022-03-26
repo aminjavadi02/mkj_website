@@ -192,6 +192,10 @@ class pagesController extends Controller
     public function oneItem(Item $item,$lang='fa')
     {
         $tree = Category::fathers($item->category_id);
+        $imageObjects = $item->images()->get();
+        foreach ($imageObjects as $key => $image){
+            $images[$key] = $image->image_name;
+        }
         $data = [
             'id' =>$item->id,
             'name'=>$item->name_fa,
@@ -199,6 +203,7 @@ class pagesController extends Controller
             'alloy' =>$item->alloy,
             'size'=>$item->size,
             'categoryList'=>$tree,
+            'imagesList'=>$images,
             'time'=>$item->updated_at,
         ];
         return view('guest.fa.component.item.one')->with('item',$data);
