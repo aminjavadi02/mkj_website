@@ -3,7 +3,7 @@
 @include('guest.fa.component.item.categoryList')
 <!-- item -->
 <div class="one-item-container">
-    <div class="row">
+    <div class="row1">
         <div class="col-md-6 img-container">
             <div style="--swiper-navigation-color: #4B8377; --swiper-pagination-color: #000" class="swiper mySwiper2">
                 <div class="swiper-wrapper">
@@ -48,13 +48,22 @@
                     <p class="title">آلیاژ :</p>
                     <p class="value">{{$item['alloy']}}</p>
                 </div>
+                <div class="detail">
+                    <p class="title">نوع بسته بندی :</p>
+                    <p class="value">{{$item['package']}}</p>
+                    <!-- اینجا میخوام پکیج ها رو هم نشون بده. از کنترلر بفرست اول -->
+                </div>
                 
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col">
-            <!-- description -->
+    <div class="row2">
+        <div class="col description-containrt">
+            <div class="title">
+                توضیحات
+            </div>
+            <hr>
+            <div class="description" id="description"></div>
         </div>
     </div>
 </div>
@@ -87,6 +96,13 @@
         swiper: swiper,
     },
     });
+</script>
+
+<script>
+    window.onload = function () {
+        var description = @json($item['description']);
+        $('#description')[0].innerHTML = description;
+    }
 </script>
 @endsection
 
