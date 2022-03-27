@@ -189,12 +189,17 @@ class pagesController extends Controller
             }
         }
     }
-    public function oneItem(Item $item,$lang='fa')
+    public function oneItem($lang='fa',Item $item)
     {
         $tree = Category::fathers($item->category_id);
         $imageObjects = $item->images()->get();
-        foreach ($imageObjects as $key => $image){
-            $images[$key] = $image->image_name;
+        if(count($imageObjects) > 0){
+            foreach ($imageObjects as $key => $image){
+                $images[$key] = $image->image_name;
+            }
+        }
+        else{
+            $images=[];
         }
         $data = [
             'id' =>$item->id,

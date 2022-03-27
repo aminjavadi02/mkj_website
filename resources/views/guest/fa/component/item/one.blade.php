@@ -5,13 +5,19 @@
 <div class="one-item-container">
     <div class="row">
         <div class="col-md-6 img-container">
-            <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff"class="swiper mySwiper2">
+            <div style="--swiper-navigation-color: #4B8377; --swiper-pagination-color: #000" class="swiper mySwiper2">
                 <div class="swiper-wrapper">
+                    @if(count($item['imagesList']) > 0)
                     @foreach($item['imagesList'] as $imageName)
                     <div class="swiper-slide">
                         <img src="{{asset('storage/images/item_images/'.$imageName)}}">
                     </div>
                     @endforeach
+                    @else
+                    <div class="swiper-slide">
+                        <div class="no-image">no images</div>
+                    </div>
+                    @endif
                 </div>
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
@@ -26,8 +32,24 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-6">
-            <!-- details -->
+        <div class="col-md-6 details-container">
+            <div class="details">
+                <p class="main-title">مشخصات</p>
+
+                <div class="detail">
+                    <p class="title">نام کالا :</p>
+                    <p class="value">{{$item['name']}}</p>
+                </div>
+                <div class="detail">
+                    <p class="title">سایز :</p>
+                    <p class="value">{{$item['size']}}</p>
+                </div>
+                <div class="detail">
+                    <p class="title">آلیاژ :</p>
+                    <p class="value">{{$item['alloy']}}</p>
+                </div>
+                
+            </div>
         </div>
     </div>
     <div class="row">

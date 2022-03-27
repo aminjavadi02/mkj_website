@@ -108,4 +108,4 @@ Route::get('/latest-items/{lang?}',[pagesController::class,'latestItems'])->name
     // all
 Route::get('/all-items/{lang?}',[pagesController::class,'allItems'])->name('allItems');
     // one
-Route::get('/one-item/{item}/{lang?}',[pagesController::class,'oneItem'])->whereNumber('id')->name('oneItem');
+Route::get('/one-item/{lang?}/{item}',[pagesController::class,'oneItem'])->whereNumber('item')->name('oneItem');

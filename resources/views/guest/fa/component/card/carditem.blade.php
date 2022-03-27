@@ -1,4 +1,3 @@
-
 <div class="card" style="width: 18rem;">
     @if(count($item['images']) > 0)
     <div class="item-img" style="background-image:url('{{asset('storage/images/item_images/'.$item['images'][0]['image_name'])}}')"></div>
@@ -19,6 +18,6 @@
             <h5>دسته بندی:</h5>
             <h4>{{$item['category']['name_fa']}}</h4>
         </div>
-        <a href="{{route('oneItem','fa/'.$item['id'])}}" class="btn btn-dark link"><span>مشاهده</span></a>
+        <a href="/one-item/fa/{{$item['id']}}" class="btn btn-dark link"><span>مشاهده</span></a>
     </div>
 </div>
