@@ -70,6 +70,14 @@
                 font-size: 16pt;
                 margin-left: 20px;
               }
+              .listvalue{
+                margin-left: -18px;
+                list-style-type: none;
+                direction: ltr;
+                li{
+                  font-size: 14pt;
+                }
+              }
             }
           }
         }

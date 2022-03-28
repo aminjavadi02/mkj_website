@@ -201,6 +201,15 @@ class pagesController extends Controller
         else{
             $images=[];
         }
+        $packagesList = $item->packages()->get();
+        if(count($packagesList) > 0){
+            foreach ($packagesList as $key => $package){
+                $packages[$key] = $package->name_fa;
+            }
+        }
+        else{
+            $packages=[];
+        }
         $data = [
             'id' =>$item->id,
             'name'=>$item->name_fa,
@@ -210,6 +219,7 @@ class pagesController extends Controller
             'categoryList'=>$tree,
             'imagesList'=>$images,
             'time'=>$item->updated_at,
+            'packagesList'=>$packages,
         ];
         return view('guest.fa.component.item.one')->with('item',$data);
     }

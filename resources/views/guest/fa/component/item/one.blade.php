@@ -24,11 +24,13 @@
             </div>
             <div thumbsSlider="" class="swiper mySwiper">
                 <div class="swiper-wrapper">
+                @if(count($item['imagesList']) > 0)
                     @foreach($item['imagesList'] as $imageName)
                     <div class="swiper-slide">
                         <img src="{{asset('storage/images/item_images/'.$imageName)}}">
                     </div>
                     @endforeach
+                @endif
                 </div>
             </div>
         </div>
@@ -36,23 +38,35 @@
             <div class="details">
                 <p class="main-title">مشخصات</p>
 
+                @if($item['name'])
                 <div class="detail">
                     <p class="title">نام کالا :</p>
                     <p class="value">{{$item['name']}}</p>
                 </div>
+                @endif
+                @if($item['size'])
                 <div class="detail">
                     <p class="title">سایز :</p>
                     <p class="value">{{$item['size']}}</p>
                 </div>
+                @endif
+                @if($item['alloy'])
                 <div class="detail">
                     <p class="title">آلیاژ :</p>
                     <p class="value">{{$item['alloy']}}</p>
                 </div>
+                @endif
+                @if(count($item['packagesList']) > 0)
                 <div class="detail">
-                    <p class="title">نوع بسته بندی :</p>
-                    <p class="value">{{$item['package']}}</p>
+                    <p class="title"> بسته بندی ها :</p>
+                    <ul class="listvalue">
+                        @foreach($item['packagesList'] as $package)
+                        <li>{{$package}}</li>
+                        @endforeach
+                    </ul>
                     <!-- اینجا میخوام پکیج ها رو هم نشون بده. از کنترلر بفرست اول -->
                 </div>
+                @endif
                 
             </div>
         </div>
@@ -63,7 +77,9 @@
                 توضیحات
             </div>
             <hr>
+            @if($item['description'])
             <div class="description" id="description"></div>
+            @endif
         </div>
     </div>
 </div>

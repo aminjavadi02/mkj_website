@@ -1169,6 +1169,16 @@
   margin-left: 20px;
 }
 
+.one-item-container .row1 .details-container .details .detail .listvalue {
+  margin-left: -18px;
+  list-style-type: none;
+  direction: ltr;
+}
+
+.one-item-container .row1 .details-container .details .detail .listvalue li {
+  font-size: 14pt;
+}
+
 .one-item-container .row2 {
   width: 100% !important;
   height: auto !important;
