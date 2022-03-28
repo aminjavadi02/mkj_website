@@ -19,7 +19,7 @@ class Category extends Model
 
     // self-relation
     public function children(){
-        return $this->hasMany(Category::class,'parent_id')->with('children')->onDelete('casecade');
+        return $this->hasMany(Category::class,'parent_id')->with('children');
     }
 
 

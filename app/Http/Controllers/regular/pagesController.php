@@ -224,15 +224,34 @@ class pagesController extends Controller
         return view('guest.fa.component.item.one')->with('item',$data);
     }
 
+
     public function getCatItems($lang='fa',Category $cat)
     {
-        $catItems = $cat->items()->get();
-        if(count($catItems)>0){
+        // $children = $cat->children()->get();
+        $allchildren = Category::allchildren($cat);
+        dd($allchildren);
+        $items = [];
+
+        // if this cat has items directly
+        if(count($cat->items()->get())>0){
+            array_unshift($items,$cat->items()->get());
+        }
+
+        // if sub-cats of this cat have any item
+        if(count($allchildren)>0){
+            foreach($allchildren as $key => $child){
+                if(count($child->items()->get())>0){
+                    $items[$key] = $child->items()->get();
+                }
+            }
+        }
+        if(count($items)>0){
             if($lang == 'en'){
                 // dd('add en');
             }
             else{
-                return view('guest.fa.component.item.all')->with('items',$catItems);
+                $pagename = $cat->name_fa;
+                return view('guest.fa.component.category.catItems',compact('items','pagename'));
             }
         }
         else{
