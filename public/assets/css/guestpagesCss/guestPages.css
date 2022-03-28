@@ -914,9 +914,9 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   width: 100%;
@@ -927,7 +927,7 @@
 .items-container .row1 .card {
   position: relative;
   height: 73vh;
-  width: 21vw !important;
+  min-width: 250px !important;
   border-radius: 15px;
   margin: 30px auto;
   background-color: whitesmoke;
@@ -1013,7 +1013,6 @@
   width: 100%;
   text-align: center;
   margin-top: 30px;
-  /* From https://css.glass */
   background: rgba(255, 255, 255, 0.15);
   -webkit-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
           box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -1040,6 +1039,7 @@
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   border: 1px solid rgba(81, 145, 131, 0.3);
+  direction: rtl;
 }
 
 .father-container .row {
@@ -1066,8 +1066,20 @@
   margin-right: 15px;
 }
 
+@media not all and (min-width: 800px) {
+  .father-container {
+    height: 8vh;
+    padding-top: 20px;
+  }
+}
+
+@media not all and (min-width: 700px) {
+  .father-container {
+    overflow: auto;
+  }
+}
+
 .one-item-container {
-  background: red;
   margin: 0 !important;
   padding: 0 !important;
 }
@@ -1089,7 +1101,7 @@
 .one-item-container .row1 .img-container {
   position: relative;
   height: 100% !important;
-  background: #1E2B30 !important;
+  background: #1E2B30;
   text-align: center;
 }
 
@@ -1179,6 +1191,30 @@
   font-size: 14pt;
 }
 
+@media not all and (min-width: 1000px) {
+  .one-item-container .row1 {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    height: auto !important;
+  }
+  .one-item-container .row1 .img-container {
+    height: 65vh !important;
+    padding-bottom: 30px;
+  }
+  .one-item-container .row1 .img-container img {
+    max-width: 100%;
+    max-height: 100%;
+    -o-object-fit: contain;
+       object-fit: contain;
+  }
+  .one-item-container .row1 .details-container {
+    height: auto !important;
+    padding-bottom: 30px;
+  }
+}
+
 .one-item-container .row2 {
   width: 100% !important;
   height: auto !important;
@@ -1235,7 +1271,6 @@
   align-items: center;
   background-size: cover;
   background-position: center;
-  /* From https://css.glass */
   background: rgba(37, 50, 55, 0.562);
   border-radius: 8px;
   -webkit-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -1268,7 +1303,6 @@
   background: white;
   position: absolute;
   bottom: -11vh;
-  /* From https://css.glass */
   background: rgba(37, 50, 55, 0.562);
   border-radius: 8px;
   -webkit-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
