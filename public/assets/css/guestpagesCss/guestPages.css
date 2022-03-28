@@ -1039,7 +1039,6 @@
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   border: 1px solid rgba(81, 145, 131, 0.3);
-  direction: rtl;
 }
 
 .father-container .row {
@@ -1060,7 +1059,16 @@
   font-family: yekan-sans-serif;
 }
 
-.father-container .row h5 {
+.father-container .row a {
+  text-decoration: none;
+  color: var(--on-primary-color);
+}
+
+.father-container .row a:hover {
+  color: var(--on-primary-variant);
+}
+
+.father-container .row a h5 {
   font-size: 12pt !important;
   margin-left: 15px;
   margin-right: 15px;

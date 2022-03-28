@@ -55,11 +55,17 @@ class Category extends Model
     public static function fathers($category)
     {
         $category = Category::find($category);
-        $tree[0] = $category->name_fa;
+        $tree[0] = [
+            'id'=>$category->id,
+            'name'=>$category->name_fa,
+        ];
         $i = 1;
         while($category->parent_id){
             $category = Category::find($category->parent_id);
-            $tree[$i] = $category->name_fa;
+            $tree[$i] = [
+                'id'=>$category->id,
+                'name'=>$category->name_fa,
+            ];
             $i+=1;
         }
         return $tree;

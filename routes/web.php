@@ -109,3 +109,5 @@ Route::get('/latest-items/{lang?}',[pagesController::class,'latestItems'])->name
 Route::get('/all-items/{lang?}',[pagesController::class,'allItems'])->name('allItems');
     // one
 Route::get('/one-item/{lang?}/{item}',[pagesController::class,'oneItem'])->whereNumber('item')->name('oneItem');
+// categories
+Route::get('/cats/{lang?}/{cat}',[pagesController::class,'getCatItems'])->whereNumber('cat')->name('catItems');

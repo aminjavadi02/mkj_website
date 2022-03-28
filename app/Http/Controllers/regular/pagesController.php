@@ -156,7 +156,7 @@ class pagesController extends Controller
                 return view('guest.fa.component.item.latest')->with('items',$latest_items);
             }
             else {
-                return redirect('/')->with('success','محصولی در سایت موجود نیست');
+                return redirect('/')->with('error','محصولی در سایت موجود نیست');
             }
         }
     }
@@ -185,7 +185,7 @@ class pagesController extends Controller
                 return view('guest.fa.component.item.all')->with('items',$items);
             }
             else {
-                return redirect('/')->with('success','محصولی در سایت موجود نیست');
+                return redirect('/')->with('error','محصولی در سایت موجود نیست');
             }
         }
     }
@@ -222,6 +222,22 @@ class pagesController extends Controller
             'packagesList'=>$packages,
         ];
         return view('guest.fa.component.item.one')->with('item',$data);
+    }
+
+    public function getCatItems($lang='fa',Category $cat)
+    {
+        $catItems = $cat->items()->get();
+        if(count($catItems)>0){
+            if($lang == 'en'){
+                // dd('add en');
+            }
+            else{
+                return view('guest.fa.component.item.all')->with('items',$catItems);
+            }
+        }
+        else{
+            return redirect('/')->with('error','محصولی با این دسته بندی موجود نیست');
+        }
     }
 
 
