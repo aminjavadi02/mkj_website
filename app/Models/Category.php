@@ -70,4 +70,23 @@ class Category extends Model
         }
         return $tree;
     }
+
+    public static function getallchildren($cat,&$list)
+    { // pass list by refrence to change it
+        foreach($cat->children as $child){
+            if(count($child->children)>0){
+                Category::getallchildren($child,$list);
+                array_push($list,$child);
+            }
+            else{
+                array_push($list,$child);
+            }
+        }
+    }
+    public static function allChildren($cat)
+    {
+        $list[0] = $cat;
+        Category::getallchildren($cat,$list);
+        return $list;
+    }
 }

@@ -227,8 +227,9 @@ class pagesController extends Controller
 
     public function getCatItems($lang='fa',Category $cat)
     {
-        $children = $cat->children()->get();
         $items = [];
+        $children = Category::allChildren($cat);
+        // dd($allchildren);
         // if sub-cats of this cat have any item
         if(count($children)>0){
             foreach($children as $key => $child){
