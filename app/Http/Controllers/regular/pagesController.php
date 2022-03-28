@@ -227,23 +227,19 @@ class pagesController extends Controller
 
     public function getCatItems($lang='fa',Category $cat)
     {
-        // $children = $cat->children()->get();
-        $allchildren = Category::allchildren($cat);
-        dd($allchildren);
+        $children = $cat->children()->get();
         $items = [];
-
-        // if this cat has items directly
-        if(count($cat->items()->get())>0){
-            array_unshift($items,$cat->items()->get());
-        }
-
         // if sub-cats of this cat have any item
-        if(count($allchildren)>0){
-            foreach($allchildren as $key => $child){
+        if(count($children)>0){
+            foreach($children as $key => $child){
                 if(count($child->items()->get())>0){
                     $items[$key] = $child->items()->get();
                 }
             }
+        }
+        // if this cat has items directly
+        if(count($cat->items()->get())>0){
+            array_unshift($items,$cat->items()->get());
         }
         if(count($items)>0){
             if($lang == 'en'){
