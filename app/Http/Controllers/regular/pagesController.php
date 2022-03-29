@@ -21,7 +21,7 @@ class pagesController extends Controller
     {
         $galleryImages = Gallery::get()->all();
         $aboutus = Aboutus::select('history_fa','office_phone','office_address_fa','factory_address_fa','factory_phone')->get()->first();
-        $items = Item::with('images')->latest()->take(5)->get()->all();
+        $items = Item::with('images')->latest()->take(4)->get()->all();
         return view('guest.fa.component.index.indexpage',compact('galleryImages','aboutus','items'));
     }
 
@@ -229,7 +229,6 @@ class pagesController extends Controller
     {
         $items = [];
         $children = Category::allChildren($cat);
-        // dd($allchildren);
         // if sub-cats of this cat have any item
         if(count($children)>0){
             foreach($children as $key => $child){

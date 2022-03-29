@@ -72,7 +72,7 @@ class Category extends Model
     }
 
     public static function getallchildren($cat,&$list)
-    { // pass list by refrence to change it
+    { // pass list by refrence to change it : &$lsit
         foreach($cat->children as $child){
             if(count($child->children)>0){
                 Category::getallchildren($child,$list);
@@ -82,6 +82,8 @@ class Category extends Model
                 array_push($list,$child);
             }
         }
+        // this function must not return anyhig cuz it is used recursively. allChildren() returns the needed value.
+        // this function changes the reference of $list so that in allChildren() the $list be changed.
     }
     public static function allChildren($cat)
     {
