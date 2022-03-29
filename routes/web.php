@@ -110,4 +110,7 @@ Route::get('/all-items/{lang?}',[pagesController::class,'allItems'])->name('allI
     // one
 Route::get('/one-item/{lang?}/{item}',[pagesController::class,'oneItem'])->whereNumber('item')->name('oneItem');
 // categories
+    // index
+Route::get('/categories/{lang?}',[pagesController::class,'categories'])->name('categories');
+    // get items
 Route::get('/cats/{lang?}/{cat}',[pagesController::class,'getCatItems'])->whereNumber('cat')->name('catItems');

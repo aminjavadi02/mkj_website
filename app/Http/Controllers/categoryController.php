@@ -20,9 +20,7 @@ class categoryController extends Controller
      */
     public function index()
     {
-        $allCategories = Category::get();
-        $rootCategories = $allCategories->whereNull('parent_id');
-        $tree = Category::tree($allCategories,$rootCategories);
+        $tree = Category::tree();
         return view('component.category.index')->with('tree', $tree);
     }
 

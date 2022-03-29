@@ -235,6 +235,16 @@ class pagesController extends Controller
     }
 
 
+    public function categories($lang='fa')
+    {
+        if($lang == 'en'){
+            // add en
+        }else{
+            $categories = Category::tree();
+            return view('guest.fa.component.category.catIndex')->with('categories',$categories);
+        }
+    }
+
     public function getCatItems($lang='fa',Category $cat)
     {
         $items = [];
