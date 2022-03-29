@@ -1,7 +1,12 @@
 @extends('guest.fa.layouts.app')
 @section('content')
-@include('guest.fa.component.category.header')
 
+<div class="backgroundarea">
+    <div class="pageName">
+        <p>نمایش محصولات دسته بندی: </p>
+        <p>{{$pagename}}</p>
+    </div>
+    <hr>
 <div class="items-container">
     <div class="row1">
         @foreach($items as $lists)
@@ -12,6 +17,7 @@
             @endforeach
         @endforeach
     </div>
+</div>
 </div>
 
 @endsection
