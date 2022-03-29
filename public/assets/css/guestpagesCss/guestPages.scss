@@ -32,127 +32,15 @@
 .navbar{
     font-family: yekan-sans-serif;
     font-size: 14pt;
-}
-@media only all and (min-width: 770px) {
-    // navbar responsive
-    .navbar-toggler {
-        display: none !important;
-    }
-}
-@media not all and (min-width: 770px) {
-    .navbar-brand {
-        margin-left: 2vw !important;
-    }
-    
-}
-
-// aboutus-short
-
-
-// beauti button style 1
-
-// beauti button style 2
-
-
-
-
-
-// item
-
-.item-container{
-    height: auto;
-    padding-bottom: 30px;
-    background-size: cover;
-    background-repeat: no-repeat;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    flex-wrap: wrap;
-    width: 100% !important;
-    .card{
-        position: relative;
-        width:250px;
-        height:400px;
-        background: rgba(255, 255, 255, 0.15);
-        border-radius: 16px;
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-        backdrop-filter: blur(12.3px);
-        -webkit-backdrop-filter: blur(12.3px);
-        border: 1px solid rgba(255, 255, 255, 0.33);
-        border-radius: 5px;
-        margin: 30px;
-        margin-bottom: 50px;
-        .box{
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            right: 20px;
-            bottom: 20px;
-            border-radius:15px;
-            display:flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-    }
-    @media not all and (min-width: 850px) {
-        flex-direction: column !important;
-        height: auto !important;
-        padding-bottom: 20px;
-        padding-top: 20px;
-        .box{
-            margin: 10px auto 10px auto !important;
-        }
-        .button{
-            color:#fff;
+    @media only all and (min-width: 770px) {
+        // navbar responsive
+        .navbar-toggler {
+            display: none !important;
         }
     }
-    
-    
-    .item-img{
-        background-size: cover;
-        background-repeat: no-repeat;
-        height: 250px;
-        width: 200px;
-        margin-top:-50px;
-    }
-    .no-img{
-        background-color: rgba(0,0,0,0.4);
-    }
-    .name{
-        color:var(--on-primary-color);
-        text-align: center;
-        height: 50px;
-        max-width: 200px;
-        padding-top:5px;
-        padding-bottom:15px;
-        font-size: 13pt;
-        font-family: yekan-sans-serif ;
-        color:#faf7ff;
-    }
-    .link{
-        background:rgba(0,0,0,0.5);
-        margin: auto;
-        margin-top: 10px !important;
-        width: 100px !important;
-        height: 30px !important;
-        padding-top:5px;
-        border-radius: 15px;
-        text-align: center;
-        &:hover{
-            background:rgba(0,0,0,0.8);
-            .more{
-                color:#faf7ff;
-            }
-        }
-        .more{
-            margin: auto;
-            text-decoration: none;
-            color:var(--on-primary-color);
-            font-size: 12pt;
-            position: relative;
-            font-family: koodak-bold;
-            color:#faf7ff;
+    @media not all and (min-width: 770px) {
+        .navbar-brand {
+            margin-left: 2vw !important;
         }
     }
 }
