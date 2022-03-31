@@ -1388,6 +1388,15 @@
   height: 100%;
 }
 
+.categoryList-container .main-list .sub-list {
+  color: green;
+  list-style: none;
+  font-family: yekan-sans-serif;
+  font-size: 14pt;
+  background: blue;
+  direction: rtl;
+}
+
 #backgroundImage {
   z-index: -5;
   position: fixed;
