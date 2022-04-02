@@ -7,7 +7,7 @@
       <a class="navbar-brand navbar-nav" href="{{route('index')}}">Mahan Keshesh Jam</a>
     </div>
 
-    <div class="collapse navbar-collapse" id="navbarToggler">
+    <div class="collapse navbar-collapse pull-right" id="navbarToggler">
     <ul class="nav navbar-nav ms-auto">
         <!-- add active class under rout is condition -->
         <!-- add routes -->
