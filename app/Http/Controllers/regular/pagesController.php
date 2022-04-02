@@ -267,7 +267,7 @@ class pagesController extends Controller
             }
         }
         else{
-            return redirect('/')->with('error','محصولی با این دسته بندی موجود نیست');
+            return redirect()->back()->with('error','محصولی با این دسته بندی موجود نیست');
         }
     }
 

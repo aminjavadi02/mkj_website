@@ -3,6 +3,7 @@
 
 <div class="backgroundarea">
     <div class="categoryList-container">
+    @include('inc.messages')
     <ul id="tree" class="category_ul"></ul>
     </div>
 </div>
