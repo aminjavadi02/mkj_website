@@ -87,7 +87,6 @@ class pagesController extends Controller
                 // dd('add en');    
             }
             else{
-                
                 foreach($latestBlogs as $key => $latestBlog){
                     $blogs[$key]  = [
                         'id' => $latestBlog->id,
@@ -100,7 +99,7 @@ class pagesController extends Controller
             }
         }
         else{
-            return redirect('/');
+            return redirect('/')->with('error','بلاگی در سایت موجود نمی باشد');
         }
     }
     public function allBlogs($lang='fa')
@@ -111,7 +110,6 @@ class pagesController extends Controller
                 // dd('add en');
             }
             else{
-                
                 foreach($latestBlogs as $key => $latestBlog){
                     $blogs[$key]  = [
                         'id' => $latestBlog->id,
@@ -123,14 +121,14 @@ class pagesController extends Controller
             }
         }
         else{
-            return redirect('/');
+            return redirect('/')->with('error','بلاگی در سایت موجود نمی باشد');
         }
-        // else redirect back with error empty blogs
     }
     public function showblog(Blog $id)
     {
         return view('guest.fa.component.blogs.one')->with('blog',$id);
     }
+
     // gallery
     public function gallery()
     {
@@ -234,7 +232,7 @@ class pagesController extends Controller
         return view('guest.fa.component.item.one')->with('item',$data);
     }
 
-
+    // category
     public function categories($lang='fa')
     {
         if($lang == 'en'){
@@ -270,15 +268,8 @@ class pagesController extends Controller
             return redirect()->back()->with('error','محصولی با این دسته بندی موجود نیست');
         }
     }
-
-
-
-
-
-
-
-
-
+    
+    // handy
     public static function makeAbstract($text)
     {
         // cut tags
