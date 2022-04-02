@@ -2,9 +2,8 @@
 @section('content')
 
 <div class="backgroundarea">
-    <div class="categoryObject-container">
-        <ul class="main-list">
-        </ul>
+    <div class="categoryList-container">
+    <ul id="tree" class="category_ul"></ul>
     </div>
 </div>
 
@@ -13,68 +12,40 @@
 <script src="{{asset('assets/js/core/jquery.min.js')}}"></script>
 <script>
     window.onload = function(){
-        var categoryObject = @json($categories);
-        var categoryArray = objToArray(categoryObject);
-        const ul = $('.main-list')
-        makeUl(categoryArray,ul[0]);
+        var treeObject = @json($categories);
+        const ul = $('#tree');
+        drawTree(treeObject,ul[0]);
     }
+    function drawTree(treeObject, ul){
+        // treeObject is an object. foreach works only on array. so i had to use for.
+        for(branch in treeObject){
+            const li = document.createElement('li');
+            const div = document.createElement('div');
+            const a = document.createElement('a');
+            
+            a.setAttribute('for',treeObject[branch]['id']);
+            a.setAttribute('href','/cats/fa/'+treeObject[branch]['id'])
+            a.innerText = treeObject[branch]['name_fa'];
+            a.style.cursor = 'pointer';
+            a.style.textDecoration = 'none';
+            a.classList.add('category_link');
 
-    function objToArray(obj){
-        theArray = [];
-        for(i in obj){
-            theArray.push(obj[i]);
-        }
-        return theArray;
-    }
+            div.appendChild(a);
+            div.classList.add('inputAndLabel');
 
-    function makeUl(list,ul) {
-        for(i in list){
-            if(list[i].parent_id == null){
-                // is root
-                if(list[i].children.length > 0){
-                    // is root and ul
-                    const UlTag = document.createElement('ul');
-                    UlTag.innerText = list[i].name_fa;
-                    UlTag.parent_id = list[i].parent_id;
-                    UlTag.id = list[i].id;
-                    UlTag.classList.add('root-list');
-                    ul.appendChild(UlTag);
-                    // children is array of objects. no need to make array
-                    makeUl(list[i].children,UlTag);
-                }
-                else{
-                    // is root and li
-                    const LiTag = document.createElement('li');
-                    LiTag.innerText = list[i].name_fa;
-                    LiTag.parent_id = list[i].parent_id;
-                    LiTag.id = list[i].id;
-                    LiTag.classList.add('root-list');
-                    ul.appendChild(LiTag);
-                }
+            li.appendChild(div);
+            li.classList.add('category_li');
+
+            // do the children the same
+            if(treeObject[branch].children.length > 0){
+                var newUl = document.createElement('ul');
+                newUl.classList.add('category_ul');
+                newUl.classList.add('nested');
+                li.appendChild(newUl);
+                // making the function recursive to cover all children
+                drawTree(treeObject[branch].children, newUl);
             }
-            else{
-                // is not root. parent_id == something else's id
-                if(list[i].children.length > 0){
-                    // is ul
-                    const UlTag = document.createElement('ul');
-                    UlTag.innerText = list[i].name_fa;
-                    UlTag.parent_id = list[i].parent_id;
-                    UlTag.id = list[i].id;
-                    UlTag.classList.add('sub-list');
-                    ul.appendChild(UlTag);
-                    // children is array of objects. no need to make array
-                    makeUl(list[i].children,UlTag);
-                }
-                else{
-                    // is li
-                    const LiTag = document.createElement('li');
-                    LiTag.innerText = list[i].name_fa;
-                    LiTag.parent_id = list[i].parent_id;
-                    LiTag.id = list[i].id;
-                    LiTag.classList.add('sub-list');
-                    ul.appendChild(LiTag);
-                }
-            }
+            ul.appendChild(li);
         }
     }
 </script>
