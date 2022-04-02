@@ -3,17 +3,29 @@
 
 <div class="card">
     <div class="card-body">
-        موضوع:
-        <h4 class="card-title">{{$message->subject}}</h4>
-        <hr>
-        نام فرستنده:
-        <h6 class="card-subtitle mb-2 text-muted">{{$message->name}}</h6>
+        <div class="container d-flex flex-column" style="text-align:right">
+            <p>موضوع</p>
+            <h4 class="card-title">{{$message->subject}}</h4>
+            <hr>
+        </div>
 
-        آدرس ایمیل:
-        <h6 class="card-subtitle mb-2 text-muted">{{$message->email}}</h6>
-        <hr>
-        متن پیام:
-        <p class="card-text">{{$message->text}}</p>
+        <div class="container d-flex flex-column" style="text-align:right">
+            <p>نام فرستنده:</p>
+            <h6 class=" mb-2">{{$message->name}}</h6>
+            <hr>
+        </div>
+
+        <div class="container d-flex flex-column" style="text-align:right">
+            <p>آدرس ایمیل:</p>
+            <h6 class=" mb-2">{{$message->email}}</h6>
+            <hr>
+        </div>
+
+        <div class="container d-flex flex-column" style="text-align:right">
+            <p>متن پیام:</p>
+            <p class="card-text">{{$message->text}}</p>
+            <hr>
+        </div>
     </div>
 </div>
 
