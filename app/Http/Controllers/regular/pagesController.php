@@ -17,22 +17,27 @@ use Carbon\Carbon;
 
 class pagesController extends Controller
 {
-    public function index()
+    public function index($lang='fa')
     {
-        $galleryImages = Gallery::get()->all();
-        $aboutus = Aboutus::select('history_fa','office_phone','office_address_fa','factory_address_fa','factory_phone')->get()->first();
-        $items = Item::with('images')->latest()->take(4)->with(['images','category'])
-        ->select(
-            'id',
-            // foreign key is needed to retrieve data from relation
-            'category_id',
-            // foreign key is needed to retrieve data from relation
-            'updated_at',
-            'name_fa',
-            'alloy',
-            'size',
-        )->get()->all();
-        return view('guest.fa.component.index.indexpage',compact('galleryImages','aboutus','items'));
+        if($lang=='en'){
+            // add en
+        }
+        else{
+            $galleryImages = Gallery::get()->all();
+            $aboutus = Aboutus::select('history_fa','office_phone','office_address_fa','factory_address_fa','factory_phone')->get()->first();
+            $items = Item::with('images')->latest()->take(4)->with(['images','category'])
+            ->select(
+                'id',
+                // foreign key is needed to retrieve data from relation
+                'category_id',
+                // foreign key is needed to retrieve data from relation
+                'updated_at',
+                'name_fa',
+                'alloy',
+                'size',
+            )->get()->all();
+            return view('guest.fa.component.index.indexpage',compact('galleryImages','aboutus','items'));
+        }
     }
 
     public function newMsg(newMsgCreate $request)

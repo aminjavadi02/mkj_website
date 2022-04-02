@@ -82,12 +82,11 @@ Route::group(['middleware' => 'auth'],function(){
 
 // guest pages
 // index page
-Route::get('/',[pagesController::class,'index'])->name('index');
+Route::get('/{lang?}',[pagesController::class,'index'])->name('index');
 // lang??
 
 // contact us
 Route::post('/contactus',[pagesController::class,'newMsg'])->name('contactus');
-// lang??
 
 // aboutus
 Route::get('/about-us/{lang?}',[pagesController::class,'showAboutus'])->name('showAboutus');
@@ -106,7 +105,6 @@ Route::get('/showblog/{id}',[pagesController::class,'showblog'])->whereNumber('i
 
 // gallery
 Route::get('/gallery/{lang?}',[pagesController::class,'gallery'])->name('gallery');
-// lang??
 
 // items
     // latest
