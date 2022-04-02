@@ -130,9 +130,19 @@ class pagesController extends Controller
     }
 
     // gallery
-    public function gallery()
+    public function gallery($lang='fa')
     {
-        return view('guest.fa.component.gallery.gallerypage')->with('gallery',Gallery::get()->all());
+        if($lang=='en'){
+            // add en
+        }else{
+            $gallery = Gallery::get()->all();
+            if(count($gallery) > 0){
+                return view('guest.fa.component.gallery.gallerypage')->with('gallery',$gallery);
+            }
+            else{
+                return redirect('/')->with('error','تصویری در گالری موجود نمی باشد');
+            }
+        }
     }
 
     // items

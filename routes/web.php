@@ -81,9 +81,13 @@ Route::group(['middleware' => 'auth'],function(){
 });
 
 // guest pages
+// index page
 Route::get('/',[pagesController::class,'index'])->name('index');
-    // contact us
+// lang??
+
+// contact us
 Route::post('/contactus',[pagesController::class,'newMsg'])->name('contactus');
+// lang??
 
 // aboutus
 Route::get('/about-us/{lang?}',[pagesController::class,'showAboutus'])->name('showAboutus');
@@ -101,7 +105,9 @@ Route::get('/showblog/{id}',[pagesController::class,'showblog'])->whereNumber('i
     // show one
 
 // gallery
-Route::get('/gallery',[pagesController::class,'gallery'])->name('gallery');
+Route::get('/gallery/{lang?}',[pagesController::class,'gallery'])->name('gallery');
+// lang??
+
 // items
     // latest
 Route::get('/latest-items/{lang?}',[pagesController::class,'latestItems'])->name('latestItems');
