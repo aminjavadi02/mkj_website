@@ -257,10 +257,6 @@ class pagesController extends Controller
                 }
             }
         }
-        // if this cat has items directly
-        if(count($cat->items()->get())>0){
-            array_unshift($items,$cat->items()->get());
-        }
         if(count($items)>0){
             if($lang == 'en'){
                 // dd('add en');
