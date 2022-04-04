@@ -12,7 +12,7 @@ background-repeat: no-repeat;
       </div>
       @endforeach
       <div class="button-container-2">
-          <a href="#" class="button"><span>محصولات بیشتر</span></a>
+          <a href="{{route('latestItems','fa')}}" class="button"><span>محصولات بیشتر</span></a>
       </div>
   </div>
 </div>

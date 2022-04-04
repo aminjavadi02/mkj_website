@@ -15,6 +15,7 @@
             <div class="card-body">
                 <h5 class="card-title">{{$manager->name_fa}}</h5>
                 <p class="card-text">{{$manager->position_fa}}</p>
+                <a href="{{route('showAmanager',$manager->id.'/fa')}}" class="more">بیشتر</a>
             </div>
         </div>
       </div>

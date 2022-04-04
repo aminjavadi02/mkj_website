@@ -49,7 +49,7 @@
                     <textarea type="text" class="form-control text" id="InputText" name="text" placeholder="متن پیام" required value="{{old('text')}}"></textarea>
                 </div>
                 <div class="submit">
-                    <button type="submit" class="btn btn-primary">ارسال</button>
+                    <button type="submit" class="button5">ارسال</button>
                 </div>
              </form>
          </div>
