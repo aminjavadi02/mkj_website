@@ -1,10 +1,19 @@
 @extends('guest.fa.layouts.app')
 @section('content')
-
 <div class="backgroundarea">
-    <div class="categoryList-container">
-    @include('inc.messages')
-    <ul id="tree" class="category_ul"></ul>
+    <div class="row catgrid">
+        <div class="col-md-6 textArea">
+            <div class="title">
+                دسته بندی ها
+            </div>
+            <p class="text">
+                با کلیلک روی هر دسته بندی به محصولات آن دسترسی پیدا کنید
+            </p>
+        </div>
+        <div class="col-md-6 categoryList-container">
+            @include('inc.messages')
+            <ul id="tree" class="category_ul"></ul>
+        </div>
     </div>
 </div>
 

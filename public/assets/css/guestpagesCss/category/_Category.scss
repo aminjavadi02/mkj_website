@@ -1,7 +1,7 @@
 .backgroundarea{
     width: 97%;
     height: 100%;
-    margin: 0 auto;
+    margin: 12vh auto 5vh;
     border-radius: 15px;
     background: rgba(30, 43, 48, 0.90);
     border-radius: 16px;
@@ -29,10 +29,31 @@
  }
 }
 
+.catgrid{
+    display:flex;
+    flex-direction: row;
+    justify-content:center;
+    .textArea{
+        margin-top:13vh;
+        height:20vh;
+        color: var(--on-primary-variant);
+        padding:0;
+        margin-left: 30px;
+        text-align:center;
+        font-family: yekan-sans-serif;
+        .title{
+            font-size: 22pt;
+        }
+        .text{
+            font-size: 17pt;
+        }
+    }
+}
+
 .categoryList-container{
-    width: 100%;
+    // width: 100%;
     height: auto;
-    margin-top: 15vh;
+    margin-top: 13vh;
     color: var(--on-primary-variant);
     direction:rtl;
     
@@ -45,14 +66,14 @@
     
     .category_li{
         // every li tag
-        padding: 10px 0px 0px 0px;
+        padding: 10px 5px 0px 0px;
         position: relative;
         &:before {
             // vertical dots
             content: "";
             position: absolute;
             top: 0px;
-            right: -30px;
+            right: 20px;
             border-right: 1px dotted #a2a5b5;
             width: 1px;
             height: 100%;
@@ -63,7 +84,7 @@
             position: absolute;
             border-top: 1px dotted #a2a5b5;
             top: 25px;
-            right: -30px;
+            right: 20px;
             width: 15px;
           }
         &:last-child:before {
@@ -75,8 +96,15 @@
             // to keep label and input in one line
             display:flex;
             justify-content: flex-start;
+            margin-right: 40px;
+            padding-right: 10px;
+            background: rgba(210, 213, 214, 0.3);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
             .category_link{
                 color: var(--on-primary-variant);
+                font-family: yekan-sans-serif;
+                font-size: 14pt;
                 &:hover{
                     opacity: 0.5;
                 }
