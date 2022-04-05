@@ -27,6 +27,7 @@
 <body>
   <div class="wrapper">
     @include('guest.fa.inc.navbar')
+    <div class="preloader" id="preloader" style="background: #0D0121 url({{asset('assets/img/loader.gif')}})"></div>
     <div class="main">
       <img id="backgroundImage" src="{{asset('assets/img/1.jpg')}}">
       @yield('content')
@@ -38,7 +39,16 @@
 
 
 
-
+<script>
+  var loader = document.getElementById('preloader');
+  window.onload = function () {
+    setTimeout(function () {
+      // set timeout function is only to delay loading an showing the gif a bit longer
+      // delete if deployed
+      loader.style.display = 'none';
+    },1000)
+  }
+</script>
 
 
   <script src="{{asset('assets/js/core/jquery.min.js')}}"></script>
