@@ -1,5 +1,5 @@
 .manager-container{
-    width:100%;
+    width:98% !important;
     padding-bottom: 200px;
     background: rgba(234, 227, 227, 0.9);
     border-radius: 16px;
@@ -7,8 +7,7 @@
     backdrop-filter: blur(12.4px);
     -webkit-backdrop-filter: blur(12.4px);
     border: 1px solid rgba(234, 227, 227, 0.31);
-    margin-bottom: 20px;
-    margin-top: 20px;
+    margin: 20px auto;
     .row{
         display:flex;
         justify-content:space-evenly;

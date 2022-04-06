@@ -87,7 +87,6 @@ Route::group(['middleware' => 'auth'],function(){
 // guest pages
 // index page
 Route::get('/{lang?}',[pagesController::class,'index'])->name('index');
-// lang??
 
 // contact us
 Route::post('/contactus',[pagesController::class,'newMsg'])->name('contactus');
@@ -117,6 +116,7 @@ Route::get('/latest-items/{lang?}',[userItemController::class,'latestItems'])->n
 Route::get('/all-items/{lang?}',[userItemController::class,'allItems'])->name('allItems');
     // one
 Route::get('/one-item/{lang?}/{item}',[userItemController::class,'oneItem'])->whereNumber('item')->name('oneItem');
+
 // categories
     // index
 Route::get('/categories/{lang?}',[userCategoryController::class,'categories'])->name('categories');
