@@ -14,6 +14,10 @@ use App\Http\Controllers\videoController;
 use App\Http\Controllers\messageController;
 
 use App\Http\Controllers\regular\pagesController;
+use App\Http\Controllers\regular\userItemController;
+use App\Http\Controllers\regular\userBlogController;
+use App\Http\Controllers\regular\userCategoryController;
+use App\Http\Controllers\regular\userManagerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -92,15 +96,15 @@ Route::post('/contactus',[pagesController::class,'newMsg'])->name('contactus');
 Route::get('/about-us/{lang?}',[pagesController::class,'showAboutus'])->name('showAboutus');
 
 // managers
-Route::get('/managers/{lang?}',[pagesController::class,'showManagers'])->name('showManagers');
-Route::get('/managers/{id}/{lang?}',[pagesController::class,'showAManager'])->whereNumber('id')->name('showAmanager');
+Route::get('/managers/{lang?}',[userManagerController::class,'indexManagers'])->name('showManagers');
+Route::get('/managers/{id}/{lang?}',[userManagerController::class,'showManager'])->whereNumber('id')->name('showAmanager');
 
 // blogs
-Route::get('/latest-blogs/{lang?}',[pagesController::class,'latestBlogs'])->name('latestBlogs');
+Route::get('/latest-blogs/{lang?}',[userBlogController::class,'latestBlogs'])->name('latestBlogs');
     // show 5 new
-Route::get('/all-blogs/{lang?}',[pagesController::class,'allBlogs'])->name('allBlogs');
+Route::get('/all-blogs/{lang?}',[userBlogController::class,'allBlogs'])->name('allBlogs');
     // show all
-Route::get('/showblog/{id}',[pagesController::class,'showblog'])->whereNumber('id')->name('showblog');
+Route::get('/showblog/{id}',[userBlogController::class,'showblog'])->whereNumber('id')->name('showblog');
     // show one
 
 // gallery
@@ -108,13 +112,13 @@ Route::get('/gallery/{lang?}',[pagesController::class,'gallery'])->name('gallery
 
 // items
     // latest
-Route::get('/latest-items/{lang?}',[pagesController::class,'latestItems'])->name('latestItems');
+Route::get('/latest-items/{lang?}',[userItemController::class,'latestItems'])->name('latestItems');
     // all
-Route::get('/all-items/{lang?}',[pagesController::class,'allItems'])->name('allItems');
+Route::get('/all-items/{lang?}',[userItemController::class,'allItems'])->name('allItems');
     // one
-Route::get('/one-item/{lang?}/{item}',[pagesController::class,'oneItem'])->whereNumber('item')->name('oneItem');
+Route::get('/one-item/{lang?}/{item}',[userItemController::class,'oneItem'])->whereNumber('item')->name('oneItem');
 // categories
     // index
-Route::get('/categories/{lang?}',[pagesController::class,'categories'])->name('categories');
+Route::get('/categories/{lang?}',[userCategoryController::class,'categories'])->name('categories');
     // get items
-Route::get('/cats/{lang?}/{cat}',[pagesController::class,'getCatItems'])->whereNumber('cat')->name('catItems');
+Route::get('/cats/{lang?}/{cat}',[userCategoryController::class,'getCatItems'])->whereNumber('cat')->name('catItems');

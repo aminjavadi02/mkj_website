@@ -21,11 +21,11 @@
 <!-- jquery -->
 <script src="{{asset('assets/js/core/jquery.min.js')}}"></script>
 <script>
-    window.onload = function(){
+    window.addEventListener('load', function(){
         var treeObject = @json($categories);
         const ul = $('#tree');
         drawTree(treeObject,ul[0]);
-    }
+    })
     function drawTree(treeObject, ul){
         // treeObject is an object. foreach works only on array. so i had to use for.
         for(branch in treeObject){
