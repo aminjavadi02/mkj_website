@@ -38,4 +38,35 @@
     @media not all and (min-width: 700px) {
         overflow:auto;
     }
+    .mySwiper {
+        height: 10%;
+        box-sizing: border-box;
+        padding: 10px 0;
+        background:white;
+        position:absolute;
+        bottom:-11vh;
+        background: rgba(37, 50, 55, 0.562);
+        border-radius: 8px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        border: 1px solid rgba(37, 50, 55, 1);
+        .swiper-slide {
+          margin:0 auto !important;
+          width: auto;
+          img{
+            opacity: 0.4;
+          }
+        }
+        .swiper-slide-thumb-active {
+          img{
+            opacity: 1;
+          }
+        }
+      }
+      .mySwiper2 {
+        margin-top: 5vh;
+        height: 80%;
+        width: 100%;
+      }
 }

@@ -16,7 +16,20 @@ class pagesController extends Controller
     public function index($lang='fa')
     {
         if($lang=='en'){
-            // add en
+            $galleryImages = Gallery::get()->all();
+            $aboutus = Aboutus::select('history_en','office_phone','office_address_en','factory_address_en','factory_phone')->get()->first();
+            $items = Item::with('images')->latest()->take(4)->with(['images','category'])
+            ->select(
+                'id',
+                // foreign key is needed to retrieve data from relation
+                'category_id',
+                // foreign key is needed to retrieve data from relation
+                'updated_at',
+                'name_en',
+                'alloy',
+                'size',
+            )->get()->all();
+            return view('guest.en.component.index.indexpage',compact('galleryImages','aboutus','items'));
         }
         else{
             $galleryImages = Gallery::get()->all();
