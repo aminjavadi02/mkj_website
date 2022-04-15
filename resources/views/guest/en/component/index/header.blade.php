@@ -1,7 +1,7 @@
-<div class="indexHeader" style="background-image:url('{{asset('assets/img/sep09.jpg')}}'); height: 100vh;">
+<div class="indexHeader EnglishHeader" style="background-image:url('{{asset('assets/img/sep09.jpg')}}'); height: 100vh;">
 <!-- gallery comes up in this -->
 <!-- background: image -->
-<h2 class="CompanyName">Mahan Keshesh Jam Company</h2>
-<h4 class="CompanyDescription">leader of best fucking wires</h4>
+<h2 class="CompanyName"><p>Mahan Keshesh Jam Company</p></h2>
+<h4 class="CompanyDescription"><p>leader of best fucking wires</p></h4>
 @include('inc.messages')
 </div>

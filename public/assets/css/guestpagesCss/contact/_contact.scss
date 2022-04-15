@@ -1,0 +1,82 @@
+.contactUsForm{
+    direction: rtl;
+    font-family: yekan-sans-serif;
+    color:var(--on-primary-variant);
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5.4px);
+    -webkit-backdrop-filter: blur(5.4px);
+    border: 1px solid rgba(255, 255, 255, 0.24);
+    padding: 10px 20px;
+    margin: 10px 0 20px;
+    height:100vh;
+    label{
+        font-size:14pt;   
+    }
+    .title{
+        text-align: center;
+        font-size:16pt;
+        font-family: yekan-sans-serif;
+    }
+    .text{
+        height:25vh;
+    }
+    .submit{
+        text-align:end;
+    }
+
+    // if lang en -> font
+    // text-transform: capitalize;
+    // font-family:sourceSansProLight;
+    // elif lang fa -> font
+    // font-family: yekan-sans-serif;
+    
+}
+// contact info
+.contactInfo{
+    height:auto;
+    min-height: 100vh;
+    direction: ltr;
+    font-family: yekan-sans-serif;
+    color:var(--on-primary-variant);
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5.4px);
+    -webkit-backdrop-filter: blur(5.4px);
+    border: 1px solid rgba(255, 255, 255, 0.24);
+    padding: 10px 20px;
+    margin: 10px 0 20px;
+    .title{
+        text-align: center;
+        font-size:16pt;
+        background: transparent !important;
+        font-family: yekan-sans-serif;
+    }
+    label{
+        font-size:14pt;   
+    }
+    p{
+        text-align: end;
+        font-size: 14pt;
+        background:rgba(0, 0, 0, 0.4);
+        padding-right: 10px;
+    }
+}
+.contactEnglish{
+    text-transform: capitalize;
+    font-family:sourceSansProLight;
+    direction: ltr !important;
+    .title{
+        text-transform: capitalize;
+        font-family:sourceSansProLight;
+    }
+    .submit{
+        text-transform: capitalize;
+        .button5{
+            text-transform: capitalize;
+            font-family:sourceSansProLight !important;
+        }
+    }
+}

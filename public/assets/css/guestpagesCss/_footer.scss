@@ -16,12 +16,11 @@
         }
         ul{
             list-style-type: none;
+            font-family: yekan-sans-serif;
             li{
                 text-decoration: none;
-                
                 a{
                     color:var(--on-primary-variant);
-                    font-family: yekan-sans-serif;
                     font-size: 14pt;
                 }
             }
@@ -35,9 +34,9 @@
         .homepagelink {
             position:absolute;
             left: -50px;
-            top: 14vh;
+            top: 18vh;
             transform:rotate(-90deg);
-            width: 200px;
+            width: auto;
             color: var(--on-primary-color);
             font-family: yekan-sans-serif;
             font-size: 16pt;
@@ -65,4 +64,19 @@
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
+}
+
+.EnglishFooter{
+    .rightside{
+        ul{
+            text-transform: capitalize;
+            font-family:sourceSansProLight;
+        }
+    }
+    .left-side{
+        .homepagelink {
+            font-family: overcameBlack;
+            letter-spacing: 2px;
+        }
+    }
 }

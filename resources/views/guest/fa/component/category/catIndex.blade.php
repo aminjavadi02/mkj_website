@@ -34,7 +34,7 @@
             const a = document.createElement('a');
             
             a.setAttribute('for',treeObject[branch]['id']);
-            a.setAttribute('href','/cats/fa/'+treeObject[branch]['id'])
+            a.setAttribute('href','/s/cats/fa/'+treeObject[branch]['id'])
             a.innerText = treeObject[branch]['name_fa'];
             a.style.cursor = 'pointer';
             a.style.textDecoration = 'none';

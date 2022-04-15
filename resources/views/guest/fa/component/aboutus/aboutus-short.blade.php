@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col wrapper" dir="rtl" id="history_fa"></div>
                 <div class="col button-container">
-                    <a href="#" class="button"><span>درباره ی ما</span></a>
+                    <a href="{{route('showAboutus','fa')}}" class="button"><span>درباره ی ما</span></a>
                 </div>
             </div>
         </div>

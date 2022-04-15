@@ -7,9 +7,9 @@
 </div>
 
 <script>
-    window.onload = function () {
+    window.addEventListener('load', function(){
         var text = @json($blog['text']);
         $('#blog-text')[0].innerHTML = text;
-    }
+    })
 </script>
 @endsection

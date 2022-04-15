@@ -64,7 +64,6 @@
                         <li>{{$package}}</li>
                         @endforeach
                     </ul>
-                    <!-- اینجا میخوام پکیج ها رو هم نشون بده. از کنترلر بفرست اول -->
                 </div>
                 @endif
                 
@@ -115,10 +114,10 @@
 </script>
 
 <script>
-    window.onload = function () {
+    window.addEventListener('load', function(){
         var description = @json($item['description']);
         $('#description')[0].innerHTML = description;
-    }
+    })
 </script>
 @endsection
 

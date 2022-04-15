@@ -8,7 +8,7 @@
      <div class="row">
          <div class="col-md-6">
              <!-- contact info -->
-            <div class="contactInfo">
+            <div class="contactInfo contactEnglish">
                 <p class="title">contact info</p>
                 <label for="office_phone">office phone</label>
                 <p id="office_phone">{{$aboutus['office_phone']}}</p>
@@ -26,7 +26,7 @@
          <div class="col-md-6">
              <!-- form -->
              @include('inc.messages')
-             <form action="{{route('contactus')}}" class="contactUsForm" method="post">
+             <form action="{{route('contactus')}}" class="contactUsForm contactEnglish" method="post">
                 <p class="title">
                     contact us
                 </p>

@@ -72,36 +72,41 @@ class userItemController extends Controller
     }
     public function oneItem($lang='fa',Item $item)
     {
-        $tree = Category::fathers($item->category_id);
-        $imageObjects = $item->images()->get();
-        if(count($imageObjects) > 0){
-            foreach ($imageObjects as $key => $image){
-                $images[$key] = $image->image_name;
-            }
+        if($lang=='en'){
+            // dd('add en');
         }
         else{
-            $images=[];
-        }
-        $packagesList = $item->packages()->get();
-        if(count($packagesList) > 0){
-            foreach ($packagesList as $key => $package){
-                $packages[$key] = $package->name_fa;
+            $tree = Category::fathers($item->category_id);
+            $imageObjects = $item->images()->get();
+            if(count($imageObjects) > 0){
+                foreach ($imageObjects as $key => $image){
+                    $images[$key] = $image->image_name;
+                }
             }
+            else{
+                $images=[];
+            }
+            $packagesList = $item->packages()->get();
+            if(count($packagesList) > 0){
+                foreach ($packagesList as $key => $package){
+                    $packages[$key] = $package->name_fa;
+                }
+            }
+            else{
+                $packages=[];
+            }
+            $data = [
+                'id' =>$item->id,
+                'name'=>$item->name_fa,
+                'description'=>$item->description_fa,
+                'alloy' =>$item->alloy,
+                'size'=>$item->size,
+                'categoryList'=>$tree,
+                'imagesList'=>$images,
+                'time'=>$item->updated_at,
+                'packagesList'=>$packages,
+            ];
+            return view('guest.fa.component.item.one')->with('item',$data);
         }
-        else{
-            $packages=[];
-        }
-        $data = [
-            'id' =>$item->id,
-            'name'=>$item->name_fa,
-            'description'=>$item->description_fa,
-            'alloy' =>$item->alloy,
-            'size'=>$item->size,
-            'categoryList'=>$tree,
-            'imagesList'=>$images,
-            'time'=>$item->updated_at,
-            'packagesList'=>$packages,
-        ];
-        return view('guest.fa.component.item.one')->with('item',$data);
     }
 }

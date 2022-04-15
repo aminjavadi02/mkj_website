@@ -6,7 +6,7 @@
           @if(!empty($galleryImages))
           <div class="card-body">
             <!-- start swiper -->
-            <div class="swiper mySwiper">
+            <div class="swiper ThisSwiper">
               <div class="swiper-wrapper">
                     @foreach($galleryImages as $image)
                       <div class="swiper-slide col-md-4 col-md-4 d-flex flex-column justify-content-between" style="height: 360px;">
@@ -39,7 +39,7 @@
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script src="{{asset('assets/js/core/jquery.min.js')}}"></script>
 <script>
-    var swiper = new Swiper(".mySwiper", {
+    var swiper = new Swiper(".ThisSwiper", {
     centeredSlides: true,
     slidesPerView: "auto",
     loop: true,

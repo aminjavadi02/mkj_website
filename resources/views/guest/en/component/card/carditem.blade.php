@@ -26,6 +26,6 @@
             <h5>category</h5>
         </div>
         @endif
-        <a href="/one-item/en/{{$item['id']}}" class="btn btn-dark link"><span>more</span></a>
+        <a href="/s/one-item/en/{{$item['id']}}" class="btn btn-dark link"><span>more</span></a>
     </div>
 </div>

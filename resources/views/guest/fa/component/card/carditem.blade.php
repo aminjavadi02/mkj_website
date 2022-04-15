@@ -26,6 +26,6 @@
             <h5>دسته بندی</h5>
         </div>
         @endif
-        <a href="/one-item/fa/{{$item['id']}}" class="btn btn-dark link"><span>مشاهده</span></a>
+        <a href="/s/one-item/fa/{{$item['id']}}" class="btn btn-dark link"><span>مشاهده</span></a>
     </div>
 </div>

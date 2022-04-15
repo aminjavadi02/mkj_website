@@ -9,18 +9,16 @@
           @if(!empty($gallery))
           <div class="card-body">
             <!-- start swiper -->
-            <div class="swiper mySwiper" style="margin-top: 18vh">
+            <div class="swiper galleryPageSwiper" style="margin-top: 18vh">
               <div class="swiper-wrapper">
                     @foreach($gallery as $image)
-                      <div class="swiper-slide col-md-4 col-md-4 d-flex flex-column justify-content-between" style="height: 360px;">
+                      <div class="swiper-slide col-md-4 col-md-4 d-flex flex-column justify-content-between">
                         <div class="d-flex flex-column bd-highlight">
-                          <!-- if image -> img if video ->vid -->
                           @if($image->is_image)
                           <img src="{{asset('storage/images/gallery/'.$image->image_name)}}"/>
                           @else
                           <video src="{{asset('storage/videos/gallery/'.$image->image_name)}}" controls></video>
                           @endif
-
                         </div>
                       </div>
                     @endforeach
@@ -42,7 +40,7 @@
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script src="{{asset('assets/js/core/jquery.min.js')}}"></script>
 <script>
-    var swiper = new Swiper(".mySwiper", {
+    var swiper = new Swiper(".galleryPageSwiper", {
     centeredSlides: true,
     slidesPerView: "auto",
     loop: true,
