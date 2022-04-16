@@ -101,16 +101,14 @@
         width: 100%;
         text-align: center;
         margin-top: 30px;
-        background: rgba(255, 255, 255, 0.15);
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-        backdrop-filter: blur(5px);
-        -webkit-backdrop-filter: blur(5px);
-        padding: 5px 0;
+        padding-bottom: 30px;
         .more{
             height: 40px;
             width: 150px;
             font-family: yekan-sans-serif;
             font-size: 16pt;
+            background-color: #000;
+            border: 1px solid #000;
         }
     }
 }

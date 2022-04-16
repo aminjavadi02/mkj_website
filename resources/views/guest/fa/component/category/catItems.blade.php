@@ -7,7 +7,7 @@
         <p>{{$pagename}}</p>
     </div>
     <hr>
-<div class="items-container">
+<div class="items-container nobg">
     <div class="row1">
         @foreach($items as $lists)
             @foreach($lists as $item)

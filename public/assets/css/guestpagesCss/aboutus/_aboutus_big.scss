@@ -9,23 +9,19 @@
         position:absolute;
         top:50px;
         .title{
-            // background-color:red;
             text-align:center;
             font-family: yekan-sans-serif;
             font-size: 24pt;
             margin-bottom: 30px;
-            // color: var(--on-primary-variant);
             color:#f2ecff;
         }
         .wrapper{
-            // height:100vh !important;
             height:auto !important;
             min-height: 100px;
             columns: auto 20em;
             direction:rtl;
             margin-bottom: 50px;
             color:var(--on-primary-variant);
-            // color: black;
             #history_fa {
                 position: relative;;
                 padding: 1em 0.5em 1em;
@@ -37,7 +33,6 @@
             margin-bottom: 10px;
         }
     }
-
     .aboutus-img-container{
         height:100vh;
         overflow:hidden;
@@ -53,7 +48,6 @@
         }
     }
 }
-
 @media not all and (min-width: 1050px) {
     .aboutus{
         .aboutus-img-container{
