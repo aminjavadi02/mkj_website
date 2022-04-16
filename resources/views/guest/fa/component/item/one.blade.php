@@ -10,7 +10,7 @@
                     @if(count($item['imagesList']) > 0)
                     @foreach($item['imagesList'] as $imageName)
                     <div class="swiper-slide">
-                        <img src="{{asset('storage/images/item_images/'.$imageName)}}">
+                        <img src="{{asset('storage/images/item_images/'.$imageName)}}" onclick="this.parentElement.parentElement.parentElement.requestFullscreen()">
                     </div>
                     @endforeach
                     @else
@@ -50,10 +50,10 @@
                     <p class="value">{{$item['size']}}</p>
                 </div>
                 @endif
-                @if($item['alloy'])
+                @if($item['alloy_fa'])
                 <div class="detail">
                     <p class="title">آلیاژ :</p>
-                    <p class="value">{{$item['alloy']}}</p>
+                    <p class="value">{{$item['alloy_fa']}}</p>
                 </div>
                 @endif
                 @if(count($item['packagesList']) > 0)

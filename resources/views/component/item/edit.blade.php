@@ -52,8 +52,14 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <div class="form-group">
-                    <label class="bmd-label-floating">آلیاژ</label>
-                    <input type="text" name="alloy" class="form-control" value="{{$item->alloy}}">
+                    <label class="bmd-label-floating">آلیاژ فارسی</label>
+                    <input type="text" name="alloy_fa" class="form-control" value="{{$item->alloy_fa}}">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="form-group">
+                    <label class="bmd-label-floating">آلیاژ انگلیسی</label>
+                    <input type="text" name="alloy_en" class="form-control" value="{{$item->alloy_en}}">
                     </div>
                   </div>
                 </div>

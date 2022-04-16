@@ -1,13 +1,6 @@
-<!-- 
-    1- form
-    2- route to post for user
-    3- get the info and show it in admin dashboard
- -->
-
  <div class="container">
      <div class="row">
          <div class="col-md-6">
-             <!-- contact info -->
             <div class="contactInfo contactEnglish">
                 <p class="title">contact info</p>
                 <label for="office_phone">office phone</label>
@@ -24,13 +17,12 @@
             </div>
          </div>
          <div class="col-md-6">
-             <!-- form -->
-             @include('inc.messages')
              <form action="{{route('contactus')}}" class="contactUsForm contactEnglish" method="post">
                 <p class="title">
                     contact us
                 </p>
                  @csrf
+                 <input type="hidden" name="lang" value="en">
                  <div class="form-group">
                     <label for="InputName">name</label>
                     <input type="text" class="form-control" id="InputName" name="name" placeholder="write your name" required value="{{old('name')}}">

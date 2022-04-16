@@ -55,7 +55,7 @@
     padding: 2vh 5vw 1vh 0;
     display: flex;
     justify-content:flex-start;
-    direction: rtl;
+    text-align: center;
 }
 
 .preloader{
@@ -75,7 +75,6 @@
     z-index: -5;
     width: 100%;
     background: #4b8178;
-    // change bg color to a good one
     @media (prefers-color-scheme: dark) {
         background: #161516;
     }

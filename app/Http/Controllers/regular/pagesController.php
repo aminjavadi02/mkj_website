@@ -26,7 +26,7 @@ class pagesController extends Controller
                 // foreign key is needed to retrieve data from relation
                 'updated_at',
                 'name_en',
-                'alloy',
+                'alloy_en',
                 'size',
             )->get()->all();
             return view('guest.en.component.index.indexpage',compact('galleryImages','aboutus','items'));
@@ -42,7 +42,7 @@ class pagesController extends Controller
                 // foreign key is needed to retrieve data from relation
                 'updated_at',
                 'name_fa',
-                'alloy',
+                'alloy_fa',
                 'size',
             )->get()->all();
             return view('guest.fa.component.index.indexpage',compact('galleryImages','aboutus','items'));
@@ -57,7 +57,12 @@ class pagesController extends Controller
             'subject'=>$request->subject,
             'text'=>$request->text,
         ]);
-        return redirect()->back()->with('success','با موفقیت ارسال شد');
+        if($request->lang == 'en'){
+            return redirect()->back()->with('success','sent');
+        }
+        else{
+            return redirect()->back()->with('success','ارسال شد');
+        }
     }
 
     public function showAboutus($lang='fa')

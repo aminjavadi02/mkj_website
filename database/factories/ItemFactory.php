@@ -27,7 +27,8 @@ class ItemFactory extends Factory
             'description_fa' => $this->faker->text,
             'description_en' => $this->faker->text,
             'size' => random_int(1,100),
-            'alloy' => $this->faker->name,
+            'alloy_fa' => $this->faker->name,
+            'alloy_en' => $this->faker->name,
             'category_id' => '1',
         ];
     }

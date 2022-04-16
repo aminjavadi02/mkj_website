@@ -21,7 +21,8 @@ class CreateItemsTable extends Migration
                 $table->string('name_en')->nullable();
                 $table->text('description_fa');
                 $table->text('description_en')->nullable();
-                $table->string('alloy')->nullable();
+                $table->string('alloy_fa')->nullable();
+                $table->string('alloy_en')->nullable();
                 $table->string('size')->nullable();
                 $table->foreignId('category_id')->constrained()->onDelete('cascade');
 

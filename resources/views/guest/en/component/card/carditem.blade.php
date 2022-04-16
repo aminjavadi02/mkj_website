@@ -14,9 +14,9 @@
             <h5>size</h5>
         </div>
         @endif
-        @if($item['alloy'])
+        @if($item['alloy_en'])
         <div class="info-container">
-            <h4>{{$item['alloy']}}</h4>
+            <h4>{{$item['alloy_en']}}</h4>
             <h5>alloy</h5>
         </div>
         @endif

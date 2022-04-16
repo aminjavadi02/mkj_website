@@ -20,7 +20,8 @@ class Item extends Model
         'description_fa',
         'description_en',
         'size',
-        'alloy',
+        'alloy_fa',
+        'alloy_en',
         'category_id',
     ];
 

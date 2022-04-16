@@ -26,7 +26,7 @@ class userItemController extends Controller
                     // foreign key is needed to retrieve data from relation
                     'updated_at',
                     'name_fa',
-                    'alloy',
+                    'alloy_fa',
                     'size',
                 )
                 ->get()
@@ -57,7 +57,7 @@ class userItemController extends Controller
                     // foreign key is needed to retrieve data from relation
                     'updated_at',
                     'name_fa',
-                    'alloy',
+                    'alloy_fa',
                     'size',
                 )
                 ->get()
@@ -99,7 +99,7 @@ class userItemController extends Controller
                 'id' =>$item->id,
                 'name'=>$item->name_fa,
                 'description'=>$item->description_fa,
-                'alloy' =>$item->alloy,
+                'alloy_fa' =>$item->alloy_fa,
                 'size'=>$item->size,
                 'categoryList'=>$tree,
                 'imagesList'=>$images,

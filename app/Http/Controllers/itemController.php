@@ -61,7 +61,8 @@ class itemController extends Controller
             'description_fa'=>$request->description_fa,
             'description_en'=>$request->description_en,
             'size'=>$request->size,
-            'alloy' =>$request->alloy,
+            'alloy_fa' =>$request->alloy_fa,
+            'alloy_en' =>$request->alloy_en,
             'category_id'=>$request->category_id,
         ]);
 
@@ -139,7 +140,8 @@ class itemController extends Controller
             'description_fa'=>$request->description_fa,
             'description_en'=>$request->description_en,
             'size'=>$request->size,
-            'alloy' =>$request->alloy,
+            'alloy_fa' =>$request->alloy_fa,
+            'alloy_en' =>$request->alloy_en,
             'category_id'=>$request->category_id,
         ]);
         return redirect()->route('items.index')->with('success','با موفقیت ویرایش شد');
