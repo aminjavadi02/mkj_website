@@ -14,10 +14,9 @@
 <!--  -->
 
 <script>
-    window.onload = function () {
+    window.addEventListener('load', function(){
         var History_fa = @json($aboutus['history_fa']);
         $('#history_fa')[0].innerHTML = History_fa;
-        
-    }
+    })
 </script>
 @endif

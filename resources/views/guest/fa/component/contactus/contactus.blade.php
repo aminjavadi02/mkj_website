@@ -38,7 +38,7 @@
                  <div class="form-group">
                     <label for="InputEmail1">آدرس ایمیل</label>
                     <input type="email" class="form-control" id="InputEmail1" name="email" placeholder="ایمیل" aria-describedby="emailHelp" value="{{old('email')}}">
-                    <small id="emailHelp" class="form-text text-muted">ایمیل شما را به هیچ عنوان با کسی به اشتراک نخواهیم گذاشت</small>
+                    <small id="emailHelp" class="form-text">ایمیل شما را به هیچ عنوان با کسی به اشتراک نخواهیم گذاشت</small>
                 </div>
                 <div class="form-group">
                     <label for="InputSubject">موضوع پیام</label>

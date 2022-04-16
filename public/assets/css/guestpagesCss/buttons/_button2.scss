@@ -4,6 +4,12 @@
     height: 50px;
     text-align: center;
     padding-top: 10px;
+    .EnglishBtn2{
+        font-family: sourceSansProLight !important;
+        &:hover{
+            font-weight:bold;
+        }
+    }
     .button{
        margin: 0 auto;
        padding: 15px 30px;

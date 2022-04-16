@@ -29,7 +29,7 @@
     @include('guest.en.inc.navbar')
     <div class="preloader" id="preloader" style="background: #0D0121 url({{asset('assets/img/loader.gif')}})"></div>
     <div class="main">
-      <img id="backgroundImage" src="{{asset('assets/img/1.jpg')}}">
+      <canvas class="backgroundPicture"></canvas>
       @yield('content')
     </div>
     @include('guest.en.inc.footer')
@@ -38,7 +38,7 @@
 
 
 
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.3/particles.min.js"></script>
 <script>
   var loader = document.getElementById('preloader');
   window.onload = function () {
@@ -47,6 +47,12 @@
       // delete if deployed
       loader.style.display = 'none';
     },1000)
+
+    Particles.init({
+    selector: '.backgroundPicture',
+    connectParticles: true,
+    color: ['#f0b55f', '#404B69', '#DBEDF3'],
+    });
   }
 </script>
 

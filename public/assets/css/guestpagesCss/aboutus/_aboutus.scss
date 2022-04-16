@@ -4,19 +4,17 @@
     margin-top:50px;
     margin-bottom: 50px;
     background-color:var(--primary-color);
+    opacity: 0.9;
     background-size: cover;
     height:auto;
     .title{
-        // background-color:red;
         text-align:center;
         font-family: yekan-sans-serif;
         font-size: 20pt;
         margin-bottom: 30px;
-        // color: var(--on-primary-variant);
         color:#f2ecff;
     }
     .wrapper{
-        // height:100vh !important;
         height:auto !important;
         min-height: 100px;
         columns: auto 20em;
@@ -24,7 +22,7 @@
         margin-bottom: 50px;
         #history_fa {
             position: relative;;
-            color:var(--on-primary-color);
+            color:var(--on-primary-variant) !important;
             padding: 1em 0.5em 1em;
             line-height: 5px;
         }

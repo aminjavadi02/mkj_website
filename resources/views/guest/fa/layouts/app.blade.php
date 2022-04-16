@@ -29,7 +29,7 @@
     @include('guest.fa.inc.navbar')
     <div class="preloader" id="preloader" style="background: #0D0121 url({{asset('assets/img/loader.gif')}})"></div>
     <div class="main">
-      <img id="backgroundImage" src="{{asset('assets/img/1.jpg')}}">
+      <canvas class="backgroundPicture"></canvas>
       @yield('content')
     </div>
     @include('guest.fa.inc.footer')
@@ -38,7 +38,7 @@
 
 
 
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.3/particles.min.js"></script>
 <script>
   var loader = document.getElementById('preloader');
   window.onload = function () {
@@ -46,7 +46,13 @@
       // set timeout function is only to delay loading an showing the gif a bit longer
       // delete if deployed
       loader.style.display = 'none';
-    },1000)
+    },500)
+
+    Particles.init({
+    selector: '.backgroundPicture',
+    connectParticles: true,
+    color: ['#f0b55f', '#eeeeee', '#9c8d9c'],
+    });
   }
 </script>
 

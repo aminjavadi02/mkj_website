@@ -1,4 +1,4 @@
-<nav class="navbar navbar-inverse navbar-expand-lg navbar-fixed-top">
+<nav class="navbar navbar-inverse navbar-expand-lg navbar-fixed-top userNavBarFa">
   <div class="container-fluid">
   
   <span class="material-icons navbar-toggler pull-right" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" style="color:gray; margin-top:2vh; cursor: pointer">menu</span>

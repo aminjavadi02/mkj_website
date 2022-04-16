@@ -2,7 +2,7 @@
     direction: rtl;
     font-family: yekan-sans-serif;
     color:var(--on-primary-variant);
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(12, 12, 12, 0.6);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5.4px);
@@ -11,6 +11,9 @@
     padding: 10px 20px;
     margin: 10px 0 20px;
     height:100vh;
+    @media (prefers-color-scheme: dark) {
+        background: rgba(255, 255, 255, 0.1);
+    }
     label{
         font-size:14pt;   
     }
@@ -40,7 +43,7 @@
     direction: ltr;
     font-family: yekan-sans-serif;
     color:var(--on-primary-variant);
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(12, 12, 12, 0.6);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5.4px);
@@ -48,6 +51,9 @@
     border: 1px solid rgba(255, 255, 255, 0.24);
     padding: 10px 20px;
     margin: 10px 0 20px;
+    @media (prefers-color-scheme: dark) {
+        background: rgba(255, 255, 255, 0.1);
+    }
     .title{
         text-align: center;
         font-size:16pt;

@@ -68,4 +68,15 @@
     z-index: 1000;
 }
 
-
+.backgroundPicture{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -5;
+    width: 100%;
+    background: #979696;
+    // change bg color to a good one
+    @media (prefers-color-scheme: dark) {
+        background: #161516;
+    }
+}

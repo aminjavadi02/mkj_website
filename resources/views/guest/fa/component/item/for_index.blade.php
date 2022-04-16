@@ -1,6 +1,5 @@
 @if(!empty($items))
 <div class="items-container" style="
-background-image:url('{{asset('assets/img/42883.jpg')}}');
 padding-bottom: 30px;
 background-size: cover;
 background-repeat: no-repeat;

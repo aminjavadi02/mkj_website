@@ -57,7 +57,7 @@ class pagesController extends Controller
             'subject'=>$request->subject,
             'text'=>$request->text,
         ]);
-        return redirect()->back()->with('success','با موفقیت ارسال شد');;
+        return redirect()->back()->with('success','با موفقیت ارسال شد');
     }
 
     public function showAboutus($lang='fa')
