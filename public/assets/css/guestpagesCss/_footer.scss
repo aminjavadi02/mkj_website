@@ -40,18 +40,15 @@
             color: var(--on-primary-color);
             font-family: yekan-sans-serif;
             font-size: 16pt;
-        }
-        
+        }   
     }
 }
-
 .middle{
     display:flex;
     justify-content:center;
     padding-top:20px;
     height:50px;
 }
-
 .designer{
     position:absolute;
     bottom: 0;
@@ -64,8 +61,14 @@
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
+    a{
+        color:var(--on-primary-color);
+        &:hover{
+            text-decoration: none;
+            color:var(--on-primary-variant);
+        }
+    }
 }
-
 .EnglishFooter{
     .rightside{
         ul{

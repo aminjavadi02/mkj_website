@@ -17,7 +17,7 @@
 
         <div class="container d-flex flex-column" style="text-align:right">
             <p>آدرس ایمیل:</p>
-            <h6 class=" mb-2">{{$message->email}}</h6>
+            <a href="mailto:{{$message->email}}" class="mb-2">{{$message->email}}</a>
             <hr>
         </div>
 

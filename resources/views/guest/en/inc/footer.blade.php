@@ -1,7 +1,7 @@
 <div class="container footer EnglishFooter">
     <div class="row">
     <div class="col middle">
-        <a href="#" class="button-3"><span class="material-icons">arrow_upward</span></a>
+    <a onclick="topfunction()" class="button-3" id="goTopBtn"><span class="material-icons">arrow_upward</span></a>
     </div>
     </div>
     <div class="row">
@@ -24,7 +24,16 @@
     </div>
     <div class="row">
         <div class="designer">
-        <p>DESIGNED BY aminjavadi02@gmail.com</p>
+        <p>DESIGNED BY <a href="mailto:aminjavadi02@gmail.com">Amin Javadi</a></p>
         </div>
     </div>
 </div>
+
+<script>
+    mybutton = document.getElementById("goTopBtn");
+    function topfunction(){
+        console.log("Top function")
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    }
+</script>
