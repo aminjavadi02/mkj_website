@@ -50,7 +50,8 @@
               margin-top: 5px;
             }
             .value{
-              font-size: 16pt;
+              font-size: 14pt;
+              margin-top: 5px;
               margin-left: 20px;
             }
             .listvalue{
@@ -93,6 +94,10 @@
         height:100%;
         padding-bottom: 30px;
         background:white;
+        .EnglishDescription{
+          direction:ltr !important;
+          padding:20px 0px 0px 20px !important;
+        }
         .title{
           font-family: yekan-sans-serif;
           font-size: 20pt;

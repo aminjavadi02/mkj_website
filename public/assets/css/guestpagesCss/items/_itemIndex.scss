@@ -2,7 +2,10 @@
     height:auto;
     width:100%;
     margin: 15vh 0 5vh;
-    background:rgba(1, 46, 61, 0.6);
+    background: rgba(182, 208, 228, 0.2);
+    @media(prefers-color-scheme: dark) {
+        background: rgba(53, 61, 68, 0.2);
+    }
     .row1{
         display:flex;
         flex-direction: row;

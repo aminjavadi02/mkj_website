@@ -52,19 +52,19 @@ class Category extends Model
         return $this->hasMany(Item::class);
     }
 
-    public static function fathers($category)
+    public static function fathers($category,$lang)
     {
         $category = Category::find($category);
         $tree[0] = [
             'id'=>$category->id,
-            'name'=>$category->name_fa,
+            'name'=>$category['name_'.$lang],
         ];
         $i = 1;
         while($category->parent_id){
             $category = Category::find($category->parent_id);
             $tree[$i] = [
                 'id'=>$category->id,
-                'name'=>$category->name_fa,
+                'name'=>$category['name_'.$lang],
             ];
             $i+=1;
         }

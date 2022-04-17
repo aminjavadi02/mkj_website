@@ -11,102 +11,91 @@ class userItemController extends Controller
 {
     public function latestItems($lang='fa')
     {
-        if($lang=='en'){
-            // dd('add en');
-        }
-        else {
+        if($lang=='en' || $lang=='fa'){
             $latest_items = Item::
                 latest()
                 ->take(8)
                 ->with(['images','category'])
                 ->select(
                     'id',
-                    // foreign key is needed to retrieve data from relation
                     'category_id',
-                    // foreign key is needed to retrieve data from relation
                     'updated_at',
-                    'name_fa',
-                    'alloy_fa',
+                    'name_'.$lang,
+                    'alloy_'.$lang,
                     'size',
                 )
                 ->get()
                 ->toArray();
-                // toArray() puts relations next to retrieved data
-            // do the same for allItems
-            if(count($latest_items)>0){
-                return view('guest.fa.component.item.latest')->with('items',$latest_items);
-            }
-            else {
-                return redirect('/')->with('error','محصولی در سایت موجود نیست');
-            }
+                if(count($latest_items)>0){
+                    return view('guest.'.$lang.'.component.item.latest')->with('items',$latest_items);
+                }
+                else {
+                    return redirect()->back()->with('error','error');
+                }
+        }else {
+            return redirect()->back()->with('error','error');
         }
     }
     public function allItems($lang='fa')
     {
-        if($lang=='en'){
-            // dd('add en');
-        }
-        else {
+        if($lang=='en' || $lang=='fa'){
             $items = Item::
                 latest()
                 ->with(['images','category'])
                 ->select(
                     'id',
-                    // foreign key is needed to retrieve data from relation
                     'category_id',
-                    // foreign key is needed to retrieve data from relation
                     'updated_at',
-                    'name_fa',
-                    'alloy_fa',
+                    'name_'.$lang,
+                    'alloy_'.$lang,
                     'size',
                 )
                 ->get()
                 ->toArray();
-            if(count($items)>0){
-                return view('guest.fa.component.item.all')->with('items',$items);
-            }
-            else {
-                return redirect('/')->with('error','محصولی در سایت موجود نیست');
-            }
+                if(count($items)>0){
+                    return view('guest.'.$lang.'.component.item.all')->with('items',$items);
+                }
+                else {
+                    return redirect()->back()->with('error','error');
+                }
+        }else{
+            return redirect()->back()->with('error','error');
         }
     }
     public function oneItem($lang='fa',Item $item)
     {
-        if($lang=='en'){
-            // dd('add en');
-        }
-        else{
-            $tree = Category::fathers($item->category_id);
+        if($lang=='en' || $lang=='fa'){
+            $tree = Category::fathers($item->category_id,$lang);
             $imageObjects = $item->images()->get();
             if(count($imageObjects) > 0){
                 foreach ($imageObjects as $key => $image){
                     $images[$key] = $image->image_name;
                 }
-            }
-            else{
+            }else{
                 $images=[];
             }
             $packagesList = $item->packages()->get();
             if(count($packagesList) > 0){
                 foreach ($packagesList as $key => $package){
-                    $packages[$key] = $package->name_fa;
+                    $packages[$key] = $package['name_'.$lang];
                 }
-            }
-            else{
+            }else{
                 $packages=[];
             }
             $data = [
                 'id' =>$item->id,
-                'name'=>$item->name_fa,
-                'description'=>$item->description_fa,
-                'alloy_fa' =>$item->alloy_fa,
+                'name'=>$item['name_'.$lang],
+                'description'=>$item['description_'.$lang],
+                'alloy' =>$item['alloy_'.$lang],
                 'size'=>$item->size,
                 'categoryList'=>$tree,
                 'imagesList'=>$images,
                 'time'=>$item->updated_at,
                 'packagesList'=>$packages,
             ];
-            return view('guest.fa.component.item.one')->with('item',$data);
+            return view('guest.'.$lang.'.component.item.one')->with('item',$data);
+        }else {
+            return redirect()->back()->with('error','error');
         }
     }
 }

@@ -1,6 +1,6 @@
-@extends('guest.fa.layouts.app')
+@extends('guest.en.layouts.app')
 @section('content')
-@include('guest.fa.component.item.categoryList')
+@include('guest.en.component.item.categoryList')
 <div class="one-item-container">
     <div class="row1">
         <div class="col-md-6 img-container">
@@ -35,34 +35,34 @@
         </div>
         <div class="col-md-6 details-container">
             <div class="details">
-                <p class="main-title">مشخصات</p>
+                <p class="main-title">details</p>
 
                 @if($item['name'])
                 <div class="detail">
-                    <p class="title">نام کالا :</p>
                     <p class="value">{{$item['name']}}</p>
+                    <p class="title">name</p>
                 </div>
                 @endif
                 @if($item['size'])
                 <div class="detail">
-                    <p class="title">سایز :</p>
                     <p class="value">{{$item['size']}}</p>
+                    <p class="title">size</p>
                 </div>
                 @endif
                 @if($item['alloy'])
                 <div class="detail">
-                    <p class="title">آلیاژ :</p>
                     <p class="value">{{$item['alloy']}}</p>
+                    <p class="title">alloy</p>
                 </div>
                 @endif
                 @if(count($item['packagesList']) > 0)
                 <div class="detail">
-                    <p class="title"> بسته بندی ها :</p>
                     <ul class="listvalue">
                         @foreach($item['packagesList'] as $package)
                         <li>{{$package}}</li>
                         @endforeach
                     </ul>
+                    <p class="title">package</p>
                 </div>
                 @endif
                 
@@ -71,8 +71,8 @@
     </div>
     <div class="row2">
         <div class="col description-containrt">
-            <div class="title">
-                توضیحات
+            <div class="title EnglishDescription">
+                description
             </div>
             <hr>
             @if($item['description'])

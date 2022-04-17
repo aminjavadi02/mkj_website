@@ -16,8 +16,14 @@
         padding:0 20px;
         display: flex;
         flex-direction: row;
+        justify-content: flex-end;
+        width: 50%;
         flex-wrap: wrap;
         font-family: yekan-sans-serif;
+        direction:ltr;
+        @media not all and (min-width: 1000px) {
+          width: 100%;
+        }
         a{
             text-decoration: none;
             color:var(--on-primary-color);
