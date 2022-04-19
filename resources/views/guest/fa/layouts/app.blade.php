@@ -29,7 +29,7 @@
     @include('guest.fa.inc.navbar')
     <div class="preloader" id="preloader" style="background: #0D0121 url({{asset('assets/img/loader.gif')}})"></div>
     <div class="main">
-      <canvas class="backgroundPicture"></canvas>
+      <img src="" class="backgroundPicture">
       @yield('content')
     </div>
     @include('guest.fa.inc.footer')
@@ -38,7 +38,6 @@
 
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.3/particles.min.js"></script>
 <script>
   var loader = document.getElementById('preloader');
   window.onload = function () {
@@ -47,20 +46,11 @@
       // delete if deployed
       loader.style.display = 'none';
     },500)
-
-    Particles.init({
-    selector: '.backgroundPicture',
-    connectParticles: true,
-    color: ['#f0b55f', '#eeeeee', '#9c8d9c'],
-    });
   }
 </script>
-
-
   <script src="{{asset('assets/js/core/jquery.min.js')}}"></script>
   <script src="{{asset('assets/js/core/popper.min.js')}}"></script>
   <script src="{{asset('assets/js/core/bootstrap-material-design.min.js')}}"></script>
-
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 </body>
 </html>

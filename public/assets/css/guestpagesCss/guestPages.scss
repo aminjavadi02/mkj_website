@@ -74,8 +74,10 @@
     left: 0;
     z-index: -5;
     width: 100%;
-    background: #4b8178;
+    height: 200vh;
+    background: #E0E0E0;
+    z-index: 0;
     @media (prefers-color-scheme: dark) {
-        background: #161516;
+        background: var(--main-bg-dark);
     }
 }

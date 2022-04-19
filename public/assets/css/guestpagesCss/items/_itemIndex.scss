@@ -2,7 +2,10 @@
     height:auto;
     width:100%;
     margin: 15vh 0 5vh;
-    background: rgba(182, 208, 228, 0.2);
+    background: rgba(30, 43, 48, 0.8);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
     @media(prefers-color-scheme: dark) {
         background: rgba(53, 61, 68, 0.2);
     }

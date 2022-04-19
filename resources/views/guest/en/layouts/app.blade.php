@@ -48,11 +48,7 @@
       loader.style.display = 'none';
     },1000)
 
-    Particles.init({
-    selector: '.backgroundPicture',
-    connectParticles: true,
-    color: ['#f0b55f', '#404B69', '#DBEDF3'],
-    });
+    
   }
 </script>
 
