@@ -1,8 +1,7 @@
 .contactUsForm{
     direction: rtl;
     font-family: yekan-sans-serif;
-    color:var(--on-primary-variant);
-    background: rgba(12, 12, 12, 0.6);
+    background: var(--contact-bg-light);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5.4px);
@@ -11,8 +10,9 @@
     padding: 10px 20px;
     margin: 10px 0 20px;
     height:100vh;
+    color: var(--heder-font-color-light) !important;
     @media (prefers-color-scheme: dark) {
-        background: rgba(255, 255, 255, 0.1);
+        background: var(--contact-bg-dark);
     }
     label{
         font-size:14pt;   
@@ -28,13 +28,6 @@
     .submit{
         text-align:end;
     }
-
-    // if lang en -> font
-    // text-transform: capitalize;
-    // font-family:sourceSansProLight;
-    // elif lang fa -> font
-    // font-family: yekan-sans-serif;
-    
 }
 // contact info
 .contactInfo{
@@ -42,8 +35,8 @@
     min-height: 100vh;
     direction: ltr;
     font-family: yekan-sans-serif;
-    color:var(--on-primary-variant);
-    background: rgba(12, 12, 12, 0.6);
+    color: var(--heder-font-color-light) !important;
+    background: var(--contact-bg-light);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5.4px);
@@ -52,7 +45,7 @@
     padding: 10px 20px;
     margin: 10px 0 40px;
     @media (prefers-color-scheme: dark) {
-        background: rgba(255, 255, 255, 0.1);
+        background: var(--contact-bg-dark);
     }
     .title{
         text-align: center;
@@ -66,7 +59,7 @@
     p{
         text-align: end;
         font-size: 14pt;
-        background:rgba(0, 0, 0, 0.4);
+        background:rgba(0, 0, 0, 0.199);
         padding-right: 10px;
     }
 }

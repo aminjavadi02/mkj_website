@@ -4,7 +4,7 @@
     @else
     <div class="item-img no-img" style="text-align:center; padding-top:14vh;">no image</div>
     @endif                    
-    <div class="card-body">
+    <div class="card-body EnglishItemCard">
         @if($item['name_en'])
         <h5 class="card-title">{{$item['name_en']}}</h5>
         @endif

@@ -1,7 +1,7 @@
 @if($aboutus['history_fa'])
 <div class="aboutus">
     <div class="aboutus-img-container">
-        <img src="{{asset('assets/img/high-voltage-post-high-voltage-tower.jpg')}}" class="bg">
+        <img src="{{asset('storage/images/aboutus/'.$aboutus->image_name)}}" class="bg">
     </div>
     <div class="container aboutus-big-container">
         <div class="row">

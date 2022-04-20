@@ -18,10 +18,10 @@
             background-size: cover;
             border-radius: 0 0 50% 50%/ 0 0 100% 100%;
             transform:scaleX(1.4);
-            background:rgba(44, 44, 44, 0.2) !important;
             z-index: 1;
+            background:rgba(44, 44, 44, 0.1) !important;
             @media(prefers-color-scheme: dark) {
-                background:rgba(255, 253, 253, 0.12) !important;
+                background:#eafef725 !important;
             }
         }
     }
@@ -41,7 +41,7 @@
         font-family: yekan-sans-serif;
         font-size: 72pt ;
         z-index: 2;
-        color:rgb(41, 40, 40);
+        color:var(--heder-font-color-light);
         @media(prefers-color-scheme: dark) {
             color:var(--heder-font-color-dark);
         }

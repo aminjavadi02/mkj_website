@@ -8,13 +8,16 @@
         right:0;
         top: 5vh;
         margin: 0 auto;
-        background-color:#080808;
         border: 0px;
         border-radius: 5px;
         font-family: yekan-sans-serif;
         font-size: 15pt;
         &:hover{
             opacity:0.9;
+        }
+        background:rgba(0, 0, 0, 0.199);
+        @media (prefers-color-scheme: dark) {
+            background-color:#080808;
         }
     }
 }

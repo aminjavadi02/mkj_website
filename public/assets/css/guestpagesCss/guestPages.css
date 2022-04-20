@@ -3,7 +3,7 @@
   padding: 20px 40px !important;
   margin-top: 50px;
   margin-bottom: 50px;
-  background-color: var(--primary-color);
+  background-color: var(--aboutus-short-dark);
   opacity: 0.9;
   background-size: cover;
   height: auto;
@@ -46,7 +46,14 @@
   --on-primary-color: #2e2c36;
   --on-primary-variant: #faf7ff;
   --heder-font-color-dark: #f1f1e6;
+  --heder-font-color-light: #292828;
   --main-bg-dark: #212121;
+  --main-bg-light:#f3eada;
+  --items-bg-dark: #324b4c;
+  --items-bg-light: #99b0a8;
+  --aboutus-short-dark: #c1e7da;
+  --contact-bg-light: #f0ececcc;
+  --contact-bg-dark: #ffffff1a;
 }
 
 @font-face {
@@ -497,7 +504,7 @@
   left: -4px;
   width: calc(100% + 15px);
   height: calc(100% - 20px);
-  background-color: var(--primary-color);
+  background-color: var(--aboutus-short-dark);
   -webkit-transition: 0.1s ease-in-out;
   transition: 0.1s ease-in-out;
   -webkit-transform: scaleY(1);
@@ -507,7 +514,7 @@
 }
 
 .button-container .button:hover::before {
-  background: var(--primary-color);
+  background: var(--aboutus-short-dark);
   -webkit-transform: scaleY(0);
           transform: scaleY(0);
 }
@@ -519,7 +526,7 @@
   top: -4px;
   height: calc(100% + 7px);
   width: calc(100% - 20px);
-  background-color: var(--primary-color);
+  background-color: var(--aboutus-short-dark);
   -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
   -webkit-transform: scaleX(1);
@@ -527,7 +534,7 @@
 }
 
 .button-container .button:hover::after {
-  background: var(--primary-color);
+  background: var(--aboutus-short-dark);
   -webkit-transform: scaleX(0);
           transform: scaleX(0);
 }
@@ -634,15 +641,21 @@
   right: 0;
   top: 5vh;
   margin: 0 auto;
-  background-color: #080808;
   border: 0px;
   border-radius: 5px;
   font-family: yekan-sans-serif;
   font-size: 15pt;
+  background: rgba(0, 0, 0, 0.199);
 }
 
 .submit .button5:hover {
   opacity: 0.9;
+}
+
+@media (prefers-color-scheme: dark) {
+  .submit .button5 {
+    background-color: #080808;
+  }
 }
 
 :root {
@@ -653,7 +666,14 @@
   --on-primary-color: #2e2c36;
   --on-primary-variant: #faf7ff;
   --heder-font-color-dark: #f1f1e6;
+  --heder-font-color-light: #292828;
   --main-bg-dark: #212121;
+  --main-bg-light:#f3eada;
+  --items-bg-dark: #324b4c;
+  --items-bg-light: #99b0a8;
+  --aboutus-short-dark: #c1e7da;
+  --contact-bg-light: #f0ececcc;
+  --contact-bg-dark: #ffffff1a;
 }
 
 @font-face {
@@ -728,14 +748,14 @@
     border-radius: 0 0 50% 50%/ 0 0 100% 100%;
     -webkit-transform: scaleX(1.4);
             transform: scaleX(1.4);
-    background: rgba(44, 44, 44, 0.2) !important;
     z-index: 1;
+    background: rgba(44, 44, 44, 0.1) !important;
   }
 }
 
 @media only all and (min-width: 770px) and (prefers-color-scheme: dark) {
   .indexHeader::before {
-    background: rgba(255, 253, 253, 0.12) !important;
+    background: #eafef725 !important;
   }
 }
 
@@ -755,7 +775,7 @@
   font-family: yekan-sans-serif;
   font-size: 72pt;
   z-index: 2;
-  color: #292828;
+  color: var(--heder-font-color-light);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -1021,18 +1041,14 @@
 .items-container {
   height: auto;
   width: 100%;
-  height: auto;
   margin: 15vh 0 5vh;
-  background: rgba(229, 232, 233, 0.938);
-  -webkit-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-          box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
+  position: relative;
+  background: var(--items-bg-light) !important;
 }
 
 @media (prefers-color-scheme: dark) {
   .items-container {
-    background: rgba(53, 61, 68, 0.2);
+    background: var(--items-bg-dark) !important;
   }
 }
 
@@ -1052,18 +1068,6 @@
   width: 100%;
   margin: 0 !important;
   padding: 0 !important;
-}
-
-.items-container .row1 .EnglishItemCard .card-title {
-  font-family: sourceSansProLight !important;
-}
-
-.items-container .row1 .EnglishItemCard .link span {
-  font-family: sourceSansProLight !important;
-}
-
-.items-container .row1 .EnglishItemCard .info-container {
-  font-family: sourceSansProLight !important;
 }
 
 .items-container .row1 .card {
@@ -1165,6 +1169,18 @@
   font-size: 16pt;
   background-color: #000;
   border: 1px solid #000;
+}
+
+.EnglishItemCard .card-title {
+  font-family: sourceSansProLight !important;
+}
+
+.EnglishItemCard .link span {
+  font-family: sourceSansProLight !important;
+}
+
+.EnglishItemCard .info-container {
+  font-family: sourceSansProLight !important;
 }
 
 .father-container {
@@ -1496,12 +1512,13 @@
   height: 100%;
   margin: 12vh auto 5vh;
   border-radius: 15px;
-  background: rgba(30, 43, 48, 0.8);
+  background: #4a6c61;
   border-radius: 16px;
   -webkit-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
           box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
+  position: relative;
 }
 
 .backgroundarea .pageName {
@@ -1645,8 +1662,7 @@
 .contactUsForm {
   direction: rtl;
   font-family: yekan-sans-serif;
-  color: var(--on-primary-variant);
-  background: rgba(12, 12, 12, 0.6);
+  background: var(--contact-bg-light);
   border-radius: 16px;
   -webkit-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
           box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -1656,11 +1672,12 @@
   padding: 10px 20px;
   margin: 10px 0 20px;
   height: 100vh;
+  color: var(--heder-font-color-light) !important;
 }
 
 @media (prefers-color-scheme: dark) {
   .contactUsForm {
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--contact-bg-dark);
   }
 }
 
@@ -1687,8 +1704,8 @@
   min-height: 100vh;
   direction: ltr;
   font-family: yekan-sans-serif;
-  color: var(--on-primary-variant);
-  background: rgba(12, 12, 12, 0.6);
+  color: var(--heder-font-color-light) !important;
+  background: var(--contact-bg-light);
   border-radius: 16px;
   -webkit-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
           box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -1701,7 +1718,7 @@
 
 @media (prefers-color-scheme: dark) {
   .contactInfo {
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--contact-bg-dark);
   }
 }
 
@@ -1719,7 +1736,7 @@
 .contactInfo p {
   text-align: end;
   font-size: 14pt;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.199);
   padding-right: 10px;
 }
 
@@ -1803,7 +1820,7 @@
   z-index: -5;
   width: 100%;
   height: 200vh;
-  background: #E0E0E0;
+  background: var(--main-bg-light);
   z-index: 0;
 }
 

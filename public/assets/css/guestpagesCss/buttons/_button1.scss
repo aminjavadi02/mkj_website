@@ -24,14 +24,14 @@
             left: -4px;
             width: calc(100% + 15px);
             height: calc(100% - 20px);
-            background-color: var(--primary-color);
+            background-color: var(--aboutus-short-dark);
             transition: 0.1s ease-in-out;
             transform: scaleY(1);
             transition-delay: 0.2s;
             // sides
         }
         &:hover::before{
-            background:var(--primary-color);
+            background:var(--aboutus-short-dark);
             transform: scaleY(0);
         }
         &::after{
@@ -41,13 +41,13 @@
             top: -4px;
             height: calc(100% + 7px);
             width: calc(100% - 20px);
-            background-color: var(--primary-color);
+            background-color: var(--aboutus-short-dark);
             transition: 0.3s ease-in-out;
             // up and down
             transform: scaleX(1);
         }
         &:hover::after{
-            background:var(--primary-color);
+            background:var(--aboutus-short-dark);
             transform: scaleX(0);
         }
         span{

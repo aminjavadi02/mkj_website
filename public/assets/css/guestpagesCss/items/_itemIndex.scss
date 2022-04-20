@@ -2,12 +2,10 @@
     height:auto;
     width:100%;
     margin: 15vh 0 5vh;
-    background: rgba(30, 43, 48, 0.8);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
+    position: relative;
+    background:var(--items-bg-light) !important;
     @media(prefers-color-scheme: dark) {
-        background: rgba(53, 61, 68, 0.2);
+        background:var(--items-bg-dark) !important;
     }
     .row1{
         display:flex;
@@ -17,19 +15,6 @@
         width: 100%;
         margin:0 !important;
         padding:0 !important;
-        .EnglishItemCard{
-            .card-title{
-                font-family: sourceSansProLight !important;   
-            }
-            .link{
-                span{
-                    font-family: sourceSansProLight !important;
-                }
-            }
-            .info-container{
-                font-family: sourceSansProLight !important;
-            }
-        }
         .card{
             position:relative;
             height: 73vh;
@@ -116,5 +101,19 @@
             background-color: #000;
             border: 1px solid #000;
         }
+    }
+}
+
+.EnglishItemCard{
+    .card-title{
+        font-family: sourceSansProLight !important;
+    }
+    .link{
+        span{
+            font-family: sourceSansProLight !important;
+        }
+    }
+    .info-container{
+        font-family: sourceSansProLight !important;
     }
 }

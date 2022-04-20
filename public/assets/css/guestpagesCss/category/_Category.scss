@@ -6,11 +6,12 @@
     height: 100%;
     margin: 12vh auto 5vh;
     border-radius: 15px;
-    background: rgba(30, 43, 48, 0.8);
+    background: #4a6c61;
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
+    position: relative;
  .pageName{
      position:relative;
      width:100%;
