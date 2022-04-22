@@ -77,7 +77,7 @@ class categoryController extends Controller
      */
     public function show(Category $category)
     {
-        $items = Item::where('category_id', $category->id)->select('id','name_fa','alloy','size')->get()->all();
+        $items = Item::where('category_id', $category->id)->select('id','name_fa','alloy_fa','size')->get()->all();
         return view('component.category.show',compact('items', 'category'));
     }
 

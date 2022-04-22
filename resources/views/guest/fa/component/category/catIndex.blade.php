@@ -11,7 +11,7 @@
             </p>
         </div>
         <div class="col-md-6 categoryList-container">
-            @include('inc.messages')
+            @include('guest.fa.inc.messages')
             <ul id="tree" class="category_ul"></ul>
         </div>
     </div>

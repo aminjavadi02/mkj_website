@@ -18,13 +18,11 @@
         </div>
     </div>
 </div>
-
 <script>
-    window.onload = function () {
+    window.addEventListener('load', function(){
         var about_fa = @json($manager[0]->about_fa);
         $('#caption')[0].innerHTML = about_fa;
-        
-    }
+    })
 </script>
 
 @endif

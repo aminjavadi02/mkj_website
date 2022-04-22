@@ -1,13 +1,13 @@
 .swiper {
-    width: 10%;
+    width: 80% !important;
     margin-top: -32vh;
     margin-bottom: 22vh !important;
     padding-top: 50px;
     padding-bottom: 0px;
     overflow: hidden;
     padding:0;
-    @media not all and (min-width: 500px) {
-        width: 100%;
+    @media not all and (min-width: 1000px) {
+        width: 100% !important;
     }
 }
 
@@ -17,6 +17,7 @@
     display:flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
 .bd-highlight {
@@ -24,13 +25,32 @@
     width: 100% !important;
 }
 .swiper-slide img {
-    height: 100% !important;
-    display: block;
     margin:auto;
-    max-width: 100%;
+    max-width: 90% !important;
+    max-height: 100%;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
 }
 .swiper-slide video {
     height: 100% !important;
     display: block;
     margin:auto;
+}
+
+// media less than 1000px these two should get out of picture
+@media not all and (min-width: 1000px) {
+    .swiper-button-next{
+        margin-right: -8px !important;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        
+    }
+    .swiper-button-prev{
+        margin-left: -8px !important;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+    }
 }

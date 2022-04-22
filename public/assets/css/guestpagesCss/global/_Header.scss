@@ -4,9 +4,9 @@
     height: 50vh;
     background-size: cover;
     background-repeat: no-repeat;
-    margin: auto;
+    margin: 0 auto;
     overflow: hidden;
-    @media only all and (min-width: 770px) {
+    @media only all and (min-width: 950px) {
         // curvy thing
         &::before{
             content:'';
@@ -26,11 +26,13 @@
         }
     }
     @media not all and (min-width: 770px) {
+        height: 25vh !important;
         .CompanyName {
             font-size:32pt !important;
         }
         .CompanyDescription{
             font-size:12pt !important;
+            padding: 0 20px;
         }
     }
     
@@ -70,5 +72,16 @@
         font-family: overcameBlack !important;
         letter-spacing: 2px;
         font-size: 18pt;
+    }
+}
+
+.indexPageHeader{
+    height: 100vh !important;
+    @media all and (max-width: 750px) {
+        height: 70vh !important;
+    }
+
+    @media all and (max-width: 500px) {
+        height: 65vh !important;
     }
 }

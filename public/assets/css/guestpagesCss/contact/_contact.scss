@@ -13,6 +13,7 @@
     color: var(--heder-font-color-light) !important;
     @media (prefers-color-scheme: dark) {
         background: var(--contact-bg-dark);
+        color: white !important;
     }
     label{
         font-size:14pt;   
@@ -46,6 +47,7 @@
     margin: 10px 0 40px;
     @media (prefers-color-scheme: dark) {
         background: var(--contact-bg-dark);
+        color: white !important;
     }
     .title{
         text-align: center;
