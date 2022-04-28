@@ -53,7 +53,7 @@
                     font-size: 12pt;
                 }
                 .link{
-                    background-color:black;
+                    background-color:#5F7FD3;
                     width: 100px;
                     height: 30px;
                     border-radius:5px;
@@ -63,7 +63,7 @@
                     right: 0;
                     margin: 0 auto;
                     &:hover{
-                        background-color: rgba(2, 2, 2, 0.816);
+                        background-color: #2d447c;
                     }
                     span{
                         color:white;
@@ -98,8 +98,9 @@
             width: 150px;
             font-family: yekan-sans-serif;
             font-size: 16pt;
-            background-color: #000;
-            border: 1px solid #000;
+            // background-color: #000;
+            border: 1px solid #354f90;
+            background: #354f90;
         }
     }
 }
@@ -109,8 +110,11 @@
         font-family: sourceSansProLight !important;
     }
     .link{
+        padding-top: 25px !important;
         span{
             font-family: sourceSansProLight !important;
+            font-size: 14pt !important;
+            font-weight: 600 !important;
         }
     }
     .info-container{

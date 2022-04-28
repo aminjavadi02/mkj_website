@@ -1,7 +1,7 @@
 <div class="content">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-12 whitespace">
+      <div class="col-12">
         <div class="card">
           @if(!empty($galleryImages))
           <div class="card-body">
@@ -25,7 +25,6 @@
               <div class="swiper-button-next"></div>
               <div class="swiper-button-prev"></div>
               <br><br>
-              <div class="swiper-pagination"></div>
             </div>
             <!-- end of swiper -->
           </div>
@@ -51,6 +50,9 @@
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",
     },
+    autoplay: {
+          delay: 3000,
+    }
     
   });
 </script>

@@ -2,25 +2,21 @@
     direction: rtl;
     font-family: yekan-sans-serif;
     background: var(--contact-bg-light);
-    border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5.4px);
-    -webkit-backdrop-filter: blur(5.4px);
     border: 1px solid rgba(255, 255, 255, 0.24);
     padding: 10px 20px;
     margin: 10px 0 20px;
     height:100vh;
-    color: var(--heder-font-color-light) !important;
     @media (prefers-color-scheme: dark) {
         background: var(--contact-bg-dark);
         color: white !important;
     }
     label{
-        font-size:14pt;   
+        font-size:12pt;
     }
     .title{
         text-align: center;
-        font-size:16pt;
+        font-size:14pt;
         font-family: yekan-sans-serif;
     }
     .text{
@@ -32,36 +28,36 @@
 }
 // contact info
 .contactInfo{
-    height:auto;
-    min-height: 100vh;
+    height: 100vh;
     direction: ltr;
     font-family: yekan-sans-serif;
     color: var(--heder-font-color-light) !important;
     background: var(--contact-bg-light);
-    border-radius: 16px;
+    // رنگ بک گراند توی اباوت آس بزرگ رو پاک کن تا بشه اینم خوشگل بذاری
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5.4px);
-    -webkit-backdrop-filter: blur(5.4px);
     border: 1px solid rgba(255, 255, 255, 0.24);
     padding: 10px 20px;
     margin: 10px 0 40px;
+    @media all and (max-width: 500px){
+        height: 75vh;
+    }
     @media (prefers-color-scheme: dark) {
         background: var(--contact-bg-dark);
         color: white !important;
     }
     .title{
         text-align: center;
-        font-size:16pt;
+        font-size:14pt;
         background: transparent !important;
         font-family: yekan-sans-serif;
     }
     label{
-        font-size:14pt;   
+        font-size:12pt;
     }
     p{
         text-align: end;
         font-size: 14pt;
-        background:rgba(0, 0, 0, 0.199);
+        background:rgba(128, 127, 127, 0.2);
         padding-right: 10px;
     }
 }
@@ -76,8 +72,14 @@
     .submit{
         text-transform: capitalize;
         .button5{
-            text-transform: capitalize;
+            text-transform: capitalize !important;
             font-family:sourceSansProLight !important;
+            font-size: 14pt !important;
+            font-weight: 600 !important;
         }
     }
+}
+textarea:focus, input:focus {
+    color: #161616;
+    font-size: 12pt;
 }

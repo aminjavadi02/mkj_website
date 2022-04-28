@@ -23,7 +23,7 @@
     </ul>
 </div>
 <div class="button-4-container">
-    <a href="{{route('allBlogs','fa')}}">همه ی بلاگ ها</a>
+    <a href="{{route('allBlogs','fa')}}" class="button"><span>همه ی بلاگ ها</span></a>
 </div>
 @endif
 @endsection

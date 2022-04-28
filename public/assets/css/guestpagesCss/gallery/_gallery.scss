@@ -22,4 +22,13 @@
 .ThisSwiper{
     width: 70%;
     background-color:transparent !important;
+    .swiper-button-next{
+        color: #00B5A5;
+    }
+    .swiper-button-prev{
+        color: #00B5A5;
+    }
+    @media all and (max-width:750px){
+        margin-top: -20vh;
+    }
 }

@@ -1,18 +1,55 @@
-.userNavBar{
+.userNavBarEn{
     .navbar-brand{
-        font-family: overcameBlack;
-        letter-spacing: 2px;
+        font-family: overcameBlack !important;
 
     }
     ul{
         text-transform: capitalize;
-        font-family:sourceSansProLight;
+        font-family:sourceSansProLight !important;
+        font-weight:600 !important;
     }
 }
-.userNavBarFa{
+.userNavBar{
+    margin-top: 8vh;
+    padding: 0 5vw;
+    background: transparent;
+    transition: 0.2s;
+    z-index: 0;
+    @media all and (max-width: 750px){
+        margin-top: 2vh;
+    }
+    .menu-icon{
+        cursor: pointer;
+        color: white;
+        margin-top: 1.7vh;
+    }
     .navbar-brand{
         font-family: overcameBlack;
-        letter-spacing: 2px;
-
+        letter-spacing: 1.75;
+        color:white;
+        font-size: 28px;
     }
+    .NavLinkList{
+        a{
+            color:white;
+            &:hover{
+                color: white;
+                background: none;
+                border-bottom: 1px solid oldlace;
+                padding-bottom: 5px;
+            }
+        }
+    }
+}
+.notindex{
+    margin-top: 0;
+    background: #354f90;
+}
+.navBg{
+    background: rgba(230, 230, 230, 0.3);
+    margin-top: 0;
+    transition: 0.2s;
+}
+.navBgBlack{
+    background: rgba(52, 52, 52, 0.5) ;
 }

@@ -10,8 +10,8 @@
         </div>
         @endforeach
     </div>
-    <div class="row2">
-        <a href="{{route('allItems','en')}}"><button class="btn btn-primary more">all items</button></a>
+    <div class="button-container-2 row2">
+          <a href="{{route('allItems','en')}}" class="button EnglishBtn2"><span>all Items</span></a>
     </div>
 </div>
 

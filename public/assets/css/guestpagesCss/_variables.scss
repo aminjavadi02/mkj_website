@@ -1,6 +1,6 @@
 :root{
     --primary-color: rgb(54, 94, 91);
-    --primary-variant: #2f4858;
+    --primary-variant: #CBBCF5;
     --secondary-color: #00e5b0;
     --secondary-variant: #59a288;
     --on-primary-color: #2e2c36;
@@ -8,11 +8,11 @@
     --heder-font-color-dark: #f1f1e6;
     --heder-font-color-light: #292828;
     --main-bg-dark: #212121;
-    --main-bg-light:#f3eada;
+    --main-bg-light:#FAFAFA;
     --items-bg-dark: #324b4c;
     --items-bg-light: #99b0a8;
-    --aboutus-short-dark: #c1e7da;
-    --contact-bg-light: #f0ececcc;
+    --aboutus-short-dark: #243F79;
+    --contact-bg-light: #d1cece9d;
     --contact-bg-dark: #ffffff1a;
 }
 @font-face {
@@ -55,3 +55,56 @@
     font-family: sourceSansProLight;
     src: url('./../../fonts/SourceSansPro-Light.ttf');
 }
+
+.heading1{
+    font-size: 67px;
+    line-height: 1.75rem;
+}
+.heading2{
+    font-size: 50px;
+    line-height: 1.75rem;
+}
+.heading3{
+    font-size: 37px;
+    line-height: 1.75rem;
+}
+.heading4{
+    font-size: 28px;
+    line-height: 1.75rem;
+}
+.heading5{
+    font-size: 18px;
+    line-height: 1.75rem;
+}
+.regular-font{
+    font-size: 16px;
+}
+.sub-title-font{
+    font-size: 12px;
+}
+
+// black to white shades
+// 010101	1A1A1A	343434	4D4D4D	676767	808080	999999	B3B3B3	CCCCCC	E6E6E6	FFFFFF
+
+// primary shades: Indigo
+// 354f90
+
+
+// 50  #E8EAF6
+// 100  #C5CAE9
+// 200  #9FA8DA
+// 300  #7986CB
+// 400  #5C6BC0
+// 500  #3F51B5
+// 600  #3949AB
+// 700  #303F9F
+// 800  #283593
+// 900  #1A237E
+
+
+// secondary
+// #00C9B7
+// to black
+// 00C9B7	00B5A5	00A192	008D80	00796E	00655C	005049	003C37	002825	001412	000000
+// to white
+// 00C9B7	1ACEBE	33D4C5	4DD9CD	66DFD4	80E4DB	99E9E2	B3EFE9	CCF4F1	E6FAF8	FFFFFF
