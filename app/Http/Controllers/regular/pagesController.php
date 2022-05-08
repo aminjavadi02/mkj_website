@@ -15,9 +15,9 @@ class pagesController extends Controller
 {
     public function index($lang='fa')
     {
-        if($lang=='en'){
+        if($lang=='en' || $lang=='fa'){
             $galleryImages = Gallery::get()->all();
-            $aboutus = Aboutus::select('history_en','office_phone','office_address_en','factory_address_en','factory_phone')->get()->first();
+            $aboutus = Aboutus::select('history_'.$lang,'office_phone','office_address_'.$lang,'factory_address_'.$lang,'factory_phone')->get()->first();
             $items = Item::with('images')->latest()->take(4)->with(['images','category'])
             ->select(
                 'id',
@@ -25,27 +25,14 @@ class pagesController extends Controller
                 'category_id',
                 // foreign key is needed to retrieve data from relation
                 'updated_at',
-                'name_en',
-                'alloy_en',
+                'name_'.$lang,
+                'alloy_'.$lang,
                 'size',
             )->get()->all();
-            return view('guest.en.component.index.indexpage',compact('galleryImages','aboutus','items'));
+            return view('guest.'.$lang.'.component.index.indexpage',compact('galleryImages','aboutus','items'));
         }
         else{
-            $galleryImages = Gallery::get()->all();
-            $aboutus = Aboutus::select('history_fa','office_phone','office_address_fa','factory_address_fa','factory_phone')->get()->first();
-            $items = Item::with('images')->latest()->take(4)->with(['images','category'])
-            ->select(
-                'id',
-                // foreign key is needed to retrieve data from relation
-                'category_id',
-                // foreign key is needed to retrieve data from relation
-                'updated_at',
-                'name_fa',
-                'alloy_fa',
-                'size',
-            )->get()->all();
-            return view('guest.fa.component.index.indexpage',compact('galleryImages','aboutus','items'));
+            abort(404);
         }
     }
 
@@ -57,37 +44,31 @@ class pagesController extends Controller
             'subject'=>$request->subject,
             'text'=>$request->text,
         ]);
-        if($request->lang == 'en'){
-            return redirect()->back()->with('success','sent');
-        }
-        else{
-            return redirect()->back()->with('success','ارسال شد');
-        }
+        return redirect()->back()->with('success','success');
     }
 
     public function showAboutus($lang='fa')
     {
-        if($lang=='en'){
-            // dd('add english');
+        if($lang=='en' || $lang == 'fa'){
+            $aboutus = Aboutus::select('history_'.$lang,'office_phone','factory_phone','office_address_'.$lang,'factory_address_'.$lang,'image_name')->get()->first();
+            return view('guest.'.$lang.'.component.aboutus.show')->with('aboutus',$aboutus);
         }
         else{
-            $aboutus = Aboutus::select('history_fa','office_phone','factory_phone','office_address_fa','factory_address_fa','image_name')->get()->first();
-            return view('guest.fa.component.aboutus.show')->with('aboutus',$aboutus);
+            abort(404);
         }
     }
     // gallery
     public function gallery($lang='fa')
     {
-        if($lang=='en'){
-            // add en
-        }else{
+        if($lang=='en' || $lang=='fa'){
             $gallery = Gallery::get()->all();
             if(count($gallery) > 0){
-                return view('guest.fa.component.gallery.gallerypage')->with('gallery',$gallery);
+                return view('guest.'.$lang.'.component.gallery.gallerypage')->with('gallery',$gallery);
+            }else {
+                return redirect('/')->with('error','error');
             }
-            else{
-                return redirect('/')->with('error','تصویری در گالری موجود نمی باشد');
-            }
+        }else{
+            abort(404);
         }
     }
     // handy
