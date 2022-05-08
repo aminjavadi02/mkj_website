@@ -19,12 +19,8 @@
             border-radius: 0 0 50% 50%/ 0 0 100% 100%;
             transform:scaleX(1.4);
             z-index: 1;
-            background-color: #354f90;
-            background-image: linear-gradient(180deg, #102B5C 0%, #354f90 100%);
-
-            @media(prefers-color-scheme: dark) {
-                background:#eafef725 !important;
-            }
+            background-color: var(--primary-color);
+            background-image: linear-gradient(180deg, var(--primary-variant) 0%, var(--primary-color) 100%);
         }
     }
     @media only all and (max-width: 950px) and (min-width: 200px) {
@@ -42,10 +38,6 @@
             z-index: 1;
             background-color: #354f90;
             background-image: linear-gradient(180deg, #354f90 0%, #4969aa 100%);
-
-            @media(prefers-color-scheme: dark) {
-                background:#eafef725 !important;
-            }
         }
     }
     @media not all and (min-width: 750px) {
@@ -61,15 +53,10 @@
     text-align:center;
     padding-top: 18vh;
     font-family: yekan-sans-serif;
-    // font-size: 72pt ;
     font-size: 80px;
     line-height: 1.75rem;
     z-index: 2;
-    // color:var(--heder-font-color-light);
     color: white;
-    @media(prefers-color-scheme: dark) {
-        color:var(--heder-font-color-dark);
-    }
     @media not all and (min-width: 750px) {
         font-size:32pt !important;
         position: absolute;
@@ -86,11 +73,7 @@
     font-family: yekan-sans-serif;
     font-size: 24px;
     z-index: 2;
-    // color:rgb(41, 40, 40);
     color: white;
-    @media(prefers-color-scheme: dark) {
-        color:var(--heder-font-color-dark);
-    }
     @media not all and (min-width: 750px) {
         font-size:12pt !important;
         position: absolute;

@@ -15,10 +15,7 @@
         &:hover{
             opacity:0.9;
         }
-        background: #5F7FD3;
-        color: white;
-        @media (prefers-color-scheme: dark) {
-            background-color:#080808;
-        }
+        background: var(--secondary-color);
+        color: var(--on-primary-color);
     }
 }

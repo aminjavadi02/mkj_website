@@ -3,11 +3,11 @@
     width: 100%;
     height: 6vh;
     margin-top: 50px;
-    background: rgba(81, 145, 131, 0.9);
+    background: var(--main-bg);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
-    border: 1px solid rgba(81, 145, 131, 0.3);
+    border: 1px solid #CCCCCC;
     .row{
         position:absolute;
         margin:0;
@@ -26,9 +26,10 @@
         }
         a{
             text-decoration: none;
-            color:var(--on-primary-color);
+            color:var(--on-bg);
             &:hover{
-                color:var(--on-primary-variant);
+                color:var(--on-bg);
+                opacity: 0.8;
             }
             h5{
                 font-size:12pt !important;
@@ -45,18 +46,6 @@
         overflow:auto;
     }
     .mySwiper {
-        height: 10%;
-        box-sizing: border-box;
-        padding: 10px 0;
-        background:white;
-        position:absolute;
-        bottom:-11vh;
-        background: rgba(37, 50, 55, 0.562);
-        border-radius: 8px;
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-        backdrop-filter: blur(5px);
-        -webkit-backdrop-filter: blur(5px);
-        border: 1px solid rgba(37, 50, 55, 1);
         .swiper-slide {
           margin:0 auto !important;
           width: auto;

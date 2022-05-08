@@ -1,6 +1,7 @@
 .oneManager-container{
     width:98%;
-    background: rgba(234, 227, 227, 0.9);
+    background: var(--main-bg);
+    filter: brightness(98%);;
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(12.4px);
@@ -43,10 +44,7 @@
                 height: auto;
                 padding: 10px 30px 0;
                 font-size: 14pt;
-            
             }
-    
         }
-        
     }
 }

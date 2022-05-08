@@ -1,6 +1,8 @@
 .contactinfo-container{
-    background:rgba(47, 72, 88, 0.9);
+    // background:var(--primary-color);
+    margin-top: 10vh !important;
     .contactInfo{
+        color: var(--on-bg) !important;
         .title{
             margin-top:50px !important;
             font-size: 24pt !important;

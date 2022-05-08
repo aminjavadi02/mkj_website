@@ -74,7 +74,7 @@
             <div class="title">
                 توضیحات
             </div>
-            <hr>
+            <hr class="hr">
             @if($item['description'])
             <div class="description" id="description"></div>
             @endif

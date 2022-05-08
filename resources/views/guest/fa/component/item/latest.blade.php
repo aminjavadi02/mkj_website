@@ -10,9 +10,10 @@
         </div>
         @endforeach
     </div>
-    <div class="row2">
-        <a href="{{route('allItems','fa')}}"><button class="btn btn-primary more">همه محصولات</button></a>
-    </div>
+    
+    <div class="row2 button-container-2">
+    <a href="{{route('allItems','fa')}}" class="button"><span>همه محصولات</span></a>
+  </div>
 </div>
 
 @endsection

@@ -8,14 +8,15 @@
     .button{
         position: relative;
         padding: 12px 25px;
-        border: 2px solid var(--on-primary-variant);
+        border: 2px solid var(--on-primary-color);
         text-transform: uppercase;
         font-size:16pt;
         text-decoration: none;
-        color:var(--on-primary-variant);
+        color:var(--on-primary-color);
         font-family: yekan-sans-serif;
             &:hover{
-                color:var(--on-primary-variant);
+                color:var(--on-primary-color);
+                border:2px solid var(--secondary-color);
             }
         &::before{
             content:'';
@@ -24,14 +25,14 @@
             left: -4px;
             width: calc(100% + 15px);
             height: calc(100% - 20px);
-            background-color: #99B0A8;
+            background-color: var(--primary-color);
             transition: 0.1s ease-in-out;
             transform: scaleY(1);
             transition-delay: 0.1s;
             // sides
         }
         &:hover::before{
-            background:#99B0A8;
+            background:var(--primary-color);
             transform: scaleY(0);
         }
         &::after{
@@ -41,13 +42,13 @@
             top: -4px;
             height: calc(100% + 7px);
             width: calc(100% - 20px);
-            background-color: #99B0A8;
+            background-color: var(--primary-color);
             transition: 0.2s ease-in-out;
             // up and down
             transform: scaleX(1);
         }
         &:hover::after{
-            background:#99B0A8;
+            background:var(--primary-color);
             transform: scaleX(0);
         }
         span{

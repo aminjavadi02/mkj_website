@@ -1,16 +1,12 @@
 .contactUsForm{
     direction: rtl;
     font-family: yekan-sans-serif;
-    background: var(--contact-bg-light);
+    background: var(--main-bg);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.24);
     padding: 10px 20px;
     margin: 10px 0 20px;
     height:100vh;
-    @media (prefers-color-scheme: dark) {
-        background: var(--contact-bg-dark);
-        color: white !important;
-    }
     label{
         font-size:12pt;
     }
@@ -32,18 +28,15 @@
     direction: ltr;
     font-family: yekan-sans-serif;
     color: var(--heder-font-color-light) !important;
-    background: var(--contact-bg-light);
+    background: var(--main-bg);
     // رنگ بک گراند توی اباوت آس بزرگ رو پاک کن تا بشه اینم خوشگل بذاری
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.24);
     padding: 10px 20px;
     margin: 10px 0 40px;
+    color: var(--on-bg) !important;
     @media all and (max-width: 500px){
         height: 75vh;
-    }
-    @media (prefers-color-scheme: dark) {
-        background: var(--contact-bg-dark);
-        color: white !important;
     }
     .title{
         text-align: center;

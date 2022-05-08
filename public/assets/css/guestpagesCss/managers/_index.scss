@@ -1,7 +1,8 @@
 .manager-container{
     width:98% !important;
     padding-bottom: 200px;
-    background: rgba(234, 227, 227, 0.9) !important;
+    background: var(--main-bg) !important;
+    filter:brightness(98%);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(12.4px);
@@ -21,7 +22,7 @@
             .more{
                 text-decoration: none;
                 font-size: 14pt;
-                color: var(--on-primary-color);
+                color: var(--on-bg);
             }
             .img-container{
                 height:200px;

@@ -1,19 +1,25 @@
 :root{
-    --primary-color: rgb(54, 94, 91);
-    --primary-variant: #CBBCF5;
-    --secondary-color: #00e5b0;
-    --secondary-variant: #59a288;
-    --on-primary-color: #2e2c36;
-    --on-primary-variant: #faf7ff;
-    --heder-font-color-dark: #f1f1e6;
-    --heder-font-color-light: #292828;
-    --main-bg-dark: #212121;
-    --main-bg-light:#FAFAFA;
-    --items-bg-dark: #324b4c;
-    --items-bg-light: #99b0a8;
-    --aboutus-short-dark: #243F79;
-    --contact-bg-light: #d1cece9d;
-    --contact-bg-dark: #ffffff1a;
+    // --primary-color: rgb(54, 94, 91);
+    // --primary-variant: #CBBCF5;
+    // --secondary-color: #00e5b0;
+    // --secondary-variant: #59a288;
+    // --on-primary-color: #2e2c36;
+    // --heder-font-color-dark: #f1f1e6;
+    // --heder-font-color-light: #292828;
+    // --main-bg-dark: #212121;
+    // --items-bg-dark: #324b4c;
+    // --items-bg-light: #99b0a8;
+    // --aboutus-short-dark: #243F79;
+    // --contact-bg-light: #d1cece9d;
+    // --contact-bg-dark: #ffffff1a;
+
+    --primary-color: #354f90;
+    --on-primary-color: #faf7ff;
+    --primary-variant: #102B5C;
+    --main-bg:#FAFAFA;
+    --secondary-color: #FFB300;
+    --on-bg: #2b2a2a;
+    --green: #4a6c61;
 }
 @font-face {
     font-family: yekan-sans-serif;
