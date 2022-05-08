@@ -10,11 +10,11 @@ class userCategoryController extends Controller
 {
     public function categories($lang='fa')
     {
-        if($lang == 'en'){
-            // add en
-        }else{
+        if($lang == 'en' || $lang == 'fa'){
             $categories = Category::tree();
-            return view('guest.fa.component.category.catIndex')->with('categories',$categories);
+            return view('guest.'.$lang.'.component.category.catIndex')->with('categories',$categories);
+        }else{
+            abort(404);
         }
     }
 
@@ -31,16 +31,16 @@ class userCategoryController extends Controller
             }
         }
         if(count($items)>0){
-            if($lang == 'en'){
-                // dd('add en');
+            if($lang == 'en' || $lang == 'fa'){
+                $pagename = $cat['name_'.$lang];
+                return view('guest.'.$lang.'.component.category.catItems',compact('items','pagename'));
             }
             else{
-                $pagename = $cat->name_fa;
-                return view('guest.fa.component.category.catItems',compact('items','pagename'));
+             abort(404);
             }
         }
         else{
-            return redirect()->back()->with('error','محصولی با این دسته بندی موجود نیست');
+            return redirect()->back()->with('error','error');
         }
     }
 }

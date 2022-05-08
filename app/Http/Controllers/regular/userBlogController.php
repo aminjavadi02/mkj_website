@@ -10,12 +10,9 @@ class userBlogController extends Controller
 {
     public function latestBlogs($lang='fa')
     {
-        $latestBlogs = Blog::take(5)->latest()->get();
-        if(count($latestBlogs)>0){
-            if($lang=='en'){
-                // dd('add en');    
-            }
-            else{
+        if($lang=='en' || $lang=='fa'){
+            $latestBlogs = Blog::take(5)->latest()->get();
+            if(count($latestBlogs)>0){
                 foreach($latestBlogs as $key => $latestBlog){
                     $blogs[$key]  = [
                         'id' => $latestBlog->id,
@@ -24,33 +21,32 @@ class userBlogController extends Controller
                         'time' => $latestBlog->updated_at->format('Y-M'),
                     ];
                 }
-                return view('guest.fa.component.blogs.latest')->with('blogs',$blogs);
+                return view('guest.'.$lang.'.component.blogs.latest')->with('blogs',$blogs);
+            }else{
+                return redirect('/')->with('error','error');
             }
-        }
-        else{
-            return redirect('/')->with('error','بلاگی در سایت موجود نمی باشد');
+        }else{
+            abort(404);
         }
     }
     public function allBlogs($lang='fa')
     {
-        $latestBlogs = Blog::latest()->get();
-        if(count($latestBlogs)>0){
-            if($lang=='en'){
-                // dd('add en');
-            }
-            else{
-                foreach($latestBlogs as $key => $latestBlog){
+        if($lang=='en' || $lang=='fa'){
+            $allBlogs = Blog::take(5)->latest()->get();
+            if(count($allBlogs)>0){
+                foreach($allBlogs as $key => $oneBlog){
                     $blogs[$key]  = [
-                        'id' => $latestBlog->id,
-                        'title' => $latestBlog->title,
-                        'time' => $latestBlog->updated_at->format('Y-M'),
+                        'id' => $oneBlog->id,
+                        'title' => $oneBlog->title,
+                        'time' => $oneBlog->updated_at->format('Y-M'),
                     ];
                 }
-                return view('guest.fa.component.blogs.all')->with('blogs',$blogs);
+                return view('guest.'.$lang.'.component.blogs.all')->with('blogs',$blogs);
+            }else{
+                return redirect('/')->with('error','error');
             }
-        }
-        else{
-            return redirect('/')->with('error','بلاگی در سایت موجود نمی باشد');
+        }else{
+            abort(404);
         }
     }
     public function showblog(Blog $id)

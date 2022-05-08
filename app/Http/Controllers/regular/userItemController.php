@@ -33,7 +33,7 @@ class userItemController extends Controller
                     return redirect()->back()->with('error','error');
                 }
         }else {
-            return redirect()->back()->with('error','error');
+            abort(404);
         }
     }
     public function allItems($lang='fa')
@@ -59,7 +59,7 @@ class userItemController extends Controller
                     return redirect()->back()->with('error','error');
                 }
         }else{
-            return redirect()->back()->with('error','error');
+            abort(404);
         }
     }
     public function oneItem($lang='fa',Item $item)
@@ -95,7 +95,7 @@ class userItemController extends Controller
             ];
             return view('guest.'.$lang.'.component.item.one')->with('item',$data);
         }else {
-            return redirect()->back()->with('error','error');
+            abort(404);
         }
     }
 }
