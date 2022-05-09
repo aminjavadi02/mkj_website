@@ -104,7 +104,7 @@ Route::prefix('/s')->group(function(){
         // show 5 new
     Route::get('/all-blogs/{lang?}',[userBlogController::class,'allBlogs'])->name('allBlogs');
         // show all
-    Route::get('showblog/{id}',[userBlogController::class,'showblog'])->whereNumber('id')->name('showblog');
+    Route::get('showblog/{id}/{lang?}',[userBlogController::class,'showblog'])->whereNumber('id')->name('showblog');
         // show one
 
     // gallery

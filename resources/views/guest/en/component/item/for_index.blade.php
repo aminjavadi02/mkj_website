@@ -11,7 +11,7 @@ background-repeat: no-repeat;
       </div>
       @endforeach
       <div class="button-container-2">
-          <a href="{{route('latestItems','en')}}" class="button EnglishBtn2"><span>More Items</span></a>
+          <a href="{{route('latestItems','en')}}" class="button EngFont"><span>More Items</span></a>
       </div>
   </div>
 </div>

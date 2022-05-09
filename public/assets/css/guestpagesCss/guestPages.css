@@ -35,6 +35,10 @@
   margin-bottom: 10px;
 }
 
+.EngAboutUs {
+  font-family: sourceSansPro !important;
+}
+
 :root {
   --primary-color: #354f90;
   --on-primary-color: #faf7ff;
@@ -552,6 +556,19 @@
   color: var(--on-primary-color);
 }
 
+.EngFooter .right-side {
+  direction: ltr !important;
+}
+
+.EngFooter .middle {
+  direction: ltr !important;
+}
+
+.EngFooter .left-side {
+  padding-left: 50px !important;
+  direction: ltr !important;
+}
+
 .button-container {
   position: relative;
   display: -webkit-box;
@@ -636,10 +653,6 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-}
-
-.button-container-2 .EnglishBtn2 {
-  font-family: sourceSansPro !important;
 }
 
 .button-container-2 .button {
@@ -987,6 +1000,7 @@
   position: relative;
   text-align: center;
   padding-top: 18vh;
+  text-transform: capitalize;
   font-family: yekan-sans-serif;
   font-size: 80px;
   line-height: 1.75rem;
@@ -1122,6 +1136,21 @@
 .blogs-timeline .content h3 {
   font-family: yekan-sans-serif;
   color: var(--secondary-color);
+}
+
+.blogs-timeline .EngBlogList .content h3 {
+  text-align: left;
+}
+
+.blogs-timeline .EngBlogList .content h4 {
+  position: absolute;
+  left: 60px;
+  bottom: 20px;
+}
+
+.blogs-timeline .EngBlogList .more {
+  left: auto;
+  right: 50px !important;
 }
 
 @media (min-width: 900px) {
@@ -1447,6 +1476,14 @@
   width: 100%;
 }
 
+.EngFatherContainer .row {
+  width: 100%;
+  -webkit-box-pack: start !important;
+      -ms-flex-pack: start !important;
+          justify-content: flex-start !important;
+  text-align: left;
+}
+
 .one-item-container {
   margin: 0 !important;
   padding: 0 !important;
@@ -1511,9 +1548,12 @@
 
 .one-item-container .row1 .details-container .details .main-title {
   font-size: 14pt;
-  padding-right: 30px;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding: 20px 30px;
+}
+
+.one-item-container .row1 .details-container .details .EngTitle {
+  text-align: left;
+  direction: ltr;
 }
 
 .one-item-container .row1 .details-container .details .detail {
@@ -1711,6 +1751,10 @@
   font-family: yekan-sans-serif;
   font-size: 14pt;
   color: var(--on-primary-color);
+}
+
+.backgroundarea .EngPageName {
+  direction: ltr !important;
 }
 
 .catgrid {
@@ -2044,5 +2088,9 @@ textarea:focus, input:focus {
   height: 200vh;
   background: var(--main-bg);
   z-index: -10;
+}
+
+.EngFont {
+  font-family: sourceSansPro !important;
 }
 /*# sourceMappingURL=guestPages.css.map */

@@ -3,7 +3,7 @@
 @section('content')
 
 @include('guest.en.component.index.header')
-@include('guest.fa.component.gallery.galleryScroller')
+@include('guest.en.component.gallery.galleryScroller')
 <br>
 @include('guest.en.component.aboutus.aboutus-short')
 @include('guest.en.component.item.for_index')

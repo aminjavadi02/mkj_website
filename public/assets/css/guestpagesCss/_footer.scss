@@ -85,3 +85,15 @@
         }
     }
 }
+.EngFooter{
+    .right-side{
+        direction: ltr !important;
+    }
+    .middle{
+        direction: ltr !important;
+    }
+    .left-side{
+        padding-left: 50px !important;
+        direction: ltr !important;
+    }
+}

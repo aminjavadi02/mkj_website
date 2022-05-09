@@ -49,8 +49,10 @@ class userBlogController extends Controller
             abort(404);
         }
     }
-    public function showblog(Blog $id)
+    public function showblog(Blog $id,$lang='fa')
     {
-        return view('guest.fa.component.blogs.one')->with('blog',$id);
+        if($lang=='en'||$lang=='fa'){
+            return view('guest.'.$lang.'.component.blogs.one')->with('blog',$id);
+        }
     }
 }

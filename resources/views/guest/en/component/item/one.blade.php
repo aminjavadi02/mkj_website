@@ -35,43 +35,46 @@
         </div>
         <div class="col-md-6 details-container">
             <div class="details">
-                <p class="main-title">details</p>
-
+                <p class="main-title EngTitle EngFont">details :</p>
+                <hr>
                 @if($item['name'])
                 <div class="detail">
-                    <p class="value">{{$item['name']}}</p>
-                    <p class="title">name</p>
+                    <p class="value EngFont">{{$item['name']}}</p>
+                    <p class="title EngFont">: name</p>
                 </div>
+                <hr>
                 @endif
                 @if($item['size'])
                 <div class="detail">
-                    <p class="value">{{$item['size']}}</p>
-                    <p class="title">size</p>
+                    <p class="value EngFont">{{$item['size']}}</p>
+                    <p class="title EngFont">: size</p>
                 </div>
+                <hr>
                 @endif
                 @if($item['alloy'])
                 <div class="detail">
-                    <p class="value">{{$item['alloy']}}</p>
-                    <p class="title">alloy</p>
+                    <p class="value EngFont">{{$item['alloy']}}</p>
+                    <p class="title EngFont">: alloy</p>
                 </div>
+                <hr>
                 @endif
                 @if(count($item['packagesList']) > 0)
                 <div class="detail">
                     <ul class="listvalue">
                         @foreach($item['packagesList'] as $package)
-                        <li>{{$package}}</li>
+                        <li class="EngFont">{{$package}}</li>
                         @endforeach
                     </ul>
-                    <p class="title">package</p>
+                    <p class="title EngFont">: packaging</p>
                 </div>
+                <hr>
                 @endif
-                
             </div>
         </div>
     </div>
     <div class="row2">
         <div class="col description-containrt">
-            <div class="title EnglishDescription">
+            <div class="title EnglishDescription EngFont">
                 description
             </div>
             <hr>

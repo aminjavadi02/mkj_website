@@ -1,12 +1,10 @@
-<div class="father-container">
+<div class="father-container EngFatherContainer">
     <div class="row">
-    <h5 class="catList">{{$item['name']}}</h5>
-    <h6>/</h6>
-    @foreach ($item['categoryList'] as $father)
-       <a href="/s/cats/fa/{{$father['id']}}"><h5 class="catList">{{$father['name']}}</h5></a>
-       <h6>/</h6>
-    @endforeach    
+        @foreach ($item['categoryList'] as $father)
+        <a href="/s/cats/en/{{$father['id']}}"><h5 class="catList EngFont">{{$father['name']}}</h5></a>
+        <h6> &ensp; / &ensp; </h6>
+        @endforeach
+        <h6>&ensp;</h6>
+        <h5 class="catList EngFont">{{$item['name']}}</h5>
     </div>
 </div>
-
-<!-- if en ltr else rtl -->

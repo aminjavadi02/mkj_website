@@ -30,6 +30,9 @@
          color: var(--on-primary-color)
      }
  }
+ .EngPageName{
+     direction: ltr !important;
+ }
 }
 .catgrid{
     display:flex;

@@ -52,6 +52,22 @@
             color:var(--secondary-color);
         }
     }
+    .EngBlogList{
+        .content{
+            h3{
+                text-align: left;
+            }
+            h4{
+                position: absolute;
+                left: 60px;
+                bottom: 20px;
+            }
+        }
+        .more{
+            left: auto;
+            right: 50px !important;
+        }
+    }
 }
 
 @media (min-width: 900px){
