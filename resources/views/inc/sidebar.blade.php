@@ -5,7 +5,7 @@
         Tip 2: you can also add an image using data-image tag
     -->
     <div class="logo"><a href="#" class="simple-text logo-normal">
-          admin pannel
+          MKJ Admin Panel
     </a></div>
     <div class="sidebar-wrapper">
         <ul class="nav">
@@ -25,7 +25,7 @@
           <li class="nav-item ">
           @endif
             <a class="nav-link" href="{{url('/admin/aboutus/1/edit')}}">
-              <i class="material-icons">content_paste</i>
+              <i class="material-icons">info</i>
               <p>about us</p>
             </a>
           </li>
@@ -37,7 +37,7 @@
           @endif
             <a class="nav-link" href="{{route('blogs.index')}}">
               <!-- change 1 to blog_id -->
-              <i class="material-icons">content_paste</i>
+              <i class="material-icons">feed</i>
               <!-- change this to a better icon -->
               <p>Blogs</p>
             </a>
@@ -50,7 +50,7 @@
           <li class="nav-item ">
           @endif
             <a class="nav-link" href="{{route('galleries.index')}}">
-              <i class="material-icons">content_paste</i>
+              <i class="material-icons">collections</i>
               <!-- change this to a better icon -->
               <p>gallery</p>
             </a>
@@ -63,7 +63,7 @@
           <li class="nav-item ">
           @endif
             <a class="nav-link" href="{{route('categories.index')}}">
-              <i class="material-icons">content_paste</i>
+              <i class="material-icons">category</i>
               <!-- change this to a better icon -->
               <p>categories</p>
             </a>
@@ -76,7 +76,7 @@
           <li class="nav-item ">
           @endif
             <a class="nav-link" href="{{route('items.index')}}">
-              <i class="material-icons">content_paste</i>
+              <i class="material-icons">grade</i>
               <!-- change this to a better icon -->
               <p>items</p>
             </a>
@@ -89,7 +89,7 @@
           <li class="nav-item ">
           @endif
             <a class="nav-link" href="{{route('packages.index')}}">
-              <i class="material-icons">content_paste</i>
+              <i class="material-icons">local_offer</i>
               <!-- change this to a better icon -->
               <p>packages</p>
             </a>
@@ -102,7 +102,7 @@
           <li class="nav-item ">
           @endif
             <a class="nav-link" href="{{route('managers.index')}}">
-              <i class="material-icons">content_paste</i>
+              <i class="material-icons">groups</i>
               <!-- change this to a better icon -->
               <p>managers</p>
             </a>
@@ -115,7 +115,7 @@
           <li class="nav-item ">
           @endif
             <a class="nav-link" href="{{route('callinfo.index')}}">
-              <i class="material-icons">content_paste</i>
+              <i class="material-icons">call</i>
               <!-- change this to a better icon -->
               <p>call information</p>
             </a>
