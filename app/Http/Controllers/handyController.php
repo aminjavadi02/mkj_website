@@ -54,17 +54,23 @@ class handyController extends Controller
     public static function updateImage($updatableArray,$model,$request)
     {
         if($request->imageIsDeleted == "true"){
+            // when you delete the current image
             if($request->hasfile('image')){
+                // if you chose a new image instead
+                handyController::deleteOldImage($model->image_name,$model->getTable());
                 $picture_name = handyController::UploadNewImage($request->image,$model);
                 $updatableArray["image_name"] = $picture_name;
             }
             else{
+                // if you only deleted it
                 handyController::deleteOldImage($model->image_name,$model->getTable());
                 $updatableArray["image_name"] = null;
             }
         }
         else{
+            // if you uploaded a new picture
             if($request->hasfile('image')){
+                handyController::deleteOldImage($model->image_name,$model->getTable());
                 $picture_name = handyController::UploadNewImage($request->image,$model);
                 $updatableArray["image_name"] = $picture_name;
             }
