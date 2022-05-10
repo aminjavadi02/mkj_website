@@ -1,18 +1,4 @@
 :root{
-    // --primary-color: rgb(54, 94, 91);
-    // --primary-variant: #CBBCF5;
-    // --secondary-color: #00e5b0;
-    // --secondary-variant: #59a288;
-    // --on-primary-color: #2e2c36;
-    // --heder-font-color-dark: #f1f1e6;
-    // --heder-font-color-light: #292828;
-    // --main-bg-dark: #212121;
-    // --items-bg-dark: #324b4c;
-    // --items-bg-light: #99b0a8;
-    // --aboutus-short-dark: #243F79;
-    // --contact-bg-light: #d1cece9d;
-    // --contact-bg-dark: #ffffff1a;
-
     --primary-color: #354f90;
     --on-primary-color: #faf7ff;
     --primary-variant: #102B5C;
@@ -24,26 +10,6 @@
 @font-face {
     font-family: yekan-sans-serif;
     src: url('./../../fonts/YEKAN\ PLUS.TTF');
-}
-@font-face {
-    font-family: darya;
-    src: url('./../../fonts/darya.ttf');
-}
-@font-face {
-    font-family: kian;
-    src: url('./../../fonts/kian.ttf');
-}
-@font-face {
-    font-family: dast-nevis;
-    src: url('./../../fonts/Far_DastNevis.otf');
-}
-@font-face {
-    font-family: koodak-bold;
-    src: url('./../../fonts/B\ Koodak\ Bold.ttf');
-}
-@font-face {
-    font-family: koodak-outline;
-    src: url('../../fonts/B\ Koodak\ Outline.ttf');
 }
 @font-face {
     font-family: overcameBlack;
@@ -88,29 +54,3 @@
 .sub-title-font{
     font-size: 12px;
 }
-
-// black to white shades
-// 010101	1A1A1A	343434	4D4D4D	676767	808080	999999	B3B3B3	CCCCCC	E6E6E6	FFFFFF
-
-// primary shades: Indigo
-// 354f90
-
-
-// 50  #E8EAF6
-// 100  #C5CAE9
-// 200  #9FA8DA
-// 300  #7986CB
-// 400  #5C6BC0
-// 500  #3F51B5
-// 600  #3949AB
-// 700  #303F9F
-// 800  #283593
-// 900  #1A237E
-
-
-// secondary
-// #00C9B7
-// to black
-// 00C9B7	00B5A5	00A192	008D80	00796E	00655C	005049	003C37	002825	001412	000000
-// to white
-// 00C9B7	1ACEBE	33D4C5	4DD9CD	66DFD4	80E4DB	99E9E2	B3EFE9	CCF4F1	E6FAF8	FFFFFF

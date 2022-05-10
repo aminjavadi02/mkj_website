@@ -52,8 +52,6 @@ class aboutusController extends Controller
             "office_address_fa" => $request->office_address_fa,
             "factory_address_en" => $request->factory_address_en,
             "factory_address_fa" => $request->factory_address_fa,
-            "google_location_factory" => $request->google_location_factory,
-            "google_location_office" => $request->google_location_office,
         ];
         $updatableArray = HandyController::updateImage($updatableArray,$aboutu,$request);
         $aboutu->update($updatableArray);

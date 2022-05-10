@@ -21,8 +21,6 @@ class Aboutus extends Model
         "office_address_fa",
         "factory_address_en",
         "factory_address_fa",
-        "google_location_factory",
-        "google_location_office",
         "image_name",
     ];
 }

@@ -23,8 +23,6 @@ class aboutusSeeder extends Seeder
             "office_address_fa" => null,
             "factory_address_en" => null,
             "factory_address_fa" => null,
-            "google_location_factory" => null,
-            "google_location_office" => null,
             "image_name" => null,
         ]);
     }

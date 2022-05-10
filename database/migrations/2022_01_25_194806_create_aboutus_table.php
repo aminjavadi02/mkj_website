@@ -24,10 +24,7 @@ class CreateAboutusTable extends Migration
                 $table->string('office_address_fa')->nullable();
                 $table->string('factory_address_en')->nullable();
                 $table->string('factory_address_fa')->nullable();
-                $table->string('google_location_factory')->nullable();
-                $table->string('google_location_office')->nullable();
                 $table->string('image_name')->nullable();
-
             });
         }
     }
