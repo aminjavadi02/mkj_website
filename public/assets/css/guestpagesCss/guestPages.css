@@ -1,7 +1,7 @@
 .aboutus-container {
   width: 100% !important;
   padding: 20px 40px !important;
-  margin-top: -50px;
+  margin-top: 50px;
   margin-bottom: 50px;
   background-color: var(--primary-color);
   background-size: cover;
@@ -55,41 +55,6 @@
 }
 
 @font-face {
-  font-family: darya;
-  src: url("./../../fonts/darya.ttf");
-}
-
-@font-face {
-  font-family: kian;
-  src: url("./../../fonts/kian.ttf");
-}
-
-@font-face {
-  font-family: dast-nevis;
-  src: url("./../../fonts/Far_DastNevis.otf");
-}
-
-@font-face {
-  font-family: koodak-bold;
-  src: url("./../../fonts/B Koodak Bold.ttf");
-}
-
-@font-face {
-  font-family: koodak-outline;
-  src: url("../../fonts/B Koodak Outline.ttf");
-}
-
-@font-face {
-  font-family: overcameBlack;
-  src: url("../../fonts/OvercameDemoBold-1Gzxe.ttf");
-}
-
-@font-face {
-  font-family: overcameWhite;
-  src: url("../../fonts/OvercameDemoOutline-8MyG2.ttf");
-}
-
-@font-face {
   font-family: sourceSansPro;
   src: url("./../../fonts/SourceSansPro-Regular.ttf");
 }
@@ -97,6 +62,11 @@
 @font-face {
   font-family: sourceSansProLight;
   src: url("./../../fonts/SourceSansPro-Light.ttf");
+}
+
+@font-face {
+  font-family: Lato-regular;
+  src: url("./../../fonts/Lato-Regular.ttf");
 }
 
 .heading1 {
@@ -861,41 +831,6 @@
 }
 
 @font-face {
-  font-family: darya;
-  src: url("./../../fonts/darya.ttf");
-}
-
-@font-face {
-  font-family: kian;
-  src: url("./../../fonts/kian.ttf");
-}
-
-@font-face {
-  font-family: dast-nevis;
-  src: url("./../../fonts/Far_DastNevis.otf");
-}
-
-@font-face {
-  font-family: koodak-bold;
-  src: url("./../../fonts/B Koodak Bold.ttf");
-}
-
-@font-face {
-  font-family: koodak-outline;
-  src: url("../../fonts/B Koodak Outline.ttf");
-}
-
-@font-face {
-  font-family: overcameBlack;
-  src: url("../../fonts/OvercameDemoBold-1Gzxe.ttf");
-}
-
-@font-face {
-  font-family: overcameWhite;
-  src: url("../../fonts/OvercameDemoOutline-8MyG2.ttf");
-}
-
-@font-face {
   font-family: sourceSansPro;
   src: url("./../../fonts/SourceSansPro-Regular.ttf");
 }
@@ -903,6 +838,11 @@
 @font-face {
   font-family: sourceSansProLight;
   src: url("./../../fonts/SourceSansPro-Light.ttf");
+}
+
+@font-face {
+  font-family: Lato-regular;
+  src: url("./../../fonts/Lato-Regular.ttf");
 }
 
 .heading1 {
@@ -1043,14 +983,14 @@
 }
 
 .EnglishHeader .CompanyName {
-  font-family: overcameBlack !important;
+  font-family: Lato-regular !important;
   letter-spacing: 2px;
   line-height: 50px !important;
   font-size: 70px;
 }
 
 .EnglishHeader .CompanyDescription {
-  font-family: overcameBlack !important;
+  font-family: Lato-regular !important;
   letter-spacing: 2px;
   font-size: 24px;
 }
@@ -1867,7 +1807,7 @@
 }
 
 .userNavBarEn .navbar-brand {
-  font-family: overcameBlack !important;
+  font-family: Lato-regular !important;
 }
 
 .userNavBarEn ul {
@@ -1898,7 +1838,7 @@
 }
 
 .userNavBar .navbar-brand {
-  font-family: overcameBlack;
+  font-family: Lato-regular;
   letter-spacing: 1.75;
   color: white;
   font-size: 28px;
@@ -2024,6 +1964,68 @@
 textarea:focus, input:focus {
   color: #161616;
   font-size: 12pt;
+}
+
+.callinfoContainer {
+  background: white;
+  width: 100% !important;
+  height: auto !important;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.callinfoContainer .content-table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  min-width: 90%;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+  -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.callinfoContainer .content-table thead tr {
+  background-color: var(--primary-color);
+  color: #ffffff;
+  text-align: left;
+  font-weight: bold;
+  background-color: var(--primary-color);
+}
+
+.callinfoContainer .content-table th {
+  padding: 15px 25px !important;
+}
+
+.callinfoContainer .content-table td {
+  padding: 15px 25px !important;
+}
+
+.callinfoContainer .content-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.callinfoContainer .content-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.callinfoContainer .content-table tbody tr:last-of-type {
+  border-bottom: 2px solid var(--primary-color);
+}
+
+.callinfoContainer .persian {
+  font-family: yekan-sans-serif;
+  font-size: 14pt;
+}
+
+.callinfoContainer .english {
+  font-family: sourceSansPro;
+  font-size: 13pt;
 }
 
 #backgroundImage {

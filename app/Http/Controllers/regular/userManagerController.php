@@ -12,7 +12,12 @@ class userManagerController extends Controller
     {
         if($lang=='en' || $lang=='fa'){
             $managers = Manager::select('id','name_'.$lang,'position_'.$lang,'image_name')->get()->all();
-            return view('guest.'.$lang.'.component.managers.index')->with('managers',$managers);
+            if(count($managers)>0){
+                return view('guest.'.$lang.'.component.managers.index')->with('managers',$managers);
+            }else {
+                return redirect()->back()->with('error','error');
+            }
+            
         }else{
             abort(404);
         }

@@ -18,6 +18,7 @@ use App\Http\Controllers\regular\userItemController;
 use App\Http\Controllers\regular\userBlogController;
 use App\Http\Controllers\regular\userCategoryController;
 use App\Http\Controllers\regular\userManagerController;
+use App\Http\Controllers\regular\userCallInfo;
 
 /*
 |--------------------------------------------------------------------------
@@ -123,4 +124,7 @@ Route::prefix('/s')->group(function(){
     Route::get('/categories/{lang?}',[userCategoryController::class,'categories'])->name('categories');
         // get items
     Route::get('/cats/{lang?}/{cat}',[userCategoryController::class,'getCatItems'])->whereNumber('cat')->name('catItems');
+
+    // contact info
+    Route::get('/callinfo/{lang?}',[userCallInfo::class,'index']);
 });

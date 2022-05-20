@@ -27,7 +27,7 @@
 <body>
   <div class="wrapper">
     @include('guest.en.inc.navbar')
-    <div class="preloader" id="preloader" style="background: #0D0121 url({{asset('assets/img/loader.gif')}});"></div>
+    <div class="preloader" id="preloader" style="background: #ffffff url({{asset('assets/img/loader.gif')}});"></div>
     <div class="main">
       <canvas class="backgroundPicture"></canvas>
       @yield('content')
