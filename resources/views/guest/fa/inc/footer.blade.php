@@ -1,4 +1,4 @@
-<div class="footer">
+<footer class="footer">
     <div class="arrow">
         <div class="arrow">
                 <a onclick="topfunction()" class="button-3" id="goTopBtn"><span class="material-icons">arrow_upward</span></a>
@@ -53,7 +53,7 @@
             </div>
         </div>
     </div>
-</div>
+</footer>
 
 
 <script>
