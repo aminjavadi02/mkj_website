@@ -15,6 +15,18 @@
     }
     @media all and (max-width: 750px){
         flex-direction: column;
+        .bgimage{
+            position:absolute;
+            width: 100% !important;
+            height: 100% !important;
+            opacity: 0.2 !important;
+        }
+    }
+    .bgimage{
+        position:absolute;
+        width: 100%;
+        height: 100%;
+        opacity: 0.5;
     }
     .arrow{
         position: relative;

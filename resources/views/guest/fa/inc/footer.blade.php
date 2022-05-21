@@ -1,4 +1,5 @@
 <footer class="footer">
+    <img src="{{asset('assets/img/Blue-Colorful-Waves--abstract-background-vector-PNG(1).png')}}" alt="bg" class="bgimage">
     <div class="arrow">
         <div class="arrow">
                 <a onclick="topfunction()" class="button-3" id="goTopBtn"><span class="material-icons">arrow_upward</span></a>
