@@ -6,10 +6,12 @@
 
   <div class="container-fluid">
   
-  <span class="material-icons navbar-toggler pull-right menu-icon" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler">menu</span>
+  <span class="material-icons navbar-toggler pull-right menu-icon" onclick="expand(this.parentElement.parentElement)" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler">menu</span>
   
     <div class="navbar-header">
-      <a class="navbar-brand navbar-nav" href="{{route('index','en')}}">Mahan Keshesh Jam</a>
+      <a class="navbar-brand navbar-nav" href="{{route('index','en')}}">
+      <img src="{{asset('assets/img/logo.png')}}" alt="logo" class="navbarlogo">
+      </a>
     </div>
 
     <div class="collapse navbar-collapse pull-right" id="navbarToggler">
@@ -21,6 +23,8 @@
       <li><a href="{{route('showAboutus','en')}}">About us</a></li>
       <li><a href="#">catalogue</a></li>
       <li><a href="{{route('gallery','en')}}">Gallery</a></li>
+      <li><a href="{{substr(URL::current(),0,-3)}}"><span class="material-icons">translate</span></a></li>
+      
     </ul>
   </div>
   </div>
@@ -39,5 +43,8 @@
     } else {
       document.getElementById("userNavBar").classList.remove("navBgBlack");
     }
+  }
+  function expand(nav) {
+    nav.classList.add('navBgBlack')
   }
 </script>

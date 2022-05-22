@@ -24,20 +24,20 @@
                  @csrf
                  <input type="hidden" name="lang" value="en">
                  <div class="form-group">
-                    <label for="InputName">name</label>
+                    <label for="InputName">name*</label>
                     <input type="text" class="form-control" id="InputName" name="name" placeholder="write your name" required value="{{old('name')}}">
                  </div>
                  <div class="form-group">
-                    <label for="InputEmail1">email</label>
+                    <label for="InputEmail1">email*</label>
                     <input type="email" class="form-control" id="InputEmail1" name="email" placeholder="email@example.com" aria-describedby="emailHelp" value="{{old('email')}}">
                     <small id="emailHelp" class="form-text">we will never share your email with others</small>
                 </div>
                 <div class="form-group">
-                    <label for="InputSubject">subject</label>
+                    <label for="InputSubject">subject*</label>
                     <input type="text" class="form-control" id="InputSubject" name="subject" placeholder="subject..." required value="{{old('subject')}}">
                 </div>
                 <div class="form-group">
-                    <label for="InputText">message</label>
+                    <label for="InputText">message*</label>
                     <textarea type="text" class="form-control text" id="InputText" name="text" placeholder="write your message" required value="{{old('text')}}"></textarea>
                 </div>
                 <div class="submit">

@@ -6,7 +6,7 @@
 
   <div class="container-fluid">
   
-  <span class="material-icons navbar-toggler pull-right menu-icon" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler">menu</span>
+  <span class="material-icons navbar-toggler pull-right menu-icon" onclick="expand(this.parentElement.parentElement)" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler">menu</span>
   
     <div class="navbar-header">
       <a class="navbar-brand navbar-nav" href="{{route('index')}}">
@@ -23,6 +23,11 @@
       <li><a href="{{route('showAboutus','fa')}}">درباره ما</a></li>
       <li><a href="#">کاتالوگ</a></li>
       <li><a href="{{route('gallery','fa')}}">گالری</a></li>
+      @if(substr(URL::current(),-2) == 'fa')
+      <li><a href="{{substr(URL::current(),0,-3).'/en'}}"><span class="material-icons">translate</span></a></li>
+      @else
+      <li><a href="{{URL::current().'/en'}}"><span class="material-icons">translate</span></a></li>
+      @endif
     </ul>
   </div>
   </div>
@@ -42,5 +47,8 @@
     } else {
       document.getElementById("userNavBar").classList.remove("navBgBlack");
     }
+  }
+  function expand(nav) {
+    nav.classList.add('navBgBlack')
   }
 </script>

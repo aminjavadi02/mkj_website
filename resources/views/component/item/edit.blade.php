@@ -16,7 +16,7 @@
               <div class="row">
                 <div class="col-md-5">
                   <div class="form-group">
-                    <label class="bmd-label-floating">نام فارسی</label>
+                    <label class="bmd-label-floating">*نام فارسی</label>
                     <input type="text" name="name_fa" class="form-control" value="{{$item->name_fa}}">
                   </div>
                 </div>
@@ -31,9 +31,9 @@
               <div class="row">
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label>توضیحات فارسی</label>
+                    <label>*توضیحات فارسی</label>
                     <div class="form-group">
-                      <textarea name="description_fa" class="form-control mytextarea" id="section01" cols="30" rows="10">{{$item->description_fa}}</textarea>
+                      <textarea name="description_fa" class="form-control mytextarea" id="section01" cols="30" rows="10" required>{{$item->description_fa}}</textarea>
                     </div>
                   </div>
                 </div>
@@ -104,7 +104,7 @@
               <!-- click btn to change category_id. if no click, no change -->
                 @if($category)
                 <!-- tree -->
-                <label>دسته بندی</label>
+                <label>*دسته بندی</label>
                 <div class="form-group tree">
                     <!-- show all cats as ul li here -->
                     <ul id="tree" class="category_ul"></ul>

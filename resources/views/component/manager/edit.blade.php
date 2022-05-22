@@ -15,15 +15,15 @@
               <div class="row">
                 <div class="col-md-5">
                   <div class="form-group">
-                    <label class="bmd-label-floating">نام فارسی</label>
-                    <input type="text" name="name_fa" class="form-control" value="{{$manager->name_fa}}" >
+                    <label class="bmd-label-floating">*نام فارسی</label>
+                    <input type="text" name="name_fa" class="form-control" value="{{$manager->name_fa}}" required >
                   </div>
                 </div>
                 <br><br>
                 <div class="col-md-5">
                   <div class="form-group">
-                    <label class="bmd-label-floating">نام انگلیسی</label>
-                    <input type="text" name="name_en" class="form-control" value="{{$manager->name_en}}" >
+                    <label class="bmd-label-floating">*نام انگلیسی</label>
+                    <input type="text" name="name_en" class="form-control" value="{{$manager->name_en}}" required >
                   </div>
                 </div>
               </div>
@@ -31,16 +31,16 @@
                 <div class="col-md-5">
                   <div class="form-group">
                     <div class="form-group">
-                        <label class="bmd-label-floating">سمت شغلی فارسی</label>
-                        <input type="text" name="position_fa" class="form-control" value="{{$manager->position_fa}}" >
+                        <label class="bmd-label-floating">*سمت شغلی فارسی</label>
+                        <input type="text" name="position_fa" class="form-control" value="{{$manager->position_fa}}" required >
                     </div>
                   </div>
                 </div>
                 <div class="col-md-5">
                   <div class="form-group">
                     <div class="form-group">
-                        <label class="bmd-label-floating">سمت شغلی انگلیسی</label>
-                        <input type="text" name="position_en" class="form-control" value="{{$manager->position_en}}" >
+                        <label class="bmd-label-floating">*سمت شغلی انگلیسی</label>
+                        <input type="text" name="position_en" class="form-control" value="{{$manager->position_en}}" required >
                     </div>
                   </div>
                 </div>
@@ -50,7 +50,7 @@
                   <div class="form-group">
                     <label>درباره (فارسی)</label>
                     <div class="form-group">
-                      <textarea name="about_fa" id="section01" class="mytextarea" cols="30" rows="10">{{$manager->about_fa}}</textarea>
+                      <textarea name="about_fa" id="section01" class="mytextarea" cols="30" rows="10" required>{{$manager->about_fa}}</textarea>
                     </div>
                   </div>
                 </div>
@@ -58,9 +58,9 @@
               <div class="row">
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label>درباره (انگلیسی)</label>
+                    <label>*درباره (انگلیسی)</label>
                     <div class="form-group">
-                      <textarea name="about_en" id="section02" class="mytextarea" cols="30" rows="10">{{$manager->about_en}}</textarea>
+                      <textarea name="about_en" id="section02" class="mytextarea" cols="30" rows="10" required>{{$manager->about_en}}</textarea>
                     </div>
                   </div>
                 </div>

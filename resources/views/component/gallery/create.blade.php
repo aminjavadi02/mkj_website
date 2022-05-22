@@ -12,8 +12,8 @@
           @csrf
             <div class="row">
                 <div class="col-md-5">
-                <label class="bmd-label-floating">انتخاب تصویر</label>
-                <input type="file" id="imageInp" name="image" class="form-control" accept="image/*">
+                <label class="bmd-label-floating">*انتخاب تصویر</label>
+                <input type="file" id="imageInp" name="image" class="form-control" accept="image/*" required>
                 <img src="#" id="selectedImg" width="200px">
                 </div>
                 <br>
@@ -37,8 +37,8 @@
         @csrf
           <div class="row">
               <div class="col-md-5">
-              <label class="bmd-label-floating">انتخاب ویدیو</label>
-              <input type="file" id="videoInp" name="video" class="form-control" accept="video/*">
+              <label class="bmd-label-floating">*انتخاب ویدیو</label>
+              <input type="file" id="videoInp" name="video" class="form-control" accept="video/*" required>
               </div>
               <br>
           </div>

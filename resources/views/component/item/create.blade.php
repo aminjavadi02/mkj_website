@@ -15,8 +15,8 @@
               <div class="row">
                 <div class="col-md-5">
                   <div class="form-group">
-                    <label class="bmd-label-floating">نام فارسی</label>
-                    <input type="text" name="name_fa" class="form-control"value="{{old('name_fa')}}">
+                    <label class="bmd-label-floating">*نام فارسی</label>
+                    <input type="text" name="name_fa" class="form-control"value="{{old('name_fa')}}" required>
                   </div>
                 </div>
                 <br><br>
@@ -30,9 +30,9 @@
               <div class="row">
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label>توضیحات فارسی</label>
+                    <label>*توضیحات فارسی</label>
                     <div class="form-group">
-                      <textarea name="description_fa" class="form-control mytextarea" id="section01" cols="30" rows="10">{{old('description_fa')}}</textarea>
+                      <textarea name="description_fa" class="form-control mytextarea" id="section01" cols="30" rows="10" required>{{old('description_fa')}}</textarea>
                     </div>
                   </div>
                 </div>
@@ -101,7 +101,7 @@
               @if(Route::current()->category_id)
                 @if($category)
                 <!-- taki and not null -->
-                <label>دسته بندی</label>
+                <label>*دسته بندی</label>
                 <div class="btn btn-primary">{{$category->name_fa}}</div>
                 <input type="text" value="{{$category->id}}" name="category_id" hidden>
                 @else

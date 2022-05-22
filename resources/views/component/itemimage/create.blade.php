@@ -12,7 +12,7 @@
         @csrf
             <div class="row">
                 <div class="col-md-5">
-                <label class="bmd-label-floating">انتخاب تصویر</label>
+                <label class="bmd-label-floating">*انتخاب تصویر</label>
                 <input type="file" id="imageInp" name="image" class="form-control" accept="image/*">
                 <img src="#" id="selectedImg" width="200px">
                 </div>

@@ -16,16 +16,16 @@
               <div class="row">
                 <div class="col-md-5">
                   <div class="form-group">
-                    <label class="bmd-label-floating">نام دسته بندی به فارسی</label>
-                    <input type="text" name="name_fa" class="form-control" value="{{$category->name_fa}}">
+                    <label class="bmd-label-floating">*نام دسته بندی به فارسی</label>
+                    <input type="text" name="name_fa" class="form-control" value="{{$category->name_fa}}" required>
                   </div>
                 </div>
                 <br><br>
 
                 <div class="col-md-5">
                   <div class="form-group">
-                    <label class="bmd-label-floating">نام دسته بندی به انگلیسی</label>
-                    <input type="text" name="name_en" class="form-control" value="{{$category->name_en}}" >
+                    <label class="bmd-label-floating">*نام دسته بندی به انگلیسی</label>
+                    <input type="text" name="name_en" class="form-control" value="{{$category->name_en}}" required>
                   </div>
                 </div>
               </div>

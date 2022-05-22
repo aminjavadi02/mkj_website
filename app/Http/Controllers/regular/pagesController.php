@@ -65,7 +65,7 @@ class pagesController extends Controller
             if(count($gallery) > 0){
                 return view('guest.'.$lang.'.component.gallery.gallerypage')->with('gallery',$gallery);
             }else {
-                return redirect('/')->with('error','error');
+                return redirect('/'.$lang)->with('error','error');
             }
         }else{
             abort(404);

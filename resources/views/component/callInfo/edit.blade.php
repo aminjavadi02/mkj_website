@@ -16,7 +16,7 @@
                 <div class="col-md-5">
                   <div class="form-group">
                     <label class="bmd-label-floating">*نام فارسی</label>
-                    <input type="text" name="name_fa" class="form-control" value="{{$callinfo->name_fa}}">
+                    <input type="text" name="name_fa" class="form-control" value="{{$callinfo->name_fa}}" required>
                   </div>
                 </div>
                 <br><br>
@@ -32,7 +32,7 @@
                   <div class="form-group">
                     <div class="form-group">
                         <label class="bmd-label-floating">*سمت شغلی فارسی</label>
-                        <input type="text" name="position_fa" class="form-control" value="{{$callinfo->position_fa}}">
+                        <input type="text" name="position_fa" class="form-control" value="{{$callinfo->position_fa}}" required>
                     </div>
                   </div>
                 </div>
@@ -48,7 +48,7 @@
                   <div class="form-group">
                     <div class="form-group">
                         <label class="bmd-label-floating">*شماره تلفن</label>
-                        <input type="text" name="phone_number" class="form-control" value="{{$callinfo->phone_number}}" >
+                        <input type="number" name="phone_number" class="form-control" value="{{$callinfo->phone_number}}" required >
                     </div>
                   </div>
                 </div>

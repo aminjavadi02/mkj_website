@@ -15,8 +15,8 @@
               <div class="row">
                 <div class="col-md-5">
                   <div class="form-group">
-                    <label class="bmd-label-floating">عنوان</label>
-                    <input type="text" name="title" class="form-control" value="{{old('title')}}">
+                    <label class="bmd-label-floating">*عنوان</label>
+                    <input type="text" name="title" class="form-control" value="{{old('title')}}" required>
                   </div>
                 </div>
                 <br><br>
@@ -26,8 +26,8 @@
                   <div class="form-group">
                     <label>متن</label>
                     <div class="form-group">
-                      <label class="bmd-label-floating">متن مقاله</label>
-                      <textarea name="text" id="mytextarea" cols="30" rows="10">{{old('text')}}</textarea>
+                      <label class="bmd-label-floating">*متن مقاله</label>
+                      <textarea name="text" id="mytextarea" cols="30" rows="10" required>{{old('text')}}</textarea>
                     </div>
                   </div>
                 </div>
