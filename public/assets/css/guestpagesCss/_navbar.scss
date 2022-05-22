@@ -21,7 +21,7 @@
     .menu-icon{
         cursor: pointer;
         color: white;
-        margin-top: 1.7vh;
+        margin-top: 3vh;
     }
     .navbar-brand{
         font-family: Lato-regular;
@@ -44,12 +44,35 @@
 .notindex{
     margin-top: 0;
     background: #354f90;
+    padding-bottom: 10px;
+    .navbarlogo{
+        width: 100px !important;
+    }
+    ul{
+        margin-top: 5px !important;
+    }
 }
 .navBg{
     background: rgba(230, 230, 230, 0.3);
     margin-top: 0;
+    padding-bottom: 10px;
     transition: 0.2s;
+    .navbarlogo{
+        width: 100px !important;
+        filter: invert(100%);
+    }
+    ul{
+        margin-top: 5px !important;
+    }
 }
 .navBgBlack{
     background: rgba(52, 52, 52, 0.5) ;
+}
+
+.navbarlogo{
+    width: 150px !important;
+    filter: invert(100%);
+    @media all and (max-width: 750px){
+        width: 100px !important;
+    }
 }

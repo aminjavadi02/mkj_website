@@ -410,22 +410,6 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -webkit-animation: changeColor 2s linear infinite alternate;
-          animation: changeColor 2s linear infinite alternate;
-}
-
-@-webkit-keyframes changeColor {
-  to {
-    -webkit-filter: hue-rotate(60deg);
-            filter: hue-rotate(60deg);
-  }
-}
-
-@keyframes changeColor {
-  to {
-    -webkit-filter: hue-rotate(60deg);
-            filter: hue-rotate(60deg);
-  }
 }
 
 @media all and (max-width: 750px) {
@@ -446,7 +430,7 @@
 .footer .bgimage {
   position: absolute;
   width: 100%;
-  height: 100%;
+  height: 70% !important;
   opacity: 0.5;
 }
 
@@ -933,20 +917,6 @@
     background-color: var(--primary-color);
     background-image: -webkit-gradient(linear, left top, left bottom, from(var(--primary-variant)), to(var(--primary-color)));
     background-image: linear-gradient(180deg, var(--primary-variant) 0%, var(--primary-color) 100%);
-    -webkit-animation: changeColor 2s linear infinite alternate;
-            animation: changeColor 2s linear infinite alternate;
-  }
-  @-webkit-keyframes changeColor {
-    to {
-      -webkit-filter: hue-rotate(45deg);
-              filter: hue-rotate(45deg);
-    }
-  }
-  @keyframes changeColor {
-    to {
-      -webkit-filter: hue-rotate(45deg);
-              filter: hue-rotate(45deg);
-    }
   }
 }
 
@@ -964,21 +934,7 @@
             transform: scaleX(1.4);
     z-index: 1;
     background-color: #354f90;
-    background-image: linear-gradient(100deg, #354f90 0%, #4969aa 100%);
-    -webkit-animation: changeColor 2s linear infinite alternate;
-            animation: changeColor 2s linear infinite alternate;
-  }
-  @-webkit-keyframes changeColor {
-    to {
-      -webkit-filter: hue-rotate(30deg);
-              filter: hue-rotate(30deg);
-    }
-  }
-  @keyframes changeColor {
-    to {
-      -webkit-filter: hue-rotate(30deg);
-              filter: hue-rotate(30deg);
-    }
+    background-image: linear-gradient(100deg, var(--primary-variant) 0%, var(--primary-color) 100%);
   }
 }
 
@@ -989,7 +945,7 @@
 }
 
 .CompanyNameIndex {
-  padding-top: 26vh !important;
+  padding-top: 30vh !important;
 }
 
 .CompanyName {
@@ -1890,7 +1846,7 @@
 .userNavBar .menu-icon {
   cursor: pointer;
   color: white;
-  margin-top: 1.7vh;
+  margin-top: 3vh;
 }
 
 .userNavBar .navbar-brand {
@@ -1914,17 +1870,49 @@
 .notindex {
   margin-top: 0;
   background: #354f90;
+  padding-bottom: 10px;
+}
+
+.notindex .navbarlogo {
+  width: 100px !important;
+}
+
+.notindex ul {
+  margin-top: 5px !important;
 }
 
 .navBg {
   background: rgba(230, 230, 230, 0.3);
   margin-top: 0;
+  padding-bottom: 10px;
   -webkit-transition: 0.2s;
   transition: 0.2s;
 }
 
+.navBg .navbarlogo {
+  width: 100px !important;
+  -webkit-filter: invert(100%);
+          filter: invert(100%);
+}
+
+.navBg ul {
+  margin-top: 5px !important;
+}
+
 .navBgBlack {
   background: rgba(52, 52, 52, 0.5);
+}
+
+.navbarlogo {
+  width: 150px !important;
+  -webkit-filter: invert(100%);
+          filter: invert(100%);
+}
+
+@media all and (max-width: 750px) {
+  .navbarlogo {
+    width: 100px !important;
+  }
 }
 
 .contactUsForm {

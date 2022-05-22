@@ -9,10 +9,6 @@
     flex-direction: row-reverse;
     flex-wrap: wrap;
     justify-content: space-between;
-    animation: changeColor 2s linear infinite alternate;
-    @keyframes changeColor {
-        to { filter: hue-rotate(60deg); }
-    }
     @media all and (max-width: 750px){
         flex-direction: column;
         .bgimage{
@@ -25,7 +21,7 @@
     .bgimage{
         position:absolute;
         width: 100%;
-        height: 100%;
+        height: 70% !important;
         opacity: 0.5;
     }
     .arrow{

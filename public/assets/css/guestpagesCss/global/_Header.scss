@@ -21,10 +21,6 @@
             z-index: 1;
             background-color: var(--primary-color);
             background-image: linear-gradient(180deg, var(--primary-variant) 0%, var(--primary-color) 100%);
-            animation: changeColor 2s linear infinite alternate;
-            @keyframes changeColor {
-                to { filter: hue-rotate(45deg); }
-            }
         }
     }
     @media only all and (max-width: 950px) and (min-width: 200px) {
@@ -41,11 +37,7 @@
             transform:scaleX(1.4);
             z-index: 1;
             background-color: #354f90;
-            background-image: linear-gradient(100deg, #354f90 0%, #4969aa 100%);
-            animation: changeColor 2s linear infinite alternate;
-            @keyframes changeColor {
-                to { filter: hue-rotate(30deg); }
-            }
+            background-image: linear-gradient(100deg, var(--primary-variant) 0%, var(--primary-color) 100%);
         }
     }
     @media not all and (min-width: 750px) {
@@ -54,7 +46,7 @@
 }
 
 .CompanyNameIndex{
-    padding-top: 26vh !important;
+    padding-top: 30vh !important;
 }
 .CompanyName {
     position:relative;

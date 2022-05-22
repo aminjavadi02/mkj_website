@@ -9,7 +9,9 @@
   <span class="material-icons navbar-toggler pull-right menu-icon" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler">menu</span>
   
     <div class="navbar-header">
-      <a class="navbar-brand navbar-nav" href="{{route('index')}}">Mahan Keshesh Jam</a>
+      <a class="navbar-brand navbar-nav" href="{{route('index')}}">
+        <img src="{{asset('assets/img/logo.png')}}" alt="logo" class="navbarlogo">
+      </a>
     </div>
 
     <div class="collapse navbar-collapse pull-right" id="navbarToggler">
